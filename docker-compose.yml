@@ -247,26 +247,26 @@ services:
 #    container_name: "${PROJECT_NAME}_opensmtpd"
 #    image: wodby/opensmtpd:$OPENSMTPD_TAG
 
-  portainer:
-    image: portainer/portainer
-    container_name: "${PROJECT_NAME}_portainer"
-    command: --no-auth -H unix:///var/run/docker.sock
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - 'traefik.backend=portainer'
-      - 'traefik.port=9000'
-      - 'traefik.frontend.rule=Host:portainer.${PROJECT_BASE_URL}'
-
-  traefik:
-    image: traefik
-    container_name: "${PROJECT_NAME}_traefik"
-    command: -c /dev/null --web --docker --logLevel=INFO
-    ports:
-      - '85:80'
-#      - '8080:8080' # Dashboard
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+#  portainer:
+#    image: portainer/portainer
+#    container_name: "${PROJECT_NAME}_portainer"
+#    command: --no-auth -H unix:///var/run/docker.sock
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    labels:
+#      - 'traefik.backend=portainer'
+#      - 'traefik.port=9000'
+#      - 'traefik.frontend.rule=Host:portainer.${PROJECT_BASE_URL}'
+#
+#  traefik:
+#    image: traefik
+#    container_name: "${PROJECT_NAME}_traefik"
+#    command: -c /dev/null --web --docker --logLevel=INFO
+#    ports:
+#      - '85:80'
+##      - '8080:8080' # Dashboard
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
 
 #volumes:
 ## Docker-sync for macOS users
