@@ -5,10 +5,14 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.default
     - field.field.commerce_product.default.body
+    - field.field.commerce_product.default.field_images
     - field.field.commerce_product.default.stores
     - field.field.commerce_product.default.variations
+    - image.style.thumbnail
   module:
     - commerce
+    - commerce_product
+    - image
     - path
     - text
 _core:
@@ -32,6 +36,14 @@ content:
     weight: 5
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_images:
+    weight: 9
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   path:
     type: path
@@ -73,5 +85,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
-hidden:
-  variations: true
+  variations:
+    type: commerce_product_single_variation
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

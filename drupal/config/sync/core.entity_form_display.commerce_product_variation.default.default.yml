@@ -26,11 +26,18 @@ content:
     third_party_settings: {  }
     region: content
   sku:
-    type: string_textfield
+    type: commerce_bulk_sku
     weight: -4
     settings:
       size: 60
       placeholder: ''
+      custom_label: ''
+      uniqid_enabled: true
+      more_entropy: false
+      hide: false
+      prefix: sku-
+      suffix: ''
+      maximum: 500
     third_party_settings: {  }
     region: content
   status:
