@@ -5,6 +5,7 @@ module:
   automated_cron: 0
   big_pipe: 0
   block: 0
+  block_class: 0
   block_content: 0
   breakpoint: 0
   ckeditor: 0
@@ -13,17 +14,21 @@ module:
   commerce: 0
   commerce_bulk: 0
   commerce_cart: 0
+  commerce_cart_api: 0
+  commerce_cart_flyout: 0
   commerce_checkout: 0
   commerce_generate: 0
   commerce_order: 0
   commerce_payment: 0
   commerce_price: 0
   commerce_product: 0
+  commerce_shipping: 0
   commerce_store: 0
   commerce_tax: 0
   config: 0
   contact: 0
   contextual: 0
+  ctools: 0
   datetime: 0
   dblog: 0
   devel: 0
@@ -47,23 +52,29 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  physical: 0
   profile: 0
   quickedit: 0
   rdf: 0
   readmehelp: 0
+  rest: 0
   search: 0
+  serialization: 0
   shortcut: 0
   state_machine: 0
   system: 0
   taxonomy: 0
   text: 0
+  token: 0
   toolbar: 0
   tour: 0
   update: 0
   user: 0
   views_ui: 0
   menu_link_content: 1
+  pathauto: 1
   views: 10
+  linked_field: 100
   standard: 1000
 theme:
   stable: 0
