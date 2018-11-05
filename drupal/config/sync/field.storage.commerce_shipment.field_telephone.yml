@@ -1,0 +1,19 @@
+uuid: 38be9c09-1ad2-471b-9d9a-bb6590e36003
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_shipping
+    - telephone
+id: commerce_shipment.field_telephone
+field_name: field_telephone
+entity_type: commerce_shipment
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

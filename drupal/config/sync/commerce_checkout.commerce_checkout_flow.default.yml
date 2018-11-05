@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - commerce_payment
+    - commerce_shipping
 _core:
   default_config_hash: wwkDVBiXUqSzRifJbb71ajFBklJdNJ_DgS67IF-_qgY
 id: default
@@ -18,22 +19,27 @@ configuration:
       step: login
       weight: 0
     contact_information:
-      double_entry: true
+      double_entry: false
       step: order_information
       weight: 1
+    shipping_information:
+      require_shipping_profile: false
+      step: order_information
+      weight: 2
+    payment_information:
+      step: order_information
+      weight: 3
     review:
       step: review
-      weight: 3
-    completion_message:
-      step: _sidebar
-      weight: 5
-    order_summary:
-      step: _sidebar
-      weight: 5
+      weight: 4
     payment_process:
       capture: true
       step: payment
-      weight: 10
-    payment_information:
-      step: order_information
-      weight: 10
+      weight: 5
+    order_summary:
+      view: ''
+      step: _sidebar
+      weight: 7
+    completion_message:
+      step: complete
+      weight: 6

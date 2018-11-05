@@ -5,8 +5,11 @@ dependencies:
   config:
     - commerce_shipping.commerce_shipment_type.default
     - core.entity_view_mode.commerce_shipment.user
+    - field.field.commerce_shipment.default.field_delivery_date
+    - field.field.commerce_shipment.default.field_telephone
   module:
     - commerce_shipping
+    - datetime
 _core:
   default_config_hash: XJQGM6fyTMTrs5Qr6FeUtso_oU-lqce8NlK7P6mX9A8
 id: commerce_shipment.default.user
@@ -14,6 +17,15 @@ targetEntityType: commerce_shipment
 bundle: default
 mode: user
 content:
+  field_delivery_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
   shipping_method:
     type: commerce_shipping_method
     weight: 0
@@ -30,6 +42,7 @@ content:
     region: content
 hidden:
   amount: true
+  field_telephone: true
   items: true
   package_type: true
   shipping_profile: true
