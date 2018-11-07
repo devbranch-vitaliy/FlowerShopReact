@@ -1,0 +1,17 @@
+{
+  "name": "palette_de_fleurs",
+  "version": "1.0.0",
+  "description": "custom theme flower shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
