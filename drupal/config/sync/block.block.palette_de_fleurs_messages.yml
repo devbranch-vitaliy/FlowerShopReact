@@ -1,0 +1,22 @@
+uuid: 10373c20-18a4-4084-a810-ac85fefd092c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - palette_de_fleurs
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: palette_de_fleurs_messages
+theme: palette_de_fleurs
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

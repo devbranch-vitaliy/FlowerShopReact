@@ -1,0 +1,25 @@
+uuid: 7e90fb36-0266-4377-9d58-759490dfce2d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d0967494-3b99-4310-a31c-4fc5849db43d'
+  module:
+    - block_content
+  theme:
+    - palette_de_fleurs
+id: palette_de_fleurs_address
+theme: palette_de_fleurs
+region: footer
+weight: -7
+provider: null
+plugin: 'block_content:d0967494-3b99-4310-a31c-4fc5849db43d'
+settings:
+  id: 'block_content:d0967494-3b99-4310-a31c-4fc5849db43d'
+  label: Address
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

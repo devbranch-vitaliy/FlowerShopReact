@@ -21,6 +21,7 @@
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/admin_toolbar": "^1.24",
         "drupal/block_class": "^1.0",
+        "drupal/bootstrap": "^3.13",
         "drupal/commerce": "^2.10",
         "drupal/commerce_bulk": "^1.0@alpha",
         "drupal/commerce_cart_flyout": "^1.4",
