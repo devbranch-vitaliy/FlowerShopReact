@@ -1,0 +1,22 @@
+uuid: d61c989b-5f8e-4e00-a418-616b1f2afcbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - palette_de_fleurs
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: palette_de_fleurs_help
+theme: palette_de_fleurs
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }
