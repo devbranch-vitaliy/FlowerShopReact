@@ -1,0 +1,6 @@
+name: 'Fleur cart flyout update'
+type: module
+description: Update values after changing of quantity field
+core: 8.x
+version: '1.x'
+package: Custom
