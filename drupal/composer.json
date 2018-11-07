@@ -71,6 +71,11 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
+        "patches": {
+            "drupal/commerce_cart_flyout": {
+                "Patch description": "https://www.drupal.org/files/issues/2018-11-07/js_code_bug_with_behaviors-3011932-1.patch"
+            }
+        },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],
