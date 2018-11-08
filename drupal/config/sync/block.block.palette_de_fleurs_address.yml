@@ -11,7 +11,7 @@ dependencies:
 id: palette_de_fleurs_address
 theme: palette_de_fleurs
 region: footer
-weight: -7
+weight: -6
 provider: null
 plugin: 'block_content:d0967494-3b99-4310-a31c-4fc5849db43d'
 settings:

@@ -13,7 +13,7 @@ _core:
 id: palette_de_fleurs_main_menu
 theme: palette_de_fleurs
 region: navigation
-weight: -7
+weight: -5
 provider: null
 plugin: 'system_menu_block:main'
 settings:
