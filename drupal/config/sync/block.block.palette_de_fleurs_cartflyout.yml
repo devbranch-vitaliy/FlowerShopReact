@@ -9,7 +9,7 @@ dependencies:
 id: palette_de_fleurs_cartflyout
 theme: palette_de_fleurs
 region: navigation
-weight: -6
+weight: -7
 provider: null
 plugin: commerce_cart_flyout
 settings:
