@@ -1,0 +1,21 @@
+uuid: 58927216-8280-4a99-b9f8-b1482e57c04f
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_a_call_back
+    - field.storage.contact_message.field_telephone
+  module:
+    - telephone
+id: contact_message.request_a_call_back.field_telephone
+field_name: field_telephone
+entity_type: contact_message
+bundle: request_a_call_back
+label: Telephone
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

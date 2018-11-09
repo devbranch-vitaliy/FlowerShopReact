@@ -1,0 +1,39 @@
+uuid: eb9ee294-11f9-451b-8810-97c05851cb55
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_a_call_back
+    - field.field.contact_message.request_a_call_back.field_country
+    - field.field.contact_message.request_a_call_back.field_telephone
+  module:
+    - address
+    - telephone
+id: contact_message.request_a_call_back.default
+targetEntityType: contact_message
+bundle: request_a_call_back
+mode: default
+content:
+  field_country:
+    weight: 0
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
+  field_telephone:
+    weight: 1
+    label: inline
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  message:
+    type: basic_string
+    weight: 2
+    label: above
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

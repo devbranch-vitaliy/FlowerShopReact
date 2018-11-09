@@ -1,0 +1,59 @@
+uuid: 89a2ef3f-9a1c-40fc-b811-4055114c4771
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_a_call_back
+    - field.field.contact_message.request_a_call_back.field_country
+    - field.field.contact_message.request_a_call_back.field_telephone
+  module:
+    - address
+    - telephone
+id: contact_message.request_a_call_back.default
+targetEntityType: contact_message
+bundle: request_a_call_back
+mode: default
+content:
+  copy:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_country:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
+  field_telephone:
+    weight: 3
+    settings:
+      placeholder: 'Phone number'
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  mail:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  message:
+    type: string_textarea
+    weight: 4
+    settings:
+      rows: 1
+      placeholder: 'When would you like us to call you?'
+    region: content
+    third_party_settings: {  }
+  name:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  preview:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  subject: true
