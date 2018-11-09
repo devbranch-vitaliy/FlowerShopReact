@@ -1,0 +1,25 @@
+uuid: 0e8a3089-be69-4049-ac11-37f4bc791bf7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d1e78f4c-19e8-46e5-a6b5-eb3076c6b0be'
+  module:
+    - block_content
+  theme:
+    - palette_de_fleurs
+id: footerlinks
+theme: palette_de_fleurs
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:d1e78f4c-19e8-46e5-a6b5-eb3076c6b0be'
+settings:
+  id: 'block_content:d1e78f4c-19e8-46e5-a6b5-eb3076c6b0be'
+  label: Links
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
