@@ -1,0 +1,22 @@
+uuid: d605bbbd-500a-4e08-a817-b587de13cf80
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: aliases_of_news
+label: 'Aliases of news'
+type: 'canonical_entities:node'
+pattern: '/news/[node:title]'
+selection_criteria:
+  259d1afc-2133-4ebc-9fd7-6d01163c48f6:
+    id: node_type
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 259d1afc-2133-4ebc-9fd7-6d01163c48f6
+selection_logic: and
+weight: -5
+relationships: {  }
