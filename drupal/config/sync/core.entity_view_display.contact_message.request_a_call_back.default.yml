@@ -4,34 +4,24 @@ status: true
 dependencies:
   config:
     - contact.form.request_a_call_back
-    - field.field.contact_message.request_a_call_back.field_country
-    - field.field.contact_message.request_a_call_back.field_telephone
+    - field.field.contact_message.request_a_call_back.field_phone_number
   module:
-    - address
-    - telephone
+    - international_phone
 id: contact_message.request_a_call_back.default
 targetEntityType: contact_message
 bundle: request_a_call_back
 mode: default
 content:
-  field_country:
+  field_phone_number:
     weight: 0
     label: inline
     settings: {  }
     third_party_settings: {  }
-    type: address_country_default
-    region: content
-  field_telephone:
-    weight: 1
-    label: inline
-    settings:
-      title: ''
-    third_party_settings: {  }
-    type: telephone_link
+    type: InternationalPhoneDefaultFormatter
     region: content
   message:
     type: basic_string
-    weight: 2
+    weight: 1
     label: above
     region: content
     settings: {  }
