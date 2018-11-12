@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92f9db84de12cb393c32c7577de8b4b8",
+    "content-hash": "cab3a954eb68a7e4b8fb5f0149dc93fc",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3369,6 +3369,11 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "External reference to jQuery 1.11.1 is not required": "https://www.drupal.org/files/issues/2018-07-12/international_phone-remove_external_jquery_ref-2985243-1-D8.patch",
+                    "Module doesn't work with jQuery 3+": "https://www.drupal.org/files/issues/fix-type-error-in-international-phone_2.patch",
+                    "Fix field label": "https://www.drupal.org/files/issues/2018-07-12/international_phone-fix_custom_field_label-2915431-10-D8.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
