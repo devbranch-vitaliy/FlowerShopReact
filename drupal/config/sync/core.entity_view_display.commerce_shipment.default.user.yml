@@ -6,7 +6,6 @@ dependencies:
     - commerce_shipping.commerce_shipment_type.default
     - core.entity_view_mode.commerce_shipment.user
     - field.field.commerce_shipment.default.field_delivery_date
-    - field.field.commerce_shipment.default.field_telephone
   module:
     - commerce_shipping
     - datetime
@@ -42,7 +41,6 @@ content:
     region: content
 hidden:
   amount: true
-  field_telephone: true
   items: true
   package_type: true
   shipping_profile: true
