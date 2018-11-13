@@ -5,12 +5,14 @@ dependencies:
   config:
     - field.field.profile.customer.address
     - field.field.profile.customer.field_address_type
+    - field.field.profile.customer.field_telephone
     - profile.type.customer
   enforced:
     module:
       - commerce_order
   module:
     - address
+    - international_phone
     - options
 _core:
   default_config_hash: '-D8G44VGLIAIFvoHm_u7-Awnie4iCenOWfldrpNy_ys'
@@ -32,5 +34,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
+  field_telephone:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: InternationalPhoneDefaultFormatter
     region: content
 hidden: {  }
