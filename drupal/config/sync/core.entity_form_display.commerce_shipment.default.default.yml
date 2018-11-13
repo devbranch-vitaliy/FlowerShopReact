@@ -7,7 +7,7 @@ dependencies:
     - field.field.commerce_shipment.default.field_delivery_date
   module:
     - commerce_shipping
-    - datetime
+    - fleur_date_widget
 id: commerce_shipment.default.default
 targetEntityType: commerce_shipment
 bundle: default
@@ -17,7 +17,7 @@ content:
     weight: 4
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
+    type: date_today_or_later
     region: content
   shipping_method:
     type: commerce_shipping_rate
