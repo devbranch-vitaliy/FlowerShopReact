@@ -40,9 +40,6 @@ class DateWidgetTodayOrLater extends DateTimeDefaultWidget {
     $date_text  = $value['date'];
     $date       = strtotime($date_text) + 86400;
 
-//    $date_obj   = $value['object'];
-//    $date = $date_obj -> getPhpDateTime() -> getTimestamp();
-
     $current_date = \Drupal::time()->getCurrentTime();
 
     if ($date < $current_date) {
