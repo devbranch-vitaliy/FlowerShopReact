@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.profile.customer.address
+    - field.field.profile.customer.field_address_type
     - profile.type.customer
   enforced:
     module:
       - commerce_order
   module:
     - address
+    - options
 _core:
   default_config_hash: '-D8G44VGLIAIFvoHm_u7-Awnie4iCenOWfldrpNy_ys'
 id: profile.customer.default
@@ -19,9 +21,16 @@ mode: default
 content:
   address:
     type: address_default
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_address_type:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
 hidden: {  }

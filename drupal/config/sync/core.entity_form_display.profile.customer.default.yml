@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.profile.customer.address
+    - field.field.profile.customer.field_address_type
     - profile.type.customer
   enforced:
     module:
@@ -19,8 +20,15 @@ mode: default
 content:
   address:
     type: address_default
+    weight: 1
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    region: content
+  field_address_type:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    type: options_buttons
     region: content
 hidden: {  }
