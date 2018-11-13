@@ -5,11 +5,9 @@ dependencies:
   config:
     - commerce_shipping.commerce_shipment_type.default
     - field.field.commerce_shipment.default.field_delivery_date
-    - field.field.commerce_shipment.default.field_telephone
   module:
     - commerce_shipping
     - datetime
-    - telephone
 id: commerce_shipment.default.default
 targetEntityType: commerce_shipment
 bundle: default
@@ -20,13 +18,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_telephone:
-    weight: 3
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
     region: content
   shipping_method:
     type: commerce_shipping_rate

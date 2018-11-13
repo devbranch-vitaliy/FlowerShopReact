@@ -5,12 +5,10 @@ dependencies:
   config:
     - commerce_shipping.commerce_shipment_type.default
     - field.field.commerce_shipment.default.field_delivery_date
-    - field.field.commerce_shipment.default.field_telephone
   module:
     - commerce_shipping
     - datetime
     - state_machine
-    - telephone
 id: commerce_shipment.default.default
 targetEntityType: commerce_shipment
 bundle: default
@@ -24,14 +22,6 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_telephone:
-    weight: 2
-    label: inline
-    settings:
-      title: ''
-    third_party_settings: {  }
-    type: telephone_link
     region: content
   shipping_method:
     label: above
