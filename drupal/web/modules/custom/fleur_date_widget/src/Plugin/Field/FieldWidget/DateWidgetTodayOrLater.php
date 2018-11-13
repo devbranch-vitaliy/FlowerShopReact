@@ -36,13 +36,11 @@ class DateWidgetTodayOrLater extends DateTimeDefaultWidget {
    * Validate the date field.
    */
   public function validate($element, FormStateInterface $form_state) {
-    $value      = $element['value']['#value'];
-    $date_text  = $value['date'];
-    $date       = strtotime($date_text) + 86400;
+    $value = $element['value']['#value'];
+    $date_obj = $value['object']->setTime(17, 00, 00);
+    $current_date_ogj = new DrupalDateTime();
 
-    $current_date = \Drupal::time()->getCurrentTime();
-
-    if ($date < $current_date) {
+    if ($current_date_ogj -> diff($date_obj) -> invert) {
       $form_state->setError($element, $this->t("It is not possible to process orders in past."));
     }
   }
