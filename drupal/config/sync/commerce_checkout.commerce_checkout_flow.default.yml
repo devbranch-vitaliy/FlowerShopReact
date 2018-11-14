@@ -36,10 +36,13 @@ configuration:
       capture: true
       step: payment
       weight: 5
-    order_summary:
-      view: ''
-      step: _sidebar
-      weight: 7
     completion_message:
       step: complete
       weight: 6
+    order_summary:
+      view: ''
+      step: _sidebar
+      weight: 8
+    completion_registration:
+      step: complete
+      weight: 7
