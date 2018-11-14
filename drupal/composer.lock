@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cab3a954eb68a7e4b8fb5f0149dc93fc",
+    "content-hash": "bd9be3eb2fc2bf65f2eea465ceaae543",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1924,6 +1924,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Implement registration after guest checkout": "https://www.drupal.org/files/issues/2018-11-09/2857157-108.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
