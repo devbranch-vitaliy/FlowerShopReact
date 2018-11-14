@@ -56,6 +56,11 @@ display:
         type: default
       row:
         type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
         title:
           id: title
@@ -146,6 +151,7 @@ display:
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
