@@ -2,6 +2,7 @@
 
 namespace Drupal\fleur_date_widget\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\datetime\Plugin\Field\FieldWidget\DateTimeDefaultWidget;
 use Drupal\Core\Form\FormStateInterface;
