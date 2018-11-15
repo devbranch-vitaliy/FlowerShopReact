@@ -9,8 +9,8 @@ id: commerce_order.default.field_message
 field_name: field_message
 entity_type: commerce_order
 bundle: default
-label: Message
-description: ''
+label: 'Your message to the recipient'
+description: 'A message which will be printed/written on the card which comes with flowers (optional)'
 required: false
 translatable: false
 default_value: {  }
