@@ -47,6 +47,6 @@ configuration:
       view: ''
       step: _sidebar
       weight: 9
-    fleur_message_to_the_recipient_with_orders_widget:
+    fleur_order_message:
       step: review
       weight: 5
