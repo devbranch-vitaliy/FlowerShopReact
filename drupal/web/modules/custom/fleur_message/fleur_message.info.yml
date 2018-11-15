@@ -4,4 +4,3 @@ description: Allows to write message to the recipient during checkout flow proce
 core: 8.x
 version: '1.x'
 package: Custom
-project: 'palette_de_fleurs'
