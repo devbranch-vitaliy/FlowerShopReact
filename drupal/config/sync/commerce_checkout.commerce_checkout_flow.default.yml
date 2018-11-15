@@ -5,6 +5,7 @@ dependencies:
   module:
     - commerce_payment
     - commerce_shipping
+    - fleur_message
 _core:
   default_config_hash: wwkDVBiXUqSzRifJbb71ajFBklJdNJ_DgS67IF-_qgY
 id: default
@@ -35,14 +36,17 @@ configuration:
     payment_process:
       capture: true
       step: payment
-      weight: 5
+      weight: 6
     completion_message:
       step: complete
-      weight: 6
+      weight: 7
+    completion_registration:
+      step: complete
+      weight: 8
     order_summary:
       view: ''
       step: _sidebar
-      weight: 8
-    completion_registration:
-      step: complete
-      weight: 7
+      weight: 9
+    fleur_message_to_the_recipient_with_orders_widget:
+      step: review
+      weight: 5
