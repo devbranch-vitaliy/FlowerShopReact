@@ -60,8 +60,6 @@ class OrderMessage extends CheckoutPaneBase implements ContainerFactoryPluginInt
    * {@inheritdoc}
    */
   public function buildPaneForm(array $pane_form, FormStateInterface $form_state, array &$complete_form) {
-    $pane_form['#order_entity'] = $this->order;
-
     // Get the EntityFormDisplay of commerce_order
     $entity_form_display = $this->formStorage->load('commerce_order.default.default');
 
