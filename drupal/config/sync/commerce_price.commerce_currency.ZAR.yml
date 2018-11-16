@@ -5,5 +5,5 @@ dependencies: {  }
 currencyCode: ZAR
 name: 'South African Rand'
 numericCode: '710'
-symbol: ZAR
+symbol: R
 fractionDigits: 2
