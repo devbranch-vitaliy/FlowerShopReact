@@ -6,7 +6,10 @@ use Drupal\commerce_order\Event\OrderEvent;
 use Drupal\commerce_order\Event\OrderEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class OrderEventsSubscriber implements EventSubscriberInterface{
+/**
+ * A subscriber for events of order.
+ */
+class OrderEventsSubscriber implements EventSubscriberInterface {
 
   /**
    * {@inheritdoc}
@@ -19,8 +22,10 @@ class OrderEventsSubscriber implements EventSubscriberInterface{
   }
 
   /**
-   * Checking state of the order and the payment. If order has state 'Validation' and payment - 'Complete'
-   * then the order state will change to 'Fulfillment'
+   * Checking state of the order and the payment.
+   *
+   * If order has state 'Validation' and payment - 'Complete'
+   * then the order state will change to 'Fulfillment'.
    *
    * @param \Drupal\commerce_order\Event\OrderEvent $event
    *   The event.
@@ -29,7 +34,7 @@ class OrderEventsSubscriber implements EventSubscriberInterface{
     $order = $event->getOrder();
     $order_state = $order->getState()->value;
 
-    if ($order_state=='validation' && $order->isPaid()){
+    if ($order_state == 'validation' && $order->isPaid()) {
       $order->set('state', 'fulfillment');
       $order->save();
     }
