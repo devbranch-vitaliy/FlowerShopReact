@@ -29,19 +29,6 @@ class OrderEventsSubscriber implements EventSubscriberInterface{
     $order = $event->getOrder();
     $order_state = $order->getState()->value;
 
-    //    /** @var \Drupal\commerce_payment\PaymentStorageInterface $payment_storage */
-    //    $payment_storage = \Drupal::entityTypeManager()->getStorage('commerce_payment');
-    ////    $payment_storage = $this->entityTypeManager->getStorage('commerce_payment');
-    //    // Confirm that only one payment was made.
-    //    $payments = $payment_storage->loadMultipleByOrder($order);
-    //
-    //    $paid = TRUE;
-    //    foreach ($payments as $payment){
-    //      if ($payment->getState()->value!='completed'){
-    //        $paid = FALSE;
-    //      }
-    //    }
-
     if ($order_state=='validation' && $order->isPaid()){
       $order->set('state', 'fulfillment');
       $order->save();
