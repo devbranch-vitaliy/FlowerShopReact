@@ -1,0 +1,21 @@
+uuid: 1a9df4ee-f9b8-4fea-9d3b-e2414041a1cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_payfast
+id: payfast
+label: PayFast
+weight: null
+plugin: payfast
+configuration:
+  redirect_method: post
+  display_label: PayFast
+  mode: test
+  payment_method_types:
+    - credit_card
+  merchant_id: '10000100'
+  merchant_key: 46f0cd694581a
+  passphrase: ''
+conditions: {  }
+conditionOperator: AND
