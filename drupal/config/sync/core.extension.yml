@@ -19,6 +19,7 @@ module:
   commerce_checkout: 0
   commerce_generate: 0
   commerce_order: 0
+  commerce_payfast: 0
   commerce_payment: 0
   commerce_payment_example: 0
   commerce_price: 0
