@@ -197,11 +197,12 @@ class OffsiteRedirect extends OffsitePaymentGatewayBase {
             pflog('Check status and update order');
 
             if ($pfData['payment_status'] == 'COMPLETE') {
-                $payment = $this->loadPaymentByRemoteId($pfData['custom_int1']);
-                $payment->setRemoteState($pfData['payment_status']);
-                $payment->setState('Complete');
-                $payment->setRemoteId($pfData['pf_payment_id']);
-                $payment->save();
+              /** @var \Drupal\commerce_payment\Entity\Payment $payment */
+              $payment = $this->entityTypeManager->getStorage('commerce_payment')->load($pfData['m_payment_id']);
+              $payment->setRemoteState($pfData['payment_status']);
+              $payment->setState('completed');
+              $payment->setRemoteId($pfData['pf_payment_id']);
+              $payment->save();
             }
         }
 
