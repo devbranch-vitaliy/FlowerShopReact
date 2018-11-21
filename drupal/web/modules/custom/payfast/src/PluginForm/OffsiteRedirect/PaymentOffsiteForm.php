@@ -43,7 +43,7 @@ class PaymentOffsiteForm extends BasePaymentOffsiteForm
             'return_url' => $form['#return_url'],
             'cancel_url' => $form['#cancel_url'],
             'notify_url' => $notifyUrl,
-            'm_payment_id' => $payment->getOrderId(),
+            'm_payment_id' => $payment->id(),
             'amount' => number_format( sprintf( "%.2f", $payment->getAmount()->getNumber() ), 2, '.', '' ),
             'item_name' => 'Order ID: ' . $orderId,
         ];
