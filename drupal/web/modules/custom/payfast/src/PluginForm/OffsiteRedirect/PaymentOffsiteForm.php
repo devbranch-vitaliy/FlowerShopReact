@@ -29,9 +29,6 @@ class PaymentOffsiteForm extends BasePaymentOffsiteForm
 
         $notifyUrl = Url::fromRoute('commerce_payment_payfast.notify', array('commerce_payment_gateway' => 'payfast'), array("absolute" => TRUE))->toString();
 
-        $remote_id = rand( 99, 9999999 );
-
-        $payment->setRemoteId( $remote_id );
         $payment->save();
 
         $merchant_id = $payment_gateway_plugin->getConfiguration()['mode'] == 'test' ? '10000100' : $payment_gateway_plugin->getConfiguration()['merchant_id'];
