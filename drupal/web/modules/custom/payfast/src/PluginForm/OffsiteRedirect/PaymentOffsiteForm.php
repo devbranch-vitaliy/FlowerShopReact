@@ -48,22 +48,6 @@ class PaymentOffsiteForm extends BasePaymentOffsiteForm
             'item_name' => 'Order ID: ' . $orderId,
         ];
 
-        foreach ( $order->getItems() as $order_item )
-        {
-            $product = $order_item->getPurchasedEntity()->getProduct();
-
-            if ( !is_null( $product->field_subscription_type->value ) && !is_null( $product->field_recurring_amount->value )
-                && !is_null( $product->field_frequency->value ) && !is_null( $product->field_cycles->value ) )
-            {
-                $data['custom_int1'] = $orderId;
-                $data['custom_str1'] = gmdate( 'Y-m-d' );
-                $data['subscription_type'] = $product->field_subscription_type->value;
-                $data['recurring_amount'] = number_format( sprintf( "%.2f", $product->field_recurring_amount->value ), 2, '.', '' );
-                $data['frequency'] = $product->field_frequency->value;
-                $data['cycles'] = $product->field_cycles->value;
-            }
-        }
-
         $pfOutput = '';
         // Create output string
         foreach ( $data as $key => $value )
