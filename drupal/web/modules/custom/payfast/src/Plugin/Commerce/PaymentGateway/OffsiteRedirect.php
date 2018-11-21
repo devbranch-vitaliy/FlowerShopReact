@@ -163,9 +163,19 @@ class OffsiteRedirect extends OffsitePaymentGatewayBase {
         if (!$pfError) {
             pflog('Verify source IP');
 
-            if (!pfValidIP($_SERVER['REMOTE_ADDR'])) {
-                $pfError = true;
-                $pfErrMsg = PF_ERR_BAD_SOURCE_IP;
+            $forwarded = explode(',', $request->server->get('HTTP_X_FORWARDED_FOR'));
+            if (!in_array($request->server->get('REMOTE_ADDR'), $forwarded)) {
+              $forwarded[] = $request->server->get('REMOTE_ADDR');
+            }
+            $pfError = true;
+            foreach ($forwarded as $ip){
+              if (pfValidIP($ip)){
+                $pfError = false;
+                break;
+              }
+            }
+            if ($pfError) {
+              $pfErrMsg = PF_ERR_BAD_SOURCE_IP;
             }
         }
 
