@@ -1,13 +1,13 @@
-api_key: ''
-working_domain: _sender
+api_key: 2ecad34cfea4c6f4a44c6e05ea60f65b-1053eade-5d9049a7
+working_domain: sandbox400c62dc7f5941ffa819f0cd67fcf4ab.mailgun.org
 debug_mode: false
-test_mode: false
+test_mode: true
 tracking_opens: ''
 tracking_clicks: ''
-tracking_exception: 'user:password_reset'
-format_filter: plain_text
+tracking_exception: ''
+format_filter: ''
 use_queue: false
 use_theme: false
-tagging_mailkey: true
+tagging_mailkey: false
 _core:
   default_config_hash: bMOl3jD7ZuzZMuaUYzyqadr56G486ldo28NYIkK_54g
