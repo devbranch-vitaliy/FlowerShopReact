@@ -55,6 +55,8 @@ module:
   international_phone: 0
   kint: 0
   link: 0
+  mailgun: 0
+  mailsystem: 0
   menu_ui: 0
   node: 0
   options: 0
