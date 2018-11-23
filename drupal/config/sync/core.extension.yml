@@ -45,6 +45,7 @@ module:
   filter: 0
   fleur_address: 0
   fleur_cart_flyout_update: 0
+  fleur_checkout: 0
   fleur_date_widget: 0
   fleur_message: 0
   fleur_order_state: 0
