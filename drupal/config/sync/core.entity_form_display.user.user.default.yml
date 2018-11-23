@@ -3,10 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_subscribe
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
     - image
+    - mailchimp_lists
+    - path
     - user
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
@@ -21,9 +25,21 @@ content:
   contact:
     weight: 5
     region: content
+  field_subscribe:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: mailchimp_lists_select
+    region: content
   language:
     weight: 0
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   timezone:
     weight: 6
     region: content
@@ -35,4 +51,5 @@ content:
     third_party_settings: {  }
     weight: -1
     region: content
-hidden: {  }
+hidden:
+  commerce_remote_id: true
