@@ -5,6 +5,7 @@ dependencies:
   module:
     - commerce_payment
     - commerce_shipping
+    - fleur_checkout
     - fleur_message
 _core:
   default_config_hash: wwkDVBiXUqSzRifJbb71ajFBklJdNJ_DgS67IF-_qgY
@@ -32,21 +33,26 @@ configuration:
       weight: 3
     review:
       step: review
-      weight: 4
+      weight: 5
+    fleur_order_message:
+      step: review
+      weight: 6
     payment_process:
       capture: true
       step: payment
-      weight: 6
+      weight: 7
     completion_message:
       step: complete
-      weight: 7
+      weight: 8
     completion_registration:
       step: complete
-      weight: 8
+      weight: 9
     order_summary:
       view: ''
       step: _sidebar
-      weight: 9
-    fleur_order_message:
-      step: review
-      weight: 5
+      weight: 10
+    fleur_commerce_checkout_confirmation_checkbox:
+      step: order_information
+      weight: 4
+      confirmation_checkbox_title: 'I accept site terms and conditions'
+      confirmation_checkbox_validation_message: 'Please accept site terms and conditions'

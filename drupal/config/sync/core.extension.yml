@@ -35,6 +35,7 @@ module:
   dblog: 0
   devel: 0
   devel_generate: 0
+  dynamic_entity_reference: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0
@@ -45,6 +46,7 @@ module:
   filter: 0
   fleur_address: 0
   fleur_cart_flyout_update: 0
+  fleur_checkout: 0
   fleur_date_widget: 0
   fleur_message: 0
   fleur_order_state: 0
@@ -75,6 +77,7 @@ module:
   search: 0
   serialization: 0
   shortcut: 0
+  sms: 0
   state_machine: 0
   system: 0
   taxonomy: 0
