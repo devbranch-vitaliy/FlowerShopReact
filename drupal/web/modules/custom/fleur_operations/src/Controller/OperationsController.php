@@ -5,12 +5,16 @@ namespace Drupal\fleur_operations\Controller;
 use Drupal\commerce\PurchasableEntityInterface;
 use Drupal\commerce_cart\CartManagerInterface;
 use Drupal\commerce_cart\CartProviderInterface;
+use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface;
+use Drupal\commerce_shipping\ShipmentItem;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\physical\Weight;
+use Drupal\physical\WeightUnit;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -164,9 +168,85 @@ class OperationsController extends ControllerBase {
     $cart->setBillingProfile($order->getBillingProfile());
     $cart->save();
 
+    // Set shipments.
+    $shipments = $this->getShipmentsFromOrder($order, $cart);
+    $cart->set('shipments', $shipments);
+    $cart->save();
+
     $messenger = \Drupal::messenger();
     $messenger->addMessage($message, $message_type);
     return $this->redirect('commerce_cart.page');
   }
 
+  /**
+   * Create new cart shipments from order shipments.
+   *
+   * @param \Drupal\commerce_order\Entity\OrderInterface $order
+   *   Commerce Order.
+   * @param \Drupal\commerce_order\Entity\OrderInterface $cart
+   *   Commerce Cart.
+   *
+   * @return array|\Drupal\commerce_shipping\Entity\ShipmentInterface[]
+   *   Shipments to cart
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   */
+  protected function getShipmentsFromOrder(OrderInterface $order, OrderInterface $cart) {
+
+    /** @var \Drupal\commerce_shipping\Entity\ShipmentInterface[] $shipments */
+    $shipments = [];
+    $shipment_storage = $this->entityTypeManager->getStorage('commerce_shipment');
+
+    /** @var \Drupal\commerce_shipping\Entity\ShipmentInterface $shipment */
+    foreach ($order->get('shipments')->referencedEntities() as $shipment) {
+      $new_shipment = $shipment_storage->create([
+        'type' => $shipment->bundle(),
+        'state' => 'draft',
+        'order_id' => $cart->id(),
+      ]);
+      $new_shipment->setPackageType($shipment->getPackageType());
+      $new_shipment->setShippingMethod($shipment->getShippingMethod());
+      $new_shipment->setShippingService($shipment->getShippingService());
+      $new_shipment->setShippingProfile($shipment->getShippingProfile());
+      $new_shipment->setTitle($shipment->getTitle());
+      $new_shipment->setWeight($shipment->getWeight());
+      $new_shipment->setAmount($shipment->getAmount());
+      $new_shipment->set('field_delivery_date', $shipment->get('field_delivery_date')->getString());
+
+      /** @var \Drupal\commerce_shipping\ShipmentItem $item */
+      /** @var \Drupal\physical\Weight $weight */
+      foreach ($cart->getItems() as $order_item) {
+        $purchased_entity = $order_item->getPurchasedEntity();
+        // Ship only shippable purchasable entity types.
+        if (!$purchased_entity || !$purchased_entity->hasField('weight')) {
+          continue;
+        }
+        // The weight will be empty if the shippable trait was added but the
+        // existing entities were not updated.
+        if ($purchased_entity->get('weight')->isEmpty()) {
+          $purchased_entity->set('weight', new Weight(0, WeightUnit::GRAM));
+        }
+
+        $quantity = $order_item->getQuantity();
+        $weight = $purchased_entity->get('weight')->first()->toMeasurement();
+
+        $item = new ShipmentItem([
+          'order_item_id' => $order_item->id(),
+          'title' => $order_item->getTitle(),
+          'quantity' => $quantity,
+          'weight' => $weight->multiply($quantity),
+          'declared_value' => $order_item->getUnitPrice()->multiply($quantity),
+        ]);
+
+        $new_shipment->addItem($item);
+      }
+
+      $new_shipment->save();
+      $shipments[] = $new_shipment;
+    }
+    return $shipments;
+  }
 }
