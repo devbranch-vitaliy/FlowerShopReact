@@ -7,6 +7,7 @@ namespace Drupal\commerce_payfast\PluginForm\OffsiteRedirect;
 
 use Drupal\commerce_payment\PluginForm\PaymentOffsiteForm as BasePaymentOffsiteForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 class PaymentOffsiteForm extends BasePaymentOffsiteForm
 {
