@@ -2,14 +2,104 @@
 
 namespace Drupal\fleur_operations\Controller;
 
+use Drupal\commerce\PurchasableEntityInterface;
+use Drupal\commerce_cart\CartManagerInterface;
+use Drupal\commerce_cart\CartProviderInterface;
+use Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Controller for new operation links.
  */
 class OperationsController extends ControllerBase {
+
+  /**
+   * The cart manager.
+   *
+   * @var \Drupal\commerce_cart\CartManagerInterface
+   */
+  protected $cartManager;
+
+  /**
+   * The cart provider.
+   *
+   * @var \Drupal\commerce_cart\CartProviderInterface
+   */
+  protected $cartProvider;
+
+  /**
+   * The current user.
+   *
+   * @var \Drupal\Core\Session\AccountInterface
+   */
+  protected $currentUser;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * The order item store.
+   *
+   * @var \Drupal\commerce_order\OrderItemStorageInterface
+   */
+  protected $orderItemStorage;
+
+  /**
+   * The chain order type resolver.
+   *
+   * @var \Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface
+   */
+  protected $chainOrderTypeResolver;
+
+  /**
+   * Constructs a new controller object.
+   *
+   * @param \Drupal\commerce_cart\CartManagerInterface $cart_manager
+   *   The cart manager.
+   * @param \Drupal\commerce_cart\CartProviderInterface $cart_provider
+   *   The cart provider.
+   * @param \Drupal\Core\Session\AccountInterface $current_user
+   *   The current user.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
+   * @param \Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface $chain_order_type_resolver
+   *   The chain order type resolver.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   *
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager, ChainOrderTypeResolverInterface $chain_order_type_resolver) {
+    $this->cartManager = $cart_manager;
+    $this->cartProvider = $cart_provider;
+    $this->currentUser = $current_user;
+    $this->entityTypeManager = $entity_type_manager;
+    $this->chainOrderTypeResolver = $chain_order_type_resolver;
+    $this->orderItemStorage = $entity_type_manager->getStorage('commerce_order_item');
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('commerce_cart.cart_manager'),
+      $container->get('commerce_cart.cart_provider'),
+      $container->get('current_user'),
+      $container->get('entity_type.manager'),
+      $container->get('commerce_order.chain_order_type_resolver')
+    );
+  }
 
   /**
    * Create a Cart from current Order information.
@@ -21,12 +111,54 @@ class OperationsController extends ControllerBase {
    *
    * @return \Symfony\Component\HttpFoundation\RedirectResponse
    *   Redirect page
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function createNewCartFromOrder(Request $request, RouteMatchInterface $route_match) {
 
     // Default message.
     $message = "Order successfully copied";
     $message_type = MessengerInterface::TYPE_STATUS;
+
+    // Get target order.
+    /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+    $order = $route_match->getParameter('commerce_order');
+    $order_items = $order->getItems();
+
+    // Get current cart.
+    $order_type_id = $order->bundle();
+    $store = $order->getStore();
+    $cart = $this->cartProvider->getCart($order_type_id, $store);
+
+    // If cart don't exists then create it else remove previous options.
+    if (!$cart) {
+      $cart = $this->cartProvider->createCart($order_type_id, $store);
+    }
+    else {
+      foreach ($cart->getItems() as $order_item) {
+        $cart->removeItem($order_item);
+        $order_item->delete();
+      }
+      $cart->clearAdjustments();
+    }
+
+    // Copy order items.
+    foreach ($order_items as $order_item) {
+      $storage = $this->entityTypeManager->getStorage('commerce_product_variation');
+      $purchased_entity = $storage->load($order_item->getPurchasedEntityId());
+      if (!$purchased_entity || !$purchased_entity instanceof PurchasableEntityInterface) {
+        $message = "Not all items have been successfully copied";
+        $message_type = MessengerInterface::TYPE_WARNING;
+        continue;
+      }
+      $new_order_item = $this->orderItemStorage->createFromPurchasableEntity($purchased_entity, [
+        'quantity' => $order_item->getQuantity(),
+      ]);
+      $this->cartManager->addOrderItem($cart, $new_order_item);
+    }
 
     $messenger = \Drupal::messenger();
     $messenger->addMessage($message, $message_type);
