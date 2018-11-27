@@ -1,0 +1,6 @@
+name: 'Fleur operations'
+type: module
+description: Add new operation links
+core: 8.x
+version: '1.x'
+package: Custom
