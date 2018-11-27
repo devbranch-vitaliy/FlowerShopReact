@@ -160,6 +160,10 @@ class OperationsController extends ControllerBase {
       $this->cartManager->addOrderItem($cart, $new_order_item);
     }
 
+    // Set billing profile.
+    $cart->setBillingProfile($order->getBillingProfile());
+    $cart->save();
+
     $messenger = \Drupal::messenger();
     $messenger->addMessage($message, $message_type);
     return $this->redirect('commerce_cart.page');
