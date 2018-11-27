@@ -6,7 +6,7 @@ dependencies:
     - commerce_payment_example
 id: example_on_site
 label: 'Example On-site'
-weight: null
+weight: -8
 plugin: example_onsite
 configuration:
   api_key: '123'
@@ -14,5 +14,10 @@ configuration:
   mode: test
   payment_method_types:
     - credit_card
-conditions: {  }
+conditions:
+  -
+    plugin: order_customer_role
+    configuration:
+      roles:
+        - administrator
 conditionOperator: AND
