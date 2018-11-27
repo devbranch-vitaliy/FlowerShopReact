@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Provides entity operations functionality.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_entity_operation().
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *
+ * @return array
+ */
+function fleur_operations_entity_operation(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() === 'commerce_order') {
+    $operations = [];
+    $operations['cart_from_order'] = [
+      'title' => t('Order again'),
+      'url' => Url::fromRoute('entity.cart_from_order.collection', [
+        'commerce_order' => $entity->id()
+      ]),
+      'weight' => 50,
+    ];
+    return $operations;
+  }
+}
