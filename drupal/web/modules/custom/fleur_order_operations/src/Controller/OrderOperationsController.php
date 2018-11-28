@@ -43,6 +43,13 @@ class OrderOperationsController extends ControllerBase {
   protected $entityTypeManager;
 
   /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
    * Constructs a new controller object.
    *
    * @param \Drupal\commerce_cart\CartManagerInterface $cart_manager
@@ -51,11 +58,14 @@ class OrderOperationsController extends ControllerBase {
    *   The cart provider.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
+   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
+   *   The messenger.
    */
-  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, EntityTypeManagerInterface $entity_type_manager, MessengerInterface $messenger) {
     $this->cartManager = $cart_manager;
     $this->cartProvider = $cart_provider;
     $this->entityTypeManager = $entity_type_manager;
+    $this->messenger = $messenger;
   }
 
   /**
@@ -65,7 +75,8 @@ class OrderOperationsController extends ControllerBase {
     return new static(
       $container->get('commerce_cart.cart_manager'),
       $container->get('commerce_cart.cart_provider'),
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('messenger')
     );
   }
 
@@ -131,8 +142,7 @@ class OrderOperationsController extends ControllerBase {
     $cart->set('shipments', $shipments);
     $cart->save();
 
-    $messenger = \Drupal::messenger();
-    $messenger->addMessage($message, $message_type);
+    $this->messenger->addMessage($message, $message_type);
     return $this->redirect('commerce_cart.page');
   }
 
