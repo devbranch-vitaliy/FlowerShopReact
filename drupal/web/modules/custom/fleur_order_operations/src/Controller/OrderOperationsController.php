@@ -88,7 +88,7 @@ class OrderOperationsController extends ControllerBase {
       $container->get('commerce_cart.cart_provider'),
       $container->get('entity_type.manager'),
       $container->get('messenger'),
-      $container->get('logger.factory')->get('Fleur order operations')
+      $container->get('logger.factory')->get('fleur_order_operations')
     );
   }
 
