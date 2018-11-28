@@ -124,7 +124,7 @@ class OperationsController extends ControllerBase {
   public function createNewCartFromOrder(Request $request, RouteMatchInterface $route_match) {
 
     // Default message.
-    $message = "Order successfully copied";
+    $message = t("Order successfully copied");
     $message_type = MessengerInterface::TYPE_STATUS;
 
     // Get target order.
@@ -154,7 +154,7 @@ class OperationsController extends ControllerBase {
       $storage = $this->entityTypeManager->getStorage('commerce_product_variation');
       $purchased_entity = $storage->load($order_item->getPurchasedEntityId());
       if (!$purchased_entity || !$purchased_entity instanceof PurchasableEntityInterface) {
-        $message = "Not all items have been successfully copied";
+        $message = t("Not all items have been successfully copied");
         $message_type = MessengerInterface::TYPE_WARNING;
         continue;
       }

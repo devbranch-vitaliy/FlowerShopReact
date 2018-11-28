@@ -18,7 +18,7 @@ use Drupal\Core\Url;
 function fleur_operations_entity_operation(EntityInterface $entity) {
   if ($entity->getEntityTypeId() === 'commerce_order') {
     $operations = [];
-    $operations['cart_from_order'] = [
+    $operations['order_again'] = [
       'title' => t('Order again'),
       'url' => Url::fromRoute('entity.cart_from_order.collection', [
         'commerce_order' => $entity->id()
