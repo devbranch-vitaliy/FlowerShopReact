@@ -189,7 +189,6 @@ class OrderOperationsController extends ControllerBase {
       $new_shipment->setTitle($shipment->getTitle());
       $new_shipment->setWeight($shipment->getWeight());
       $new_shipment->setAmount($shipment->getAmount());
-      $new_shipment->set('field_delivery_date', $shipment->get('field_delivery_date')->getString());
 
       /** @var \Drupal\commerce_shipping\ShipmentItem $item */
       /** @var \Drupal\physical\Weight $weight */
