@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\fleur_operations\Controller;
+namespace Drupal\fleur_order_operations\Controller;
 
 use Drupal\commerce\PurchasableEntityInterface;
 use Drupal\commerce_cart\CartManagerInterface;
@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Controller for new operation links.
  */
-class OperationsController extends ControllerBase {
+class OrderOperationsController extends ControllerBase {
 
   /**
    * The cart manager.

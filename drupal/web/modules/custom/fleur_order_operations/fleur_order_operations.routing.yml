@@ -1,7 +1,7 @@
 entity.cart_from_order.collection:
   path: '/admin/commerce/orders/{commerce_order}/order_again'
   defaults:
-    _controller: '\Drupal\fleur_operations\Controller\OperationsController::createNewCartFromOrder'
+    _controller: '\Drupal\fleur_order_operations\Controller\OrderOperationsController::createNewCartFromOrder'
     _title: 'Order again'
   options:
     parameters:

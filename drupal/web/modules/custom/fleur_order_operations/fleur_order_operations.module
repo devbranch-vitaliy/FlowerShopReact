@@ -15,7 +15,7 @@ use Drupal\Core\Url;
  *
  * @return array
  */
-function fleur_operations_entity_operation(EntityInterface $entity) {
+function fleur_order_operations_entity_operation(EntityInterface $entity) {
   if ($entity->getEntityTypeId() === 'commerce_order') {
     $operations = [];
     $operations['order_again'] = [

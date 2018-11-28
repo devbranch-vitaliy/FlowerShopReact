@@ -1,0 +1,6 @@
+name: 'Fleur order operations'
+type: module
+description: Add new operation links to the orders list
+core: 8.x
+version: '1.x'
+package: Custom
