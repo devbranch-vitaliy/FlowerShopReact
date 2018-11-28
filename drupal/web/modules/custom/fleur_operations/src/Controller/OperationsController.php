@@ -12,7 +12,6 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Session\AccountInterface;
 use Drupal\physical\Weight;
 use Drupal\physical\WeightUnit;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,8 +71,6 @@ class OperationsController extends ControllerBase {
    *   The cart manager.
    * @param \Drupal\commerce_cart\CartProviderInterface $cart_provider
    *   The cart provider.
-   * @param \Drupal\Core\Session\AccountInterface $current_user
-   *   The current user.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    * @param \Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface $chain_order_type_resolver
@@ -83,10 +80,9 @@ class OperationsController extends ControllerBase {
    *
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager, ChainOrderTypeResolverInterface $chain_order_type_resolver) {
+  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, EntityTypeManagerInterface $entity_type_manager, ChainOrderTypeResolverInterface $chain_order_type_resolver) {
     $this->cartManager = $cart_manager;
     $this->cartProvider = $cart_provider;
-    $this->currentUser = $current_user;
     $this->entityTypeManager = $entity_type_manager;
     $this->chainOrderTypeResolver = $chain_order_type_resolver;
     $this->orderItemStorage = $entity_type_manager->getStorage('commerce_order_item');
@@ -99,7 +95,6 @@ class OperationsController extends ControllerBase {
     return new static(
       $container->get('commerce_cart.cart_manager'),
       $container->get('commerce_cart.cart_provider'),
-      $container->get('current_user'),
       $container->get('entity_type.manager'),
       $container->get('commerce_order.chain_order_type_resolver')
     );
