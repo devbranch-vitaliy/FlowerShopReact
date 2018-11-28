@@ -6,7 +6,7 @@ dependencies:
     - commerce_payfast
 id: payfast
 label: PayFast
-weight: null
+weight: -9
 plugin: payfast
 configuration:
   redirect_method: post

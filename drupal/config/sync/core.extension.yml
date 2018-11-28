@@ -49,6 +49,7 @@ module:
   fleur_checkout: 0
   fleur_date_widget: 0
   fleur_message: 0
+  fleur_order_operations: 0
   fleur_order_state: 0
   help: 0
   history: 0

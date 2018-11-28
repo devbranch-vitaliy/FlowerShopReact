@@ -15,6 +15,7 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'manage own commerce_payment_method'
+  - 'order again'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
