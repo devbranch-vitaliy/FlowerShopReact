@@ -1,0 +1,3 @@
+order again:
+  title: 'Order again'
+  description: "Copy select order's info to the current cart"

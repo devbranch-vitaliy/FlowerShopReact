@@ -8,4 +8,4 @@ entity.order_again.collection:
       commerce_order:
         type: 'entity:commerce_order'
   requirements:
-    _permission: 'TRUE'
+    _permission: 'order again'
