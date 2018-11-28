@@ -20,7 +20,7 @@ function fleur_order_operations_entity_operation(EntityInterface $entity) {
     $operations = [];
     $operations['order_again'] = [
       'title' => t('Order again'),
-      'url' => Url::fromRoute('entity.cart_from_order.collection', [
+      'url' => Url::fromRoute('entity.order_again.collection', [
         'commerce_order' => $entity->id()
       ]),
       'weight' => 50,
