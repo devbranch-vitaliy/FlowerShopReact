@@ -9,3 +9,4 @@ entity.order_again.collection:
         type: 'entity:commerce_order'
   requirements:
     _permission: 'order again'
+    _entity_access: 'commerce_order.view'
