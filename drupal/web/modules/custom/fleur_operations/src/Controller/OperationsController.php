@@ -130,7 +130,6 @@ class OperationsController extends ControllerBase {
     // Get target order.
     /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
     $order = $route_match->getParameter('commerce_order');
-    $order_items = $order->getItems();
 
     // Get current cart.
     $order_type_id = $order->bundle();
@@ -146,7 +145,7 @@ class OperationsController extends ControllerBase {
     }
 
     // Copy order items.
-    foreach ($order_items as $order_item) {
+    foreach ($order->getItems() as $order_item) {
       $purchased_entity = $order_item->getPurchasedEntityId();
       if (!$purchased_entity || !$purchased_entity instanceof PurchasableEntityInterface) {
         $message = t("Not all items have been successfully copied");
