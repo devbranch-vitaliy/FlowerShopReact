@@ -151,8 +151,7 @@ class OperationsController extends ControllerBase {
 
     // Copy order items.
     foreach ($order_items as $order_item) {
-      $storage = $this->entityTypeManager->getStorage('commerce_product_variation');
-      $purchased_entity = $storage->load($order_item->getPurchasedEntityId());
+      $purchased_entity = $order_item->getPurchasedEntityId();
       if (!$purchased_entity || !$purchased_entity instanceof PurchasableEntityInterface) {
         $message = t("Not all items have been successfully copied");
         $message_type = MessengerInterface::TYPE_WARNING;
