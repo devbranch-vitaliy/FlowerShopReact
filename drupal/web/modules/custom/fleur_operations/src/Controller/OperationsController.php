@@ -51,13 +51,6 @@ class OperationsController extends ControllerBase {
   protected $entityTypeManager;
 
   /**
-   * The order item store.
-   *
-   * @var \Drupal\commerce_order\OrderItemStorageInterface
-   */
-  protected $orderItemStorage;
-
-  /**
    * The chain order type resolver.
    *
    * @var \Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface
@@ -75,17 +68,12 @@ class OperationsController extends ControllerBase {
    *   The entity type manager.
    * @param \Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface $chain_order_type_resolver
    *   The chain order type resolver.
-   *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   *
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, EntityTypeManagerInterface $entity_type_manager, ChainOrderTypeResolverInterface $chain_order_type_resolver) {
     $this->cartManager = $cart_manager;
     $this->cartProvider = $cart_provider;
     $this->entityTypeManager = $entity_type_manager;
     $this->chainOrderTypeResolver = $chain_order_type_resolver;
-    $this->orderItemStorage = $entity_type_manager->getStorage('commerce_order_item');
   }
 
   /**
@@ -147,7 +135,7 @@ class OperationsController extends ControllerBase {
         $message_type = MessengerInterface::TYPE_WARNING;
         continue;
       }
-      $new_order_item = $this->orderItemStorage->createFromPurchasableEntity($purchased_entity, [
+      $new_order_item = $this->entityTypeManager->getStorage('commerce_order_item')->createFromPurchasableEntity($purchased_entity, [
         'quantity' => $order_item->getQuantity(),
       ]);
       $this->cartManager->addOrderItem($cart, $new_order_item);
