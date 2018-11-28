@@ -16,7 +16,7 @@ use Drupal\Core\Url;
  * @return array
  */
 function fleur_order_operations_entity_operation(EntityInterface $entity) {
-  if ($entity->getEntityTypeId() === 'commerce_order') {
+  if ($entity->getEntityTypeId() === 'commerce_order' && \Drupal::currentUser()->hasPermission('order again')) {
     $operations = [];
     $operations['order_again'] = [
       'title' => t('Order again'),
