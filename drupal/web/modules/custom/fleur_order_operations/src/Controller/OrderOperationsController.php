@@ -13,6 +13,7 @@ use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\physical\Weight;
 use Drupal\physical\WeightUnit;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -43,11 +44,18 @@ class OrderOperationsController extends ControllerBase {
   protected $entityTypeManager;
 
   /**
-   * The entity type manager.
+   * The messenger.
    *
    * @var \Drupal\Core\Messenger\MessengerInterface
    */
   protected $messenger;
+
+  /**
+   * The logger.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
+  protected $logger;
 
   /**
    * Constructs a new controller object.
@@ -60,12 +68,15 @@ class OrderOperationsController extends ControllerBase {
    *   The entity type manager.
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   The messenger.
+   * @param \Psr\Log\LoggerInterface $logger
+   *   The logger.
    */
-  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, EntityTypeManagerInterface $entity_type_manager, MessengerInterface $messenger) {
+  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, EntityTypeManagerInterface $entity_type_manager, MessengerInterface $messenger, LoggerInterface $logger) {
     $this->cartManager = $cart_manager;
     $this->cartProvider = $cart_provider;
     $this->entityTypeManager = $entity_type_manager;
     $this->messenger = $messenger;
+    $this->logger = $logger;
   }
 
   /**
@@ -76,7 +87,8 @@ class OrderOperationsController extends ControllerBase {
       $container->get('commerce_cart.cart_manager'),
       $container->get('commerce_cart.cart_provider'),
       $container->get('entity_type.manager'),
-      $container->get('messenger')
+      $container->get('messenger'),
+      $container->get('logger.factory')->get('Fleur order operations')
     );
   }
 
@@ -97,10 +109,6 @@ class OrderOperationsController extends ControllerBase {
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function createNewCartFromOrder(Request $request, RouteMatchInterface $route_match) {
-
-    // Default message.
-    $message = t("Order successfully copied");
-    $message_type = MessengerInterface::TYPE_STATUS;
 
     // Get target order.
     /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
@@ -123,8 +131,7 @@ class OrderOperationsController extends ControllerBase {
     foreach ($order->getItems() as $order_item) {
       $purchased_entity = $order_item->getPurchasedEntity();
       if (!$purchased_entity || !$purchased_entity instanceof PurchasableEntityInterface) {
-        $message = t("Not all items have been successfully copied");
-        $message_type = MessengerInterface::TYPE_WARNING;
+        $this->logger->error(t("Not all items have been successfully copied"));
         continue;
       }
       $new_order_item = $this->entityTypeManager->getStorage('commerce_order_item')->createFromPurchasableEntity($purchased_entity, [
@@ -142,7 +149,7 @@ class OrderOperationsController extends ControllerBase {
     $cart->set('shipments', $shipments);
     $cart->save();
 
-    $this->messenger->addMessage($message, $message_type);
+    $this->messenger->addMessage(t("Order successfully copied"), MessengerInterface::TYPE_STATUS);
     return $this->redirect('commerce_cart.page');
   }
 
