@@ -6,7 +6,6 @@ use Drupal\commerce\PurchasableEntityInterface;
 use Drupal\commerce_cart\CartManagerInterface;
 use Drupal\commerce_cart\CartProviderInterface;
 use Drupal\commerce_order\Entity\OrderInterface;
-use Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface;
 use Drupal\commerce_shipping\ShipmentItem;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -37,25 +36,11 @@ class OperationsController extends ControllerBase {
   protected $cartProvider;
 
   /**
-   * The current user.
-   *
-   * @var \Drupal\Core\Session\AccountInterface
-   */
-  protected $currentUser;
-
-  /**
    * The entity type manager.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
-
-  /**
-   * The chain order type resolver.
-   *
-   * @var \Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface
-   */
-  protected $chainOrderTypeResolver;
 
   /**
    * Constructs a new controller object.
@@ -66,14 +51,11 @@ class OperationsController extends ControllerBase {
    *   The cart provider.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Drupal\commerce_order\Resolver\ChainOrderTypeResolverInterface $chain_order_type_resolver
-   *   The chain order type resolver.
    */
-  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, EntityTypeManagerInterface $entity_type_manager, ChainOrderTypeResolverInterface $chain_order_type_resolver) {
+  public function __construct(CartManagerInterface $cart_manager, CartProviderInterface $cart_provider, EntityTypeManagerInterface $entity_type_manager) {
     $this->cartManager = $cart_manager;
     $this->cartProvider = $cart_provider;
     $this->entityTypeManager = $entity_type_manager;
-    $this->chainOrderTypeResolver = $chain_order_type_resolver;
   }
 
   /**
@@ -83,8 +65,7 @@ class OperationsController extends ControllerBase {
     return new static(
       $container->get('commerce_cart.cart_manager'),
       $container->get('commerce_cart.cart_provider'),
-      $container->get('entity_type.manager'),
-      $container->get('commerce_order.chain_order_type_resolver')
+      $container->get('entity_type.manager')
     );
   }
 
@@ -129,7 +110,7 @@ class OperationsController extends ControllerBase {
 
     // Copy order items.
     foreach ($order->getItems() as $order_item) {
-      $purchased_entity = $order_item->getPurchasedEntityId();
+      $purchased_entity = $order_item->getPurchasedEntity();
       if (!$purchased_entity || !$purchased_entity instanceof PurchasableEntityInterface) {
         $message = t("Not all items have been successfully copied");
         $message_type = MessengerInterface::TYPE_WARNING;
