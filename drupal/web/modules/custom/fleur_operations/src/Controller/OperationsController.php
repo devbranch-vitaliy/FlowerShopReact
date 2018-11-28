@@ -142,11 +142,7 @@ class OperationsController extends ControllerBase {
       $cart = $this->cartProvider->createCart($order_type_id, $store);
     }
     else {
-      foreach ($cart->getItems() as $order_item) {
-        $cart->removeItem($order_item);
-        $order_item->delete();
-      }
-      $cart->clearAdjustments();
+      $this->cartManager->emptyCart($cart);
     }
 
     // Copy order items.
