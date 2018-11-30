@@ -88,6 +88,9 @@
             },
             "drupal/commerce": {
                 "Implement registration after guest checkout": "https://www.drupal.org/files/issues/2018-11-09/2857157-108.patch"
+            },
+            "drupal/commerce_shipping": {
+                "Support taxing the shipping cost": "https://www.drupal.org/files/issues/2018-10-03/shipping-tax-2874158-20.patch"
             }
         },
         "installer-paths": {
