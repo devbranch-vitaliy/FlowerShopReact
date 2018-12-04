@@ -23,16 +23,16 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
   /**
    * The payment options builder.
    *
-   * @var \Drupal\commerce_product\Entity\ProductTypeInterface
+   * @var \Drupal\Core\Config\Entity\ConfigEntityStorage
    */
-  protected $productTypeManager;
+  protected $productTypeStorage;
 
   /**
    * The payment options builder.
    *
-   * @var \Drupal\commerce_product\Entity\ProductInterface
+   * @var \Drupal\commerce\CommerceContentEntityStorage
    */
-  protected $productManager;
+  protected $productStorage;
 
   /**
    * AddSpecials constructor.
@@ -54,8 +54,8 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $checkout_flow, $entity_type_manager);
 
-    $this->productTypeManager = $entity_type_manager->getStorage('commerce_product_type');
-    $this->productManager = $entity_type_manager->getStorage('commerce_product');
+    $this->productTypeStorage = $entity_type_manager->getStorage('commerce_product_type');
+    $this->productStorage = $entity_type_manager->getStorage('commerce_product');
   }
 
   /**
@@ -84,32 +84,26 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
   public function buildConfigurationSummary() {
     $summary = parent::buildConfigurationSummary();
 
-    $products_selected = FALSE;
+    $products_list = [];
 
-    $product_types = $this->productTypeManager->loadMultiple();
+    $product_types = $this->productTypeStorage->loadMultiple();
     foreach ($product_types as $product_type) {
       $type = $product_type->id();
       if ($type == 'default') {
         continue;
       };
 
-      if (!empty($this->configuration['product_types'][$type]) && $this->configuration['product_types'][$type]['selected'] == '1') {
-
-        if (!$products_selected) {
-          $products_selected = TRUE;
-          $summary .= $this->t('Chosen products:');
-          $summary .= '<ul>';
-        }
-
-        $summary .= '<li>' . $product_type->label() . '</li>';
+      if (!empty($this->configuration['product_types'][$type]['selected'])) {
+        $products_list[] = $product_type->label();
       }
     };
 
-    if (!$products_selected) {
-      $summary .= $this->t('No products selected.');
+    if (count($products_list)) {
+      $summary .= $this->t('Selected products:');
+      $summary .= ' ' . implode(', ', $products_list);
     }
     else {
-      $summary .= '</ul>';
+      $summary .= $this->t('No products selected.');
     }
 
     return $summary;
@@ -120,7 +114,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildConfigurationForm($form, $form_state);
-    $product_types = $this->productTypeManager->loadMultiple();
+    $product_types = $this->productTypeStorage->loadMultiple();
 
     $form['fleur_add_specials'] = [
       '#type' => 'label',
@@ -235,32 +229,25 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
     $selected_types = [];
     foreach ($product_types as $key => $value) {
       if ($value['selected'] == '1') {
-        $selected_types[intval($value['options']['weight'])] = $key;
+        $selected_types[$key] = $value['options'];
       }
     }
 
-    // Don't show without selected product types.
-    if (!count($selected_types)) {
-      return $pane_form;
-    }
-
-    // Sort by weight.
-    ksort($selected_types);
-
     // Create form elements.
     $pane_form['fleur_add_specials'] = [
-      '#type' => 'html_tag',
-      '#value' => t('Add specials to your order'),
-      '#tag' => 'div',
+      '#type' => 'container',
       '#attributes' => [
         'class' => ['add-specials-title'],
       ],
+      'text' => [
+        '#plain_text' => $this->t('Add specials to your order'),
+      ],
     ];
 
-    foreach ($selected_types as $product_type) {
+    foreach ($selected_types as $product_type => $options) {
       // Get products id's array.
-      $query = $this->productManager->getQuery();
-      $query->condition('type', $product_type)->sort($product_types[$product_type]['options']['sort_by']);
+      $query = $this->productStorage->getQuery();
+      $query->condition('type', $product_type)->sort($options['sort_by']);
       $products_ids = $query->execute();
 
       // Don't show when product list is empty.
@@ -274,82 +261,104 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
         '#attributes' => [
           'class' => ['product-container', $product_type],
         ],
+        '#weight' => $options['weight'],
       ];
 
       $pane_form[$product_type]['title'] = [
-        '#type' => 'html_tag',
-        '#value' => $product_types[$product_type]['options']['title'],
-        '#tag' => 'div',
+        '#type' => 'container',
         '#attributes' => [
           'class' => ['add-specials-product-title'],
         ],
+        'text' => [
+          '#plain_text' => $options['title'],
+        ],
       ];
 
-      if (!empty($product_types[$product_type]['options']['description'])) {
+      if (!empty($options['description'])) {
         $pane_form[$product_type]['description'] = [
-          '#type' => 'html_tag',
-          '#value' => $product_types[$product_type]['options']['description'],
-          '#tag' => 'div',
+          '#type' => 'container',
           '#attributes' => [
             'class' => ['add-specials-product-description'],
+          ],
+          'text' => [
+            '#plain_text' => $options['description'],
           ],
         ];
       }
 
+      // Get variations from order.
+      $order_variations = [];
+      foreach ($this->order->getItems() as $orderItem) {
+        $order_variations[] = $orderItem->getPurchasedEntityId();
+      }
+
       // Add products elements.
+      $default_values = [];
       $products_elements = [];
+      $products_elements_options = [];
 
       // If radios type then add None element.
-      if ($product_types[$product_type]['options']['choose_type'] == 'radios') {
-        $products_elements['none'] = 'None';
+      if ($options['choose_type'] == 'radios') {
+        $products_elements['none'] = $this->t('None');
+        $products_elements_options['none'] = ['class' => 'listbox-level-1', 'disabled' => FALSE];
       }
 
       $currency = $this->order->getStore()->getDefaultCurrency()->getSymbol();
-      $products = $this->productManager->loadMultiple($products_ids);
+      /** @var \Drupal\commerce_product\Entity\ProductInterface[] $products */
+      $products = $this->productStorage->loadMultiple($products_ids);
       foreach ($products as $product) {
-        /** @var \Drupal\commerce_product\Entity\ProductVariationInterface[] $variations */
-        /** @var \Drupal\commerce_product\Entity\ProductVariationInterface $variation */
-        $price = 0;
-        $prices = [];
+        $default_variation = $product->getDefaultVariation();
+        $default_price = $default_variation->getPrice();
         $variations = $product->getVariations();
-        foreach ($variations as $variation) {
-          $prices[] = floatval($variation->getPrice()->getNumber());
-        }
-
-        // Get average price.
-        if (count($prices)) {
-          $price = array_sum($prices) / count($prices);
-        }
 
         // Get products array.
         if (count($variations) > 1) {
+          // For parent use a label because id can be the same as variation id.
           $label = $product->label();
-          $products_elements[$label] = [];
+
+          $products_elements[$label] = $this->getProductLabel($product->getTitle(), $currency, $default_price->getNumber());
+          $products_elements_options[$label] = ['class' => 'listbox-level-1', 'disabled' => TRUE];
+
           foreach ($variations as $variation) {
-            $products_elements[$label][$variation->id()] = $this->t('@title - @currency@price', [
-              '@title' => $variation->getTitle(),
-              '@currency' => $currency,
-              '@price' => number_format($price, 2),
-            ]);
+            $products_elements[$variation->id()] = ($default_price->equals($variation->getPrice())) ? $variation->getTitle() : $this->getProductLabel($variation->getTitle(), $currency, $variation->getPrice()->getNumber());
+            $products_elements_options[$variation->id()] = ['class' => 'listbox-level-2', 'disabled' => FALSE];
+
+            if (in_array($variation->id(), $order_variations)) {
+              $default_values[] = $variation->id();
+            }
           }
         }
         else {
-          $products_elements[$variations[0]->id()] = $this->t('@title - @currency@price', [
-            '@title' => $product->getTitle(),
-            '@currency' => $currency,
-            '@price' => number_format($price, 2),
-          ]);
+          $default_variation = $product->getDefaultVariation();
+          $products_elements[$default_variation->id()] = $this->getProductLabel($product->getTitle(), $currency, $default_price->getNumber());
+          $products_elements_options[$default_variation->id()] = ['class' => 'listbox-level-1', 'disabled' => FALSE];
+
+          if (in_array($default_variation->id(), $order_variations)) {
+            $default_values[] = $default_variation->id();
+          }
         };
       }
 
+      if ($options['choose_type'] == 'radios') {
+        $default_values = (count($default_values)) ? end($default_values) : 'none';
+      };
+
+      // Create radios/checkboxes.
       $pane_form[$product_type]['products'] = [
-        '#type' => $product_types[$product_type]['options']['choose_type'],
-        '#default_value' => !empty($products_elements['none']) ? $this->t('none') : '',
+        '#type' => $options['choose_type'],
+        '#default_value' => $default_values,
         '#multiple' => TRUE,
-        '#tree' => TRUE,
         '#options' => $products_elements,
       ];
 
+      // Create wrapper to elements.
+      foreach ($products_elements_options as $element_key => $element_option) {
+        $pane_form[$product_type]['products'][$element_key] = [
+          '#prefix' => '<div class="' . $element_option['class'] . '">',
+          '#suffix' => '</div>',
+          '#disabled' => $element_option['disabled'],
+        ];
+      }
     }
 
     return $pane_form;
@@ -360,6 +369,18 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
    */
   public function validatePaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
     $values = $form_state->getValue($pane_form['#parents']);
+  }
+
+  /**
+   * Getting product Label by parameters.
+   */
+  protected function getProductLabel($title, $currency, $price) {
+    return $this->t('@title - @currency@price', [
+      '@title' => $title,
+      '@currency' => $currency,
+      '@price' => number_format($price, 2),
+    ]);
+
   }
 
 }
