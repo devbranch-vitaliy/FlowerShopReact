@@ -361,6 +361,9 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
       }
     }
 
+    // Attached css library.
+    $pane_form['#attached']['library'][] = 'fleur_checkout/add_specials';
+
     return $pane_form;
   }
 
