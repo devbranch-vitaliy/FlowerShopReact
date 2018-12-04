@@ -9,7 +9,7 @@ dependencies:
     - field.field.commerce_product.extras_selection.variations
   module:
     - commerce
-    - commerce_product
+    - inline_entity_form
     - path
     - text
 id: commerce_product.extras_selection.default
@@ -73,9 +73,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
   variations:
-    type: commerce_product_single_variation
+    type: inline_entity_form_simple
     weight: 2
-    settings: {  }
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
     third_party_settings: {  }
     region: content
 hidden: {  }
