@@ -12,7 +12,7 @@ third_party_settings:
     taxable_type: physical_goods
 _core:
   default_config_hash: 6n6q97CDOCqHGs4Dun3BqVJE6e1o6TA-69qCwoUU-SY
-label: Bouquets
+label: 'Physical goods'
 id: default
 purchasableEntityType: commerce_product_variation
 orderType: default
