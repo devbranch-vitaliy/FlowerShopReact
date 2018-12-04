@@ -2,11 +2,14 @@
 
 namespace Drupal\fleur_checkout\Plugin\Commerce\CheckoutPane;
 
+use Drupal\commerce\PurchasableEntityInterface;
+use Drupal\commerce_cart\CartManagerInterface;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowInterface;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneBase;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -32,7 +35,28 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
    *
    * @var \Drupal\commerce\CommerceContentEntityStorage
    */
+  protected $productVariationStorage;
+
+  /**
+   * The payment options builder.
+   *
+   * @var \Drupal\commerce\CommerceContentEntityStorage
+   */
   protected $productStorage;
+
+  /**
+   * The cart manager.
+   *
+   * @var \Drupal\commerce_cart\CartManagerInterface
+   */
+  protected $cartManager;
+
+  /**
+   * The logger.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
+  protected $logger;
 
   /**
    * AddSpecials constructor.
@@ -47,15 +71,22 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
    *   The parent checkout flow.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
+   * @param \Drupal\commerce_cart\CartManagerInterface $cart_manager
+   *   The cart manager.
+   * @param \Psr\Log\LoggerInterface $logger
+   *   The logger.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, CartManagerInterface $cart_manager, LoggerInterface $logger) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $checkout_flow, $entity_type_manager);
 
     $this->productTypeStorage = $entity_type_manager->getStorage('commerce_product_type');
     $this->productStorage = $entity_type_manager->getStorage('commerce_product');
+    $this->productVariationStorage = $entity_type_manager->getStorage('commerce_product_variation');
+    $this->cartManager = $cart_manager;
+    $this->logger = $logger;
   }
 
   /**
@@ -67,7 +98,9 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
       $plugin_id,
       $plugin_definition,
       $checkout_flow,
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('commerce_cart.cart_manager'),
+      $container->get('logger.factory')->get('fleur_checkout')
     );
   }
 
@@ -370,8 +403,62 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
   /**
    * {@inheritdoc}
    */
-  public function validatePaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
-    $values = $form_state->getValue($pane_form['#parents']);
+  public function submitPaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
+    $message = $form_state->getValue('fleur_add_specials');
+    $variations = [];
+    $product_types = [];
+    foreach ($message as $product_type => $options) {
+      if (empty($this->productTypeStorage->load($product_type))) {
+        continue;
+      }
+
+      $product_types[] = $product_type;
+
+      if (is_array($options['products'])) {
+        foreach ($options['products'] as $id => $checked) {
+          if (!empty($checked)) {
+            $variations[$id] = $id;
+          }
+        }
+      }
+      else {
+        $variations[$options['products']] = $options['products'];
+      }
+    }
+
+    /** @var \Drupal\commerce_bulk\Entity\BulkProductVariation $order_variation */
+    foreach ($this->order->getItems() as $orderItem) {
+      $order_variation = $orderItem->getPurchasedEntity();
+      $order_variation_id = $order_variation->id();
+
+      if (in_array($order_variation_id, $variations)) {
+        unset($variations[$order_variation_id]);
+      }
+      else {
+        $product_type = $order_variation->getProduct()->get('type')->getString();
+        if (in_array($product_type, $product_types)) {
+          $this->order->removeItem($orderItem);
+          $orderItem->delete();
+        }
+      }
+    }
+
+    foreach ($variations as $variation_id) {
+      if ($variation_id == 'none') {
+        continue;
+      }
+
+      $purchased_entity = $this->productVariationStorage->load($variation_id);
+      if (!$purchased_entity || !$purchased_entity instanceof PurchasableEntityInterface) {
+        $this->logger->error(t("Not all items have been successfully copied"));
+        continue;
+      }
+      $new_order_item = $this->entityTypeManager->getStorage('commerce_order_item')->createFromPurchasableEntity($purchased_entity, [
+        'quantity' => 1,
+      ]);
+      $this->cartManager->addOrderItem($this->order, $new_order_item);
+
+    }
   }
 
   /**
