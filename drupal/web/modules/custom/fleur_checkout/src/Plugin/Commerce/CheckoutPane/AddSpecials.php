@@ -23,21 +23,21 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
   /**
-   * The payment options builder.
+   * The entity storage.
    *
    * @var \Drupal\Core\Config\Entity\ConfigEntityStorage
    */
   protected $productTypeStorage;
 
   /**
-   * The payment options builder.
+   * The product variation storage.
    *
    * @var \Drupal\commerce\CommerceContentEntityStorage
    */
   protected $productVariationStorage;
 
   /**
-   * The payment options builder.
+   * The product storage.
    *
    * @var \Drupal\commerce\CommerceContentEntityStorage
    */
