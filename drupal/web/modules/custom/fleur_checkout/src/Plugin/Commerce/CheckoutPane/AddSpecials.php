@@ -9,7 +9,6 @@ use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneBase;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -52,13 +51,6 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
   protected $cartManager;
 
   /**
-   * The logger.
-   *
-   * @var \Psr\Log\LoggerInterface
-   */
-  protected $logger;
-
-  /**
    * AddSpecials constructor.
    *
    * @param array $configuration
@@ -73,20 +65,17 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
    *   The entity type manager.
    * @param \Drupal\commerce_cart\CartManagerInterface $cart_manager
    *   The cart manager.
-   * @param \Psr\Log\LoggerInterface $logger
-   *   The logger.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, CartManagerInterface $cart_manager, LoggerInterface $logger) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, CartManagerInterface $cart_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $checkout_flow, $entity_type_manager);
 
     $this->productTypeStorage = $entity_type_manager->getStorage('commerce_product_type');
     $this->productStorage = $entity_type_manager->getStorage('commerce_product');
     $this->productVariationStorage = $entity_type_manager->getStorage('commerce_product_variation');
     $this->cartManager = $cart_manager;
-    $this->logger = $logger;
   }
 
   /**
@@ -99,8 +88,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
       $plugin_definition,
       $checkout_flow,
       $container->get('entity_type.manager'),
-      $container->get('commerce_cart.cart_manager'),
-      $container->get('logger.factory')->get('fleur_checkout')
+      $container->get('commerce_cart.cart_manager')
     );
   }
 
@@ -450,7 +438,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
       $purchased_entity = $this->productVariationStorage->load($variation_id);
       if (!$purchased_entity || !$purchased_entity instanceof PurchasableEntityInterface) {
-        $this->logger->error(t("Not all items have been successfully copied"));
+        \Drupal::logger('fleur_checkout')->error(t("Not all items have been successfully copied"));
         continue;
       }
       $new_order_item = $this->entityTypeManager->getStorage('commerce_order_item')->createFromPurchasableEntity($purchased_entity, [
