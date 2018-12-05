@@ -5,7 +5,10 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.default
     - field.field.commerce_product.default.body
+    - field.field.commerce_product.default.field_characteristics
     - field.field.commerce_product.default.field_images
+    - field.field.commerce_product.default.field_occasion
+    - field.field.commerce_product.default.field_type_of_flowers
     - field.field.commerce_product.default.stores
     - field.field.commerce_product.default.variations
   module:
@@ -26,6 +29,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_characteristics:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_images:
     weight: 1
     label: above
@@ -34,6 +45,22 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_occasion:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_type_of_flowers:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   title:
     label: hidden

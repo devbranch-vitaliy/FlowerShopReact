@@ -1,0 +1,29 @@
+uuid: eea670f5-6957-4a79-9a51-9b9e049c9092
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_occasion
+    - taxonomy.vocabulary.occasion
+id: commerce_product.default.field_occasion
+field_name: field_occasion
+entity_type: commerce_product
+bundle: default
+label: Occasion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      occasion: occasion
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
