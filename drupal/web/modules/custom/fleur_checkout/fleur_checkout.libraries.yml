@@ -1,0 +1,5 @@
+add_specials:
+  version: 1.x
+  css:
+    theme:
+      css/add-specials.css: {}

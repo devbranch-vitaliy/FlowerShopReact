@@ -1,0 +1,21 @@
+uuid: d580979b-08ae-435e-80e2-1a409c7e09ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.extras_selection
+    - field.storage.commerce_product.stores
+id: commerce_product.extras_selection.stores
+field_name: stores
+entity_type: commerce_product
+bundle: extras_selection
+label: Stores
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: null
+settings:
+  handler: 'default:commerce_store'
+  handler_settings: {  }
+field_type: entity_reference

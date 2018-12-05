@@ -28,31 +28,51 @@ configuration:
       require_shipping_profile: false
       step: order_information
       weight: 2
-    payment_information:
+    fleur_add_specials:
       step: order_information
       weight: 3
+      product_types:
+        containers:
+          selected: '1'
+          options:
+            weight: '0'
+            title: 'Add containers'
+            description: 'Containers will be the choice from our store''s extensive range, selected at our discretion and suitable for the flowers ordered.'
+            choose_type: radios
+            sort_by: product_id
+        extras_selection:
+          selected: '1'
+          options:
+            weight: '1'
+            title: 'Add specials:'
+            description: ''
+            choose_type: checkboxes
+            sort_by: product_id
+    payment_information:
+      step: order_information
+      weight: 4
+    fleur_commerce_checkout_confirmation_checkbox:
+      step: order_information
+      weight: 5
+      confirmation_checkbox_title: 'I accept site terms and conditions'
+      confirmation_checkbox_validation_message: 'Please accept site terms and conditions'
     review:
       step: review
-      weight: 5
+      weight: 6
     fleur_order_message:
       step: review
-      weight: 6
+      weight: 7
     payment_process:
       capture: true
       step: payment
-      weight: 7
+      weight: 8
     completion_message:
       step: complete
-      weight: 8
+      weight: 9
     completion_registration:
       step: complete
-      weight: 9
+      weight: 10
     order_summary:
       view: ''
       step: _sidebar
-      weight: 10
-    fleur_commerce_checkout_confirmation_checkbox:
-      step: order_information
-      weight: 4
-      confirmation_checkbox_title: 'I accept site terms and conditions'
-      confirmation_checkbox_validation_message: 'Please accept site terms and conditions'
+      weight: 11

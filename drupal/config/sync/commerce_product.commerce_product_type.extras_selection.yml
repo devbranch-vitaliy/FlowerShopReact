@@ -1,0 +1,12 @@
+uuid: a88ffa8c-1f32-4a01-b663-0a4061352040
+langcode: en
+status: true
+dependencies: {  }
+id: extras_selection
+label: 'Extras selection'
+description: ''
+variationType: extras_selection
+multipleVariations: false
+injectVariationFields: true
+traits: {  }
+locked: false
