@@ -365,7 +365,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
       };
 
       // Create radios/checkboxes.
-      $pane_form[$product_type]['products'] = [
+      $pane_form[$product_type]['variations'] = [
         '#type' => $options['choose_type'],
         '#default_value' => $default_values,
         '#multiple' => TRUE,
@@ -374,7 +374,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
       // Create wrapper to elements.
       foreach ($products_elements_options as $element_key => $element_option) {
-        $pane_form[$product_type]['products'][$element_key] = [
+        $pane_form[$product_type]['variations'][$element_key] = [
           '#prefix' => '<div class="' . $element_option['class'] . '">',
           '#suffix' => '</div>',
           '#disabled' => $element_option['disabled'],
@@ -401,15 +401,15 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
       $product_types[] = $product_type;
 
-      if (is_array($options['products'])) {
-        foreach ($options['products'] as $id => $checked) {
+      if (is_array($options['variations'])) {
+        foreach ($options['variations'] as $id => $checked) {
           if (!empty($checked)) {
             $variations[$id] = $id;
           }
         }
       }
       else {
-        $variations[$options['products']] = $options['products'];
+        $variations[$options['variations']] = $options['variations'];
       }
     }
 
