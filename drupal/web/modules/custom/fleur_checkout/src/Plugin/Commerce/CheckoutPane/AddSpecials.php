@@ -9,6 +9,7 @@ use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowInterface;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneBase;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneInterface;
 use Drupal\commerce_price\Price;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -292,7 +293,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
         '#type' => 'container',
         '#tree' => TRUE,
         '#attributes' => [
-          'class' => ['product-container', $product_type],
+          'class' => ['product-container', Html::cleanCssIdentifier('product-type-container-' . $product_type)],
         ],
         '#weight' => $options['weight'],
       ];
@@ -426,17 +427,17 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
     }
 
     /** @var \Drupal\commerce_bulk\Entity\BulkProductVariation $order_variation */
-    foreach ($this->order->getItems() as $orderItem) {
-      $order_variation_id = $orderItem->getPurchasedEntityId();
+    foreach ($this->order->getItems() as $order_item) {
+      $order_variation_id = $order_item->getPurchasedEntityId();
 
       if (isset($variations[$order_variation_id])) {
         unset($variations[$order_variation_id]);
       }
       else {
-        $product_type = $orderItem->getPurchasedEntity()->getProduct()->get('type')->getString();
+        $product_type = $order_item->getPurchasedEntity()->getProduct()->bundle();
         if (in_array($product_type, $product_types)) {
-          $this->order->removeItem($orderItem);
-          $orderItem->delete();
+          $this->order->removeItem($order_item);
+          $order_item->delete();
         }
       }
     }
