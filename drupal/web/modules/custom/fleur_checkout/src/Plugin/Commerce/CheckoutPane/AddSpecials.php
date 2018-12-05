@@ -464,6 +464,14 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
   /**
    * Getting product Label by parameters.
+   *
+   * @param string $title
+   *   The product title.
+   * @param \Drupal\commerce_price\Price $price
+   *   The product price.
+   *
+   * @return \Drupal\Core\StringTranslation\TranslatableMarkup
+   *   Displayed product label.
    */
   protected function getProductLabel($title, Price $price) {
     return $this->t('@title - @price', [
