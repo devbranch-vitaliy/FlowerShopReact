@@ -118,7 +118,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
   public function buildConfigurationSummary() {
     $summary = parent::buildConfigurationSummary();
 
-    $products_list = [];
+    $product_type_labels = [];
 
     $product_types = $this->productTypeStorage->loadMultiple();
     foreach ($product_types as $product_type) {
@@ -128,13 +128,12 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
       };
 
       if (!empty($this->configuration['product_types'][$type]['selected'])) {
-        $products_list[] = $product_type->label();
+        $product_type_labels[] = $product_type->label();
       }
     };
 
-    if (count($products_list)) {
-      $summary .= $this->t('Selected products:');
-      $summary .= ' ' . implode(', ', $products_list);
+    if (count($product_type_labels)) {
+      $summary .= $this->t('Selected products: @list', ['@list' => implode(', ', $product_type_labels)]);
     }
     else {
       $summary .= $this->t('No products selected.');
@@ -152,7 +151,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
     $form['fleur_add_specials'] = [
       '#type' => 'label',
-      '#title' => t('Choose a product type'),
+      '#title' => t('Select a product type'),
     ];
 
     foreach ($product_types as $product_type) {
@@ -322,8 +321,8 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
       // Get variations from order.
       $order_variations = [];
-      foreach ($this->order->getItems() as $orderItem) {
-        $order_variations[] = $orderItem->getPurchasedEntityId();
+      foreach ($this->order->getItems() as $order_item) {
+        $order_variations[] = $order_item->getPurchasedEntityId();
       }
 
       // Add products elements.
@@ -428,14 +427,13 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
     /** @var \Drupal\commerce_bulk\Entity\BulkProductVariation $order_variation */
     foreach ($this->order->getItems() as $orderItem) {
-      $order_variation = $orderItem->getPurchasedEntity();
-      $order_variation_id = $order_variation->id();
+      $order_variation_id = $orderItem->getPurchasedEntityId();
 
-      if (in_array($order_variation_id, $variations)) {
+      if (isset($variations[$order_variation_id])) {
         unset($variations[$order_variation_id]);
       }
       else {
-        $product_type = $order_variation->getProduct()->get('type')->getString();
+        $product_type = $orderItem->getPurchasedEntity()->getProduct()->get('type')->getString();
         if (in_array($product_type, $product_types)) {
           $this->order->removeItem($orderItem);
           $orderItem->delete();
