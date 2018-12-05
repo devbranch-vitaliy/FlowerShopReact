@@ -337,7 +337,6 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
         $products_elements_options['none'] = ['class' => 'listbox-level-1', 'disabled' => FALSE];
       }
 
-      $currency = $this->order->getStore()->getDefaultCurrency()->getSymbol();
       /** @var \Drupal\commerce_product\Entity\ProductInterface[] $products */
       $products = $this->productStorage->loadMultiple($products_ids);
       foreach ($products as $product) {
