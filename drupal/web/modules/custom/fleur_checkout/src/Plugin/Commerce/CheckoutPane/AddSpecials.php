@@ -415,14 +415,13 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
     /** @var \Drupal\commerce_bulk\Entity\BulkProductVariation $order_variation */
     foreach ($this->order->getItems() as $order_item) {
-      $order_variation = $order_item->getPurchasedEntity();
-      $order_variation_id = $order_variation->id();
+      $order_variation_id = $order_item->getPurchasedEntityId();
 
       if (isset($variations[$order_variation_id])) {
         unset($variations[$order_variation_id]);
       }
       else {
-        $product_type = $order_variation->getProduct()->get('type')->getString();
+        $product_type = $order_item->getPurchasedEntity()->getProduct()->get('type')->getString();
         if (in_array($product_type, $product_types)) {
           $this->order->removeItem($order_item);
           $order_item->delete();
