@@ -2,14 +2,15 @@
 
 namespace Drupal\fleur_checkout\Plugin\Commerce\CheckoutPane;
 
+use CommerceGuys\Intl\Formatter\CurrencyFormatterInterface;
 use Drupal\commerce\PurchasableEntityInterface;
 use Drupal\commerce_cart\CartManagerInterface;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowInterface;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneBase;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneInterface;
+use Drupal\commerce_price\Price;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Component\Utility\Html;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -24,21 +25,21 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
   /**
-   * The entity storage.
+   * The payment options builder.
    *
    * @var \Drupal\Core\Config\Entity\ConfigEntityStorage
    */
   protected $productTypeStorage;
 
   /**
-   * The product variation storage.
+   * The payment options builder.
    *
    * @var \Drupal\commerce\CommerceContentEntityStorage
    */
   protected $productVariationStorage;
 
   /**
-   * The product storage.
+   * The payment options builder.
    *
    * @var \Drupal\commerce\CommerceContentEntityStorage
    */
@@ -50,6 +51,13 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
    * @var \Drupal\commerce_cart\CartManagerInterface
    */
   protected $cartManager;
+
+  /**
+   * The currency formatter.
+   *
+   * @var \CommerceGuys\Intl\Formatter\CurrencyFormatterInterface
+   */
+  protected $currencyFormatter;
 
   /**
    * AddSpecials constructor.
@@ -66,17 +74,20 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
    *   The entity type manager.
    * @param \Drupal\commerce_cart\CartManagerInterface $cart_manager
    *   The cart manager.
+   * @param \CommerceGuys\Intl\Formatter\CurrencyFormatterInterface $currency_formatter
+   *   The currency formatter.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, CartManagerInterface $cart_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, CheckoutFlowInterface $checkout_flow, EntityTypeManagerInterface $entity_type_manager, CartManagerInterface $cart_manager, CurrencyFormatterInterface $currency_formatter) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $checkout_flow, $entity_type_manager);
 
     $this->productTypeStorage = $entity_type_manager->getStorage('commerce_product_type');
     $this->productStorage = $entity_type_manager->getStorage('commerce_product');
     $this->productVariationStorage = $entity_type_manager->getStorage('commerce_product_variation');
     $this->cartManager = $cart_manager;
+    $this->currencyFormatter = $currency_formatter;
   }
 
   /**
@@ -89,7 +100,8 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
       $plugin_definition,
       $checkout_flow,
       $container->get('entity_type.manager'),
-      $container->get('commerce_cart.cart_manager')
+      $container->get('commerce_cart.cart_manager'),
+      $container->get('commerce_price.currency_formatter')
     );
   }
 
@@ -106,7 +118,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
   public function buildConfigurationSummary() {
     $summary = parent::buildConfigurationSummary();
 
-    $product_type_labels = [];
+    $products_list = [];
 
     $product_types = $this->productTypeStorage->loadMultiple();
     foreach ($product_types as $product_type) {
@@ -116,12 +128,13 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
       };
 
       if (!empty($this->configuration['product_types'][$type]['selected'])) {
-          $product_type_labels[] = $product_type->label();
+        $products_list[] = $product_type->label();
       }
     };
 
-    if (count($product_type_labels)) {
-      $summary .= $this->t('Selected products: @list', ['@list' => implode(', ', $product_type_labels)]);
+    if (count($products_list)) {
+      $summary .= $this->t('Selected products:');
+      $summary .= ' ' . implode(', ', $products_list);
     }
     else {
       $summary .= $this->t('No products selected.');
@@ -139,7 +152,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
     $form['fleur_add_specials'] = [
       '#type' => 'label',
-      '#title' => t('Select a product type'),
+      '#title' => t('Choose a product type'),
     ];
 
     foreach ($product_types as $product_type) {
@@ -280,7 +293,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
         '#type' => 'container',
         '#tree' => TRUE,
         '#attributes' => [
-          'class' => ['product-container', Html::cleanCssIdentifier('product-type-container-' . $product_type)],
+          'class' => ['product-container', $product_type],
         ],
         '#weight' => $options['weight'],
       ];
@@ -337,11 +350,11 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
           // For parent use a label because id can be the same as variation id.
           $label = $product->label();
 
-          $products_elements[$label] = $this->getProductLabel($product->getTitle(), $currency, $default_price->getNumber());
+          $products_elements[$label] = $this->getProductLabel($product->getTitle(), $default_price);
           $products_elements_options[$label] = ['class' => 'listbox-level-1', 'disabled' => TRUE];
 
           foreach ($variations as $variation) {
-            $products_elements[$variation->id()] = ($default_price->equals($variation->getPrice())) ? $variation->getTitle() : $this->getProductLabel($variation->getTitle(), $currency, $variation->getPrice()->getNumber());
+            $products_elements[$variation->id()] = ($default_price->equals($variation->getPrice())) ? $variation->getTitle() : $this->getProductLabel($variation->getTitle(), $variation->getPrice());
             $products_elements_options[$variation->id()] = ['class' => 'listbox-level-2', 'disabled' => FALSE];
 
             if (in_array($variation->id(), $order_variations)) {
@@ -351,7 +364,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
         }
         else {
           $default_variation = $product->getDefaultVariation();
-          $products_elements[$default_variation->id()] = $this->getProductLabel($product->getTitle(), $currency, $default_price->getNumber());
+          $products_elements[$default_variation->id()] = $this->getProductLabel($product->getTitle(), $default_price);
           $products_elements_options[$default_variation->id()] = ['class' => 'listbox-level-1', 'disabled' => FALSE];
 
           if (in_array($default_variation->id(), $order_variations)) {
@@ -365,7 +378,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
       };
 
       // Create radios/checkboxes.
-      $pane_form[$product_type]['variations'] = [
+      $pane_form[$product_type]['products'] = [
         '#type' => $options['choose_type'],
         '#default_value' => $default_values,
         '#multiple' => TRUE,
@@ -374,7 +387,7 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
 
       // Create wrapper to elements.
       foreach ($products_elements_options as $element_key => $element_option) {
-        $pane_form[$product_type]['variations'][$element_key] = [
+        $pane_form[$product_type]['products'][$element_key] = [
           '#prefix' => '<div class="' . $element_option['class'] . '">',
           '#suffix' => '</div>',
           '#disabled' => $element_option['disabled'],
@@ -392,39 +405,41 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
    * {@inheritdoc}
    */
   public function submitPaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
+    $message = $form_state->getValue('fleur_add_specials');
     $variations = [];
     $product_types = [];
-    foreach ($form_state->getValue('fleur_add_specials') as $product_type => $options) {
+    foreach ($message as $product_type => $options) {
       if (empty($this->productTypeStorage->load($product_type))) {
         continue;
       }
 
       $product_types[] = $product_type;
 
-      if (is_array($options['variations'])) {
-        foreach ($options['variations'] as $id => $checked) {
+      if (is_array($options['products'])) {
+        foreach ($options['products'] as $id => $checked) {
           if (!empty($checked)) {
             $variations[$id] = $id;
           }
         }
       }
       else {
-        $variations[$options['variations']] = $options['variations'];
+        $variations[$options['products']] = $options['products'];
       }
     }
 
     /** @var \Drupal\commerce_bulk\Entity\BulkProductVariation $order_variation */
-    foreach ($this->order->getItems() as $order_item) {
-      $order_variation_id = $order_item->getPurchasedEntityId();
+    foreach ($this->order->getItems() as $orderItem) {
+      $order_variation = $orderItem->getPurchasedEntity();
+      $order_variation_id = $order_variation->id();
 
-      if (isset($variations[$order_variation_id])) {
+      if (in_array($order_variation_id, $variations)) {
         unset($variations[$order_variation_id]);
       }
       else {
-        $product_type = $order_item->getPurchasedEntity()->getProduct()->get('type')->getString();
+        $product_type = $order_variation->getProduct()->get('type')->getString();
         if (in_array($product_type, $product_types)) {
-          $this->order->removeItem($order_item);
-          $order_item->delete();
+          $this->order->removeItem($orderItem);
+          $orderItem->delete();
         }
       }
     }
@@ -450,11 +465,10 @@ class AddSpecials extends CheckoutPaneBase implements CheckoutPaneInterface {
   /**
    * Getting product Label by parameters.
    */
-  protected function getProductLabel($title, $currency, $price) {
-    return $this->t('@title - @currency@price', [
+  protected function getProductLabel($title, Price $price) {
+    return $this->t('@title - @price', [
       '@title' => $title,
-      '@currency' => $currency,
-      '@price' => number_format($price, 2),
+      '@price' => $this->currencyFormatter->format($price->getNumber(), $price->getCurrencyCode()),
     ]);
 
   }
