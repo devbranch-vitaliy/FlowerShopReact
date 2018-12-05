@@ -31,9 +31,9 @@ content:
     region: content
   field_characteristics:
     weight: 6
-    label: above
+    label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
@@ -48,17 +48,17 @@ content:
     region: content
   field_occasion:
     weight: 4
-    label: above
+    label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_type_of_flowers:
     weight: 5
-    label: above
+    label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
