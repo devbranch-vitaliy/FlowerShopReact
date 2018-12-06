@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.default
+    - core.entity_view_mode.commerce_product.view
     - field.storage.commerce_product.field_images
   module:
     - commerce
@@ -73,7 +74,10 @@ display:
       style:
         type: grid
       row:
-        type: fields
+        type: 'entity:commerce_product'
+        options:
+          relationship: none
+          view_mode: view
       fields:
         title:
           table: commerce_product_field_data

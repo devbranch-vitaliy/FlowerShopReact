@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
+    - field.field.commerce_product_variation.default.attribute_size
     - field.field.commerce_product_variation.default.weight
   module:
     - commerce_bulk
@@ -15,6 +16,12 @@ targetEntityType: commerce_product_variation
 bundle: default
 mode: default
 content:
+  attribute_size:
+    type: options_select
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   list_price:
     type: commerce_list_price
     weight: 1
