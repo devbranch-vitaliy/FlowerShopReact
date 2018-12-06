@@ -54,5 +54,8 @@ content:
     region: content
 hidden:
   created: true
+  field_characteristics: true
+  field_occasion: true
+  field_type_of_flowers: true
   stores: true
   uid: true
