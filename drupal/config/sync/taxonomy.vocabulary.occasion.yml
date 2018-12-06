@@ -1,0 +1,9 @@
+uuid: 4b7be55a-bbea-4392-bcbb-0726cad9c2d3
+langcode: en
+status: true
+dependencies: {  }
+name: Occasion
+vid: occasion
+description: Occasion
+hierarchy: 0
+weight: 0

@@ -1,0 +1,9 @@
+uuid: b36186d5-5d23-423c-ad38-e029e713d523
+langcode: en
+status: true
+dependencies: {  }
+name: 'Type of flowers'
+vid: type_of_flowers
+description: 'Type of flowers'
+hierarchy: 0
+weight: 0
