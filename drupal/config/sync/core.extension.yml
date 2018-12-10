@@ -81,6 +81,7 @@ module:
   serialization: 0
   shortcut: 0
   sms: 0
+  sms_clickatell: 0
   state_machine: 0
   system: 0
   taxonomy: 0
