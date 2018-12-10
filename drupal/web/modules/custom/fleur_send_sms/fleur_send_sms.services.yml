@@ -1,0 +1,5 @@
+services:
+  fleur_send_sms.order_sms_send:
+    class: Drupal\fleur_send_sms\EventSubscriber\SendSMS
+    tags:
+      - { name: event_subscriber }

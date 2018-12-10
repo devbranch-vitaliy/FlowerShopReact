@@ -51,6 +51,7 @@ module:
   fleur_message: 0
   fleur_order_operations: 0
   fleur_order_state: 0
+  fleur_send_sms: 0
   google_analytics: 0
   help: 0
   history: 0
@@ -81,6 +82,7 @@ module:
   serialization: 0
   shortcut: 0
   sms: 0
+  sms_clickatell: 0
   state_machine: 0
   system: 0
   taxonomy: 0
