@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a450fadd9fc88214cad66d17b9ebbac0",
+    "content-hash": "d156b8ca8986f03729c8eed2da973450",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -69,6 +69,48 @@
                 "zip"
             ],
             "time": "2016-11-03T16:10:31+00:00"
+        },
+        {
+            "name": "arcturial/clickatell",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arcturial/clickatell.git",
+                "reference": "541ab55c3a807374fe727aad57004c09887080cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arcturial/clickatell/zipball/541ab55c3a807374fe727aad57004c09887080cf",
+                "reference": "541ab55c3a807374fe727aad57004c09887080cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Clickatell\\": [
+                        "src",
+                        "test"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU General Public License"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Brand"
+                }
+            ],
+            "description": "Standalone PHP library to integrate with the Clickatell SMS gateway",
+            "homepage": "https://arcturial.github.com",
+            "time": "2017-03-10T09:48:13+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -4268,6 +4310,59 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/smsframework",
                 "issues": "https://www.drupal.org/project/issues/smsframework"
+            }
+        },
+        {
+            "name": "drupal/sms_clickatell",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/sms_clickatell",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/sms_clickatell-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "14b4d2c79b4f7cd84bb5e09368034e6c4147a2fd"
+            },
+            "require": {
+                "arcturial/clickatell": "~3.0.0",
+                "drupal/core": "~8.0"
+            },
+            "suggest": {
+                "drupal/sms": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1518690485",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Phin",
+                    "homepage": "http://danielph.in",
+                    "email": "pro@danielph.in",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Enables modules to use Clickatell API.",
+            "homepage": "http://drupal.org/project/clickatell",
+            "support": {
+                "source": "http://cgit.drupalcode.org/sms_clickatell"
             }
         },
         {
