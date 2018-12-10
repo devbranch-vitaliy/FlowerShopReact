@@ -1,0 +1,6 @@
+name: 'Fleur send sms'
+type: module
+description: Send sms after the order is placed.
+core: 8.x
+version: '1.x'
+package: Custom
