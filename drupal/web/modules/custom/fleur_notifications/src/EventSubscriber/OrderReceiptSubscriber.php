@@ -202,7 +202,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
       $langcode = $this->languageManager->getDefaultLanguage()->getId();
     }
 
-    $this->mailManager->mail('fleur_message', 'receipt', $to, $langcode, $params);
+    $this->mailManager->mail('fleur_notifications', 'receipt', $to, $langcode, $params);
   }
 
   /**
