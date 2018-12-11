@@ -3,6 +3,7 @@
 namespace Drupal\fleur_notifications\EventSubscriber;
 
 use Drupal\commerce_order\Entity\Order;
+use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Event\OrderEvent;
 use Drupal\commerce_order\OrderTotalSummaryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -112,7 +113,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function sendOrderPlaced(WorkflowTransitionEvent $event) {
-    $this->sendNotification($event->getEntity()->id(), 'fleur_order_placed');
+    $this->sendNotification($event->getEntity(), 'fleur_order_placed');
   }
 
   /**
@@ -126,7 +127,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function sendOrderPaid(OrderEvent $event) {
-    $this->sendNotification($event->getOrder()->id(), 'fleur_order_paid');
+    $this->sendNotification($event->getOrder(), 'fleur_order_paid');
   }
 
   /**
@@ -140,23 +141,20 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function sendOrderCompleted(WorkflowTransitionEvent $event) {
-    $this->sendNotification($event->getEntity()->id(), 'fleur_order_completed');
+    $this->sendNotification($event->getEntity(), 'fleur_order_completed');
   }
 
   /**
    * Sends an order receipt email.
    *
-   * @param int $order_id
+   * @param \Drupal\commerce_order\Entity\OrderInterface $order
    *   The commerce order.
    * @param string $notification_type
    *   A type of notification template.
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  public function sendNotification($order_id, $notification_type) {
-    /** @var \Drupal\commerce_order\Entity\Order $order */
-    $order = $this->orderOrderStorage->load($order_id);
-
+  public function sendNotification(OrderInterface $order, $notification_type) {
     $to = $order->getEmail();
     if (!$to) {
       // The email should not be empty, unless the order is malformed.
