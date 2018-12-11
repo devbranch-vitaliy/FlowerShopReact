@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Defines the Order entity and associated features.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function fleur_notifications_theme($existing, $type, $theme, $path) {
+  return [
+    'fleur_order_placed' => [
+      'variables' => [
+        'order_entity' => NULL,
+      ],
+    ],
+    'fleur_order_paid' => [
+      'variables' => [
+        'order_entity' => NULL,
+      ],
+    ],
+    'fleur_order_completed' => [
+      'variables' => [
+        'order_entity' => NULL,
+        'address' => NULL
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_fleur_order_placed().
+ */
+function fleur_notifications_theme_suggestions_fleur_order_placed(array $variables) {
+  $suggestions = [];
+  if (isset($variables['order_entity'])) {
+    $order = $variables['order_entity'];
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $order->bundle();
+  }
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_fleur_order_paid().
+ */
+function fleur_notifications_theme_suggestions_fleur_order_paid(array $variables) {
+  $suggestions = [];
+  if (isset($variables['order_entity'])) {
+    $order = $variables['order_entity'];
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $order->bundle();
+  }
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_fleur_order_completed().
+ */
+function fleur_notifications_theme_suggestions_fleur_order_completed(array $variables) {
+  $suggestions = [];
+  if (isset($variables['order_entity'])) {
+    $order = $variables['order_entity'];
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $order->bundle();
+  }
+  return $suggestions;
+}
+
+/**
+ * Implements hook_mail().
+ *
+ * Captures the outgoing mail and sets appropriate message body and headers.
+ */
+function fleur_notifications_mail($key, &$message, $params) {
+  if (isset($params['headers'])) {
+    $message['headers'] = array_merge($message['headers'], $params['headers']);
+  }
+
+  $message['from'] = $params['from'];
+  $message['subject'] = $params['subject'];
+  $message['body'][] = $params['body'];
+}
