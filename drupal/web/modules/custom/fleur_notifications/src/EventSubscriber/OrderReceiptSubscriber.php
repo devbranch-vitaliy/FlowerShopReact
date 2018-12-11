@@ -2,18 +2,15 @@
 
 namespace Drupal\fleur_notifications\EventSubscriber;
 
-use Drupal\address\Plugin\Field\FieldType\AddressItem;
 use Drupal\commerce_order\Entity\Order;
 use Drupal\commerce_order\Event\OrderEvent;
 use Drupal\commerce_order\OrderTotalSummaryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Field\FieldItemList;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Render\RenderContext;
 use Drupal\Core\Render\Renderer;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\profile\Entity\Profile;
 use Drupal\state_machine\Event\WorkflowTransitionEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -111,6 +108,8 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *
    * @param \Drupal\state_machine\Event\WorkflowTransitionEvent $event
    *   The event we subscribed to.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function sendOrderPlaced(WorkflowTransitionEvent $event) {
     $this->sendNotification($event->getEntity()->id(), 'fleur_order_placed');
@@ -123,6 +122,8 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *
    * @param \Drupal\commerce_order\Event\OrderEvent $event
    *   The event we subscribed to.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function sendOrderPaid(OrderEvent $event) {
     $this->sendNotification($event->getOrder()->id(), 'fleur_order_paid');
@@ -135,6 +136,8 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *
    * @param \Drupal\state_machine\Event\WorkflowTransitionEvent $event
    *   The event we subscribed to.
+   *
+   * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   public function sendOrderCompleted(WorkflowTransitionEvent $event) {
     $this->sendNotification($event->getEntity()->id(), 'fleur_order_completed');
