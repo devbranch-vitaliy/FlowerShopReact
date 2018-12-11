@@ -70,7 +70,7 @@ function fleur_notifications_theme_suggestions_fleur_order_completed(array $vari
  *
  * Captures the outgoing mail and sets appropriate message body and headers.
  */
-function fleur_message_mail($key, &$message, $params) {
+function fleur_notifications_mail($key, &$message, $params) {
   if (isset($params['headers'])) {
     $message['headers'] = array_merge($message['headers'], $params['headers']);
   }
