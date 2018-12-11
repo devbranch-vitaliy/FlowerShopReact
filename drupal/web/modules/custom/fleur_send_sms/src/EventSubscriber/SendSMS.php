@@ -43,7 +43,7 @@ class SendSMS implements EventSubscriberInterface {
    *   The commerce order.
    */
   public function send(OrderInterface $order) {
-    $sms_message = t('Thank you for placing your order with Palette de Fleur. Your order number is @number.', ['@number' => $order->getOrderNumber()]);
+    $sms_message = t('Thank you for placing your order with Palette de Fleurs. Your order number is @number.', ['@number' => $order->getOrderNumber()]);
     $phone_number = $order->getBillingProfile()->get('field_telephone')->getString();
 
     if (strpos($phone_number, '+') !== FALSE) {
