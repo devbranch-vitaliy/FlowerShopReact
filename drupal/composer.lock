@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d156b8ca8986f03729c8eed2da973450",
+    "content-hash": "0ab43a1d323659568a4061a7f6f69a7d",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2155,116 +2155,6 @@
             "homepage": "https://www.drupal.org/project/commerce",
             "support": {
                 "source": "http://cgit.drupalcode.org/commerce"
-            }
-        },
-        {
-            "name": "drupal/commerce_cart_api",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/commerce_cart_api",
-                "reference": "8.x-1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/commerce_cart_api-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "821191b8ffe3205adc432b8ef4a33567ba3e985b"
-            },
-            "require": {
-                "drupal/commerce": "^2.0",
-                "drupal/commerce_cart": "*",
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1535641680",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "mglaman",
-                    "homepage": "https://www.drupal.org/user/2416470"
-                }
-            ],
-            "description": "WIP",
-            "homepage": "https://www.drupal.org/project/commerce_cart_api",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/commerce_cart_api",
-                "issues": "https://www.drupal.org/project/issues/commerce_cart_api"
-            }
-        },
-        {
-            "name": "drupal/commerce_cart_flyout",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/commerce_cart_flyout",
-                "reference": "8.x-1.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/commerce_cart_flyout-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "4ae45d0c3eda930f60123cb1e9b95b01d1d13f37"
-            },
-            "require": {
-                "drupal/commerce": "^2.0",
-                "drupal/commerce_cart": "*",
-                "drupal/commerce_cart_api": "^1.0",
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1533582480",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "patches_applied": {
-                    "Patch description": "https://www.drupal.org/files/issues/2018-11-07/js_code_bug_with_behaviors-3011932-1.patch"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "mglaman",
-                    "homepage": "https://www.drupal.org/user/2416470"
-                }
-            ],
-            "description": "WIP",
-            "homepage": "https://www.drupal.org/project/commerce_cart_flyout",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/commerce_cart_flyout",
-                "issues": "https://www.drupal.org/project/issues/commerce_cart_flyout"
             }
         },
         {
@@ -4425,17 +4315,17 @@
         },
         {
             "name": "drupal/state_machine",
-            "version": "1.0.0-beta3",
+            "version": "1.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/state_machine",
-                "reference": "8.x-1.0-beta3"
+                "reference": "8.x-1.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/state_machine-8.x-1.0-beta3.zip",
-                "reference": "8.x-1.0-beta3",
-                "shasum": "9ca0101738db00673f2511707a76d6ea0c9ce4db"
+                "url": "https://ftp.drupal.org/files/projects/state_machine-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "bea94c4def643f60d3134f9c5d8495ddb56c93dd"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4446,11 +4336,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta3",
-                    "datestamp": "1477868939",
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1542124077",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
