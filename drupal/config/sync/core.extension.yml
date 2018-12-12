@@ -15,7 +15,6 @@ module:
   commerce_bulk: 0
   commerce_cart: 0
   commerce_cart_api: 0
-  commerce_cart_flyout: 0
   commerce_checkout: 0
   commerce_generate: 0
   commerce_order: 0
@@ -45,7 +44,6 @@ module:
   file: 0
   filter: 0
   fleur_address: 0
-  fleur_cart_flyout_update: 0
   fleur_checkout: 0
   fleur_date_widget: 0
   fleur_message: 0
