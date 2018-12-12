@@ -6,12 +6,14 @@ dependencies:
     - commerce_product.commerce_product_type.default
     - core.entity_view_mode.commerce_product.view
     - field.field.commerce_product.default.body
+    - field.field.commerce_product.default.field_characteristics
     - field.field.commerce_product.default.field_images
+    - field.field.commerce_product.default.field_occasion
+    - field.field.commerce_product.default.field_type_of_flowers
     - field.field.commerce_product.default.stores
     - field.field.commerce_product.default.variations
     - image.style.medium
   module:
-    - commerce_cart_flyout
     - image
     - text
 _core:
@@ -45,13 +47,6 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  variations:
-    type: commerce_add_to_cart
-    weight: 3
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
   created: true
   field_characteristics: true
@@ -59,3 +54,4 @@ hidden:
   field_type_of_flowers: true
   stores: true
   uid: true
+  variations: true
