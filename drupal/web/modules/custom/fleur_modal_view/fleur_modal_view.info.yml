@@ -1,0 +1,6 @@
+name: 'Fleur modal view'
+type: module
+description: Create modal view form.
+core: 8.x
+version: '1.x'
+package: Custom
