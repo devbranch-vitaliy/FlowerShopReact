@@ -1,0 +1,21 @@
+uuid: e8bc3b73-5ab8-460a-9b9c-df10c76b1d27
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+  theme:
+    - palette_de_fleurs
+id: cart
+theme: palette_de_fleurs
+region: navigation
+weight: -7
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  provider: commerce_cart
+  label_display: '0'
+  dropdown: true
+visibility: {  }
