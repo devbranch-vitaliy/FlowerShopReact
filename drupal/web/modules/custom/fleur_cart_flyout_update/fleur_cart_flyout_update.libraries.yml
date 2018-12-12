@@ -1,9 +1,0 @@
-cart_flyout_update:
-  version: VERSION
-  js:
-    js/cart_flyout_update.js: {}
-  dependencies:
-  - core/jquery
-  - core/jquery.once
-  - core/drupal
-  - core/drupal.debounce
