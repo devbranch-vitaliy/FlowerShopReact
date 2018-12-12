@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Work with modal form.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_entity_view_mode_alter().
+ */
+function fleur_modal_view_entity_view_mode_alter(&$view_mode, EntityInterface $entity, $context) {
+  // For nodes, change the view mode when it is teaser.
+  if ($entity->getEntityTypeId() == 'commerce_product' && $view_mode == 'full') {
+
+    $wrapper = \Drupal::request()->query->get('_wrapper_format');
+    if (!isset($wrapper)) {
+      return;
+    }
+    $view_mode = 'modal';
+  }
+}
