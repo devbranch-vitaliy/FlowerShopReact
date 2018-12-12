@@ -15,7 +15,7 @@ function fleur_modal_view_entity_view_mode_alter(&$view_mode, EntityInterface $e
   if ($entity->getEntityTypeId() == 'commerce_product' && $view_mode == 'full') {
 
     $wrapper = \Drupal::request()->query->get('_wrapper_format');
-    if (!isset($wrapper)) {
+    if (!(isset($wrapper) && $wrapper == 'drupal_modal')) {
       return;
     }
     $view_mode = 'modal';
