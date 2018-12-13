@@ -8,7 +8,7 @@ dependencies:
     - field.field.commerce_product.containers.stores
     - field.field.commerce_product.containers.variations
   module:
-    - commerce_cart_flyout
+    - commerce_product
     - text
 id: commerce_product.containers.default
 targetEntityType: commerce_product
@@ -31,11 +31,12 @@ content:
       link_to_entity: false
     third_party_settings: {  }
   variations:
-    type: commerce_add_to_cart
-    weight: 10
+    weight: 11
     label: above
-    settings: {  }
+    settings:
+      combine: true
     third_party_settings: {  }
+    type: commerce_add_to_cart
     region: content
 hidden:
   created: true

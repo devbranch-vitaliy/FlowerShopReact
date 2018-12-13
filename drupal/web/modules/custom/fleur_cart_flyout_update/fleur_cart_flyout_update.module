@@ -1,8 +1,0 @@
-<?php
-
-/**
- * Implements hook_page_attachments()
- */
-function fleur_cart_flyout_update_page_attachments(array &$attachments) {
-  $attachments['#attached']['library'][] = 'fleur_cart_flyout_update/cart_flyout_update';
-}
