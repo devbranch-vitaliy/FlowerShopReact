@@ -42,6 +42,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  fleur_add_to_cart_modal: 0
   fleur_address: 0
   fleur_checkout: 0
   fleur_date_widget: 0
