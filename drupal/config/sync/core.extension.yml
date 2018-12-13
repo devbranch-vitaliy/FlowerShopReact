@@ -46,7 +46,6 @@ module:
   fleur_checkout: 0
   fleur_date_widget: 0
   fleur_message: 0
-  fleur_modal_view: 0
   fleur_notifications: 0
   fleur_order_operations: 0
   fleur_order_state: 0
