@@ -1,9 +1,9 @@
 uuid: e6269814-6f94-4312-ab1e-06b3890eb5c2
 langcode: en
-status: true
+status: false
 dependencies: {  }
 id: bank_transfer
-label: 'Bank Transfer'
+label: 'Bank Transfer (Manual)'
 weight: -10
 plugin: manual
 configuration:
