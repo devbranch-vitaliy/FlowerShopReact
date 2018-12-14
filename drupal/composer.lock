@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df2f531e17355430ef3588bacbbb842f",
+    "content-hash": "2ef95afb30d936f1cdff668187780ca1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2143,7 +2143,8 @@
                     }
                 },
                 "patches_applied": {
-                    "Implement registration after guest checkout": "https://www.drupal.org/files/issues/2018-11-09/2857157-108.patch"
+                    "Implement registration after guest checkout": "https://www.drupal.org/files/issues/2018-11-09/2857157-108.patch",
+                    "Entity print support": "https://www.drupal.org/files/issues/2018-10-30/commerce-order-2831952-66.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

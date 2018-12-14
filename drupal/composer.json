@@ -83,16 +83,14 @@
             "drupal/core": "-p2"
         },
         "patches": {
-            "drupal/commerce_cart_flyout": {
-                "Patch description": "https://www.drupal.org/files/issues/2018-11-07/js_code_bug_with_behaviors-3011932-1.patch"
-            },
             "drupal/international_phone": {
                 "External reference to jQuery 1.11.1 is not required": "https://www.drupal.org/files/issues/2018-07-12/international_phone-remove_external_jquery_ref-2985243-1-D8.patch",
                 "Module doesn't work with jQuery 3+": "https://www.drupal.org/files/issues/fix-type-error-in-international-phone_2.patch",
                 "Fix field label": "https://www.drupal.org/files/issues/2018-07-12/international_phone-fix_custom_field_label-2915431-10-D8.patch"
             },
             "drupal/commerce": {
-                "Implement registration after guest checkout": "https://www.drupal.org/files/issues/2018-11-09/2857157-108.patch"
+                "Implement registration after guest checkout": "https://www.drupal.org/files/issues/2018-11-09/2857157-108.patch",
+                "Entity print support": "https://www.drupal.org/files/issues/2018-10-30/commerce-order-2831952-66.patch"
             },
             "drupal/commerce_shipping": {
                 "Support taxing the shipping cost": "https://www.drupal.org/files/issues/2018-10-03/shipping-tax-2874158-20.patch"
