@@ -41,6 +41,7 @@
         "drupal/sms_clickatell": "^2.0",
         "drupal/yoast_seo": "^1.4",
         "drush/drush": "^9.0.0",
+        "tecnickcom/tcpdf": "~6",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
