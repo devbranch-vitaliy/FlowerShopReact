@@ -12,7 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
  * @FieldWidget(
  *   id = "fleur_color_field_widget_box",
  *   module = "fleur_color_field",
- *   label = @Translation("Color boxes v2"),
+ *   label = @Translation("Palette de Fleur - Color boxes"),
  *   field_types = {
  *     "color_field_type"
  *   }
