@@ -26,6 +26,15 @@ function fleur_notifications_theme($existing, $type, $theme, $path) {
         'address' => NULL
       ],
     ],
+    'fleur_order_receipt' => [
+      'variables' => [
+        'order_entity' => NULL,
+        'billing_information' => NULL,
+        'shipping_information' => NULL,
+        'payment_method' => NULL,
+        'totals' => NULL,
+      ],
+    ],
   ];
 }
 
@@ -33,30 +42,38 @@ function fleur_notifications_theme($existing, $type, $theme, $path) {
  * Implements hook_theme_suggestions_fleur_order_placed().
  */
 function fleur_notifications_theme_suggestions_fleur_order_placed(array $variables) {
-  $suggestions = [];
-  if (isset($variables['order_entity'])) {
-    $order = $variables['order_entity'];
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $order->bundle();
-  }
-  return $suggestions;
+  return fleur_notification_get_order_suggestion_template($variables);
 }
 
 /**
  * Implements hook_theme_suggestions_fleur_order_paid().
  */
 function fleur_notifications_theme_suggestions_fleur_order_paid(array $variables) {
-  $suggestions = [];
-  if (isset($variables['order_entity'])) {
-    $order = $variables['order_entity'];
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $order->bundle();
-  }
-  return $suggestions;
+  return fleur_notification_get_order_suggestion_template($variables);
 }
 
 /**
  * Implements hook_theme_suggestions_fleur_order_completed().
  */
 function fleur_notifications_theme_suggestions_fleur_order_completed(array $variables) {
+  return fleur_notification_get_order_suggestion_template($variables);
+}
+
+/**
+ * Implements hook_theme_suggestions_fleur_order_completed().
+ */
+function fleur_notifications_theme_suggestions_fleur_order_receipt(array $variables) {
+  return fleur_notification_get_order_suggestion_template($variables);
+}
+
+/**
+ * @param array $variables
+ *   The variables from hook.
+ *
+ * @return array
+ *   The suggestions.
+ */
+function fleur_notification_get_order_suggestion_template(array $variables){
   $suggestions = [];
   if (isset($variables['order_entity'])) {
     $order = $variables['order_entity'];
