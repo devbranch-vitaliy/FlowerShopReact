@@ -1,0 +1,15 @@
+uuid: 36f86b56-f05a-4620-acf8-b37f15012ca6
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_tax
+third_party_settings:
+  commerce_tax:
+    taxable_type: physical_goods
+label: Extras
+id: extras
+purchasableEntityType: commerce_product_variation
+orderType: default
+traits: {  }
+locked: false
