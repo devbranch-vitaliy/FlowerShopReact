@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: extras_selection
 label: 'Extras selection'
-orderItemType: default
+orderItemType: extras
 generateTitle: false
 traits:
   - purchasable_entity_shippable
