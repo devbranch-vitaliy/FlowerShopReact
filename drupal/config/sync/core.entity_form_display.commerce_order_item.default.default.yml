@@ -9,8 +9,8 @@ dependencies:
     module:
       - commerce_product
   module:
-    - color_field
     - commerce_order
+    - fleur_color_field
 _core:
   default_config_hash: AI9120ApX7uexCUMTuO3RgE5bWu8175i_bNlPMRXe7M
 id: commerce_order_item.default.default
@@ -19,16 +19,15 @@ bundle: default
 mode: default
 content:
   field_color:
-    weight: 3
+    weight: 0
     settings:
-      placeholder_color: ''
-      placeholder_opacity: ''
+      default_colors: '#FFFFFF,#FE2E9A,#DF01D7,#FFFF00,#FFBF00,#FE2E2E'
     third_party_settings: {  }
-    type: color_field_widget_default
+    type: fleur_color_field_widget_box
     region: content
   purchased_entity:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -37,7 +36,7 @@ content:
     region: content
   quantity:
     type: commerce_quantity
-    weight: 1
+    weight: 2
     settings:
       placeholder: ''
       step: '1'
@@ -45,7 +44,7 @@ content:
     region: content
   unit_price:
     type: commerce_unit_price
-    weight: 2
+    weight: 3
     settings:
       require_confirmation: true
     third_party_settings: {  }

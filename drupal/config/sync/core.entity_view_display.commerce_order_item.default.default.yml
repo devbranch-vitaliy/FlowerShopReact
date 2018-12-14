@@ -29,17 +29,19 @@ content:
       timezone: ''
     third_party_settings: {  }
   field_color:
-    weight: 4
+    weight: 2
     label: above
     settings:
-      format: hex
+      shape: circle
+      width: '25'
+      height: '25'
       opacity: '1'
     third_party_settings: {  }
-    type: color_field_formatter_text
+    type: color_field_formatter_swatch
     region: content
   purchased_entity:
     type: entity_reference_entity_view
-    weight: 0
+    weight: 1
     settings:
       view_mode: default
       link: false
@@ -48,7 +50,7 @@ content:
     region: content
   quantity:
     type: number_decimal
-    weight: 1
+    weight: 3
     settings:
       thousand_separator: ''
       decimal_separator: .
@@ -59,7 +61,7 @@ content:
     region: content
   total_price:
     type: commerce_price_default
-    weight: 3
+    weight: 5
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
@@ -68,7 +70,7 @@ content:
     region: content
   unit_price:
     type: commerce_price_default
-    weight: 2
+    weight: 4
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
