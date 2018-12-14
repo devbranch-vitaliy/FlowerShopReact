@@ -1,21 +1,14 @@
-uuid: 8fdb3ab6-2fc1-4271-9ca4-10251e786694
+uuid: 2f821ed2-bab4-4277-abcb-532896c3f42c
 langcode: en
 status: true
 dependencies:
   config:
-    - commerce_order.commerce_order_item_type.default
-    - field.field.commerce_order_item.default.field_color
-  enforced:
-    module:
-      - commerce_product
+    - commerce_order.commerce_order_item_type.extras
   module:
-    - color_field
     - commerce_price
-_core:
-  default_config_hash: na1I045I2I_Fv3VhEW6TVW4IwUqNkexoPdIcvDoRUss
-id: commerce_order_item.default.default
+id: commerce_order_item.extras.default
 targetEntityType: commerce_order_item
-bundle: default
+bundle: extras
 mode: default
 content:
   created:
@@ -28,54 +21,43 @@ content:
       custom_date_format: ''
       timezone: ''
     third_party_settings: {  }
-  field_color:
-    weight: 2
-    label: above
-    settings:
-      shape: circle
-      width: '25'
-      height: '25'
-      opacity: '1'
-    third_party_settings: {  }
-    type: color_field_formatter_swatch
-    region: content
   purchased_entity:
     type: entity_reference_entity_view
     weight: 1
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    label: above
     region: content
+    label: above
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
   quantity:
     type: number_decimal
-    weight: 3
+    weight: 2
+    region: content
+    label: above
     settings:
       thousand_separator: ''
       decimal_separator: .
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    label: above
-    region: content
   total_price:
     type: commerce_price_default
-    weight: 5
+    weight: 4
+    region: content
+    label: above
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
-    label: above
-    region: content
   unit_price:
     type: commerce_price_default
-    weight: 4
+    weight: 3
+    region: content
+    label: above
     settings:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
-    label: above
-    region: content
 hidden:
   adjustments: true

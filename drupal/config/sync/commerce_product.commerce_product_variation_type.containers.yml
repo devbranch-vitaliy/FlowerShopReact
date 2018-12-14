@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: containers
 label: Containers
-orderItemType: default
+orderItemType: extras
 generateTitle: false
 traits:
   - purchasable_entity_shippable

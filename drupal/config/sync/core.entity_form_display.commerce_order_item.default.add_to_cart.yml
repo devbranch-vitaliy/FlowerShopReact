@@ -5,12 +5,14 @@ dependencies:
   config:
     - commerce_order.commerce_order_item_type.default
     - core.entity_form_mode.commerce_order_item.add_to_cart
+    - field.field.commerce_order_item.default.field_color
   enforced:
     module:
       - commerce_cart
       - commerce_product
   module:
     - commerce_product
+    - fleur_color_field
 _core:
   default_config_hash: dEAP3rR9rAW6OwN2i5jskLxvkOBHsclejItF8RL_KVQ
 id: commerce_order_item.default.add_to_cart
@@ -18,9 +20,16 @@ targetEntityType: commerce_order_item
 bundle: default
 mode: add_to_cart
 content:
+  field_color:
+    type: fleur_color_field_widget_box
+    weight: 0
+    region: content
+    settings:
+      default_colors: '#FFFFFF,#FE2E9A,#DF01D7,#FFFF00,#FFBF00,#FE2E2E'
+    third_party_settings: {  }
   purchased_entity:
     type: commerce_product_variation_attributes
-    weight: 0
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
