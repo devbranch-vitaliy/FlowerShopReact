@@ -46,6 +46,7 @@ module:
   fleur_add_to_cart_modal: 0
   fleur_address: 0
   fleur_checkout: 0
+  fleur_color_field: 0
   fleur_date_widget: 0
   fleur_message: 0
   fleur_notifications: 0
