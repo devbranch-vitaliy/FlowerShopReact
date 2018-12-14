@@ -79,3 +79,15 @@ function fleur_notifications_mail($key, &$message, $params) {
   $message['subject'] = $params['subject'];
   $message['body'][] = $params['body'];
 }
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function fleur_notifications_entity_type_alter(array &$entity_types) {
+
+  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+  // Set custom render of order to entity_print handler.
+  if (\Drupal::service('module_handler')->moduleExists('entity_print')) {
+    $entity_types['commerce_order']->setHandlerClass('entity_print', 'Drupal\fleur_notifications\Renderer\FleurOrderRenderer');
+  }
+}
