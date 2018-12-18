@@ -7,11 +7,14 @@ use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Event\OrderEvent;
 use Drupal\commerce_order\OrderTotalSummaryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileSystem;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Render\RenderContext;
 use Drupal\Core\Render\Renderer;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\entity_print\Plugin\EntityPrintPluginManagerInterface;
+use Drupal\entity_print\PrintBuilderInterface;
 use Drupal\state_machine\Event\WorkflowTransitionEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -65,6 +68,27 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
   protected $renderer;
 
   /**
+   * The Print builder.
+   *
+   * @var \Drupal\entity_print\PrintBuilderInterface
+   */
+  protected $printBuilder;
+
+  /**
+   * The plugin manager for our Print engines.
+   *
+   * @var \Drupal\entity_print\Plugin\EntityPrintPluginManagerInterface
+   */
+  protected $pluginManager;
+
+  /**
+   * File system service.
+   *
+   * @var \Drupal\Core\File\FileSystem
+   */
+  protected $fileSystem;
+
+  /**
    * Constructs a new OrderReceiptSubscriber object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
@@ -77,17 +101,26 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *   The order total summary.
    * @param \Drupal\Core\Render\Renderer $renderer
    *   The renderer.
+   * @param \Drupal\entity_print\PrintBuilderInterface $print_builder
+   *   The print $print_builder.
+   * @param \Drupal\entity_print\Plugin\EntityPrintPluginManagerInterface $plugin_manager
+   *   The print engine.
+   * @param \Drupal\Core\File\FileSystem $file_system
+   *   File system service.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager, MailManagerInterface $mail_manager, OrderTotalSummaryInterface $order_total_summary, Renderer $renderer) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager, MailManagerInterface $mail_manager, OrderTotalSummaryInterface $order_total_summary, Renderer $renderer, PrintBuilderInterface $print_builder, EntityPrintPluginManagerInterface $plugin_manager, FileSystem $file_system) {
     $this->orderOrderStorage = $entity_type_manager->getStorage('commerce_order');;
     $this->orderTotalSummary = $order_total_summary;
     $this->profileViewBuilder = $entity_type_manager->getViewBuilder('profile');
     $this->languageManager = $language_manager;
     $this->mailManager = $mail_manager;
     $this->renderer = $renderer;
+    $this->printBuilder = $print_builder;
+    $this->pluginManager = $plugin_manager;
+    $this->fileSystem = $file_system;
   }
 
   /**
@@ -111,6 +144,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *   The event we subscribed to.
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
    */
   public function sendOrderPlaced(WorkflowTransitionEvent $event) {
     $this->sendNotification($event->getEntity(), 'fleur_order_placed');
@@ -125,6 +159,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *   The event we subscribed to.
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
    */
   public function sendOrderPaid(OrderEvent $event) {
     $this->sendNotification($event->getOrder(), 'fleur_order_paid');
@@ -139,6 +174,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *   The event we subscribed to.
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
    */
   public function sendOrderCompleted(WorkflowTransitionEvent $event) {
     $this->sendNotification($event->getEntity(), 'fleur_order_completed');
@@ -153,6 +189,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *   A type of notification template.
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
    */
   public function sendNotification(OrderInterface $order, $notification_type) {
     $to = $order->getEmail();
@@ -193,6 +230,19 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
       return $this->renderer->render($build);
     });
 
+    // Create PDF invoice when order was paid.
+    if ($notification_type == 'fleur_order_paid') {
+      $print_engine = $this->pluginManager->createInstance('tcpdfv1');
+      $uri = "";
+      if (isset($print_engine)) {
+        // Print builder generates a filename for us.
+        $uri = $this->printBuilder->savePrintable([$order], $print_engine);
+        if (!empty($uri)) {
+          $params['attachments'][] = $this->fileSystem->realpath($uri);
+        }
+      }
+    }
+
     // Replicated logic from EmailAction and contact's MailHandler.
     $customer = $order->getCustomer();
     if ($customer->isAuthenticated()) {
@@ -203,6 +253,11 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
     }
 
     $this->mailManager->mail('fleur_notifications', 'receipt', $to, $langcode, $params);
+
+    // Unlink PDF file after email sending.
+    if ($notification_type == 'fleur_order_paid' && !empty($uri)) {
+      $this->fileSystem->unlink($uri);
+    }
   }
 
   /**

@@ -97,6 +97,9 @@ function fleur_notifications_mail($key, &$message, $params) {
   $message['from'] = $params['from'];
   $message['subject'] = $params['subject'];
   $message['body'][] = $params['body'];
+  if (isset($params['attachments'])) {
+    $message['params']['attachments'] = $params['attachments'];
+  }
 }
 
 /**
