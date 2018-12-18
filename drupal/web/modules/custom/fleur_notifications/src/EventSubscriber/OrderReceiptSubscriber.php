@@ -102,7 +102,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    * @param \Drupal\Core\Render\Renderer $renderer
    *   The renderer.
    * @param \Drupal\entity_print\PrintBuilderInterface $print_builder
-   *   The print $print_builder.
+   *   The print builder.
    * @param \Drupal\entity_print\Plugin\EntityPrintPluginManagerInterface $plugin_manager
    *   The print engine.
    * @param \Drupal\Core\File\FileSystem $file_system
