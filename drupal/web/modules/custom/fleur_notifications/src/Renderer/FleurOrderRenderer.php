@@ -81,10 +81,13 @@ class FleurOrderRenderer extends OrderRenderer {
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
   protected function renderSingle(OrderInterface $order) {
+    $totals = $this->orderTotalSummary->buildTotals($order);
+    $totals['paid'] = $order->getTotalPaid();
+    $totals['balance'] = $totals['total']->subtract($order->getTotalPaid());
     $build = [
       '#theme' => 'fleur_order_receipt',
       '#order_entity' => $order,
-      '#totals' => $this->orderTotalSummary->buildTotals($order),
+      '#totals' => $totals,
     ];
     /** @var \Drupal\profile\Entity\Profile $billing_profile */
     if ($billing_profile = $order->getBillingProfile()) {
