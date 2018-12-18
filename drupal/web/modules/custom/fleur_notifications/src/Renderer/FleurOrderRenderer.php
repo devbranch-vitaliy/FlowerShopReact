@@ -94,7 +94,7 @@ class FleurOrderRenderer extends OrderRenderer {
     }
     if (!$order->get('payment_method')->isEmpty()) {
       $build['#payment_method'] = [
-        '#markup' => $order->get('payment_method')->first()->entity->label(),
+        '#plain_text' => $order->get('payment_method')->first()->entity->label(),
       ];
     }
 
