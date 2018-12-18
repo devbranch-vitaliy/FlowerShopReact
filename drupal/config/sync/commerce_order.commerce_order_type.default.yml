@@ -21,7 +21,7 @@ id: default
 workflow: order_fulfillment_validation
 refresh_mode: always
 refresh_frequency: 300
-sendReceipt: true
+sendReceipt: false
 receiptBcc: ''
 traits: {  }
 locked: false

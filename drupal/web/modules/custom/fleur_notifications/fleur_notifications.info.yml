@@ -4,3 +4,6 @@ description: Email commerce notifications.
 core: 8.x
 version: '1.x'
 package: Custom
+dependencies:
+  - commerce:commerce_order
+  - entity_print:entity_print
