@@ -30,8 +30,10 @@ function fleur_notifications_theme($existing, $type, $theme, $path) {
       'variables' => [
         'order_entity' => NULL,
         'billing_information' => NULL,
-        'shipping_information' => NULL,
+        'billing_address' => NULL,
+        'billing_country' => NULL,
         'payment_method' => NULL,
+        'paid_time' => NULL,
         'totals' => NULL,
       ],
     ],
