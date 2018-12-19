@@ -54,6 +54,7 @@ module:
   fleur_notifications: 0
   fleur_order_operations: 0
   fleur_order_state: 0
+  fleur_products_filters: 0
   fleur_send_sms: 0
   google_analytics: 0
   help: 0
