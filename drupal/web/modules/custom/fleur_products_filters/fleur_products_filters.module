@@ -1,0 +1,24 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function fleur_products_filters_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  if ($form['#id']=='views-exposed-form-flowers-products') {
+    if (isset($form['field_occasion_target_id'])) {
+      $form['field_occasion_target_id']['#options']['All'] = t('Occasion');
+    }
+    if (isset($form['field_type_of_flowers_target_id'])) {
+      $form['field_type_of_flowers_target_id']['#options']['All'] = t('Type of flowers');
+    }
+    if (isset($form['field_colors_value'])) {
+      $form['field_colors_value']['#options']['All'] = t('Colors');
+    }
+    if (isset($form['field_characteristics_target_id'])) {
+      $form['field_characteristics_target_id']['#options']['All'] = t('Characteristics');
+    }
+  }
+}
