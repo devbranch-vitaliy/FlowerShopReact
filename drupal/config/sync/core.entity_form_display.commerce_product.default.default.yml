@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.default
     - field.field.commerce_product.default.body
     - field.field.commerce_product.default.field_characteristics
+    - field.field.commerce_product.default.field_colors
     - field.field.commerce_product.default.field_images
     - field.field.commerce_product.default.field_occasion
     - field.field.commerce_product.default.field_type_of_flowers
@@ -45,6 +46,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_colors:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_images:
     weight: 2
