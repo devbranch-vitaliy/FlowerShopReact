@@ -7,7 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function fleur_products_filters_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
-  if ($form['#id']=='views-exposed-form-flowers-products') {
+  if ($form['#id'] == 'views-exposed-form-flowers-products') {
     if (isset($form['field_occasion_target_id'])) {
       $form['field_occasion_target_id']['#options']['All'] = t('Occasion');
     }
