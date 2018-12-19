@@ -30,6 +30,15 @@ class FleurColorFieldWidgetBox extends ColorFieldWidgetBox {
       '#type' => 'value',
       '#value' => 1,
     ];
+
+    // If product has Colors field we get list of colors from that field.
+    $storage = $form_state->getStorage();
+    if (isset($storage['product']) && $storage['product']->hasField('field_colors')) {
+      $colors = explode(', ', $storage['product']->get('field_colors')->getString());
+      $element['color']['#default_value'] = reset($colors);
+      $element['#attached']['drupalSettings']['color_field']['color_field_widget_box']['settings'][$element['#uid']]['palette'] = $colors;
+    }
+
     return $element;
   }
 
