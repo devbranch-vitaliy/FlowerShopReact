@@ -1,0 +1,39 @@
+uuid: 38f01f33-7f19-44c6-ab57-97144e0673c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product.field_colors
+field_name: field_colors
+entity_type: commerce_product
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '#FFFFFF'
+      label: White
+    -
+      value: '#FE2E9A'
+      label: Pink
+    -
+      value: '#DF01D7'
+      label: Purple
+    -
+      value: '#FFFF00'
+      label: Yellow
+    -
+      value: '#FFBF00'
+      label: Orange
+    -
+      value: '#FE2E2E'
+      label: Red
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

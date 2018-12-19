@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.default
     - field.field.commerce_product.default.body
     - field.field.commerce_product.default.field_characteristics
+    - field.field.commerce_product.default.field_colors
     - field.field.commerce_product.default.field_images
     - field.field.commerce_product.default.field_occasion
     - field.field.commerce_product.default.field_type_of_flowers
@@ -71,7 +72,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
   variations:
-    weight: 7
+    weight: 6
     label: above
     settings:
       combine: true
@@ -80,5 +81,9 @@ content:
     region: content
 hidden:
   created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_colors: true
   stores: true
   uid: true
