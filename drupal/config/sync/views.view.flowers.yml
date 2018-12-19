@@ -10,6 +10,7 @@ dependencies:
     - commerce
     - commerce_product
     - image
+    - views_infinite_scroll
 id: flowers
 label: Flowers
 module: views
@@ -50,12 +51,37 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: some
+        type: infinite_scroll
         options:
-          items_per_page: 3
+          items_per_page: 6
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load more products'
+            automatically_load_content: false
       style:
         type: grid
+        options:
+          uses_fields: false
+          columns: 3
+          automatic_width: true
+          alignment: horizontal
+          col_class_default: true
+          col_class_custom: ''
+          row_class_default: true
+          row_class_custom: ''
       row:
         type: 'entity:commerce_product'
         options:
@@ -257,6 +283,27 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
+      tags:
+        - 'config:field.storage.commerce_product.field_images'
+  products:
+    display_plugin: page
+    id: products
+    display_title: Products
+    position: 2
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: 'Our Products'
+      defaults:
+        title: false
+      path: products
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
       tags:
         - 'config:field.storage.commerce_product.field_images'
   products_home:
@@ -273,5 +320,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
       tags:
         - 'config:field.storage.commerce_product.field_images'
