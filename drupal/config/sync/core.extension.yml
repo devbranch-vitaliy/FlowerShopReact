@@ -3,6 +3,7 @@ module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
   automated_cron: 0
+  better_exposed_filters: 0
   big_pipe: 0
   block: 0
   block_class: 0
@@ -95,6 +96,7 @@ module:
   tour: 0
   update: 0
   user: 0
+  views_infinite_scroll: 0
   views_ui: 0
   yoast_seo: 0
   menu_link_content: 1
