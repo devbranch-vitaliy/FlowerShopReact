@@ -1,0 +1,15 @@
+uuid: 1aef88e2-bb71-4640-9923-075443b5ca87
+langcode: en
+status: true
+dependencies: {  }
+name: cart_goods_120x120_
+label: 'Cart goods (120x120)'
+effects:
+  979f4476-a7a2-4171-b982-a40860f7be93:
+    uuid: 979f4476-a7a2-4171-b982-a40860f7be93
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 120
+      height: 120
+      anchor: center-center
