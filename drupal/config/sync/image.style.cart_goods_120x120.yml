@@ -2,7 +2,7 @@ uuid: 1aef88e2-bb71-4640-9923-075443b5ca87
 langcode: en
 status: true
 dependencies: {  }
-name: cart_goods_120x120_
+name: cart_goods_120x120
 label: 'Cart goods (120x120)'
 effects:
   979f4476-a7a2-4171-b982-a40860f7be93:

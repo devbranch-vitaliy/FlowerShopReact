@@ -8,6 +8,7 @@ dependencies:
     - field.field.commerce_product.extras_selection.field_image
     - field.field.commerce_product.extras_selection.stores
     - field.field.commerce_product.extras_selection.variations
+    - image.style.extras_selection_196x196
   module:
     - commerce_product
     - image
@@ -28,7 +29,7 @@ content:
     weight: 2
     label: hidden
     settings:
-      image_style: ''
+      image_style: extras_selection_196x196
       image_link: ''
     third_party_settings: {  }
     type: image
