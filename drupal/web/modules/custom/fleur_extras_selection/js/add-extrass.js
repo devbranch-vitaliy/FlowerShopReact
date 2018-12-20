@@ -22,7 +22,7 @@
             return;
           }
           // Check if any element selected.
-          children.each(function (element) {
+          children.each(function () {
             if ($(this).is(':checked')) {
               $has_selected = true;
               return true;
@@ -35,7 +35,7 @@
 
         };
 
-        let imageActivate = function ($input) {
+        let elementChecked = function ($input) {
 
           let $checked = $input.is(':checked');
           let $variations_wrapper = $this.closest('.product-container');
@@ -67,8 +67,8 @@
             $image.removeClass('active');
           }
         };
-        imageActivate($this);
-        $this.once('selected-option').on('change', function () {imageActivate($this)});
+        elementChecked($this);
+        $this.once('selected-option').on('change', function () {elementChecked($this)});
       });
     }
   };
