@@ -1,0 +1,7 @@
+fleur_add_extras.form:
+  path: '/extras'
+  defaults:
+    _title: 'Add extras'
+    _form: '\Drupal\fleur_extras_selection\Form\FleurAddExtras'
+  requirements:
+    _permission: 'access checkout+view commerce_product'
