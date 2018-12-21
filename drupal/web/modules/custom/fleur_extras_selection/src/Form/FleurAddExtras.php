@@ -121,13 +121,13 @@ class FleurAddExtras extends FormBase {
     $this->productTypes = [
       'containers' => [
         'weight' => 0,
-        'title' => 'Add containers:',
+        'title' => $this->t('Add containers:'),
         'description' => $this->t('Containers will be the choice from our store’s extensive range, selected at our discretion and suitable for the flowers ordered.'),
         'choose_type' => 'radios',
       ],
       'extras_selection' => [
         'weight' => 1,
-        'title' => 'Add specials:',
+        'title' => $this->t('Add specials:'),
         'choose_type' => 'checkboxes',
       ],
     ];
@@ -534,7 +534,7 @@ class FleurAddExtras extends FormBase {
       $this->cartManager->addOrderItem($this->cart, $new_order_item);
     }
 
-    // Redirect to the cat.
+    // Redirect to the cart.
     $form_state->setRedirect('commerce_cart.page');
   }
 
@@ -545,7 +545,7 @@ class FleurAddExtras extends FormBase {
     // Clean all extras.
     $this->cleanAllExtrasItems();
 
-    // Redirect to the cat.
+    // Redirect to the cart.
     $form_state->setRedirect('commerce_cart.page');
   }
 

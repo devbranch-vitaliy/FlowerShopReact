@@ -14,15 +14,16 @@
         var $this = $(this);
 
         var controlChildVariation = function ($input) {
-          var has_selected = false;
           var $variation_wrapper = $input.closest('.variation_wrapper');
-          var children = $variation_wrapper.find('.extras_select_child_option');
+          var $children = $variation_wrapper.find('.extras_select_child_option');
 
-          if (!children.length) {
+          if (!$children.length) {
             return;
           }
+
           // Check if any element selected.
-          children.each(function () {
+          var has_selected = false;
+          $children.each(function () {
             if ($(this).is(':checked')) {
               has_selected = true;
               return true;
@@ -30,7 +31,7 @@
           });
 
           if (has_selected) {
-            $(children).prop('checked', false);
+            $children.prop('checked', false);
           }
 
         };
