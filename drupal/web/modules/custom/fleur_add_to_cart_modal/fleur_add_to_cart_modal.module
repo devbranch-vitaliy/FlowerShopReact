@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_entity_view_mode_alter().
@@ -17,4 +18,35 @@ function fleur_add_to_cart_modal_entity_view_mode_alter(&$view_mode, EntityInter
       $view_mode = 'modal';
     }
   }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function fleur_add_to_cart_modal_form_commerce_order_item_add_to_cart_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $submit = &$form['actions']['submit']['#submit'];
+  if (isset($submit)) {
+    $index = array_search("::submitForm", $submit);
+    if ($index !== false) {
+      $submit[$index] = 'fleur_add_to_cart_modal_redirect_submit';
+    }
+
+  }
+}
+
+/**
+ * Change standard AddToCard submit.
+ *
+ * @param array $form
+ *   The form elements.
+ * @param FormStateInterface $form_state
+ *   The form interface.
+ */
+function fleur_add_to_cart_modal_redirect_submit(array &$form, FormStateInterface $form_state) {
+  // Get form object.
+  $form_object = $form_state->getFormObject();
+  // Call default submit.
+  $form_object->submitForm($form, $form_state);
+
+  $form_state->setRedirect('fleur_add_extras.form');
 }
