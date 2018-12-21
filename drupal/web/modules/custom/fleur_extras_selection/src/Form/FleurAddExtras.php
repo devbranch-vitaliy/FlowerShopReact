@@ -49,6 +49,13 @@ class FleurAddExtras extends FormBase {
   protected $cartManager;
 
   /**
+   * The cart provider.
+   *
+   * @var \Drupal\commerce_cart\CartProviderInterface
+   */
+  protected $cartProvider;
+
+  /**
    * The currency formatter.
    *
    * @var \CommerceGuys\Intl\Formatter\CurrencyFormatterInterface
@@ -105,22 +112,10 @@ class FleurAddExtras extends FormBase {
     $this->productVariationStorage = $entity_type_manager->getStorage('commerce_product_variation');
     $this->orderItemStorage = $entity_type_manager->getStorage('commerce_order_item');
     $this->cartManager = $cart_manager;
+    $this->cartProvider = $cart_provider;
     $this->currencyFormatter = $currency_formatter;
     $this->viewStorage = $entity_type_manager->getStorage('entity_view_display');
     $this->language = $language;
-
-    // To find the cart of user.
-    $carts = $cart_provider->getCarts();
-    $carts = array_filter($carts, function ($cart) {
-      /** @var \Drupal\commerce_order\Entity\OrderInterface $cart */
-      return $cart->hasItems();
-    });
-    if (empty($carts)) {
-      throw new NotFoundHttpException();
-    }
-
-    // Current cart.
-    $this->cart = reset($carts);
 
     // Set static order types.
     $this->productTypes = [
@@ -162,6 +157,18 @@ class FleurAddExtras extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    // To find the cart of user.
+    $carts = $this->cartProvider->getCarts();
+    $carts = array_filter($carts, function ($cart) {
+      /** @var \Drupal\commerce_order\Entity\OrderInterface $cart */
+      return $cart->hasItems();
+    });
+    if (empty($carts)) {
+      throw new NotFoundHttpException();
+    }
+
+    // Current cart.
+    $this->cart = reset($carts);
 
     foreach ($this->productTypes as $product_type => $options) {
 
@@ -171,7 +178,7 @@ class FleurAddExtras extends FormBase {
       $products_ids = $query->execute();
 
       // Don't show when product list is empty.
-      if (!count($products_ids)) {
+      if (empty($products_ids)) {
         continue;
       }
 
@@ -322,7 +329,7 @@ class FleurAddExtras extends FormBase {
     ];
 
     foreach ($products_elements_img as $id => $value) {
-      $form['add_extras_selection'][$product_type]['variations_img']["extras_img_wrapper_.{$id}"] = [
+      $form['add_extras_selection'][$product_type]['variations_img']["extras_img_wrapper_{$id}"] = [
         '#type' => 'container',
         '#attributes' => [
           'class' => ['extras_img_wrapper'],
@@ -330,7 +337,7 @@ class FleurAddExtras extends FormBase {
         ],
       ];
 
-      $form['add_extras_selection'][$product_type]['variations_img']["extras_img_wrapper_.{$id}"][$id] = $value;
+      $form['add_extras_selection'][$product_type]['variations_img']["extras_img_wrapper_{$id}"][$id] = $value;
     }
   }
 

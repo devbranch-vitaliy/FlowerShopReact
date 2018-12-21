@@ -10,13 +10,13 @@
   Drupal.behaviors.fleur_add_extras = {
     attach: function attach(context, settings) {
 
-      $('input.extras_select_option', context).each(function (e) {
-        let $this = $(this);
+      $('input.extras_select_option', context).once().each(function (e) {
+        var $this = $(this);
 
-        let controlChildVariation = function ($input) {
-          let $has_selected = false;
-          let $variation_wrapper = $input.closest('.variation_wrapper');
-          let children = $variation_wrapper.find('.extras_select_child_option');
+        var controlChildVariation = function ($input) {
+          var has_selected = false;
+          var $variation_wrapper = $input.closest('.variation_wrapper');
+          var children = $variation_wrapper.find('.extras_select_child_option');
 
           if (!children.length) {
             return;
@@ -24,30 +24,25 @@
           // Check if any element selected.
           children.each(function () {
             if ($(this).is(':checked')) {
-              $has_selected = true;
+              has_selected = true;
               return true;
             }
           });
 
-          if ($has_selected) {
-            Array.from(children).reduce((memo, el) => el.checked = false)
+          if (has_selected) {
+            $(children).prop('checked', false);
           }
 
         };
 
-        let elementChecked = function ($input) {
+        var elementChecked = function ($input) {
 
-          let $checked = $input.is(':checked');
-          let $variations_wrapper = $this.closest('.product-container');
-
-          // If radios then uncheck all.
-          if ($input[0].getAttribute('type') == "radio") {
-            $variations_wrapper.find('div.extras_img_wrapper').removeClass('active');
-          }
+          var $checked = $input.is(':checked');
+          var $variations_wrapper = $this.closest('.product-container');
 
           // For checkboxes.
-          if ($input[0].getAttribute('type') == "checkbox") {
-            let $variation_wrapper = $this.closest('.variation_wrapper');
+          if ($input.attr('type') == "checkbox") {
+            var $variation_wrapper = $this.closest('.variation_wrapper');
             if ($checked) {
               $variation_wrapper.find('.children_variations').fadeIn();
             }
@@ -58,9 +53,14 @@
           }
 
           // Set image active.
-          let $image = $variations_wrapper.find(`div[data-variation-id=${$input[0].getAttribute('data-variation-id')}].extras_img_wrapper`);
+          var $image = $variations_wrapper.find(`div[data-variation-id=${$input.attr('data-variation-id')}].extras_img_wrapper`);
 
           if ($checked) {
+            // If radios then uncheck all.
+            if ($input.attr('type') == "radio") {
+              $variations_wrapper.find('div.extras_img_wrapper').removeClass('active');
+            }
+
             $image.addClass('active');
           }
           else {
