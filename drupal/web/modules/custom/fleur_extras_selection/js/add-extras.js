@@ -37,13 +37,13 @@
 
         var elementChecked = function ($input) {
 
-          var $checked = $input.is(':checked');
+          var checked = $input.is(':checked');
           var $variations_wrapper = $this.closest('.product-container');
 
           // For checkboxes.
           if ($input.attr('type') == "checkbox") {
             var $variation_wrapper = $this.closest('.variation_wrapper');
-            if ($checked) {
+            if (checked) {
               $variation_wrapper.find('.children_variations').fadeIn();
             }
             else {
@@ -55,7 +55,7 @@
           // Set image active.
           var $image = $variations_wrapper.find(`div[data-variation-id=${$input.attr('data-variation-id')}].extras_img_wrapper`);
 
-          if ($checked) {
+          if (checked) {
             // If radios then uncheck all.
             if ($input.attr('type') == "radio") {
               $variations_wrapper.find('div.extras_img_wrapper').removeClass('active');
