@@ -51,4 +51,10 @@ body.toolbar-loading {
   &.toolbar {
     margin-bottom: ($grid-gutter-width / 2);
   }
+
+  @media #{$wide} {
+    &.toolbar {
+      margin-bottom: ($grid-gutter-large-width / 2);
+    }
+  }
 }
