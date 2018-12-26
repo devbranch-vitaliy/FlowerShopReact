@@ -5,6 +5,7 @@ $mobile:          "screen and (max-width: #{$screen-xs-max})";
 $tablet:          "screen and (min-width: #{$screen-sm-min})";
 $normal:          "screen and (min-width: #{$screen-md-min})";
 $wide:            "screen and (min-width: #{$screen-lg-min})";
+$extra-wide:      "screen and (min-width: #{$screen-xl-min})";
 $grid-breakpoint: "screen and (min-width: #{$grid-float-breakpoint})";
 
 body {
@@ -22,6 +23,22 @@ body {
     padding-bottom: ($navbar-height + ($grid-gutter-width / 2));
   }
 
+  @media #{$wide} {
+    &.navbar-is-fixed-top {
+      margin-top: ($navbar-height + ($grid-gutter-large-width / 2));
+    }
+    &.navbar-is-fixed-bottom {
+      padding-bottom: ($navbar-height + ($grid-gutter-large-width / 2));
+    }
+  }
+  @media #{$extra-wide} {
+    &.navbar-is-fixed-top {
+      margin-top: ($navbar-height + ($grid-gutter-large-width / 2));
+    }
+    &.navbar-is-fixed-bottom {
+      padding-bottom: ($navbar-height + ($grid-gutter-large-width / 2));
+    }
+  }
   @media #{$tablet} {
     margin-top: ($grid-gutter-width / 2);
   }
@@ -52,7 +69,10 @@ body {
     max-width: (($container-md - $grid-gutter-width));
   }
   @media #{$wide} {
-    max-width: (($container-lg - $grid-gutter-width));
+    max-width: (($container-lg - $grid-gutter-large-width));
+  }
+  @media #{$extra-wide} {
+    max-width: (($container-xl - $grid-gutter-large-width));
   }
 }
 
@@ -65,5 +85,74 @@ body {
     margin-right: 0;
     padding-left: 0;
   }
+  @media #{$wide} {
+    margin-right: -($grid-gutter-large-width / 2);
+    padding-left: ($grid-gutter-large-width / 2);
+    padding-right: ($grid-gutter-large-width / 2);
+  }
 }
 
+// Changing bootstrap _navbar.scss where using $navbar-padding-horizontal
+//
+// We need to change $navbar-padding-horizontal to new $navbar-padding-horizontal-large
+
+// Navbar collapse (body)
+//
+// For lg and more
+.navbar-collapse {
+  @media #{$wide} {
+    padding-right: $navbar-padding-horizontal-large;
+    padding-left:  $navbar-padding-horizontal-large;
+  }
+}
+
+// Brand/project name
+//
+// For lg and more
+.navbar-brand {
+  @media #{$wide} {
+    padding: $navbar-padding-vertical $navbar-padding-horizontal-large;
+
+    .navbar > .container &,
+    .navbar > .container-fluid & {
+      margin-left: -$navbar-padding-horizontal-large;
+    }
+  }
+}
+
+// Navbar toggle
+//
+// For lg and more
+.navbar-toggle {
+  @media #{$wide} {
+    margin-right: $navbar-padding-horizontal-large;
+  }
+}
+
+// Navbar form
+//
+// For lg and more
+.navbar-form {
+  @media #{$wide} {
+    padding: 10px $navbar-padding-horizontal-large;
+  }
+}
+
+// Text in navbars
+//
+// For lg and more
+.navbar-text {
+  @media #{$wide} {
+    margin-left: $navbar-padding-horizontal-large;
+    margin-right: $navbar-padding-horizontal-large;
+  }
+}
+
+// Component alignment
+//
+// For lg and more
+@media #{$wide} {
+  .navbar-right {
+    margin-right: -$navbar-padding-horizontal-large;
+  }
+}
