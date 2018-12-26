@@ -67,3 +67,22 @@ p:last-child,
     margin-top: 0;
   }
 }
+
+/* Large devices (large desktops, 1200px and up) */
+@media #{$wide}
+{
+  .container, .container-fluid, [class^="col-"] {
+    padding-left: floor(($grid-gutter-large-width / 2));
+    padding-right: floor(($grid-gutter-large-width / 2));
+  }
+}
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
+  }
+}

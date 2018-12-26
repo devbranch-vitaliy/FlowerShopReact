@@ -6391,3 +6391,13 @@ p:last-child,
   padding: 0; }
   .help-block:first-child, .control-group .help-inline:first-child {
     margin-top: 0; }
+
+/* Large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+  .container, .container-fluid, [class^="col-"] {
+    padding-left: 12px;
+    padding-right: 12px; } }
+
+@media (min-width: 1320px) {
+  .container {
+    width: 1344px; } }
