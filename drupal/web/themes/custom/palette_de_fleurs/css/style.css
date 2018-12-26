@@ -6143,14 +6143,6 @@ body {
     padding-left: 12px; } }
 
 @media screen and (min-width: 1200px) {
-  .container > .navbar-header,
-  .container > .navbar-collapse,
-  .container-fluid > .navbar-header,
-  .container-fluid > .navbar-collapse {
-    margin-right: -12px;
-    margin-left: -12px; } }
-
-@media screen and (min-width: 1200px) {
   .navbar-brand {
     padding: 15px 12px; }
     .navbar > .container .navbar-brand,
@@ -6162,13 +6154,7 @@ body {
     margin-right: 12px; } }
 
 @media screen and (min-width: 1200px) {
-  .navbar-nav {
-    margin: 7.5px -12px; } }
-
-@media screen and (min-width: 1200px) {
   .navbar-form {
-    margin-left: -12px;
-    margin-right: -12px;
     padding: 10px 12px; } }
 
 @media screen and (min-width: 1200px) {
@@ -6468,7 +6454,10 @@ p:last-child,
 @media screen and (min-width: 1200px) {
   .container, .container-fluid, [class^="col-"] {
     padding-left: 12px;
-    padding-right: 12px; } }
+    padding-right: 12px; }
+  .row {
+    margin-left: -12px;
+    margin-right: -12px; } }
 
 @media (min-width: 1320px) {
   .container {

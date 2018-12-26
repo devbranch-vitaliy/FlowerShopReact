@@ -106,20 +106,6 @@ body {
   }
 }
 
-// Both navbar header and collapse
-//
-// For lg and more
-.container,
-.container-fluid {
-  > .navbar-header,
-  > .navbar-collapse {
-    @media #{$wide} {
-      margin-right: -$navbar-padding-horizontal-large;
-      margin-left: -$navbar-padding-horizontal-large;
-    }
-  }
-}
-
 // Brand/project name
 //
 // For lg and more
@@ -143,21 +129,11 @@ body {
   }
 }
 
-// Navbar nav links
-//
-.navbar-nav {
-  @media #{$wide} {
-    margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal-large);
-  }
-}
-
 // Navbar form
 //
 // For lg and more
 .navbar-form {
   @media #{$wide} {
-    margin-left: -$navbar-padding-horizontal-large;
-    margin-right: -$navbar-padding-horizontal-large;
     padding: 10px $navbar-padding-horizontal-large;
   }
 }
