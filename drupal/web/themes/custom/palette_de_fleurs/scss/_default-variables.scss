@@ -20,9 +20,11 @@ $icon-font-path: '#{$theme-root}/bootstrap/assets/fonts/bootstrap/';
 
 //== Fonts
 //
-//## Include custom fonts
+//## Include custom fonts and zepelin-styles
 
 @import "fonts";
+@import "zepelin-styles/colors";
+@import "zepelin-styles/fonts";
 
 //== Colors
 //
@@ -35,13 +37,13 @@ $gray:                   #dbdfe6 !default;
 $gray-light:             #e9ecf1 !default;
 $gray-lighter:           #f5f7f9 !default;
 
-$brand-primary:         #d2652a !default;
-$brand-secondary:       #191919 !default;
+$brand-primary:         $brownish-orange !default;
+$brand-secondary:       $black !default;
 $brand-success:         #3ba941 !default;
 $brand-info:            #0047b6 !default;
 $brand-warning:         #fed960 !default;
-$brand-danger:          #d91900 !default;
-$brand-white:           #ffffff !default;
+$brand-danger:          $red !default;
+$brand-white:           $white !default;
 
 $gray-stroke-darker:            #a4a8ad !default;
 $gray-stroke-dark:              #d3d8de !default;
@@ -49,14 +51,14 @@ $gray-stroke:                   #e1e4ea !default;
 $gray-stroke-light:             #eff1f5 !default;
 $gray-stroke-lighter:           #f6f8fb !default;
 
-$brand-stroke-primary:         #d2652a !default;
-$brand-stroke-secondary:       #191919 !default;
+$brand-stroke-primary:         $brownish-orange !default;
+$brand-stroke-secondary:       $black !default;
 $brand-stroke-success:         #43b749 !default;
 $brand-stroke-info:            #297cfd !default;
 $brand-stroke-warning:         #ffcf34 !default;
 $brand-stroke-danger:          #fb4f39 !default;
 $brand-stroke-body:            #444356 !default;
-$brand-stroke-white:           #ffffff !default;
+$brand-stroke-white:           $white !default;
 
 //== Scaffolding
 //
@@ -78,9 +80,9 @@ $link-hover-decoration: underline !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-base:        SourceSansPro-Regular !default;
-$font-family-label:       SourceSansPro-SemiBold !default;
-$font-family-heading:     Taviraj-SemiBold !default;
+$font-family-base:        SourceSansPro !default;
+$font-family-label:       SourceSansPro !default;
+$font-family-heading:     Taviraj !default;
 
 $font-size-base:          20px !default;
 $font-size-large:         24px !default;
@@ -103,6 +105,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    Taviraj-SemiBold !default;
 $headings-line-height:    1 !default;
+$headings-font-weight:    600 !default;
 $headings-color:          $gray-base !default;
 
 //== Components
