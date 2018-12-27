@@ -1,0 +1,551 @@
+
+@mixin svg-common {
+  background: url("../images/sprite-985367c9.svg") no-repeat;
+}
+
+.fleur-icon-16-arrow-down-primary {
+@include svg-common;
+  background-position: 20% 100%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-arrow-left-primary {
+@include svg-common;
+  background-position: 56.666666666666664% 90%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-arrow-right-primary {
+@include svg-common;
+  background-position: 13.333333333333334% 100%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-arrow-up-primary {
+@include svg-common;
+  background-position: 6.666666666666667% 100%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-arrow-up-primary_2 {
+@include svg-common;
+  background-position: 26.724137931034484% 68.96551724137932%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-16-bullet-primary {
+@include svg-common;
+  background-position: 0 100%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-burger-primary {
+@include svg-common;
+  background-position: 100% 93.33333333333333%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-calendar-primary {
+@include svg-common;
+  background-position: 100% 86.66666666666667%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-check-primary {
+@include svg-common;
+  background-position: 100% 80%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-chevron-down-primary {
+@include svg-common;
+  background-position: 100% 73.33333333333333%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-chevron-left-primary {
+@include svg-common;
+  background-position: 100% 66.66666666666667%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-chevron-right-primary {
+@include svg-common;
+  background-position: 100% 60%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-chevron-up-primary {
+@include svg-common;
+  background-position: 100% 53.333333333333336%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-close-primary {
+@include svg-common;
+  background-position: 100% 46.666666666666664%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-delete-primary {
+@include svg-common;
+  background-position: 50% 90%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-error-error {
+@include svg-common;
+  background-position: 100% 33.333333333333336%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-info-primary {
+@include svg-common;
+  background-position: 100% 26.666666666666668%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-minus-primary {
+@include svg-common;
+  background-position: 100% 20%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-navigate-white {
+@include svg-common;
+  background-position: 100% 13.333333333333334%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-plus-primary {
+@include svg-common;
+  background-position: 100% 6.666666666666667%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-refresh-primary {
+@include svg-common;
+  background-position: 100% 0;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-search-primary {
+@include svg-common;
+  background-position: 90% 90%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-success-success {
+@include svg-common;
+  background-position: 83.33333333333333% 90%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-user-primary {
+@include svg-common;
+  background-position: 76.66666666666667% 90%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-warning-warning {
+@include svg-common;
+  background-position: 70% 90%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-zoom-in-primary {
+@include svg-common;
+  background-position: 63.333333333333336% 90%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-16-zoom-out-primary {
+@include svg-common;
+  background-position: 100% 40%;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.fleur-icon-24-arrow-down-primary {
+@include svg-common;
+  background-position: 82.75862068965517% 62.06896551724138%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-arrow-left-primary {
+@include svg-common;
+  background-position: 82.75862068965517% 72.41379310344827%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-arrow-right-primary {
+@include svg-common;
+  background-position: 0 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-burger-primary {
+@include svg-common;
+  background-position: 10.344827586206897% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-call-primary {
+@include svg-common;
+  background-position: 20.689655172413794% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-check-active-primary {
+@include svg-common;
+  background-position: 31.03448275862069% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-check-error-error {
+@include svg-common;
+  background-position: 41.37931034482759% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-check-hover-primary {
+@include svg-common;
+  background-position: 51.724137931034484% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-check-primary {
+@include svg-common;
+  background-position: 62.06896551724138% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-check-standard-grey-300 {
+@include svg-common;
+  background-position: 72.41379310344827% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-chevron-down-primary {
+@include svg-common;
+  background-position: 82.75862068965517% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-chevron-left-primary {
+@include svg-common;
+  background-position: 93.10344827586206% 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-chevron-right-primary {
+@include svg-common;
+  background-position: 68.10344827586206% 68.96551724137932%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-chevron-up-primary {
+@include svg-common;
+  background-position: 93.10344827586206% 20.689655172413794%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-close-primary {
+@include svg-common;
+  background-position: 93.10344827586206% 31.03448275862069%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-delivery-white {
+@include svg-common;
+  background-position: 54.12844036697248% 55.172413793103445%;
+  width: 38px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-dropbox-primary {
+@include svg-common;
+  background-position: 93.10344827586206% 51.724137931034484%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-email-primary {
+@include svg-common;
+  background-position: 93.10344827586206% 62.06896551724138%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-email-primary_2 {
+@include svg-common;
+  background-position: 93.10344827586206% 72.41379310344827%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-facebook-primary {
+@include svg-common;
+  background-position: 93.10344827586206% 82.75862068965517%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-google-primary {
+@include svg-common;
+  background-position: 0 93.10344827586206%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-info-primary {
+@include svg-common;
+  background-position: 10.344827586206897% 93.10344827586206%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-linkedin-primary {
+@include svg-common;
+  background-position: 20.689655172413794% 93.10344827586206%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-location-primary-copy {
+@include svg-common;
+  background-position: 31.03448275862069% 93.10344827586206%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-minus-primary {
+@include svg-common;
+  background-position: 41.37931034482759% 93.10344827586206%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-plus-primary {
+@include svg-common;
+  background-position: 93.10344827586206% 10.344827586206897%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-radio-active-primary {
+@include svg-common;
+  background-position: 82.75862068965517% 51.724137931034484%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-radio-error-error {
+@include svg-common;
+  background-position: 82.75862068965517% 41.37931034482759%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-radio-hover-primary {
+@include svg-common;
+  background-position: 82.75862068965517% 31.03448275862069%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-radio-standard-grey-300 {
+@include svg-common;
+  background-position: 82.75862068965517% 20.689655172413794%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-search-primary {
+@include svg-common;
+  background-position: 82.75862068965517% 10.344827586206897%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-toggle-off {
+@include svg-common;
+  background-position: 38.46153846153846% 34.48275862068966%;
+  width: 48px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-toggle-on {
+@include svg-common;
+  background-position: 38.46153846153846% 44.827586206896555%;
+  width: 48px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-twitter-primary {
+@include svg-common;
+  background-position: 57.758620689655174% 68.96551724137932%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-user-primary {
+@include svg-common;
+  background-position: 47.41379310344828% 68.96551724137932%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-whatsapp-primary {
+@include svg-common;
+  background-position: 37.06896551724138% 68.96551724137932%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-world-white {
+@include svg-common;
+  background-position: 36.69724770642202% 55.172413793103445%;
+  width: 38px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-zoom-in-primary {
+@include svg-common;
+  background-position: 93.10344827586206% 41.37931034482759%;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-24-zoom-out-primary {
+@include svg-common;
+  background-position: 82.75862068965517% 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-32-facebook-primary {
+@include svg-common;
+  background-position: 71.42857142857143% 57.142857142857146%;
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.fleur-icon-32-facebook-white {
+@include svg-common;
+  background-position: 71.42857142857143% 42.857142857142854%;
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.fleur-icon-32-instagram-primary {
+@include svg-common;
+  background-position: 71.42857142857143% 28.571428571428573%;
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.fleur-icon-32-instagram-white {
+@include svg-common;
+  background-position: 0 71.42857142857143%;
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.fleur-icon-32-twitter-primary {
+@include svg-common;
+  background-position: 71.42857142857143% 0;
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.fleur-icon-32-twitter-white {
+@include svg-common;
+  background-position: 71.42857142857143% 14.285714285714286%;
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.fleur-icon-cart-black {
+@include svg-common;
+  background-position: 56.63716814159292% 34.48275862068966%;
+  width: 30px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-cart-black-full {
+@include svg-common;
+  background-position: 56.63716814159292% 44.827586206896555%;
+  width: 30px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-cart-white {
+@include svg-common;
+  background-position: 14.15929203539823% 68.96551724137932%;
+  width: 30px;
+  height: 24px;
+  display: block;
+}
+.fleur-icon-delivery {
+@include svg-common;
+  background-position: 45.45454545454545% 0;
+  width: 80px;
+  height: 80px;
+  display: block;
+}
+.fleur-icon-quality {
+@include svg-common;
+  background-position: 0 45.45454545454545%;
+  width: 80px;
+  height: 80px;
+  display: block;
+}
+.fleur-icon-reliable {
+@include svg-common;
+  background-position: 0 0;
+  width: 80px;
+  height: 80px;
+  display: block;
+}
