@@ -18,9 +18,14 @@ gulp.task('styles', function () {
 var config = {
   mode: {
     css: {
+      dest: '.',
+      sprite: '../images/sprite.svg',
+      bust: true,
+      prefix: ".fleur-%s",
       render: {
         scss: {
           dest:'icons/_fleur_icons.scss',
+          template: 'assets/sass/templates/_fleur_icon_sprite.scss',
         },
       },
     },
