@@ -23,6 +23,7 @@ $icon-font-path: '#{$theme-root}/bootstrap/assets/fonts/bootstrap/';
 //## Include custom fonts and zepelin-styles
 
 @import "fonts";
+@import "icons/fleur_icons";
 @import "zepelin-styles/colors";
 @import "zepelin-styles/fonts";
 
