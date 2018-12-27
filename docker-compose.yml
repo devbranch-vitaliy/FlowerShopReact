@@ -273,7 +273,7 @@ services:
     working_dir: /var/www/html/web/themes/custom/palette_de_fleurs
     volumes:
     - ./drupal:/var/www/html
-    command: sh -c 'npm install; ./node_modules/.bin/gulp styles; ./node_modules/.bin/gulp'
+    command: sh -c 'npm i gulp-svg-sprite; npm install; ./node_modules/.bin/gulp styles; ./node_modules/.bin/gulp sprite; ./node_modules/.bin/gulp'
 
 #volumes:
 ## Docker-sync for macOS users
