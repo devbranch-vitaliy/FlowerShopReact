@@ -1,35 +1,35 @@
-
-@mixin svg-common {
+@mixin sprite-content {
   background: url("../images/sprite.svg") no-repeat;
   display: block;
 }
 
+
 .fleur-icon-24-toggle-off {
-@include svg-common;
+@include sprite-content;
   background-position: 0 0;
   width: 48px;
   height: 24px;
 }
 .fleur-icon-24-toggle-on {
-@include svg-common;
+@include sprite-content;
   background-position: 0 50%;
   width: 48px;
   height: 24px;
 }
 .fleur-icon-cart-black {
-@include svg-common;
+@include sprite-content;
   background-position: 100% 0;
   width: 30px;
   height: 24px;
 }
 .fleur-icon-cart-black-full {
-@include svg-common;
+@include sprite-content;
   background-position: 100% 50%;
   width: 30px;
   height: 24px;
 }
 .fleur-icon-cart-white {
-@include svg-common;
+@include sprite-content;
   background-position: 0 100%;
   width: 30px;
   height: 24px;

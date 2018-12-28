@@ -54,6 +54,255 @@
   width: 30px;
   height: 24px; }
 
+@font-face {
+  font-family: "FleurIcons";
+  src: url("../fonts/FleurIcons/FleurIcons.eot");
+  src: url("../fonts/FleurIcons/FleurIcons.eot?#iefix") format("eot"), url("../fonts/FleurIcons/FleurIcons.woff") format("woff"), url("../fonts/FleurIcons/FleurIcons.ttf") format("truetype"), url("../fonts/FleurIcons/FleurIcons.svg#FleurIcons") format("svg"); }
+
+.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before {
+  font-family: "FleurIcons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none; }
+
+.fleur-font-icon-16-arrow-down-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-arrow-left-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-arrow-right-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-arrow-up-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-arrow-up-primary_2:before {
+  content: ""; }
+
+.fleur-font-icon-16-bullet-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-burger-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-calendar-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-check-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-chevron-down-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-chevron-left-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-chevron-right-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-chevron-up-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-close-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-delete-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-error-error:before {
+  content: ""; }
+
+.fleur-font-icon-16-info-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-minus-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-navigate-white:before {
+  content: ""; }
+
+.fleur-font-icon-16-plus-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-refresh-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-search-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-success-success:before {
+  content: ""; }
+
+.fleur-font-icon-16-user-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-warning-warning:before {
+  content: ""; }
+
+.fleur-font-icon-16-zoom-in-primary:before {
+  content: ""; }
+
+.fleur-font-icon-16-zoom-out-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-arrow-down-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-arrow-left-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-arrow-right-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-burger-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-call-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-check-active-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-check-error-error:before {
+  content: ""; }
+
+.fleur-font-icon-24-check-hover-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-check-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-check-standard-grey-300:before {
+  content: ""; }
+
+.fleur-font-icon-24-chevron-down-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-chevron-left-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-chevron-right-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-chevron-up-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-close-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-delivery-white:before {
+  content: ""; }
+
+.fleur-font-icon-24-dropbox-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-email-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-email-primary_2:before {
+  content: ""; }
+
+.fleur-font-icon-24-facebook-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-google-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-info-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-linkedin-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-location-primary-copy:before {
+  content: ""; }
+
+.fleur-font-icon-24-minus-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-plus-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-radio-active-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-radio-error-error:before {
+  content: ""; }
+
+.fleur-font-icon-24-radio-hover-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-radio-standard-grey-300:before {
+  content: ""; }
+
+.fleur-font-icon-24-search-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-toggle-off:before {
+  content: ""; }
+
+.fleur-font-icon-24-toggle-on:before {
+  content: ""; }
+
+.fleur-font-icon-24-twitter-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-user-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-whatsapp-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-world-white:before {
+  content: ""; }
+
+.fleur-font-icon-24-zoom-in-primary:before {
+  content: ""; }
+
+.fleur-font-icon-24-zoom-out-primary:before {
+  content: ""; }
+
+.fleur-font-icon-32-facebook-primary:before {
+  content: ""; }
+
+.fleur-font-icon-32-facebook-white:before {
+  content: ""; }
+
+.fleur-font-icon-32-instagram-primary:before {
+  content: ""; }
+
+.fleur-font-icon-32-instagram-white:before {
+  content: ""; }
+
+.fleur-font-icon-32-twitter-primary:before {
+  content: ""; }
+
+.fleur-font-icon-32-twitter-white:before {
+  content: ""; }
+
+.fleur-font-icon-cart-black-full:before {
+  content: ""; }
+
+.fleur-font-icon-cart-black:before {
+  content: ""; }
+
+.fleur-font-icon-cart-white:before {
+  content: ""; }
+
+.fleur-font-icon-delivery:before {
+  content: ""; }
+
+.fleur-font-icon-quality:before {
+  content: ""; }
+
+.fleur-font-icon-reliable:before {
+  content: ""; }
+
 /*     Generated by Zeplin
     Copyright (C) 2018 - present Zeplin
 
