@@ -9,15 +9,16 @@ var sass = require('gulp-sass');
 var svgSprite = require('gulp-svg-sprite');
 var iconfont = require('gulp-iconfont');
 var iconfontCss = require('gulp-iconfont-css');
+var fontName = 'FleurIcons';
 
+// Building css style from scss.
 gulp.task('styles', function () {
   gulp.src('scss/**/*.scss')
       .pipe(sass().on('error', sass.logError))
       .pipe(gulp.dest('./css/'))
 });
 
-var fontName = 'FleurIcons';
-
+// Creat new font from SVGs icons.
 gulp.task('iconfont', function () {
   gulp.src(['assets/icons-convert/*.svg'])
       .pipe(iconfontCss({
@@ -55,6 +56,7 @@ var config = {
   }
 };
 
+// Creat sprite from SVGs icons.
 gulp.task('sprite', function () {
   gulp.src('assets/icons/*.svg')
       .pipe(svgSprite(config))
