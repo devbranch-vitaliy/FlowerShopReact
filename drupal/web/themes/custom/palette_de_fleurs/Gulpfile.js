@@ -20,7 +20,7 @@ var config = {
     css: {
       dest: '.',
       sprite: '../images/sprite.svg',
-      bust: true,
+      bust: false,
       prefix: ".fleur-%s",
       render: {
         scss: {
