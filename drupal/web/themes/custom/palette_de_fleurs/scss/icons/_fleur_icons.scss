@@ -1,36 +1,53 @@
 @mixin sprite-content {
-  background: url("../images/sprite.svg") no-repeat;
-  display: block;
+  background-image: url("../images/sprite.svg");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  display: inline-block;
+  content: ' ';
 }
-
 
 .fleur-icon-24-toggle-off {
-@include sprite-content;
-  background-position: 0 0;
-  width: 48px;
-  height: 24px;
+  display: inline-block;
+  &:before {
+    @include sprite-content;
+    background-position: 0 0;
+    width: 48px;
+    height: 24px;
+  }
 }
 .fleur-icon-24-toggle-on {
-@include sprite-content;
-  background-position: 0 50%;
-  width: 48px;
-  height: 24px;
+  display: inline-block;
+  &:before {
+    @include sprite-content;
+    background-position: 0 50%;
+    width: 48px;
+    height: 24px;
+  }
 }
 .fleur-icon-cart-black {
-@include sprite-content;
-  background-position: 100% 0;
-  width: 30px;
-  height: 24px;
+  display: inline-block;
+  &:before {
+    @include sprite-content;
+    background-position: 100% 0;
+    width: 30px;
+    height: 24px;
+  }
 }
 .fleur-icon-cart-black-full {
-@include sprite-content;
-  background-position: 100% 50%;
-  width: 30px;
-  height: 24px;
+  display: inline-block;
+  &:before {
+    @include sprite-content;
+    background-position: 100% 50%;
+    width: 30px;
+    height: 24px;
+  }
 }
 .fleur-icon-cart-white {
-@include sprite-content;
-  background-position: 0 100%;
-  width: 30px;
-  height: 24px;
+  display: inline-block;
+  &:before {
+    @include sprite-content;
+    background-position: 0 100%;
+    width: 30px;
+    height: 24px;
+  }
 }

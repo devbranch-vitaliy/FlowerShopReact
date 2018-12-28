@@ -20,39 +20,64 @@
   src: url("../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf") format("truetype"); }
 
 .fleur-icon-24-toggle-off {
-  background: url("../images/sprite.svg") no-repeat;
-  display: block;
-  background-position: 0 0;
-  width: 48px;
-  height: 24px; }
+  display: inline-block; }
+  .fleur-icon-24-toggle-off:before {
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    content: ' ';
+    background-position: 0 0;
+    width: 48px;
+    height: 24px; }
 
 .fleur-icon-24-toggle-on {
-  background: url("../images/sprite.svg") no-repeat;
-  display: block;
-  background-position: 0 50%;
-  width: 48px;
-  height: 24px; }
+  display: inline-block; }
+  .fleur-icon-24-toggle-on:before {
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    content: ' ';
+    background-position: 0 50%;
+    width: 48px;
+    height: 24px; }
 
 .fleur-icon-cart-black {
-  background: url("../images/sprite.svg") no-repeat;
-  display: block;
-  background-position: 100% 0;
-  width: 30px;
-  height: 24px; }
+  display: inline-block; }
+  .fleur-icon-cart-black:before {
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    content: ' ';
+    background-position: 100% 0;
+    width: 30px;
+    height: 24px; }
 
 .fleur-icon-cart-black-full {
-  background: url("../images/sprite.svg") no-repeat;
-  display: block;
-  background-position: 100% 50%;
-  width: 30px;
-  height: 24px; }
+  display: inline-block; }
+  .fleur-icon-cart-black-full:before {
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    content: ' ';
+    background-position: 100% 50%;
+    width: 30px;
+    height: 24px; }
 
 .fleur-icon-cart-white {
-  background: url("../images/sprite.svg") no-repeat;
-  display: block;
-  background-position: 0 100%;
-  width: 30px;
-  height: 24px; }
+  display: inline-block; }
+  .fleur-icon-cart-white:before {
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    content: ' ';
+    background-position: 0 100%;
+    width: 30px;
+    height: 24px; }
 
 @font-face {
   font-family: "FleurIcons";
