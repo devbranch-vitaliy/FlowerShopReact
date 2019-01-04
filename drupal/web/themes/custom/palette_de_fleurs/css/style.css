@@ -413,6 +413,15 @@ h5 {
   line-height: 1.13;
   letter-spacing: normal; }
 
+.text-color-white {
+  color: #ffffff; }
+
+.text-color-black {
+  color: #191919; }
+
+.text-color-orange {
+  color: #d2652a; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -6817,6 +6826,9 @@ body.toolbar-loading {
     .ui-autocomplete .ui-menu-item.ui-state-active, .ui-autocomplete .ui-menu-item.ui-state-focus {
       background: #d2652a;
       color: #fff; }
+
+body {
+  margin: 0; }
 
 ol, ul {
   padding-left: 1.5em; }
