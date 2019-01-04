@@ -9,7 +9,7 @@ dependencies:
 id: cart
 theme: palette_de_fleurs
 region: navigation
-weight: -7
+weight: -5
 provider: null
 plugin: commerce_cart
 settings:

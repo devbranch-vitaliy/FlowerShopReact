@@ -1,0 +1,35 @@
+uuid: cd565547-e824-486a-a7c1-19b14f1a2a00
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:699578b0-0b26-4d1c-a759-67e43bea1526'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - palette_de_fleurs
+third_party_settings:
+  block_class:
+    classes: 'place-order-button hidden-xs'
+id: placeyourorder
+theme: palette_de_fleurs
+region: navigation
+weight: -6
+provider: null
+plugin: 'block_content:699578b0-0b26-4d1c-a759-67e43bea1526'
+settings:
+  id: 'block_content:699578b0-0b26-4d1c-a759-67e43bea1526'
+  label: 'Place your order'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/cart\r\n/extras\r\n/checkout/*"
+    negate: true
+    context_mapping: {  }

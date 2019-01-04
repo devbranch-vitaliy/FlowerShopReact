@@ -11,7 +11,7 @@ dependencies:
 id: palette_de_fleurs_orderflowers
 theme: palette_de_fleurs
 region: header
-weight: -6
+weight: -7
 provider: null
 plugin: 'block_content:dda54d8b-b4cf-4368-970e-ae96f3a35f25'
 settings:
