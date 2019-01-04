@@ -1,7 +1,7 @@
 {{#hasMixin}}@mixin {{mixinName}} {
   background-image: url("{{{sprite}}}");
   background-repeat: no-repeat;
-  vertical-align: middle;
+  vertical-align: top;
   display: inline-block;
   content: ' ';
 }
@@ -12,7 +12,7 @@
 {{^hasMixin}}{{#hasCommon}}.{{/hasCommon}}{{^hasCommon}}@mixin {{/hasCommon}}{{commonName}} {
   background-image: url("{{{sprite}}}");
   background-repeat: no-repeat;
-  vertical-align: middle;
+  vertical-align: top;
   display: inline-block;
   content: ' ';
 }

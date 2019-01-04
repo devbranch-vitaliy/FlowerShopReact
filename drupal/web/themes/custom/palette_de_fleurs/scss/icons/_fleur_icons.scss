@@ -1,7 +1,7 @@
 @mixin sprite-content {
   background-image: url("../images/sprite.svg");
   background-repeat: no-repeat;
-  vertical-align: middle;
+  vertical-align: top;
   display: inline-block;
   content: ' ';
 }
