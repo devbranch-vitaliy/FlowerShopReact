@@ -1,4 +1,4 @@
-uuid: dedd12e7-51d7-4a2c-a4b4-d14b3d95ddca
+uuid: 47feb318-ee54-44d9-93de-ed57d0848602
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,7 @@ dependencies:
 third_party_settings:
   block_class:
     classes: 'place-order-button hidden-xs'
-id: place_you_rorder
+id: place_your_order
 theme: palette_de_fleurs
 region: navigation
 weight: -6
@@ -23,7 +23,7 @@ settings:
   id: 'block_content:699578b0-0b26-4d1c-a759-67e43bea1526'
   label: 'Place your order'
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full
