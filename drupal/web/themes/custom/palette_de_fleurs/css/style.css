@@ -20,7 +20,9 @@
   src: url("../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf") format("truetype"); }
 
 .fleur-icon-24-toggle-off {
-  display: inline-block; }
+  display: inline-block;
+  width: 48px;
+  height: 24px; }
   .fleur-icon-24-toggle-off:before {
     background-image: url("../images/sprite.svg");
     background-repeat: no-repeat;
@@ -32,7 +34,9 @@
     height: 24px; }
 
 .fleur-icon-24-toggle-on {
-  display: inline-block; }
+  display: inline-block;
+  width: 48px;
+  height: 24px; }
   .fleur-icon-24-toggle-on:before {
     background-image: url("../images/sprite.svg");
     background-repeat: no-repeat;
@@ -44,7 +48,9 @@
     height: 24px; }
 
 .fleur-icon-cart-black {
-  display: inline-block; }
+  display: inline-block;
+  width: 30px;
+  height: 24px; }
   .fleur-icon-cart-black:before {
     background-image: url("../images/sprite.svg");
     background-repeat: no-repeat;
@@ -56,7 +62,9 @@
     height: 24px; }
 
 .fleur-icon-cart-black-full {
-  display: inline-block; }
+  display: inline-block;
+  width: 30px;
+  height: 24px; }
   .fleur-icon-cart-black-full:before {
     background-image: url("../images/sprite.svg");
     background-repeat: no-repeat;
@@ -68,7 +76,9 @@
     height: 24px; }
 
 .fleur-icon-cart-white {
-  display: inline-block; }
+  display: inline-block;
+  width: 30px;
+  height: 24px; }
   .fleur-icon-cart-white:before {
     background-image: url("../images/sprite.svg");
     background-repeat: no-repeat;

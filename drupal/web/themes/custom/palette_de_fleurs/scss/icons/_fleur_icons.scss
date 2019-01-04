@@ -8,6 +8,8 @@
 
 .fleur-icon-24-toggle-off {
   display: inline-block;
+  width: 48px;
+  height: 24px;
   &:before {
     @include sprite-content;
     background-position: 0 0;
@@ -17,6 +19,8 @@
 }
 .fleur-icon-24-toggle-on {
   display: inline-block;
+  width: 48px;
+  height: 24px;
   &:before {
     @include sprite-content;
     background-position: 0 50%;
@@ -26,6 +30,8 @@
 }
 .fleur-icon-cart-black {
   display: inline-block;
+  width: 30px;
+  height: 24px;
   &:before {
     @include sprite-content;
     background-position: 100% 0;
@@ -35,6 +41,8 @@
 }
 .fleur-icon-cart-black-full {
   display: inline-block;
+  width: 30px;
+  height: 24px;
   &:before {
     @include sprite-content;
     background-position: 100% 50%;
@@ -44,6 +52,8 @@
 }
 .fleur-icon-cart-white {
   display: inline-block;
+  width: 30px;
+  height: 24px;
   &:before {
     @include sprite-content;
     background-position: 0 100%;
