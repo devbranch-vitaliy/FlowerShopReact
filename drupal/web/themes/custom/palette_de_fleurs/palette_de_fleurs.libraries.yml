@@ -1,7 +1,15 @@
-framework:
+global-styling:
   css:
     theme:
       css/style.css: {}
+  js:
+    js/theme-main.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+
+bootstrap-scripts:
   js:
     bootstrap/assets/javascripts/bootstrap/affix.js: {}
     bootstrap/assets/javascripts/bootstrap/alert.js: {}

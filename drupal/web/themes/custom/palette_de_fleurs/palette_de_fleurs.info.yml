@@ -21,4 +21,5 @@ regions:
 
 libraries-extend:
   bootstrap/framework:
-    - palette_de_fleurs/framework
+    - palette_de_fleurs/bootstrap-scripts
+    - palette_de_fleurs/global-styling
