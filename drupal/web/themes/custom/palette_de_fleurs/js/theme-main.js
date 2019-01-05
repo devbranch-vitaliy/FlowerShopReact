@@ -18,13 +18,9 @@
         }
       };
 
-      $(document).once().ready(function () {
-        set_background();
-      });
+      $(document).once().ready(set_background);
 
-      $(window).once().scroll(function () {
-        set_background();
-      });
+      $(window).once().scroll(set_background);
 
       // Show popup.
       $('.call-block').once().click(function () {
