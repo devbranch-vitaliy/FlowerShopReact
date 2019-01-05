@@ -64,6 +64,9 @@ header.navbar {
     @include Label-Big;
 
     // Calc popup position: half of popup width + padding + half of icon.
+    @media #{$mobile} {
+      left: -200px/2 + 0px + 20px/2;
+    }
     @media #{$tablet} {
       left: -200px/2 + 10px + 20px/2;
     }

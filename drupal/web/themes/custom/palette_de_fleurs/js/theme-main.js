@@ -28,7 +28,6 @@
 
       // Show popup.
       $('.call-block').once().click(function () {
-        // $('#call-block-popup').toggle(1000);
         document.getElementById('call-block-popup').classList.toggle('show');
       })
     }

@@ -6933,6 +6933,9 @@ header.navbar {
     font-size: 18px;
     font-weight: 600;
     line-height: 1; }
+    @media screen and (max-width: 767px) {
+      #block-cart #call-block-popup {
+        left: -90px; } }
     @media screen and (min-width: 768px) {
       #block-cart #call-block-popup {
         left: -80px; } }
