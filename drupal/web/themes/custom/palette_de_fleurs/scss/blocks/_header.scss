@@ -1,0 +1,316 @@
+header.navbar {
+  background-color: transparent;
+  position: relative;
+  margin-bottom: 0;
+  height: 80px;
+  border-radius: 0;
+  border: 0px solid transparent;
+}
+
+.main-container {
+  padding-top: 80px;
+}
+
+#header-background {
+  position: fixed;
+  width: 100%;
+  z-index: 500;
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+#header-background.black-bg {
+  background: linear-gradient($black, rgba($black, 0) 100%);
+}
+
+#header-background.white-bg {
+  background-color: rgba($white, 0);
+}
+
+#header-background.black-bg.scrolling {
+  background-color: rgba($black, 1);
+}
+
+#header-background.white-bg.scrolling {
+  background-color: rgba($white, 1);
+}
+
+#block-palette-de-fleurs-main-menu, #block-cart, .logo, .place-order-button, .call-block, .cart--cart-block, .mobile_toggle {
+  display: inline-block;
+}
+
+#block-cart {
+  position: absolute;
+  right: 72px;
+  top: 26px;
+
+  .call-block {
+    position: relative;
+    padding: 0 40px;
+    cursor: pointer;
+  }
+
+  .mobile_toggle {
+    position: relative;
+    cursor: pointer;
+  }
+
+  #call-block-popup {
+    visibility: hidden;
+    position: absolute;
+    width: 200px;
+    height: 115px;
+    background: $white;
+    color: $black;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    top: 32px;
+    @include Label-Big;
+
+    // Calc popup position: half of popup width + padding + half of icon.
+    @media #{$mobile} {
+      left: -200px/2 + 0px + 20px/2;
+    }
+    @media #{$tablet} {
+      left: -200px/2 + 10px + 20px/2;
+    }
+    @media #{$normal} {
+      left: -200px/2 + 20px + 20px/2;
+    }
+    @media #{$wide} {
+      left: -200px/2 + 40px + 20px/2;
+    }
+
+    div {
+      margin: 24px 0 24px 24px;
+      height: 18px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent $white transparent;
+    }
+  }
+
+  #call-block-popup.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+#block-palette-de-fleurs-main-menu {
+  position: absolute;
+  right: 384px;
+  top: 31px;
+
+  li {
+    margin-right: 40px;
+    @include Label-Big;
+  }
+  li.active > a, li > a:hover, li > a:focus {
+    background: none;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      border-width: 1px;
+      border-bottom-style: solid;
+    }
+  }
+  a {
+    line-height: 1;
+    padding: 0;
+  }
+}
+#block-palette-de-fleurs-main-menu.text-color-white {
+  li.active > a:after {
+    border-color: $white;
+  }
+  li > a, li.active > a, li.active > a:hover, li.active > a:focus {
+    color: $white;
+  }
+}
+
+#block-palette-de-fleurs-main-menu.text-color-black {
+  li.active > a:after {
+    border-color: $black;
+  }
+  li > a, li.active > a, li.active > a:hover, li.active > a:focus {
+    color: $black;
+  }
+}
+
+header .logo {
+  padding-left: 60px;
+  padding-top: 16px;
+
+  a {
+    margin: 0;
+  }
+
+  img {
+    height: 48px;
+    width: 192px;
+    object-fit: contain;
+  }
+
+  @media #{$mobile} {
+    padding-left: 8px;
+
+    img {
+      height: 32px;
+      width: 130px;
+    }
+  }
+}
+
+.place-order-button {
+  width: 178px;
+  height: 40px;
+  background-color: $brownish-orange;
+  position: absolute;
+  right: 206px;
+  top: 20px;
+}
+
+.Label-Copy {
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: $white;
+
+  p {
+    padding: 12px 15px;
+  }
+}
+
+a:hover.Label-Copy, a:focus.Label-Copy {
+  color: $white;
+  text-decoration: none;
+}
+
+@media #{$mobile} {
+  .navbar .logo {
+    padding-left: 16px;
+  }
+  #block-cart {
+    top: 18px;
+    right: 16px;
+    .call-block {
+      padding: 0;
+    }
+    .cart--cart-block {
+      padding: 0 16px;
+    }
+  }
+  header.navbar {
+    height: 64px;
+  }
+  .main-container {
+    padding-top: 64px;
+  }
+}
+
+@media #{$tablet} {
+  .navbar .logo {
+    padding-left: 30px;
+  }
+  .place-order-button {
+    right: 110px;
+    width: 140px;
+    @include Label-Small;
+  }
+  #block-palette-de-fleurs-main-menu {
+    right: 250px;
+    li {
+      margin-right: 10px;
+    }
+    li > a {
+      @include Label-Small;
+    }
+  }
+  #block-cart {
+    right: 36px;
+    .call-block {
+      padding: 0 10px;
+    }
+    .mobile_toggle{
+      display: none;
+    }
+  }
+}
+
+@media #{$normal} {
+  .navbar .logo {
+    padding-left: 60px;
+  }
+  .place-order-button {
+    right: 166px;
+    width: 178px;
+    @include Label-Big;
+  }
+  #block-palette-de-fleurs-main-menu {
+    right: 344px;
+    li {
+      margin-right: 20px;
+    }
+    li > a {
+      @include Label-Big;
+    }
+  }
+  #block-cart {
+    right: 72px;
+    .call-block {
+      padding: 0 20px;
+    }
+  }
+}
+
+@media #{$wide} {
+  .navbar .logo {
+    padding-left: 60px;
+  }
+  .place-order-button {
+    right: 206px;
+    width: 178px;
+  }
+  #block-palette-de-fleurs-main-menu {
+    right: 384px;
+    li {
+      margin-right: 40px;
+    }
+  }
+  #block-cart {
+    right: 72px;
+    .call-block {
+      padding: 0 40px;
+    }
+  }
+}
