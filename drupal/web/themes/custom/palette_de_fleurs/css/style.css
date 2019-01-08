@@ -6869,6 +6869,12 @@ ol, ul {
   .popover ol:last-child, .popover ul:last-child {
     margin-bottom: 0; }
 
+.black-bg {
+  background-color: #191919; }
+
+.white-bg {
+  background-color: #ffffff; }
+
 .page-header {
   margin-top: 0; }
 
