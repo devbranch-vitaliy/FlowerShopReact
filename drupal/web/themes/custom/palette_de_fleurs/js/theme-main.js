@@ -10,7 +10,7 @@
       // Header background color.
       var set_background = function () {
         var $header = $('#header-background');
-        if ($(window).scrollTop() > $header.height()) {
+        if ($(window).scrollTop() > 0) {
           $header.addClass('scrolling');
         }
         else {
