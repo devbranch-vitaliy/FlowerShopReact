@@ -23,7 +23,7 @@
       $(window).once().scroll(set_background);
 
       // Show popup.
-      $('.call-block').once().click(function () {
+      $('.call-icon').once().click(function () {
         $('#call-block-popup').toggleClass('show');
       })
 
