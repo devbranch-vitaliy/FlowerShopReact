@@ -7136,6 +7136,67 @@ a:hover.Label-Copy, a:focus.Label-Copy {
     #block-cart .call-block {
       padding: 0 40px; } }
 
+footer {
+  padding-top: 0 !important; }
+
+.footer {
+  border: 0; }
+
+.fleur-site-footer.row {
+  padding-top: 80px; }
+  .fleur-site-footer.row h4 {
+    margin-top: 0; }
+  .fleur-site-footer.row img {
+    height: 48px;
+    width: 192px;
+    object-fit: contain; }
+  .fleur-site-footer.row .logo a {
+    margin: 0; }
+
+.fleur-site-footer p > a {
+  color: #ffffff; }
+  .fleur-site-footer p > a:focus, .fleur-site-footer p > a:hover {
+    color: #ffffff; }
+
+.fleur-site-footer .site-follow > a {
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 16px;
+  font-size: 32px; }
+  .fleur-site-footer .site-follow > a:focus, .fleur-site-footer .site-follow > a:hover {
+    text-decoration: none;
+    color: #c9ced5; }
+
+@media screen and (max-width: 767px) {
+  .fleur-site-footer.row {
+    padding-top: 0; }
+  .fleur-site-footer.row img {
+    height: 48px;
+    width: 185px; }
+  .fleur-site-footer.row > div {
+    text-align: center;
+    padding-top: 56px; } }
+
+@media screen and (min-width: 768px) {
+  .fleur-site-footer.row {
+    padding-left: 36px;
+    padding-right: 36px; } }
+
+@media screen and (min-width: 1200px) {
+  .fleur-site-footer.row {
+    padding-left: 84px;
+    padding-right: 84px; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .fleur-site-footer .body-text {
+    font-size: 18px; }
+  .fleur-site-footer h4 {
+    font-size: 22px; }
+  .fleur-site-footer .label-big {
+    font-size: 16px; }
+  .fleur-site-footer .site-follow > a {
+    font-size: 24px; } }
+
 #navbar-collapse {
   position: fixed;
   left: 0;
