@@ -7225,3 +7225,7 @@ a:hover.Label-Copy, a:focus.Label-Copy {
   cursor: pointer;
   font-size: 24px;
   z-index: 1001; }
+
+@media screen and (min-width: 768px) {
+  #navbar-collapse.show {
+    display: none !important; } }

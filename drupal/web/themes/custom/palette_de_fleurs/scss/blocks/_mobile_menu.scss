@@ -106,3 +106,9 @@
   font-size: 24px;
   z-index: 1001;
 }
+
+@media #{$tablet} {
+  #navbar-collapse.show {
+    display: none !important;
+  }
+}
