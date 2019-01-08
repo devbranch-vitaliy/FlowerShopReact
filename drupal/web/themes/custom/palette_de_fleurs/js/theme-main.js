@@ -26,6 +26,11 @@
       $('.call-block').once().click(function () {
         $('#call-block-popup').toggleClass('show');
       })
+
+      // Show mobile menu.
+      $('.mobile_toggle').once().click(function () {
+        $('#navbar-collapse').toggleClass('show');
+      })
     }
   };
 
