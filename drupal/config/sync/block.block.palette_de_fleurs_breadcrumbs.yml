@@ -11,7 +11,7 @@ _core:
 id: palette_de_fleurs_breadcrumbs
 theme: palette_de_fleurs
 region: sidebar_first
-weight: -5
+weight: -4
 provider: null
 plugin: system_breadcrumb_block
 settings:
