@@ -422,6 +422,40 @@ h5 {
 .text-color-orange {
   color: #d2652a; }
 
+.display-1 {
+  font-family: Taviraj;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.13; }
+
+.leading-text {
+  font-family: SourceSansPro;
+  font-size: 24px;
+  line-height: 1.42; }
+
+.body-text {
+  font-family: SourceSansPro;
+  font-size: 20px;
+  line-height: 1.4; }
+
+.label-big {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1; }
+
+.cart-item-text {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center; }
+
+.label-small {
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -6835,6 +6869,12 @@ ol, ul {
   .popover ol:last-child, .popover ul:last-child {
     margin-bottom: 0; }
 
+.black-bg {
+  background-color: #191919; }
+
+.white-bg {
+  background-color: #ffffff; }
+
 .page-header {
   margin-top: 0; }
 
@@ -7135,6 +7175,67 @@ a:hover.Label-Copy, a:focus.Label-Copy {
     right: 72px; }
     #block-cart .call-block {
       padding: 0 40px; } }
+
+footer {
+  padding-top: 0 !important; }
+
+.footer {
+  border: 0; }
+
+.fleur-site-footer.row {
+  padding-top: 80px; }
+  .fleur-site-footer.row h4 {
+    margin-top: 0; }
+  .fleur-site-footer.row img {
+    height: 48px;
+    width: 192px;
+    object-fit: contain; }
+  .fleur-site-footer.row .logo a {
+    margin: 0; }
+
+.fleur-site-footer p > a {
+  color: #ffffff; }
+  .fleur-site-footer p > a:focus, .fleur-site-footer p > a:hover {
+    color: #ffffff; }
+
+.fleur-site-footer .site-follow > a {
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 16px;
+  font-size: 32px; }
+  .fleur-site-footer .site-follow > a:focus, .fleur-site-footer .site-follow > a:hover {
+    text-decoration: none;
+    color: #c9ced5; }
+
+@media screen and (max-width: 767px) {
+  .fleur-site-footer.row {
+    padding-top: 0; }
+  .fleur-site-footer.row img {
+    height: 48px;
+    width: 185px; }
+  .fleur-site-footer.row > div {
+    text-align: center;
+    padding-top: 56px; } }
+
+@media screen and (min-width: 768px) {
+  .fleur-site-footer.row {
+    padding-left: 36px;
+    padding-right: 36px; } }
+
+@media screen and (min-width: 1200px) {
+  .fleur-site-footer.row {
+    padding-left: 84px;
+    padding-right: 84px; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .fleur-site-footer .body-text {
+    font-size: 18px; }
+  .fleur-site-footer h4 {
+    font-size: 22px; }
+  .fleur-site-footer .label-big {
+    font-size: 16px; }
+  .fleur-site-footer .site-follow > a {
+    font-size: 24px; } }
 
 #navbar-collapse {
   position: fixed;
