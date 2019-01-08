@@ -7,6 +7,10 @@ header.navbar {
   border: 0px solid transparent;
 }
 
+.main-container {
+  padding-top: 64px;
+}
+
 #header-background {
   position: fixed;
   width: 100%;
@@ -156,7 +160,7 @@ header.navbar {
   }
 }
 
-.navbar .logo {
+header .logo {
   padding-left: 60px;
   padding-top: 16px;
 
@@ -167,6 +171,7 @@ header.navbar {
   img {
     height: 48px;
     width: 192px;
+    object-fit: contain;
   }
 
   @media #{$mobile} {
@@ -281,6 +286,9 @@ a:hover.Label-Copy, a:focus.Label-Copy {
   }
   header.navbar {
     height: 64px;
+  }
+  .main-container {
+    padding-top: 60px;
   }
 }
 
