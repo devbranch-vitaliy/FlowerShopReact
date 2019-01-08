@@ -6932,6 +6932,7 @@ header.navbar {
     background: #ffffff;
     color: #191919;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+    top: 32px;
     font-family: SourceSansPro;
     font-size: 18px;
     font-weight: 600;
@@ -7177,19 +7178,20 @@ a:hover.Label-Copy, a:focus.Label-Copy {
 .region-navigation-collapsible {
   display: flex;
   align-content: center;
-  height: 100%; }
+  height: 100%;
+  flex-direction: column; }
 
 #block-mobile-navigation {
-  position: absolute;
-  top: 15%;
-  left: 0;
   width: 100%;
-  margin: auto; }
+  margin: auto;
+  position: relative;
+  flex: 1; }
   #block-mobile-navigation ul {
     position: absolute;
     width: 100%;
     margin: auto;
-    text-align: center; }
+    text-align: center;
+    bottom: 0; }
   #block-mobile-navigation ul li {
     margin: auto;
     padding-top: 30px; }
@@ -7199,9 +7201,9 @@ a:hover.Label-Copy, a:focus.Label-Copy {
 
 #navbar-collapse .button-wrapper {
   display: block;
-  position: absolute;
-  top: 45%;
-  width: 100%; }
+  width: 100%;
+  padding-top: 30px;
+  flex: 1; }
 
 #block-place-your-order-mobile {
   width: 220px;
@@ -7220,4 +7222,6 @@ a:hover.Label-Copy, a:focus.Label-Copy {
   display: block;
   top: 20px;
   right: 16px;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1001; }
