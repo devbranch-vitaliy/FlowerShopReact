@@ -6887,7 +6887,7 @@ header.navbar {
   border: 0px solid transparent; }
 
 .main-container {
-  padding-top: 64px; }
+  padding-top: 80px; }
 
 #header-background {
   position: fixed;
@@ -7116,7 +7116,7 @@ a:hover.Label-Copy, a:focus.Label-Copy {
   header.navbar {
     height: 64px; }
   .main-container {
-    padding-top: 60px; } }
+    padding-top: 64px; } }
 
 @media screen and (min-width: 768px) {
   .navbar .logo {
