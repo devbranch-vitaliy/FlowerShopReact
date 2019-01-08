@@ -53,8 +53,8 @@
 #}
 {% set header_attribute = create_attribute() %}
 {%
-    set header_classes = [
-    is_front ? 'black-bg' : 'white-bg',
+  set header_classes = [
+  is_front ? 'black-bg' : 'white-bg',
 ]
 %}
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
@@ -63,34 +63,38 @@
   {% block navbar %}
     {%
       set navbar_classes = [
-        'navbar',
-        theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
-        is_front ? 'text-color-white' : 'text-color-black',
-      ]
+      'navbar',
+      theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
+      is_front ? 'text-color-white' : 'text-color-black',
+    ]
     %}
     <div{{ header_attribute.addClass(header_classes) }} id="header-background">
-        <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
-          {% if not navbar_attributes.hasClass(container) %}
-            <div class="{{ container }}">
+      <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
+        {% if not navbar_attributes.hasClass(container) %}
+        <div class="{{ container }}">
           {% endif %}
           <div class="navbar-header">
             {{ page.navigation }}
             {# .btn-navbar is used as the toggle for collapsed navbar content #}
           </div>
 
-          {# Navigation (collapsible) #}
-          {% if page.navigation_collapsible %}
-            <div id="navbar-collapse" class="navbar-collapse collapse">
-              {{ page.navigation_collapsible }}
-            </div>
-          {% endif %}
           {% if not navbar_attributes.hasClass(container) %}
-            </div>
-          {% endif %}
-        </header>
+        </div>
+        {% endif %}
+      </header>
     </div>
 
   {% endblock %}
+{% endif %}
+
+{# Navigation (collapsible) #}
+{% if page.navigation_collapsible %}
+  <div id="navbar-collapse">
+    <div class="mobile_toggle mobile_toggle_close">
+      <i class="text-color-white fleur-font-icon-16-close-primary"></i>
+    </div>
+    {{ page.navigation_collapsible }}
+  </div>
 {% endif %}
 
 {# Main #}
