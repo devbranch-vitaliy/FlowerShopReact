@@ -164,10 +164,52 @@
   </div>
 {% endblock %}
 
-{% if page.footer %}
-  {% block footer %}
+{% block footer %}
+  <div class="black-bg" id="footer-background">
     <footer class="footer {{ container }}" role="contentinfo">
-      {{ page.footer }}
+      {% if page.footer %}
+        {{ page.footer }}
+      {% endif %}
+
+      {# Main footer block #}
+      <div class="fleur-site-footer row">
+        {# Site info #}
+        <div class="col-xs-12 col-sm-3 text-color-white body-text site-info">
+          <div class="logo">
+            <a class="navbar-btn pull-left" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+              <img class="img-responsive" src="/themes/custom/palette_de_fleurs/images/logo-white.svg" alt="{{ 'Home'|t }}" />
+            </a>
+          </div>
+          <p>{{ "Palette de Fleurs"|t }}<br />
+            {{ "Cape Quarter Square"|t }}<br />
+            {{ "Somerset Road"|t }}<br />
+            {{ "de Waterkant, Cape Town"|t }}</p>
+          <p><a href="tel:+27 21 421 8258">+27 21 421 8258</a><br />
+            <a href="tel:+27 21 421 8259">+27 21 421 8259</a></p>
+          <p><a href="mailto:pieter@palettedefleurs.co.za">pieter@palettedefleurs.co.za</a></p>
+        </div>
+
+        {# Support links #}
+        <div class="col-xs-12 col-sm-3 site-support">
+          <h4 class="text-color-white">{{ "Customer Support"|t }}</h4>
+          {{ drupal_menu('customer-support') }}
+        </div>
+
+        {# Quick links #}
+        <div class="col-xs-12 col-sm-3 site-links">
+          <h4 class="text-color-white">Quick links</h4>
+          {{ drupal_menu('quick-links') }}
+        </div>
+
+        {# Follow us #}
+        <div class="col-xs-12 col-sm-3 site-follow">
+          <h4 class="text-color-white">Follow us</h4>
+          <a class="fleur-font-icon-32-instagram-white" href="#instagram"></a>
+          <a class="fleur-font-icon-32-facebook-white" href="#facebook"></a>
+          <a class="fleur-font-icon-32-twitter-white" href="#twitter"></a>
+        </div>
+      </div>
+
     </footer>
-  {% endblock %}
-{% endif %}
+  </div>
+{% endblock %}
