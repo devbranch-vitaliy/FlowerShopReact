@@ -6899,7 +6899,7 @@ header.navbar {
   transition: 0.3s all ease; }
 
 #header-background.black-bg {
-  background-color: rgba(25, 25, 25, 0); }
+  background: linear-gradient(#191919, rgba(25, 25, 25, 0) 100%); }
 
 #header-background.white-bg {
   background-color: rgba(255, 255, 255, 0); }

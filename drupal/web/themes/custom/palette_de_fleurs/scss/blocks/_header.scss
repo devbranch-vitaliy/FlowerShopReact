@@ -22,7 +22,7 @@ header.navbar {
 }
 
 #header-background.black-bg {
-  background-color: rgba($black, 0);
+  background: linear-gradient($black, rgba($black, 0) 100%);
 }
 
 #header-background.white-bg {
