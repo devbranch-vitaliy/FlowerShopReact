@@ -6983,7 +6983,11 @@ header.navbar {
   right: 384px;
   top: 31px; }
   #block-palette-de-fleurs-main-menu li {
-    margin-right: 40px; }
+    margin-right: 40px;
+    font-family: SourceSansPro;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1; }
   #block-palette-de-fleurs-main-menu li.active > a, #block-palette-de-fleurs-main-menu li > a:hover, #block-palette-de-fleurs-main-menu li > a:focus {
     background: none; }
     #block-palette-de-fleurs-main-menu li.active > a:after, #block-palette-de-fleurs-main-menu li > a:hover:after, #block-palette-de-fleurs-main-menu li > a:focus:after {
@@ -7034,58 +7038,6 @@ header .logo {
   right: 206px;
   top: 20px; }
 
-.Products {
-  width: 70px;
-  height: 18px;
-  font-family: SourceSansPro;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: #191919; }
-
-.About {
-  width: 47px;
-  height: 18px;
-  font-family: SourceSansPro;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: #191919; }
-
-.Contact {
-  width: 61px;
-  height: 18px;
-  font-family: SourceSansPro;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: #191919; }
-
-.News {
-  width: 43px;
-  height: 18px;
-  font-family: SourceSansPro;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: #191919; }
-
 .Label-Copy {
   font-family: SourceSansPro;
   font-size: 16px;
@@ -7105,7 +7057,7 @@ a:hover.Label-Copy, a:focus.Label-Copy {
 
 @media screen and (max-width: 767px) {
   .navbar .logo {
-    padding-left: 10px; }
+    padding-left: 16px; }
   #block-cart {
     top: 18px;
     right: 16px; }
@@ -7206,14 +7158,6 @@ a:hover.Label-Copy, a:focus.Label-Copy {
 
 #navbar-collapse li.active > a, #navbar-collapse li > a:hover, #navbar-collapse li > a:focus {
   background: none; }
-  #navbar-collapse li.active > a:after, #navbar-collapse li > a:hover:after, #navbar-collapse li > a:focus:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    top: 100%;
-    left: 0;
-    border-width: 1px;
-    border-bottom-style: solid; }
 
 #navbar-collapse li > a {
   font-family: SourceSansPro;
@@ -7237,19 +7181,27 @@ a:hover.Label-Copy, a:focus.Label-Copy {
 
 #block-mobile-navigation {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 0;
   width: 100%;
   margin: auto; }
   #block-mobile-navigation ul {
     position: absolute;
-    width: 100%; }
+    width: 100%;
+    margin: auto;
+    text-align: center; }
   #block-mobile-navigation ul li {
     margin: auto;
-    padding-top: 10px; }
+    padding-top: 30px; }
   #block-mobile-navigation ul a {
     width: auto;
     height: auto; }
+
+#navbar-collapse .button-wrapper {
+  display: block;
+  position: absolute;
+  top: 45%;
+  width: 100%; }
 
 #block-place-your-order-mobile {
   width: 220px;

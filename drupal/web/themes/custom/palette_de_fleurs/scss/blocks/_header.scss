@@ -123,6 +123,7 @@ header.navbar {
 
   li {
     margin-right: 40px;
+    @include Label-Big;
   }
   li.active > a, li > a:hover, li > a:focus {
     background: none;
@@ -193,62 +194,6 @@ header .logo {
   top: 20px;
 }
 
-.Products {
-  width: 70px;
-  height: 18px;
-  font-family: SourceSansPro;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: $black;
-}
-
-.About {
-  width: 47px;
-  height: 18px;
-  font-family: SourceSansPro;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: $black;
-}
-
-.Contact {
-  width: 61px;
-  height: 18px;
-  font-family: SourceSansPro;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: $black;
-}
-
-.News {
-  width: 43px;
-  height: 18px;
-  font-family: SourceSansPro;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: $black;
-}
-
 .Label-Copy {
   font-family: SourceSansPro;
   font-size: 16px;
@@ -272,7 +217,7 @@ a:hover.Label-Copy, a:focus.Label-Copy {
 
 @media #{$mobile} {
   .navbar .logo {
-    padding-left: 10px;
+    padding-left: 16px;
   }
   #block-cart {
     top: 18px;

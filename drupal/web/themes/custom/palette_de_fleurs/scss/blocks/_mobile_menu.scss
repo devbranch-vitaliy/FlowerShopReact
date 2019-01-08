@@ -25,16 +25,6 @@
   }
   li.active > a, li > a:hover, li > a:focus {
     background: none;
-
-    &:after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      top: 100%;
-      left: 0;
-      border-width: 1px;
-      border-bottom-style: solid;
-    }
   }
   li > a {
     @include Leading-text;
@@ -61,7 +51,7 @@
 
 #block-mobile-navigation {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 0;
   width: 100%;
   margin: auto;
@@ -69,17 +59,26 @@
   ul {
     position: absolute;
     width: 100%;
+    margin: auto;
+    text-align: center;
   }
 
   ul li {
     margin: auto;
-    padding-top: 10px;
+    padding-top: 30px;
   }
 
   ul a {
     width: auto;
     height: auto;
   }
+}
+
+#navbar-collapse .button-wrapper {
+  display: block;
+  position: absolute;
+  top: 45%;
+  width: 100%;
 }
 
 #block-place-your-order-mobile {
