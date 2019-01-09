@@ -6926,9 +6926,6 @@ header.navbar {
   border-radius: 0;
   border: 0px solid transparent; }
 
-.main-container {
-  padding-top: 80px; }
-
 #header-background {
   position: fixed;
   width: 100%;
@@ -7107,9 +7104,7 @@ a:hover.Label-Copy, a:focus.Label-Copy {
     #block-cart .cart--cart-block {
       padding: 0 16px; }
   header.navbar {
-    height: 64px; }
-  .main-container {
-    padding-top: 64px; } }
+    height: 64px; } }
 
 @media screen and (min-width: 768px) {
   .navbar .logo {
@@ -7335,3 +7330,15 @@ footer {
 @media screen and (min-width: 768px) {
   #navbar-collapse.show {
     display: none !important; } }
+
+.main-container {
+  padding-top: 80px; }
+
+.main-container.is-front {
+  padding-top: 0; }
+
+@media screen and (max-width: 767px) {
+  .main-container {
+    padding-top: 64px; }
+  .main-container.is-front {
+    padding-top: 0; } }

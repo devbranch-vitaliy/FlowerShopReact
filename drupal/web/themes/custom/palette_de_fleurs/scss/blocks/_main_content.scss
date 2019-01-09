@@ -1,0 +1,16 @@
+.main-container {
+  padding-top: 80px;
+}
+
+.main-container.is-front {
+  padding-top: 0;
+}
+
+@media #{$mobile} {
+  .main-container {
+    padding-top: 64px;
+  }
+  .main-container.is-front {
+    padding-top: 0;
+  }
+}
