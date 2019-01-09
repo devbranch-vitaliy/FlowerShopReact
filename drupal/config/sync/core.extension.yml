@@ -106,6 +106,7 @@ module:
   menu_link_content: 1
   pathauto: 1
   views: 10
+  paragraphs: 11
   linked_field: 100
   standard: 1000
 theme:
