@@ -24,6 +24,16 @@ body.path-frontpage {
   padding-top: 80px;
 }
 
+.main-container > .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.main-container > .row > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 @media #{$mobile} {
   .main-container {
     padding-top: 64px;

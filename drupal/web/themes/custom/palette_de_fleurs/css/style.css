@@ -4168,7 +4168,7 @@ tbody.collapse.in {
 .navbar-fixed-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
   max-height: 340px; }
-  @media (max-device-width: 480px) and (orientation: landscape) {
+  @media (max-device-width: 0px) and (orientation: landscape) {
     .navbar-fixed-top .navbar-collapse,
     .navbar-fixed-bottom .navbar-collapse {
       max-height: 200px; } }
@@ -7363,6 +7363,14 @@ body.path-frontpage .par-back-wrapper {
 .main-container {
   padding-top: 80px; }
 
+.main-container > .row {
+  margin-left: 0;
+  margin-right: 0; }
+
+.main-container > .row > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0; }
+
 @media screen and (max-width: 767px) {
   .main-container {
     padding-top: 64px; } }
@@ -7373,8 +7381,6 @@ body.path-frontpage .par-back-wrapper {
   background-position: center;
   background-size: cover;
   position: relative; }
-  .cta-banner .paragraph {
-    padding-top: 166px; }
   .cta-banner .paragraph .field {
     font-style: normal;
     font-stretch: normal;
@@ -7384,6 +7390,31 @@ body.path-frontpage .par-back-wrapper {
     margin: auto; }
   .cta-banner .button-wrapper {
     padding: 24px; }
+  .cta-banner .info {
+    background: #191919;
+    position: absolute;
+    bottom: 0;
+    height: 56px;
+    width: 100%; }
+  .cta-banner .info .container {
+    height: 56px; }
+  .cta-banner .info .row {
+    width: 100%;
+    height: 100%;
+    padding: 19px 0;
+    margin: 0; }
+  .cta-banner .info span {
+    vertical-align: top; }
+  .cta-banner .info .icon {
+    font-size: 20px; }
+  .cta-banner .info .label-small {
+    font-weight: normal;
+    color: #ffffff; }
+  .cta-banner .info .row > div {
+    display: inline-block;
+    margin: auto;
+    padding: 0;
+    text-align: left; }
 
 .field--name-field-banner-title {
   font-family: Taviraj;
@@ -7397,8 +7428,7 @@ body.path-frontpage .par-back-wrapper {
   font-family: SourceSansPro;
   font-size: 24px;
   line-height: 1.42;
-  width: 50%;
-  padding-top: 24px; }
+  width: 50%; }
 
 #block-place-your-order-banner {
   width: 220px;
@@ -7419,4 +7449,72 @@ body.path-frontpage .par-back-wrapper {
   .cta-banner {
     height: 713px; }
     .cta-banner .paragraph {
-      padding-top: 120px; } }
+      padding-top: 120px; }
+    .cta-banner .info, .cta-banner .info .container {
+      height: 154px; }
+    .cta-banner .info .row {
+      padding: 16px 10px; }
+    .cta-banner .info .row > div {
+      text-align: left;
+      float: none;
+      width: 450px;
+      display: block; }
+    .cta-banner .info .row > div:first-child {
+      padding-bottom: 16px; }
+  .field--name-field-banner-title {
+    font-size: 40px;
+    width: 90%; }
+  .field--name-field-banner-description {
+    font-size: 20px;
+    padding-top: 8px;
+    width: 90%; } }
+
+@media (max-width: 437px) {
+  .cta-banner .info .icon {
+    height: 100%; }
+  .cta-banner .info .row > div {
+    width: auto; }
+  .cta-banner .info .icon {
+    width: 12%; }
+  .cta-banner .info .icon-description {
+    width: 85%; }
+  .cta-banner .info span {
+    display: inline-block; }
+  .cta-banner .button-wrapper {
+    padding: 24px 10px; }
+  #block-place-your-order-banner {
+    width: 100%; } }
+
+@media screen and (min-width: 768px) {
+  .cta-banner .info, .cta-banner .info .container {
+    height: 100px; }
+  .cta-banner .paragraph {
+    padding-top: 120px; }
+  .cta-banner .info .row > div:first-child {
+    padding-bottom: 16px; }
+  .cta-banner .info .icon {
+    padding-right: 16px; }
+  .field--name-field-banner-title {
+    font-size: 50px; }
+  .field--name-field-banner-description {
+    font-size: 24px;
+    padding-top: 24px; } }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .cta-banner .info .row > div {
+    text-align: left;
+    float: none;
+    width: 450px;
+    display: block; } }
+
+@media screen and (min-width: 992px) {
+  .cta-banner .paragraph {
+    padding-top: 140px; }
+  .cta-banner .info .icon {
+    padding: 0 16px; }
+  .info .row > div:first-child {
+    text-align: right; } }
+
+@media screen and (min-width: 1200px) {
+  .cta-banner .paragraph {
+    padding-top: 166px; } }
