@@ -47,12 +47,19 @@
   ]
 %}
 {% block paragraph %}
-  <div class="par-back-wrapper" style='background-image: url("{{ base_path ~ directory }}/images/front-top-banner.png")'>
+  <div class="par-back-wrapper cta-banner" style='background-image: url("{{ base_path ~ directory }}/images/front-top-banner.png")'>
     <div{{ attributes.addClass(classes) }}>
       {% block content %}
         {{ content }}
       {% endblock %}
-      {{ content.field_banner.entity.uri.value }}
+      {# Button #}
+      <div class="button-wrapper">
+        <a class="clearfix Label-Copy" id="block-place-your-order-banner" href="{{ path('view.flowers.products') }}">
+          <p>
+            Place your order
+          </p>
+        </a>
+      </div>
     </div>
   </div>
 {% endblock paragraph %}

@@ -90,7 +90,7 @@
   display: block;
   position: relative;
   margin: auto;
-  font-size: 18px;
+  @include Label-Big;
 
   p {
     padding: 15px 15px;

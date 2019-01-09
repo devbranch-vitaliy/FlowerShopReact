@@ -1,0 +1,61 @@
+.cta-banner {
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  .paragraph {
+    padding-top: 166px;
+  }
+
+  .paragraph .field {
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: $white;
+    margin: auto;
+  }
+
+  .button-wrapper {
+    padding: 24px;
+  }
+}
+
+.field--name-field-banner-title {
+  @include Display-1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  width: 80%;
+}
+
+.field--name-field-banner-description{
+  @include Leading-text;
+  width: 50%;
+  padding-top: 24px;
+}
+
+#block-place-your-order-banner {
+  width: 220px;
+  height: 48px;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
+  background-color: $brownish-orange;
+  display: block;
+  position: relative;
+  margin: auto;
+  @include Label-Big;
+
+  p {
+    padding: 15px 15px;
+  }
+}
+
+@media #{$mobile} {
+  .cta-banner {
+    height: 713px;
+
+    .paragraph {
+      padding-top: 120px;
+    }
+  }
+}

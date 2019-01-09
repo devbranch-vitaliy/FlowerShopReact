@@ -7314,7 +7314,10 @@ footer {
   display: block;
   position: relative;
   margin: auto;
-  font-size: 18px; }
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1; }
   #block-place-your-order-mobile p {
     padding: 15px 15px; }
 
@@ -7332,8 +7335,7 @@ footer {
     display: none !important; } }
 
 body.path-frontpage .main-container {
-  padding: 0;
-  padding-top: 80px; }
+  padding: 0; }
 
 body.path-frontpage .paragraph {
   margin-right: auto;
@@ -7364,3 +7366,57 @@ body.path-frontpage .par-back-wrapper {
 @media screen and (max-width: 767px) {
   .main-container {
     padding-top: 64px; } }
+
+.cta-banner {
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+  .cta-banner .paragraph {
+    padding-top: 166px; }
+  .cta-banner .paragraph .field {
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+    margin: auto; }
+  .cta-banner .button-wrapper {
+    padding: 24px; }
+
+.field--name-field-banner-title {
+  font-family: Taviraj;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.13;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  width: 80%; }
+
+.field--name-field-banner-description {
+  font-family: SourceSansPro;
+  font-size: 24px;
+  line-height: 1.42;
+  width: 50%;
+  padding-top: 24px; }
+
+#block-place-your-order-banner {
+  width: 220px;
+  height: 48px;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
+  background-color: #d2652a;
+  display: block;
+  position: relative;
+  margin: auto;
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1; }
+  #block-place-your-order-banner p {
+    padding: 15px 15px; }
+
+@media screen and (max-width: 767px) {
+  .cta-banner {
+    height: 713px; }
+    .cta-banner .paragraph {
+      padding-top: 120px; } }
