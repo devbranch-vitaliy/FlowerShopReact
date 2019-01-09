@@ -67,10 +67,17 @@ footer {
   }
 }
 
+@media #{$normal} {
+  .fleur-site-footer.row {
+    padding-left: 60px + $grid-gutter-width / 2;
+    padding-right: 60px + $grid-gutter-width / 2;
+  }
+}
+
 @media #{$wide} {
   .fleur-site-footer.row {
-    padding-left: 60px + $grid-gutter-large-width;
-    padding-right: 60px + $grid-gutter-large-width;
+    padding-left: 60px + $grid-gutter-large-width / 2;
+    padding-right: 60px + $grid-gutter-large-width / 2;
   }
 }
 

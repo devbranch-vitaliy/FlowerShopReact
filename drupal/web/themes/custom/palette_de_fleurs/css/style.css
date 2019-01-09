@@ -7222,10 +7222,15 @@ footer {
     padding-left: 36px;
     padding-right: 36px; } }
 
+@media screen and (min-width: 992px) {
+  .fleur-site-footer.row {
+    padding-left: 66px;
+    padding-right: 66px; } }
+
 @media screen and (min-width: 1200px) {
   .fleur-site-footer.row {
-    padding-left: 84px;
-    padding-right: 84px; } }
+    padding-left: 72px;
+    padding-right: 72px; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .fleur-site-footer .body-text {
