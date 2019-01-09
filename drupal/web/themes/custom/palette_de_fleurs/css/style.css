@@ -7332,7 +7332,8 @@ footer {
     display: none !important; } }
 
 body.path-frontpage .main-container {
-  padding: 0; }
+  padding: 0;
+  padding-top: 80px; }
 
 body.path-frontpage .paragraph {
   margin-right: auto;

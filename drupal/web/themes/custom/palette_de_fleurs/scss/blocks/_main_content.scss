@@ -1,6 +1,7 @@
 body.path-frontpage {
   .main-container {
     padding: 0;
+    padding-top: 80px;
   }
   .paragraph {
     @include container-fixed;
