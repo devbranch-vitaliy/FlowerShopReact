@@ -49,12 +49,34 @@
     font-weight: normal;
     color: $white;
   }
-
   .info .row > div {
     display: inline-block;
     margin: auto;
     padding: 0;
     text-align: left;
+  }
+  .arrow-down {
+    width: 100%;
+    span {
+      margin: auto;
+      width: 24px;
+      font-size: 24px;
+      display: block;
+    }
+  }
+  .home-indicator {
+    position: absolute;
+    bottom: 14px;
+    width: 100%;
+
+    .home-indicator-row {
+      width: 134px;
+      height: 5px;
+      border-radius: 100px;
+      background-color: #000000;
+      display: block;
+      margin: auto;
+    }
   }
 }
 

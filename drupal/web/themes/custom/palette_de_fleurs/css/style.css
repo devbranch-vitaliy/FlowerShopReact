@@ -7415,6 +7415,24 @@ body.path-frontpage .par-back-wrapper {
     margin: auto;
     padding: 0;
     text-align: left; }
+  .cta-banner .arrow-down {
+    width: 100%; }
+    .cta-banner .arrow-down span {
+      margin: auto;
+      width: 24px;
+      font-size: 24px;
+      display: block; }
+  .cta-banner .home-indicator {
+    position: absolute;
+    bottom: 14px;
+    width: 100%; }
+    .cta-banner .home-indicator .home-indicator-row {
+      width: 134px;
+      height: 5px;
+      border-radius: 100px;
+      background-color: #000000;
+      display: block;
+      margin: auto; }
 
 .field--name-field-banner-title {
   font-family: Taviraj;
