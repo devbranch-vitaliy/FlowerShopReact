@@ -7394,10 +7394,7 @@ body.path-frontpage .par-back-wrapper {
     background: #191919;
     position: absolute;
     bottom: 0;
-    height: 56px;
     width: 100%; }
-  .cta-banner .info .container {
-    height: 56px; }
   .cta-banner .info .row {
     width: 100%;
     height: 100%;
@@ -7416,7 +7413,9 @@ body.path-frontpage .par-back-wrapper {
     padding: 0;
     text-align: left; }
   .cta-banner .arrow-down {
-    width: 100%; }
+    width: 100%;
+    position: absolute;
+    bottom: 178px; }
     .cta-banner .arrow-down span {
       margin: auto;
       width: 24px;
@@ -7470,6 +7469,8 @@ body.path-frontpage .par-back-wrapper {
       padding-top: 120px; }
     .cta-banner .info, .cta-banner .info .container {
       height: 154px; }
+    .cta-banner .info .icon {
+      padding-right: 16px; }
     .cta-banner .info .row {
       padding: 16px 10px; }
     .cta-banner .info .row > div {
@@ -7487,7 +7488,7 @@ body.path-frontpage .par-back-wrapper {
     padding-top: 8px;
     width: 90%; } }
 
-@media (max-width: 437px) {
+@media (max-width: 480px) {
   .cta-banner .info .icon {
     height: 100%; }
   .cta-banner .info .row > div {
@@ -7526,6 +7527,8 @@ body.path-frontpage .par-back-wrapper {
     display: block; } }
 
 @media screen and (min-width: 992px) {
+  .cta-banner .info, .cta-banner .info .container {
+    height: 56px; }
   .cta-banner .paragraph {
     padding-top: 140px; }
   .cta-banner .info .icon {

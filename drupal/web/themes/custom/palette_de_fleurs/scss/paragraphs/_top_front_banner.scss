@@ -22,12 +22,7 @@
     background: $black;
     position: absolute;
     bottom: 0;
-    height: 56px;
     width: 100%;
-  }
-
-  .info .container {
-    height: 56px;
   }
 
   .info .row {
@@ -208,6 +203,9 @@
 
 @media #{$normal} {
   .cta-banner {
+    .info, .info .container {
+      height: 56px;
+    }
     .paragraph {
       padding-top: 140px;
     }
