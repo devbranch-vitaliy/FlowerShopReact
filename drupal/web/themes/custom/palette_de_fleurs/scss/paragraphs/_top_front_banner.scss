@@ -57,6 +57,8 @@
   }
   .arrow-down {
     width: 100%;
+    position: absolute;
+    bottom: 178px;
     span {
       margin: auto;
       width: 24px;
@@ -116,6 +118,9 @@
     .info, .info .container {
       height: 154px;
     }
+    .info .icon {
+      padding-right: 16px;
+    }
     .info .row {
       padding: 16px 10px;
     }
@@ -140,7 +145,7 @@
   }
 }
 
-@media (max-width: 437px) {
+@media (max-width: 480px) {
   .cta-banner {
     .info .icon {
       height: 100%;
