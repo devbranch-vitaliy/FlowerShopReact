@@ -1,0 +1,25 @@
+uuid: 2bd54d4c-bd1c-43be-8608-dee7db456380
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page_with_paragraphs.field_paragraphs
+    - node.type.page_with_paragraphs
+  module:
+    - user
+id: node.page_with_paragraphs.teaser
+targetEntityType: node
+bundle: page_with_paragraphs
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_paragraphs: true
