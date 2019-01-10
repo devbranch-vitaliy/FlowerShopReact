@@ -1653,7 +1653,7 @@ h1, .h1 {
   font-size: 40px; }
 
 h2, .h2 {
-  font-size: 30px; }
+  font-size: 32px; }
 
 h3, .h3 {
   font-size: 26px; }
@@ -7601,7 +7601,8 @@ body.path-frontpage .par-back-wrapper {
 @media screen and (max-width: 767px) {
   h2 {
     margin-top: 0;
-    margin-bottom: 8px; }
+    margin-bottom: 8px;
+    font-size: 30px; }
   .slogans {
     padding-top: 40px;
     padding-bottom: 40px; }
@@ -7661,13 +7662,51 @@ body.path-frontpage .par-back-wrapper {
 
 .instagram {
   text-align: center; }
-
-@media screen and (max-width: 767px) {
   .instagram h1 {
     margin-top: 6px;
-    margin-bottom: 40px; } }
+    margin-bottom: 40px; }
+  .instagram h2 {
+    margin-top: 40px;
+    margin-bottom: 24px; }
+
+.featured-products {
+  text-align: center; }
+  .featured-products h1 {
+    margin-top: 80px;
+    margin-bottom: 40px; }
+  .featured-products h2 {
+    margin-top: 40px;
+    margin-bottom: 24px; }
+  .featured-products .our-products-button {
+    width: 220px;
+    height: 48px;
+    border: 2px solid #191919;
+    display: block;
+    margin: auto;
+    color: #191919;
+    font-family: SourceSansPro;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1; }
+    .featured-products .our-products-button:focus, .featured-products .our-products-button:hover {
+      font-family: SourceSansPro;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1;
+      color: #191919;
+      text-decoration: none; }
+    .featured-products .our-products-button p {
+      padding: 14px 0; }
+  .featured-products .view-footer {
+    margin-top: 40px;
+    margin-bottom: 80px; }
 
 @media screen and (max-width: 767px) {
-  .instagram h1 {
-    margin-top: 40px;
-    margin-bottom: 24px; } }
+  .featured-products .view-footer {
+    margin-top: 24px;
+    margin-bottom: 40px;
+    padding: 0 8px; } }
+
+@media (max-width: 480px) {
+  .featured-products .our-products-button {
+    width: 100%; } }
