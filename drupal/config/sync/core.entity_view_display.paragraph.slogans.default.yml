@@ -1,0 +1,27 @@
+uuid: 432a6123-0b76-49c5-9b55-e4ee5c65d382
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slogans.field_slogan
+    - paragraphs.paragraphs_type.slogans
+  module:
+    - entity_reference_revisions
+id: paragraph.slogans.default
+targetEntityType: paragraph
+bundle: slogans
+mode: default
+content:
+  field_slogan:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

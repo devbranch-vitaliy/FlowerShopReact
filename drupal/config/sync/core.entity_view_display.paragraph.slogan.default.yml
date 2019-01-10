@@ -1,0 +1,41 @@
+uuid: 276ffac6-0069-443a-a7d3-237ad5209f44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slogan.field_description
+    - field.field.paragraph.slogan.field_icon_class
+    - field.field.paragraph.slogan.field_title
+    - paragraphs.paragraphs_type.slogan
+id: paragraph.slogan.default
+targetEntityType: paragraph
+bundle: slogan
+mode: default
+content:
+  field_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_icon_class:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

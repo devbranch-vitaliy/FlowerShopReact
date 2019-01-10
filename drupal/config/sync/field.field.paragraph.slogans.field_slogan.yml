@@ -1,0 +1,37 @@
+uuid: b809a40b-23dd-42ce-846a-0387d7c08449
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slogan
+    - paragraphs.paragraphs_type.slogan
+    - paragraphs.paragraphs_type.slogans
+  module:
+    - entity_reference_revisions
+id: paragraph.slogans.field_slogan
+field_name: field_slogan
+entity_type: paragraph
+bundle: slogans
+label: Slogan
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      slogan: slogan
+    target_bundles_drag_drop:
+      slogan:
+        enabled: true
+        weight: 4
+      cta_banner:
+        weight: 5
+        enabled: false
+      slogans:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

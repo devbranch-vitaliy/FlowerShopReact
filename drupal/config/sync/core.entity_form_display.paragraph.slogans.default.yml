@@ -1,0 +1,30 @@
+uuid: c61977a1-a5cf-4e6f-8dc2-fabf4d49fed8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slogans.field_slogan
+    - paragraphs.paragraphs_type.slogans
+  module:
+    - paragraphs
+id: paragraph.slogans.default
+targetEntityType: paragraph
+bundle: slogans
+mode: default
+content:
+  field_slogan:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true
