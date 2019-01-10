@@ -1,0 +1,31 @@
+uuid: d48da1bd-5133-49c2-aed5-3fb3b03b5bdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_products.field_view
+    - paragraphs.paragraphs_type.featured_products
+  module:
+    - viewsreference
+id: paragraph.featured_products.default
+targetEntityType: paragraph
+bundle: featured_products
+mode: default
+content:
+  field_view:
+    weight: 0
+    label: hidden
+    settings:
+      plugin_types:
+        default: default
+        page: page
+        block: block
+        feed: feed
+        embed: embed
+    third_party_settings: {  }
+    type: viewsreference_formatter
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

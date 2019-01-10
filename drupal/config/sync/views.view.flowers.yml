@@ -274,6 +274,22 @@ display:
         - 'languages:language_interface'
       tags:
         - 'config:field.storage.commerce_product.field_images'
+  featured_products:
+    display_plugin: page
+    id: featured_products
+    display_title: 'Featured Products'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: flowers
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+      tags:
+        - 'config:field.storage.commerce_product.field_images'
   products:
     display_plugin: page
     id: products
@@ -603,21 +619,5 @@ display:
         - url
         - url.query_args
         - user
-      tags:
-        - 'config:field.storage.commerce_product.field_images'
-  products_home:
-    display_plugin: page
-    id: products_home
-    display_title: 'Featured Products'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: flowers
-      display_description: ''
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
       tags:
         - 'config:field.storage.commerce_product.field_images'

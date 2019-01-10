@@ -1,0 +1,24 @@
+uuid: beed969e-63a5-4ae9-9ae8-24328ec2b8d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_products.field_view
+    - paragraphs.paragraphs_type.featured_products
+  module:
+    - viewsreference
+id: paragraph.featured_products.default
+targetEntityType: paragraph
+bundle: featured_products
+mode: default
+content:
+  field_view:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: viewsreference_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true
