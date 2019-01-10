@@ -40,7 +40,9 @@
 #}
 {% block paragraph %}
   <div class="slogan text-color-white">
-    <div class="{{ content.field_icon_class.0 }} icon"></div>
+    <div class="icon-wrapper">
+      <div class="{{ content.field_icon_class.0 }} icon"></div>
+    </div>
     <h2 class="title text-color-white">{{ content.field_title }}</h2>
     <div class="description body-text">{{ content.field_description }}</div>
   </div>
