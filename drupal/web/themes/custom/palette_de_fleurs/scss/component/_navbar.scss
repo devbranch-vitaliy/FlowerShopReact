@@ -156,3 +156,21 @@ body {
     margin-right: -$navbar-padding-horizontal-large;
   }
 }
+
+// Both navbar header and collapse
+//
+// When a container is present, change the behavior of the header and collapse.
+// For lg and more
+.container,
+.container-fluid {
+  > .navbar-header,
+  > .navbar-collapse {
+    margin-right: -$navbar-padding-horizontal;
+    margin-left:  -$navbar-padding-horizontal;
+
+    @media #{$wide} {
+      margin-right: -$navbar-padding-horizontal-large;
+      margin-left:  -$navbar-padding-horizontal-large;
+    }
+  }
+}

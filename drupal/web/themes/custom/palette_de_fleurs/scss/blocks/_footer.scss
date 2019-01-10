@@ -60,26 +60,26 @@ footer {
   }
 }
 
-@media #{$tablet} {
-  .fleur-site-footer.row {
-    padding-left: (60px + $grid-gutter-width) / 2;
-    padding-right: (60px + $grid-gutter-width) / 2;
-  }
-}
-
-@media #{$normal} {
-  .fleur-site-footer.row {
-    padding-left: 60px + $grid-gutter-width / 2;
-    padding-right: 60px + $grid-gutter-width / 2;
-  }
-}
-
-@media #{$wide} {
-  .fleur-site-footer.row {
-    padding-left: 60px + $grid-gutter-large-width / 2;
-    padding-right: 60px + $grid-gutter-large-width / 2;
-  }
-}
+//@media #{$tablet} {
+//  .fleur-site-footer.row {
+//    padding-left: (60px + $grid-gutter-width) / 2;
+//    padding-right: (60px + $grid-gutter-width) / 2;
+//  }
+//}
+//
+//@media #{$normal} {
+//  .fleur-site-footer.row {
+//    padding-left: 60px + $grid-gutter-width / 2;
+//    padding-right: 60px + $grid-gutter-width / 2;
+//  }
+//}
+//
+//@media #{$wide} {
+//  .fleur-site-footer.row {
+//    padding-left: 60px + $grid-gutter-large-width / 2;
+//    padding-right: 60px + $grid-gutter-large-width / 2;
+//  }
+//}
 
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   .fleur-site-footer .body-text {

@@ -15,6 +15,10 @@ body.path-frontpage {
       @include container-fixed-lg;
       width: $container-lg;
     }
+    @media (min-width: $screen-xl-min) {
+      @include container-fixed-lg;
+      width: $container-xl;
+    }
   }
   .par-back-wrapper {
     width: 100%;
