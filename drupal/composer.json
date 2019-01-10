@@ -44,6 +44,7 @@
         "drupal/sms_clickatell": "^2.0",
         "drupal/twig_tweak": "^2.1",
         "drupal/views_infinite_scroll": "^1.5",
+        "drupal/viewsreference": "^1.4",
         "drupal/yoast_seo": "^1.4",
         "drush/drush": "^9.0.0",
         "tecnickcom/tcpdf": "~6",

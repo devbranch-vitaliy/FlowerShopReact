@@ -102,6 +102,7 @@ module:
   user: 0
   views_infinite_scroll: 0
   views_ui: 0
+  viewsreference: 0
   yoast_seo: 0
   menu_link_content: 1
   pathauto: 1
