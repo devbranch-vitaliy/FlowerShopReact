@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.featured_products.field_title
     - field.field.paragraph.featured_products.field_view
     - paragraphs.paragraphs_type.featured_products
   module:
@@ -12,8 +13,16 @@ targetEntityType: paragraph
 bundle: featured_products
 mode: default
 content:
-  field_view:
+  field_title:
     weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_view:
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: viewsreference_select
