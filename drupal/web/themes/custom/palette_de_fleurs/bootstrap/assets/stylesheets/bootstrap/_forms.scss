@@ -574,6 +574,9 @@ input[type="checkbox"] {
   // Make form groups behave like rows
   .form-group {
     @include make-row;
+    @media (min-width: $screen-lg-min) {
+      @include make-row-lg;
+    }
   }
 
   // Reset spacing and right align labels, but scope to media queries so that

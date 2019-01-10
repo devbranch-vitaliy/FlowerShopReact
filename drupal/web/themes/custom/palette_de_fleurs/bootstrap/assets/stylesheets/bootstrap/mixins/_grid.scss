@@ -11,8 +11,24 @@
   @include clearfix;
 }
 
+// Centered container element - lg screen
+@mixin container-fixed-lg($gutter: $grid-gutter-large-width) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  floor(($gutter / 2));
+  padding-right: ceil(($gutter / 2));
+  @include clearfix;
+}
+
 // Creates a wrapper for a series of columns
 @mixin make-row($gutter: $grid-gutter-width) {
+  margin-left:  ceil(($gutter / -2));
+  margin-right: floor(($gutter / -2));
+  @include clearfix;
+}
+
+// Creates a wrapper for a series of columns - lg screen
+@mixin make-row-lg($gutter: $grid-gutter-large-width) {
   margin-left:  ceil(($gutter / -2));
   margin-right: floor(($gutter / -2));
   @include clearfix;

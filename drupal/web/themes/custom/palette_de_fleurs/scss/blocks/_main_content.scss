@@ -12,6 +12,7 @@ body.path-frontpage {
       width: $container-md;
     }
     @media (min-width: $screen-lg-min) {
+      @include container-fixed-lg;
       width: $container-lg;
     }
   }
