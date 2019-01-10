@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.default
     - core.entity_view_mode.commerce_product.view
     - field.storage.commerce_product.field_images
+    - taxonomy.vocabulary.characteristics
     - taxonomy.vocabulary.occasion
     - taxonomy.vocabulary.type_of_flowers
   module:
@@ -261,7 +262,18 @@ display:
       sorts: {  }
       title: 'Featured Products'
       header: {  }
-      footer: {  }
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<a class=\"our-products-button\" href=\"/products\">\r\n  <p>See all our products</p>\r\n</a>"
+          plugin_id: text_custom
       empty: {  }
       relationships: {  }
       arguments: {  }
@@ -530,7 +542,7 @@ display:
           reduce_duplicates: true
           type: select
           limit: true
-          vid: occasion
+          vid: characteristics
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
