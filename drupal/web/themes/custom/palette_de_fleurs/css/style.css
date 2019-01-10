@@ -7589,51 +7589,66 @@ body.path-frontpage .par-back-wrapper {
   background-size: cover;
   position: relative;
   background-blend-mode: multiply;
-  background-color: #d2652a;
-  padding-top: 122px;
-  padding-bottom: 80px; }
+  background-color: #d2652a; }
   .slogans .field--item {
     height: 100%; }
-  .slogans .slogan {
-    text-align: center;
-    border: 2px solid #ffffff;
-    border-top: none;
-    position: relative; }
-  .slogans .slogan:after, .slogans .slogan:before {
-    content: "";
-    position: absolute;
-    width: 30%;
-    border-top: 2px solid #ffffff;
-    top: 0; }
-  .slogans .slogan:after {
-    left: 0; }
-  .slogans .slogan:before {
-    right: 0; }
-  .slogans .icon-wrapper {
-    position: absolute;
-    top: -40px;
-    width: 100%; }
   .slogans .icon {
     font-size: 80px;
     line-height: 80px;
     margin: auto; }
 
+@media screen and (max-width: 767px) {
+  h2 {
+    margin-top: 0;
+    margin-bottom: 8px; }
+  .slogans {
+    padding-top: 40px;
+    padding-bottom: 40px; }
+    .slogans .slogan {
+      text-align: center;
+      position: relative; }
+    .slogans .field--item {
+      padding: 0 16px; } }
+
 @media screen and (min-width: 768px) {
-  .slogans .slogan {
-    padding: 20px 20px 0; }
-  .slogans .icon-wrapper {
-    margin: 0 -20px; }
-  .slogans .description {
-    height: 150px;
-    margin-bottom: 60px; } }
+  .slogans {
+    padding-top: 80px;
+    padding-bottom: 40px; }
+    .slogans .slogan {
+      text-align: center;
+      border: 2px solid #ffffff;
+      border-top: none;
+      position: relative;
+      padding: 20px 20px 0; }
+    .slogans .slogan:after, .slogans .slogan:before {
+      content: "";
+      position: absolute;
+      width: 30%;
+      border-top: 2px solid #ffffff;
+      top: 0; }
+    .slogans .slogan:after {
+      left: 0; }
+    .slogans .slogan:before {
+      right: 0; }
+    .slogans .description {
+      height: 150px;
+      margin-bottom: 60px; }
+    .slogans .icon-wrapper {
+      position: absolute;
+      top: -40px;
+      width: 100%;
+      margin: 0 -20px; } }
 
 @media screen and (min-width: 992px) {
-  .slogans .slogan {
-    padding: 50px 30px 0; }
-  .slogans .icon-wrapper {
-    margin: 0 -30px; }
-  .slogans .description {
-    height: 130px; } }
+  .slogans {
+    padding-top: 122px;
+    padding-bottom: 80px; }
+    .slogans .slogan {
+      padding: 50px 30px 0; }
+    .slogans .icon-wrapper {
+      margin: 0 -30px; }
+    .slogans .description {
+      height: 130px; } }
 
 @media screen and (min-width: 1200px) {
   .slogans .slogan {
