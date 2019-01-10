@@ -1,21 +1,12 @@
 .instagram {
   text-align: center;
-}
 
-@media #{$mobile} {
-  .instagram {
-    h1 {
-      margin-top: 6px;
-      margin-bottom: 40px;
-    }
+  h1 {
+    margin-top: 6px;
+    margin-bottom: 40px;
   }
-}
-
-@media #{$mobile} {
-  .instagram {
-    h1 {
-      margin-top: 40px;
-      margin-bottom: 24px;
-    }
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 24px;
   }
 }
