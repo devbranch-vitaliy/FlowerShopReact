@@ -5,7 +5,11 @@
   position: relative;
   background-blend-mode: multiply;
   background-color: $brownish-orange;
-
+  h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 30px;
+  }
   .field--item {
     height: 100%;
   }
@@ -17,11 +21,6 @@
 }
 
 @media #{$mobile} {
-  h2 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 30px;
-  }
   .slogans {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -43,7 +42,7 @@
       border: 2px solid $white;
       border-top: none;
       position: relative;
-      padding: 20px 20px 0;
+      padding: 50px 20px 0;
     }
     .slogan:after, .slogan:before {
       content: "";

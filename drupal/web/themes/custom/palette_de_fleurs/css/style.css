@@ -7595,6 +7595,10 @@ body.path-frontpage .par-back-wrapper {
   position: relative;
   background-blend-mode: multiply;
   background-color: #d2652a; }
+  .slogans h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 30px; }
   .slogans .field--item {
     height: 100%; }
   .slogans .icon {
@@ -7603,10 +7607,6 @@ body.path-frontpage .par-back-wrapper {
     margin: auto; }
 
 @media screen and (max-width: 767px) {
-  h2 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 30px; }
   .slogans {
     padding-top: 40px;
     padding-bottom: 40px; }
@@ -7623,7 +7623,7 @@ body.path-frontpage .par-back-wrapper {
       border: 2px solid #ffffff;
       border-top: none;
       position: relative;
-      padding: 20px 20px 0; }
+      padding: 50px 20px 0; }
     .slogans .slogan:after, .slogans .slogan:before {
       content: "";
       position: absolute;
