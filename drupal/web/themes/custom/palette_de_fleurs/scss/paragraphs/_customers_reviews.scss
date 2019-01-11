@@ -31,6 +31,8 @@
     font-size: 16px;
     line-height: 16px;
     color: $brownish-orange;
+    // height before dots + dots height + height after dots.
+    bottom: -(40px + 16px + 0px);
 
     button {
       display: none;
@@ -71,6 +73,10 @@
     .slick-dotted.slick-slider {
       // height before dots + dots height + height after dots.
       margin-bottom: 24px + 16px + 0px;
+    }
+    // height before dots + dots height + height after dots.
+    .slick-dots {
+      bottom: -(24px + 16px + 0px);
     }
   }
 }
