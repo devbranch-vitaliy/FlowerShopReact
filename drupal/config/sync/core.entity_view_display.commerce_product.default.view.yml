@@ -28,7 +28,7 @@ content:
     label: hidden
     settings:
       image_style: flower_view_416x480
-      image_link: content
+      image_link: ''
     third_party_settings: {  }
     type: image
     region: content
