@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.customer_review.field_image
     - field.field.node.customer_review.field_message
     - field.field.node.customer_review.field_sustomer
+    - image.style.customer_logo_80x80
     - node.type.customer_review
   module:
     - image
@@ -20,7 +21,7 @@ content:
     weight: 101
     label: hidden
     settings:
-      image_style: ''
+      image_style: customer_logo_80x80
       image_link: ''
     third_party_settings: {  }
     type: image
