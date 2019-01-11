@@ -13,7 +13,7 @@ dependencies:
     - field.field.commerce_product.default.field_type_of_flowers
     - field.field.commerce_product.default.stores
     - field.field.commerce_product.default.variations
-    - image.style.flower_view_416x480
+    - image.style.product_view_768x886
   module:
     - image
 _core:
@@ -27,7 +27,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: flower_view_416x480
+      image_style: product_view_768x886
       image_link: ''
     third_party_settings: {  }
     type: image
