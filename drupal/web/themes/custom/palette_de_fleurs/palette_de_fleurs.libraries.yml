@@ -23,3 +23,11 @@ bootstrap-scripts:
     bootstrap/assets/javascripts/bootstrap/scrollspy.js: {}
     bootstrap/assets/javascripts/bootstrap/tab.js: {}
     bootstrap/assets/javascripts/bootstrap/transition.js: {}
+
+slick-styling:
+  css:
+    theme:
+      css/slick/slick.css: {}
+      css/slick/slick-theme.css: {}
+  js:
+    js/slick.min.js: {}
