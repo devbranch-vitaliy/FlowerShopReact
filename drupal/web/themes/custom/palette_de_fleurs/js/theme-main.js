@@ -33,23 +33,21 @@
       });
 
       // Config slick slideshow.
-      if ($('.slick-customers-reviews').length) {
-        $('.slick-customers-reviews').once().slick({
-          dots: true,
-          lazyLoad: 'progressive',
-          cssEase: 'ease-in',
-          infinite: false,
-          accessibility: false,
-          responsive: [
-            {
-              breakpoint: 768,
-              settings: {
-                arrows: false,
-              }
+      $('.slick-customers-reviews').once().slick({
+        dots: true,
+        lazyLoad: 'progressive',
+        cssEase: 'ease-in',
+        infinite: false,
+        accessibility: false,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
             }
-          ]
-        });
-      }
+          }
+        ]
+      });
     }
   };
 
