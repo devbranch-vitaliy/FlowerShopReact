@@ -19,12 +19,24 @@
  * @ingroup themeable
  */
 #}
-<a{{ attributes }} href="{{ product_url }}">
-  {{ product.field_images.0 }}
-  <div class="product-info">
-    {{ product.title }}
-    {{ product.variation_price }}
-  </div>
-</a>
-<a href="{{ product_url }}" class="cart-button edit-button use-ajax fleur-icon-cart-white" data-dialog-type="modal">Cart</a>
+<div class="product_view">
+  <a{{ attributes.addClass('product_content') }} href="{{ product_url }}">
+    {{ product.field_images.0 }}
+    <div class="product-info black-bg">
+      {{ product.title }}
+      <h4 class="text-color-white">{{ product.variation_price }}</h4>
+    </div>
+    <div class="hover-bg">
+      <div class="hover-bg-border">
+        <div class="hover-bg-text-wrapper">
+          <div class="hover-bg-text label-big">
+            <span>{{ "See product"|t }}</span>
+            <i class="fleur-font-icon-16-arrow-right-primary"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  <a href="{{ product_url }}" class="cart-button edit-button use-ajax" data-dialog-type="modal"><div class="fleur-icon-cart-white"></div></a>
+</div>
 {{ attach_library('core/drupal.ajax') }}
