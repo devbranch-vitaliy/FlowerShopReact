@@ -1,0 +1,21 @@
+uuid: f37e82b7-b2ca-4b97-9342-51ff4d35fe9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_widget_code
+    - paragraphs.paragraphs_type.instagram
+  module:
+    - text
+id: paragraph.instagram.field_widget_code
+field_name: field_widget_code
+entity_type: paragraph
+bundle: instagram
+label: 'Widget code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

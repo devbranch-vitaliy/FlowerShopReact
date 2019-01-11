@@ -18,6 +18,20 @@
   }
 }
 
+// [converter] This is defined recursively in LESS, but Sass supports real loops - lg
+@mixin make-grid-columns-lg($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
+  @for $i from (1 + 1) through $grid-columns {
+    $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+  }
+  #{$list} {
+    position: relative;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+    // Inner gutter via padding
+    padding-left:  ceil(($grid-gutter-large-width / 2));
+    padding-right: floor(($grid-gutter-large-width / 2));
+  }
+}
 
 // [converter] This is defined recursively in LESS, but Sass supports real loops
 @mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {

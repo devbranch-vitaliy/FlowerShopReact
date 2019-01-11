@@ -1,0 +1,33 @@
+uuid: c8d8d8a6-22e4-4e20-ac64-afde127ec8a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page_with_paragraphs.field_paragraphs
+    - node.type.page_with_paragraphs
+  module:
+    - entity_reference_revisions
+    - user
+id: node.page_with_paragraphs.default
+targetEntityType: node
+bundle: page_with_paragraphs
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 102
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

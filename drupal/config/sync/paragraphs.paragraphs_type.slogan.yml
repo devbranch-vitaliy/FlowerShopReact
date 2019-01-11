@@ -1,0 +1,9 @@
+uuid: d8643082-22cc-4cf9-aa12-ae0e01edeca1
+langcode: en
+status: true
+dependencies: {  }
+id: slogan
+label: Slogan
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

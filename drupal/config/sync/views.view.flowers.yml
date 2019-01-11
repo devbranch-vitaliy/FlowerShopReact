@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.default
     - core.entity_view_mode.commerce_product.view
     - field.storage.commerce_product.field_images
+    - taxonomy.vocabulary.characteristics
     - taxonomy.vocabulary.occasion
     - taxonomy.vocabulary.type_of_flowers
   module:
@@ -274,6 +275,36 @@ display:
         - 'languages:language_interface'
       tags:
         - 'config:field.storage.commerce_product.field_images'
+  featured_products:
+    display_plugin: page
+    id: featured_products
+    display_title: 'Featured Products'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: flowers
+      display_description: ''
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<a class=\"our-products-button\" href=\"/products\">\r\n  <p>See all our products</p>\r\n</a>"
+          plugin_id: text_custom
+      defaults:
+        footer: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+      tags:
+        - 'config:field.storage.commerce_product.field_images'
   products:
     display_plugin: page
     id: products
@@ -514,7 +545,7 @@ display:
           reduce_duplicates: true
           type: select
           limit: true
-          vid: occasion
+          vid: characteristics
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
@@ -603,21 +634,5 @@ display:
         - url
         - url.query_args
         - user
-      tags:
-        - 'config:field.storage.commerce_product.field_images'
-  products_home:
-    display_plugin: page
-    id: products_home
-    display_title: 'Featured Products'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: flowers
-      display_description: ''
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
       tags:
         - 'config:field.storage.commerce_product.field_images'

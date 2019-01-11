@@ -99,7 +99,7 @@
 
 {# Main #}
 {% block main %}
-  <div role="main" class="main-container {{ container }} js-quickedit-main-content">
+  <div role="main" class="main-container {{ is_front ? 'container-fluid' : container }} js-quickedit-main-content">
     <div class="row">
 
       {# Header #}

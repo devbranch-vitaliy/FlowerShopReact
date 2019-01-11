@@ -1,0 +1,17 @@
+uuid: 761323e3-ea79-4a70-b19f-d2d2dbbe42f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Customer review'
+type: customer_review
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: true

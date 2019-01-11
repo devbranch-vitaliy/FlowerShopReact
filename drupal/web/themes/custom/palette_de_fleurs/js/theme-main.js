@@ -25,12 +25,29 @@
       // Show popup.
       $('.call-icon').once().click(function () {
         $('#call-block-popup').toggleClass('show');
-      })
+      });
 
       // Show mobile menu.
       $('.mobile_toggle').once().click(function () {
         $('#navbar-collapse').toggleClass('show');
-      })
+      });
+
+      // Config slick slideshow.
+      $('.slick-customers-reviews').once().slick({
+        dots: true,
+        lazyLoad: 'progressive',
+        cssEase: 'ease-in',
+        infinite: false,
+        accessibility: false,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+            }
+          }
+        ]
+      });
     }
   };
 

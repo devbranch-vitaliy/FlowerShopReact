@@ -2,6 +2,8 @@ uuid: 522f44a6-5d7d-41a7-83bc-5de69f9f0b51
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - palette_de_fleurs
 _core:
@@ -19,4 +21,9 @@ settings:
   label_display: '0'
   primary: true
   secondary: true
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

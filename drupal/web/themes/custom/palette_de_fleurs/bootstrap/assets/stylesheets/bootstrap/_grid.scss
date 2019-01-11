@@ -17,6 +17,7 @@
     width: $container-md;
   }
   @media (min-width: $screen-lg-min) {
+    @include container-fixed-lg;
     width: $container-lg;
   }
 }
@@ -38,6 +39,9 @@
 
 .row {
   @include make-row;
+  @media (min-width: $screen-lg-min) {
+    @include make-row-lg;
+  }
 }
 
 
@@ -46,7 +50,9 @@
 // Common styles for small and large grid columns
 
 @include make-grid-columns;
-
+@media (min-width: $screen-lg-min) {
+  @include make-grid-columns-lg;
+}
 
 // Extra small grid
 //

@@ -94,7 +94,7 @@ $font-size-label-big:     18px !default;
 $font-size-label-small:   16px !default;
 
 $font-size-h1:            40px !default;
-$font-size-h2:            30px !default;
+$font-size-h2:            32px !default;
 $font-size-h3:            26px !default;
 $font-size-h4:            22px !default;
 $font-size-h5:            16px !default;
@@ -203,7 +203,7 @@ $alert-border-radius:            0 !default;
 
 // Extra small screen / phone
 //** Deprecated `$screen-xs` as of v3.0.1
-$screen-xs:                  480px !default;
+$screen-xs:                  0px !default;
 //** Deprecated `$screen-xs-min` as of v3.2.0
 $screen-xs-min:              $screen-xs !default;
 //** Deprecated `$screen-phone` as of v3.0.1
@@ -251,7 +251,7 @@ $screen-lg-max:              ($screen-xl-min - 1) !default;
 //** Number of columns in the grid.
 $grid-columns:              12 !default;
 //** Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width:         12px !default;
+$grid-gutter-width:         16px !default;
 $grid-gutter-large-width:   24px !default;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.

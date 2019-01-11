@@ -1,0 +1,33 @@
+uuid: d4312d81-271b-4715-b50e-3bbfcec8b5e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.customers_reviews.field_title
+    - field.field.paragraph.customers_reviews.field_view
+    - paragraphs.paragraphs_type.customers_reviews
+  module:
+    - viewsreference
+id: paragraph.customers_reviews.default
+targetEntityType: paragraph
+bundle: customers_reviews
+mode: default
+content:
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_view:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: viewsreference_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,102 @@
+.slogans {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-blend-mode: multiply;
+  background-color: $brownish-orange;
+  h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 30px;
+  }
+  .field--item {
+    height: 100%;
+  }
+  .icon {
+    font-size: 80px;
+    line-height: 80px;
+    margin: auto;
+  }
+}
+
+@media #{$mobile} {
+  .slogans {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .slogan {
+      text-align: center;
+      position: relative;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .slogans {
+    padding-top: 80px;
+    padding-bottom: 40px;
+
+    .slogan {
+      text-align: center;
+      border: 2px solid $white;
+      border-top: none;
+      position: relative;
+      padding: 50px 20px 0;
+    }
+    .slogan:after, .slogan:before {
+      content: "";
+      position: absolute;
+      width: 30%;
+      border-top: 2px solid $white;
+      top: 0;
+    }
+    .slogan:after {
+      left: 0;
+    }
+    .slogan:before {
+      right: 0;
+    }
+    .description {
+      height: 150px;
+      margin-bottom: 60px;
+    }
+    .icon-wrapper {
+      position: absolute;
+      top: -40px;
+      width: 100%;
+      margin: 0 -20px;
+    }
+  }
+}
+
+@media #{$normal} {
+  .slogans {
+    padding-top: 122px;
+    padding-bottom: 80px;
+
+    .slogan {
+      padding: 50px 30px 0;
+    }
+    .icon-wrapper {
+      margin: 0 -30px;
+    }
+    .description {
+      height: 130px;
+    }
+  }
+}
+
+@media #{$wide} {
+  .slogans {
+    .slogan {
+      padding: 62px 40px 0;
+    }
+    .icon-wrapper {
+      margin: 0 -40px;
+    }
+    .description {
+      height: 112px;
+    }
+  }
+}

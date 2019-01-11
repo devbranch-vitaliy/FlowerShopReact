@@ -1,0 +1,19 @@
+uuid: b1e7a60d-f1ca-44d6-b096-18f111dece26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_banner_description
+    - paragraphs.paragraphs_type.cta_banner
+id: paragraph.cta_banner.field_banner_description
+field_name: field_banner_description
+entity_type: paragraph
+bundle: cta_banner
+label: 'Banner description'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
