@@ -19,8 +19,12 @@
  * @ingroup themeable
  */
 #}
-<article{{ attributes }}>
-  {{- product|without('variation_attributes') -}}
-  <a href="{{ product_url }}" class="edit-button use-ajax" data-dialog-type="modal">Cart</a>
-</article>
+<a{{ attributes }} href="{{ product_url }}">
+  {{ product.field_images.0 }}
+  <div class="product-info">
+    {{ product.title }}
+    {{ product.variation_price }}
+  </div>
+</a>
+<a href="{{ product_url }}" class="cart-button edit-button use-ajax fleur-icon-cart-white" data-dialog-type="modal">Cart</a>
 {{ attach_library('core/drupal.ajax') }}
