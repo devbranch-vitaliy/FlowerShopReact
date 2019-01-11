@@ -7732,7 +7732,8 @@ body.path-frontpage .par-back-wrapper {
   .customers-reviews .slick-dots {
     font-size: 16px;
     line-height: 16px;
-    color: #d2652a; }
+    color: #d2652a;
+    bottom: -56px; }
     .customers-reviews .slick-dots button {
       display: none; }
     .customers-reviews .slick-dots li {
@@ -7759,4 +7760,6 @@ body.path-frontpage .par-back-wrapper {
     .customers-reviews .views-field-field-message .field-content {
       width: 100%; }
     .customers-reviews .slick-dotted.slick-slider {
-      margin-bottom: 40px; } }
+      margin-bottom: 40px; }
+    .customers-reviews .slick-dots {
+      bottom: -40px; } }

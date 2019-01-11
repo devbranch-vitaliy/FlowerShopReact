@@ -23,11 +23,11 @@ settings:
     target_bundles: null
     auto_create: 0
   plugin_types:
+    default: default
+    page: page
     block: block
-    default: 0
-    page: 0
-    feed: 0
-    embed: 0
+    feed: feed
+    embed: embed
   preselect_views:
     flowers: flowers
     block_content: 0
@@ -45,6 +45,7 @@ settings:
     commerce_user_orders: 0
     content: 0
     content_recent: 0
+    customers_reviews: 0
     faq: 0
     files: 0
     frontpage: 0
