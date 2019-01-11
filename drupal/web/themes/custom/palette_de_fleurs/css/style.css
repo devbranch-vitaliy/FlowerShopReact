@@ -7370,6 +7370,10 @@ body.path-frontpage .paragraph {
     display: table; }
   body.path-frontpage .paragraph:after {
     clear: both; }
+  @media (max-width: 767px) {
+    body.path-frontpage .paragraph {
+      padding-left: 16px;
+      padding-right: 16px; } }
   @media (min-width: 768px) {
     body.path-frontpage .paragraph {
       width: 784px; } }
@@ -7544,7 +7548,7 @@ body.path-frontpage .par-back-wrapper {
   .cta-banner .info span {
     display: inline-block; }
   .cta-banner .button-wrapper {
-    padding: 24px 8px; }
+    padding: 24px 0; }
   #block-place-your-order-banner {
     width: 100%; } }
 
@@ -7608,9 +7612,7 @@ body.path-frontpage .par-back-wrapper {
     padding-bottom: 40px; }
     .slogans .slogan {
       text-align: center;
-      position: relative; }
-    .slogans .field--item {
-      padding: 0 16px; } }
+      position: relative; } }
 
 @media screen and (min-width: 768px) {
   .slogans {
@@ -7663,7 +7665,7 @@ body.path-frontpage .par-back-wrapper {
 .instagram {
   text-align: center; }
   .instagram h1 {
-    margin-top: 6px;
+    margin-top: 80px;
     margin-bottom: 40px; }
   .instagram h2 {
     margin-top: 40px;
@@ -7704,8 +7706,7 @@ body.path-frontpage .par-back-wrapper {
 @media screen and (max-width: 767px) {
   .featured-products .view-footer {
     margin-top: 24px;
-    margin-bottom: 40px;
-    padding: 0 8px; } }
+    margin-bottom: 40px; } }
 
 @media (max-width: 480px) {
   .featured-products .our-products-button {
@@ -7726,13 +7727,36 @@ body.path-frontpage .par-back-wrapper {
     width: 50%;
     margin: auto;
     padding: 10px 0; }
+  .customers-reviews .slick-dotted.slick-slider {
+    margin-bottom: 56px; }
   .customers-reviews .slick-dots {
     font-size: 16px;
     line-height: 16px;
     color: #d2652a; }
-    .customers-reviews .slick-dots button:before {
-      content: none; }
-    .customers-reviews .slick-dots li:before {
-      content: ""; }
+    .customers-reviews .slick-dots button {
+      display: none; }
+    .customers-reviews .slick-dots li {
+      width: 16px;
+      height: 16px; }
+      .customers-reviews .slick-dots li:before {
+        content: ""; }
     .customers-reviews .slick-dots li.slick-active:before {
       content: ""; }
+    .customers-reviews .slick-dots li.slick-active:after {
+      content: "";
+      position: absolute;
+      background-color: #d2652a;
+      width: 8px;
+      height: 8px;
+      top: 25%;
+      left: 25%;
+      border-radius: 4px; }
+
+@media screen and (max-width: 767px) {
+  .customers-reviews {
+    padding-left: 16px;
+    padding-right: 16px; }
+    .customers-reviews .views-field-field-message .field-content {
+      width: 100%; }
+    .customers-reviews .slick-dotted.slick-slider {
+      margin-bottom: 40px; } }
