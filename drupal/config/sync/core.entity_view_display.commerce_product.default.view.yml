@@ -25,7 +25,7 @@ mode: view
 content:
   field_images:
     weight: 1
-    label: above
+    label: hidden
     settings:
       image_style: medium
       image_link: content
