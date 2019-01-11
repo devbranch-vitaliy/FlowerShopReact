@@ -60,6 +60,10 @@ display:
           offset: 0
       style:
         type: default
+        options:
+          grouping: {  }
+          row_class: slick-item
+          default_row_class: true
       row:
         type: fields
         options:
