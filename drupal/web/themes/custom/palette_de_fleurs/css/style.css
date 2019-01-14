@@ -94,7 +94,7 @@
   src: url("../fonts/FleurIcons/FleurIcons.eot");
   src: url("../fonts/FleurIcons/FleurIcons.eot?#iefix") format("eot"), url("../fonts/FleurIcons/FleurIcons.woff") format("woff"), url("../fonts/FleurIcons/FleurIcons.ttf") format("truetype"), url("../fonts/FleurIcons/FleurIcons.svg#FleurIcons") format("svg"); }
 
-.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before, .customers-reviews .slick-dots li:before, .customers-reviews .slick-dots li.slick-active:before {
+.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before, #drupal-modal--header button.ui-dialog-titlebar-close:before, .button--add-to-cart:before, .button--add-to-cart:hover:before, .customers-reviews .slick-dots li:before, .customers-reviews .slick-dots li.slick-active:before {
   font-family: "FleurIcons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -7494,6 +7494,251 @@ body.path-frontpage .par-back-wrapper {
       line-height: 1.42;
       padding: 24px 8px;
       bottom: -115px; } }
+
+#drupal-modal--content {
+  border-radius: unset;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2); }
+
+#drupal-modal--header {
+  padding: 40px 40px 24px;
+  border: none; }
+  #drupal-modal--header h4 {
+    font-family: Taviraj;
+    font-size: 40px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1 !important;
+    letter-spacing: normal; }
+  #drupal-modal--header button.ui-dialog-titlebar-close {
+    color: #d2652a;
+    font-size: 16px;
+    line-height: 16px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    opacity: 0.5; }
+    #drupal-modal--header button.ui-dialog-titlebar-close:before {
+      content: ""; }
+    #drupal-modal--header button.ui-dialog-titlebar-close:hover {
+      opacity: 1; }
+    #drupal-modal--header button.ui-dialog-titlebar-close span {
+      display: none; }
+
+#drupal-modal--body {
+  padding: 0 40px;
+  overflow: hidden !important; }
+  #drupal-modal--body .field--name-price {
+    position: absolute;
+    bottom: 45px;
+    left: 0;
+    font-family: Taviraj;
+    font-size: 32px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19 !important;
+    letter-spacing: normal; }
+  #drupal-modal--body .commerce-order-item-add-to-cart-form {
+    padding-bottom: 128px; }
+
+#drupal-modal--footer {
+  border: none;
+  padding: 0 40px;
+  position: absolute;
+  bottom: 40px;
+  width: 100%; }
+
+.commerce-order-item-add-to-cart-form label, .commerce-order-item-add-to-cart-form legend {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  color: #191919;
+  border: none; }
+
+.commerce-order-item-add-to-cart-form label {
+  margin-bottom: 0; }
+
+.commerce-order-item-add-to-cart-form legend {
+  margin-bottom: 16px; }
+
+.commerce-order-item-add-to-cart-form label:after, .commerce-order-item-add-to-cart-form legend span:after {
+  content: unset; }
+
+.commerce-order-item-add-to-cart-form .field--type-color-field-type {
+  margin-bottom: 30px; }
+
+.commerce-order-item-add-to-cart-form .form-type-textfield {
+  margin-bottom: 16px; }
+
+.commerce-order-item-add-to-cart-form .field--widget-commerce-product-variation-attributes {
+  margin: 0; }
+
+.commerce-order-item-add-to-cart-form .color-field-widget-box-form {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  position: relative; }
+
+.commerce-order-item-add-to-cart-form .color-field-widget-box-form > button {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: none;
+  margin-right: 16px; }
+  .commerce-order-item-add-to-cart-form .color-field-widget-box-form > button:focus {
+    outline: none; }
+
+.commerce-order-item-add-to-cart-form .color-field-widget-box-form > button.active {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #d2652a; }
+
+.commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] {
+  width: 100%; }
+
+.commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] > div {
+  display: inline-block; }
+  .commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] > div fieldset {
+    font-size: 0; }
+  .commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] > div fieldset .form-item {
+    font-size: initial;
+    line-height: initial;
+    width: 33.4%;
+    text-align: center;
+    border: 2px solid #191919;
+    margin: auto;
+    margin-left: -2px; }
+    .commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] > div fieldset .form-item:first-child {
+      margin-left: 0; }
+  .commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] > div fieldset .form-item.active {
+    border: 2px solid #d2652a;
+    z-index: 1; }
+    .commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] > div fieldset .form-item.active label {
+      color: #d2652a; }
+  .commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] > div input {
+    display: none; }
+  .commerce-order-item-add-to-cart-form div[id*='edit-purchased-entity'] > div label {
+    min-height: unset;
+    padding: 15px 0;
+    width: 100%; }
+
+.button--add-to-cart, .button--add-to-cart:hover {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  position: relative;
+  background-color: #d2652a;
+  border-color: #d2652a;
+  padding: 15px 40px 15px 70px; }
+  .button--add-to-cart:before, .button--add-to-cart:hover:before {
+    content: ""; }
+
+.button--add-to-cart:before {
+  font-size: 24px;
+  position: absolute;
+  left: 30px;
+  top: 13px; }
+
+@media screen and (max-width: 767px) {
+  #drupal-modal {
+    padding: 0 !important; }
+  #drupal-modal--dialog {
+    margin: auto;
+    height: 100%;
+    background-color: #ffffff; }
+    #drupal-modal--dialog:after {
+      content: '';
+      border: 2.5px solid #000000;
+      position: absolute;
+      bottom: 9px;
+      border-radius: 100px;
+      left: 35%;
+      width: 30%; }
+  #drupal-modal--content {
+    box-shadow: none;
+    border: none; }
+  #drupal-modal--header {
+    padding: 60px 16px 24px;
+    text-align: center; }
+    #drupal-modal--header h4 {
+      font-family: Taviraj;
+      font-size: 32px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.19 !important;
+      letter-spacing: normal; }
+    #drupal-modal--header button.ui-dialog-titlebar-close {
+      font-size: 24px;
+      line-height: 24px;
+      color: #191919;
+      opacity: 1; }
+  #drupal-modal--body {
+    padding: 0 16px; }
+    #drupal-modal--body .field--name-price {
+      bottom: 48px;
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal; }
+    #drupal-modal--body div[id*='edit-purchased-entity'] > div fieldset .form-item {
+      display: block;
+      margin: auto;
+      width: 100%;
+      margin-top: -2px; }
+      #drupal-modal--body div[id*='edit-purchased-entity'] > div fieldset .form-item:first-child {
+        margin-top: 0; }
+  #drupal-modal--footer {
+    padding: 0 16px; }
+  .button--add-to-cart, .button--add-to-cart:hover {
+    padding: 15px 16px 15px 50px; }
+  .button--add-to-cart:before {
+    left: 15px; }
+  #commerce-product-add-to-cart-form {
+    background-color: #f5f7f9; }
+    #commerce-product-add-to-cart-form form {
+      padding: 24px 0; }
+    #commerce-product-add-to-cart-form .field--name-price {
+      bottom: 48px;
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal; }
+    #commerce-product-add-to-cart-form div[id*='edit-purchased-entity'] > div fieldset .form-item {
+      display: block;
+      margin: auto;
+      width: 100%;
+      margin-top: -2px; }
+      #commerce-product-add-to-cart-form div[id*='edit-purchased-entity'] > div fieldset .form-item:first-child {
+        margin-top: 0; }
+    #commerce-product-add-to-cart-form #edit-actions {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      position: relative;
+      height: 94px;
+      background: white; }
+      #commerce-product-add-to-cart-form #edit-actions:after {
+        content: '';
+        border: 2.5px solid #000000;
+        position: absolute;
+        bottom: 9px;
+        border-radius: 100px;
+        left: 35%;
+        width: 30%; }
+      #commerce-product-add-to-cart-form #edit-actions button {
+        float: right;
+        margin-right: 16px;
+        margin-top: 8px; } }
 
 .cta-banner {
   height: 600px;

@@ -33,21 +33,47 @@
       });
 
       // Config slick slideshow.
-      $('.slick-customers-reviews').once().slick({
-        dots: true,
-        lazyLoad: 'progressive',
-        cssEase: 'ease-in',
-        infinite: false,
-        accessibility: false,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              arrows: false,
+      $('.slick-customers-reviews').once().each(function (e) {
+        var $this = $(this);
+        $this.slick({
+          dots: true,
+          lazyLoad: 'progressive',
+          cssEase: 'ease-in',
+          infinite: false,
+          accessibility: false,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+              }
             }
-          }
-        ]
+          ]
+        });
       });
+
+      // Add active class to the size wrapper.
+      $('.commerce-order-item-add-to-cart-form input[type="radio"]', context).once().each(function (e) {
+        var $this = $(this);
+
+        var toggleActiveClass = function ($element) {
+          var checked = $element.is(':checked');
+
+          var $input_wrapper = $element.closest('.form-item');
+
+          // $input_wrapper.find('input[type="radio"]').removeClass('active');
+
+          if (checked) {
+            $input_wrapper.addClass('active');
+          }
+          else {
+            $input_wrapper.removeClass('active');
+          }
+        };
+
+        toggleActiveClass($this);
+        $this.once('set-size-active-class').on('change', toggleActiveClass($this));
+      })
     }
   };
 
