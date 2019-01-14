@@ -7433,7 +7433,6 @@ body.path-frontpage .par-back-wrapper {
     text-decoration: none; }
   .product_view .cart-button {
     position: absolute;
-    bottom: 0;
     right: 0;
     padding: 24px; }
   .product_view .product_content {
@@ -7476,23 +7475,26 @@ body.path-frontpage .par-back-wrapper {
 
 @media screen and (max-width: 767px) {
   .product_view {
-    padding-bottom: 93px;
-    margin-bottom: 8px; }
+    margin-bottom: 101px; }
     .product_view .product-info {
       font-family: SourceSansPro;
       font-size: 20px;
       line-height: 1.4;
       padding: 16px 8px;
+      bottom: -93px; }
+    .product_view .cart-button {
       bottom: -93px; } }
 
 @media screen and (min-width: 768px) {
   .product_view {
-    padding-bottom: 115px; }
+    margin-bottom: 115px; }
     .product_view .product-info {
       font-family: SourceSansPro;
       font-size: 24px;
       line-height: 1.42;
       padding: 24px 8px;
+      bottom: -115px; }
+    .product_view .cart-button {
       bottom: -115px; } }
 
 #drupal-modal--content {
