@@ -1,0 +1,15 @@
+uuid: eead64a8-c266-47d3-a16c-c46d92075c83
+langcode: en
+status: true
+dependencies: {  }
+name: product_view_768x886
+label: 'Product view (768x886)'
+effects:
+  fa4758e0-dc89-4cbb-818c-141294319fd9:
+    uuid: fa4758e0-dc89-4cbb-818c-141294319fd9
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 886
+      anchor: center-center
