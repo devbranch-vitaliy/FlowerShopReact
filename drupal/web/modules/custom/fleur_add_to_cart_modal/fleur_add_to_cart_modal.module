@@ -30,7 +30,11 @@ function fleur_add_to_cart_modal_form_commerce_order_item_add_to_cart_form_alter
     if ($index !== false) {
       $submit[$index] = 'fleur_add_to_cart_modal_redirect_submit';
     }
+  }
 
+  $color_widget = &$form['field_color']['widget'][0]['color'];
+  if (isset($color_widget)) {
+    $color_widget['#title'] = t('Select color:');
   }
 }
 
