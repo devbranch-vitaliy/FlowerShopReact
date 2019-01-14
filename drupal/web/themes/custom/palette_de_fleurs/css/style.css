@@ -7759,7 +7759,7 @@ body.path-frontpage .par-back-wrapper {
       border-radius: 100px;
       left: 35%;
       width: 30%; }
-    .product-action button {
+    .product-action button.button--add-to-cart {
       float: right;
       margin-right: 16px;
       margin-top: 8px; }
