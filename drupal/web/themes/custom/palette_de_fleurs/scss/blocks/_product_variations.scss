@@ -179,6 +179,40 @@
   top: 13px;
 }
 
+#commerce-product-add-to-cart-form {
+
+  form {
+    padding: 40px 0;
+  }
+
+  .commerce-order-item-add-to-cart-form .field--type-color-field-type {
+    margin-bottom: 40px;
+  }
+}
+.product-action {
+  width: 100%;
+  position: relative;
+  margin-top: 40px;
+
+  button.button--add-to-cart {
+    float: right;
+    margin-right: 0px;
+  }
+
+  .product-price {
+    float: left;
+    padding: 8px 0;
+
+    font-family: Taviraj;
+    font-size: 32px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19 !important;
+    letter-spacing: normal;
+  }
+}
+
 @media #{$mobile} {
 
   // Popup window.
@@ -278,6 +312,10 @@
       padding: 24px 0;
     }
 
+    .commerce-order-item-add-to-cart-form .field--type-color-field-type {
+      margin-bottom: 24px;
+    }
+
     .field--name-price {
       bottom: 48px;
 
@@ -302,30 +340,41 @@
         }
       }
     }
+  }
 
-    #edit-actions {
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      position: relative;
-      height: 94px;
-      background: white;
+  .product-action {
+    width: 100%;
+    position: relative;
+    height: 94px;
+    background: white;
 
-      &:after {
-        content: '';
-        border: 2.5px solid #000000;
-        position: absolute;
-        bottom: 9px;
-        border-radius: 100px;
-        left: 35%;
-        width: 30%;
-      }
+    &:after {
+      content: '';
+      border: 2.5px solid #000000;
+      position: absolute;
+      bottom: 9px;
+      border-radius: 100px;
+      left: 35%;
+      width: 30%;
+    }
 
-      button {
-        float: right;
-        margin-right: 16px;
-        margin-top: 8px;
-      }
+    button {
+      float: right;
+      margin-right: 16px;
+      margin-top: 8px;
+    }
+
+    .product-price {
+      float: left;
+      padding: 24px 16px;
+
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal;
     }
   }
 }

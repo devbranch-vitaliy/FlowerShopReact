@@ -73,7 +73,32 @@
 
         toggleActiveClass($this);
         $this.once('set-size-active-class').on('change', toggleActiveClass($this));
-      })
+      });
+
+      // Change variation action button and price to the bottom.
+      $(document).once('change-action-price-position').ready(function () {
+
+        var $action_block = $('.path-product #commerce-product-add-to-cart-form #edit-actions');
+        var $price = $('.path-product .field--name-price');
+
+        var appendActionBlock = function () {
+          if ($(window).width() < 768) {
+            $('#footer-background').append($('.product-action'));
+          }
+          else {
+            $('.path-product #commerce-product-add-to-cart-form .commerce-order-item-add-to-cart-form').append($('.product-action'));
+          }
+        };
+
+        $action_block.addClass('product-action');
+        $price.addClass('product-price');
+
+        $action_block.append($price);
+
+        appendActionBlock();
+        $(window).resize(appendActionBlock);
+
+      });
     }
   };
 
