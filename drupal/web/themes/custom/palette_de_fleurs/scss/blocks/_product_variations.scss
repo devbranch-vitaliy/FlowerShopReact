@@ -1,0 +1,393 @@
+#drupal-modal--content {
+  border-radius: unset;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#drupal-modal--header {
+  h4 {
+    font-family: Taviraj;
+    font-size: 40px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1 !important;
+    letter-spacing: normal;
+  }
+
+  button.ui-dialog-titlebar-close {
+    @include fleur-font(icon-16-close-primary);
+    color: $brownish-orange;
+    font-size: 16px;
+    line-height: 16px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    span {
+      display: none;
+    }
+  }
+
+  padding: 40px 40px 24px;
+  border: none;
+}
+
+#drupal-modal--body {
+  padding: 0 40px;
+  overflow: hidden !important;
+
+  .commerce-order-item-add-to-cart-form {
+    padding-bottom: 24px;
+  }
+
+  .field--name-price {
+    display: none;
+  }
+}
+
+#drupal-modal--footer {
+  border: none;
+  padding: 0 40px;
+  width: 100%;
+
+  .field--name-price {
+    font-family: Taviraj;
+    font-size: 32px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19 !important;
+    letter-spacing: normal;
+    float: left;
+    padding: 15px 0;
+  }
+}
+
+.commerce-order-item-add-to-cart-form {
+  label, legend {
+    @include Label-Big;
+    color: $black;
+    border: none;
+  }
+  label {
+    margin-bottom: 0;
+  }
+  legend {
+    margin-bottom: 16px;
+  }
+  label:after, legend span:after {
+    content: unset;
+  }
+
+  .glyphicon-spin {
+    font-size: 15px;
+  }
+
+  .field--type-color-field-type {
+    margin-bottom: 30px;
+  }
+
+  .form-type-textfield {
+    margin-bottom: 16px;
+  }
+
+  .field--widget-commerce-product-variation-attributes {
+    margin: 0;
+  }
+
+  .color-field-widget-box-form {
+    @include Label-Big;
+    position: relative;
+    padding-left: 2px;
+  }
+
+  .color-field-widget-box-form > button {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+    margin-right: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .color-field-widget-box-form > button.active {
+    box-shadow:
+      0 0 0 2px $white,
+      0 0 0 4px $brownish-orange;
+  }
+
+  div[id*='edit-purchased-entity'] {
+    width: 100%;
+  }
+
+  div[id*='edit-purchased-entity'] > div {
+    display: inline-block;
+    fieldset {
+      font-size: 0;
+    }
+    fieldset .form-item {
+      font-size: initial;
+      line-height: initial;
+      width: 33.4%;
+      text-align: center;
+      border: 2px solid $black;
+      margin: auto;
+      margin-left: -2px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    fieldset .form-item.active {
+      border: 2px solid $brownish-orange;
+      z-index: 1;
+
+      label {
+        color: $brownish-orange;
+      }
+    }
+
+    input {
+      display: none;
+    }
+    label {
+      min-height: unset;
+      padding: 15px 0;
+      width: 100%;
+    }
+  }
+}
+
+.button--add-to-cart, .button--add-to-cart:hover {
+  @include Label-Big;
+  @include fleur-font(icon-cart-white);
+  position: relative;
+  background-color: $brownish-orange;
+  border-color: $brownish-orange;
+  padding: 15px 40px 15px 70px;
+}
+
+.button--add-to-cart:before {
+  font-size: 24px;
+  position: absolute;
+  left: 30px;
+  top: 13px;
+}
+
+.path-product .field--name-price {
+  display: none;
+}
+
+.path-product div[id*='commerce-product-add-to-cart-form'] {
+
+  form {
+    padding: 40px 0;
+  }
+
+  .commerce-order-item-add-to-cart-form .field--type-color-field-type {
+    margin-bottom: 40px;
+  }
+}
+
+.product-action {
+  width: 100%;
+  position: relative;
+  margin-top: 40px;
+
+  button.button--add-to-cart {
+    float: right;
+    margin-right: 0px;
+  }
+
+  .field--name-price {
+    display: block !important;
+    float: left;
+    padding: 8px 0;
+
+    font-family: Taviraj;
+    font-size: 32px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19 !important;
+    letter-spacing: normal;
+  }
+}
+
+@media #{$mobile} {
+
+  // Popup window.
+  #drupal-modal {
+    padding: 0 !important;
+  }
+
+  #drupal-modal--dialog {
+    margin: auto;
+    background-color: $white;
+    position: relative;
+    min-height: 100%;
+
+    &:after {
+      content: '';
+      border: 2.5px solid #000000;
+      position: absolute;
+      bottom: 9px;
+      border-radius: 100px;
+      left: 35%;
+      width: 30%;
+    }
+  }
+
+  #drupal-modal--content {
+    box-shadow: none;
+    border: none;
+    display: block !important;
+    max-height: none !important;
+  }
+
+  #drupal-modal--header {
+    padding: 60px 16px 24px;
+    text-align: center;
+
+    h4 {
+      font-family: Taviraj;
+      font-size: 32px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.19 !important;
+      letter-spacing: normal;
+    }
+
+    button.ui-dialog-titlebar-close {
+      font-size: 24px;
+      line-height: 24px;
+      color: $black;
+      opacity: 1;
+    }
+  }
+
+  #drupal-modal--body {
+    padding: 0 16px;
+
+    div[id*='edit-purchased-entity'] > div {
+      fieldset .form-item {
+        display: block;
+        margin: auto;
+        width: 100%;
+        margin-top: -2px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  #drupal-modal--footer {
+    padding: 0 16px;
+
+    .field--name-price {
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal;
+      float: left;
+      padding: 15px 0;
+    }
+  }
+
+  .button--add-to-cart, .button--add-to-cart:hover {
+    padding: 15px 16px 15px 50px;
+  }
+
+  .button--add-to-cart:before {
+    left: 15px;
+  }
+
+  // Product page.
+  .path-product div[id*='commerce-product-add-to-cart-form'] {
+    background-color: #f5f7f9;
+
+    form {
+      padding: 24px 0 0;
+    }
+
+    .commerce-order-item-add-to-cart-form .field--type-color-field-type {
+      margin-bottom: 24px;
+    }
+
+    .field--name-price {
+      bottom: 48px;
+
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal;
+    }
+
+    div[id*='edit-purchased-entity'] > div {
+      fieldset .form-item {
+        display: block;
+        margin: auto;
+        width: 100%;
+        margin-top: -2px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .product-action {
+    width: 100%;
+    position: relative;
+    height: 94px;
+
+    &:after {
+      content: '';
+      border: 2.5px solid #000000;
+      position: absolute;
+      bottom: 9px;
+      border-radius: 100px;
+      left: 35%;
+      width: 30%;
+    }
+
+    button.button--add-to-cart {
+      float: right;
+      margin-right: 16px;
+      margin-top: 8px;
+    }
+
+    .field--name-price {
+      float: left;
+      padding: 24px 16px;
+
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal;
+    }
+  }
+}

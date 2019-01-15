@@ -13,7 +13,6 @@
 
   .cart-button {
     position: absolute;
-    bottom: 0;
     right: 0;
     padding: 24px;
   }
@@ -77,12 +76,15 @@
 
 @media #{$mobile} {
   .product_view {
-    padding-bottom: 93px;
-    margin-bottom: 8px;
+    margin-bottom: 101px;
 
     .product-info {
       @include Body-text;
       padding: 16px 8px;
+      bottom: -93px;
+    }
+
+    .cart-button {
       bottom: -93px;
     }
   }
@@ -90,11 +92,15 @@
 
 @media #{$tablet} {
   .product_view {
-    padding-bottom: 115px;
+    margin-bottom: 115px;
 
     .product-info {
       @include Leading-text;
       padding: 24px 8px;
+      bottom: -115px;
+    }
+
+    .cart-button {
       bottom: -115px;
     }
   }

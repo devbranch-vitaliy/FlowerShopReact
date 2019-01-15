@@ -24,13 +24,42 @@ function fleur_add_to_cart_modal_entity_view_mode_alter(&$view_mode, EntityInter
  * Implements hook_form_alter().
  */
 function fleur_add_to_cart_modal_form_commerce_order_item_add_to_cart_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $submit = &$form['actions']['submit']['#submit'];
-  if (isset($submit)) {
+  // Change submit redirect.
+  if (isset($form['actions']['submit']['#submit'])) {
+    $submit = &$form['actions']['submit']['#submit'];
     $index = array_search("::submitForm", $submit);
     if ($index !== false) {
       $submit[$index] = 'fleur_add_to_cart_modal_redirect_submit';
     }
+  }
 
+  // Change color field label.
+  if (isset($form['field_color']['widget'][0]['color'])) {
+    $form['field_color']['widget'][0]['color']['#title'] = t('Select color:');
+  }
+
+  // Change size options names.
+  if (isset($form['purchased_entity']['widget'][0]['attributes']['attribute_size']['#options'])) {
+    $size_options = &$form['purchased_entity']['widget'][0]['attributes']['attribute_size']['#options'];
+
+    /** @var \Drupal\commerce_price\CurrencyFormatter $currency_formatter */
+    $currency_formatter = \Drupal::service('commerce_price.currency_formatter');
+
+    /** @var \Drupal\commerce_price\Price[] $price */
+    $prices = [];
+
+    /** @var \Drupal\commerce_product\Entity\ProductVariationInterface[] $variations */
+    $variations = $form_state->getStorage()['product']->getVariations();
+    foreach ($variations as $variation) {
+      $prices[$variation->getAttributeValue('attribute_size')->id()] = $variation->getPrice();
+    }
+
+    foreach ($size_options as $id => $label) {
+      $size_options[$id] = t('@label (@price)', [
+        '@label' => $label,
+        '@price' => $currency_formatter->format($prices[$id]->getNumber(), $prices[$id]->getCurrencyCode())
+      ]);
+    }
   }
 }
 
