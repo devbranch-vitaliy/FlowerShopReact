@@ -7530,26 +7530,25 @@ body.path-frontpage .par-back-wrapper {
 #drupal-modal--body {
   padding: 0 40px;
   overflow: hidden !important; }
+  #drupal-modal--body .commerce-order-item-add-to-cart-form {
+    padding-bottom: 24px; }
   #drupal-modal--body .field--name-price {
-    position: absolute;
-    bottom: 45px;
-    left: 0;
+    display: none; }
+
+#drupal-modal--footer {
+  border: none;
+  padding: 0 40px;
+  width: 100%; }
+  #drupal-modal--footer .field--name-price {
     font-family: Taviraj;
     font-size: 32px;
     font-weight: 600;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.19 !important;
-    letter-spacing: normal; }
-  #drupal-modal--body .commerce-order-item-add-to-cart-form {
-    padding-bottom: 128px; }
-
-#drupal-modal--footer {
-  border: none;
-  padding: 0 40px;
-  position: absolute;
-  bottom: 40px;
-  width: 100%; }
+    letter-spacing: normal;
+    float: left;
+    padding: 15px 0; }
 
 .commerce-order-item-add-to-cart-form label, .commerce-order-item-add-to-cart-form legend {
   font-family: SourceSansPro;
@@ -7585,7 +7584,8 @@ body.path-frontpage .par-back-wrapper {
   font-size: 18px;
   font-weight: 600;
   line-height: 1;
-  position: relative; }
+  position: relative;
+  padding-left: 2px; }
 
 .commerce-order-item-add-to-cart-form .color-field-widget-box-form > button {
   width: 40px;
@@ -7680,8 +7680,8 @@ body.path-frontpage .par-back-wrapper {
     padding: 0 !important; }
   #drupal-modal--dialog {
     margin: auto;
-    height: 100%;
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    position: relative; }
     #drupal-modal--dialog:after {
       content: '';
       border: 2.5px solid #000000;
@@ -7692,7 +7692,9 @@ body.path-frontpage .par-back-wrapper {
       width: 30%; }
   #drupal-modal--content {
     box-shadow: none;
-    border: none; }
+    border: none;
+    display: block !important;
+    max-height: none !important; }
   #drupal-modal--header {
     padding: 60px 16px 24px;
     text-align: center; }
@@ -7711,15 +7713,6 @@ body.path-frontpage .par-back-wrapper {
       opacity: 1; }
   #drupal-modal--body {
     padding: 0 16px; }
-    #drupal-modal--body .field--name-price {
-      bottom: 48px;
-      font-family: Taviraj;
-      font-size: 22px;
-      font-weight: 600;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.18 !important;
-      letter-spacing: normal; }
     #drupal-modal--body div[id*='edit-purchased-entity'] > div fieldset .form-item {
       display: block;
       margin: auto;
@@ -7729,6 +7722,16 @@ body.path-frontpage .par-back-wrapper {
         margin-top: 0; }
   #drupal-modal--footer {
     padding: 0 16px; }
+    #drupal-modal--footer .field--name-price {
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal;
+      float: left;
+      padding: 15px 0; }
   .button--add-to-cart, .button--add-to-cart:hover {
     padding: 15px 16px 15px 50px; }
   .button--add-to-cart:before {

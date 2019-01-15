@@ -41,11 +41,21 @@
   padding: 0 40px;
   overflow: hidden !important;
 
-  .field--name-price {
-    position: absolute;
-    bottom: 45px;
-    left: 0;
+  .commerce-order-item-add-to-cart-form {
+    padding-bottom: 24px;
+  }
 
+  .field--name-price {
+    display: none;
+  }
+}
+
+#drupal-modal--footer {
+  border: none;
+  padding: 0 40px;
+  width: 100%;
+
+  .field--name-price {
     font-family: Taviraj;
     font-size: 32px;
     font-weight: 600;
@@ -53,19 +63,9 @@
     font-stretch: normal;
     line-height: 1.19 !important;
     letter-spacing: normal;
+    float: left;
+    padding: 15px 0;
   }
-
-  .commerce-order-item-add-to-cart-form {
-    padding-bottom: 128px;
-  }
-}
-
-#drupal-modal--footer {
-  border: none;
-  padding: 0 40px;
-  position: absolute;
-  bottom: 40px;
-  width: 100%;
 }
 
 .commerce-order-item-add-to-cart-form {
@@ -103,6 +103,7 @@
   .color-field-widget-box-form {
     @include Label-Big;
     position: relative;
+    padding-left: 2px;
   }
 
   .color-field-widget-box-form > button {
@@ -232,8 +233,8 @@
 
   #drupal-modal--dialog {
     margin: auto;
-    height: 100%;
     background-color: $white;
+    position: relative;
 
     &:after {
       content: '';
@@ -249,6 +250,8 @@
   #drupal-modal--content {
     box-shadow: none;
     border: none;
+    display: block !important;
+    max-height: none !important;
   }
 
   #drupal-modal--header {
@@ -276,18 +279,6 @@
   #drupal-modal--body {
     padding: 0 16px;
 
-    .field--name-price {
-      bottom: 48px;
-
-      font-family: Taviraj;
-      font-size: 22px;
-      font-weight: 600;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.18 !important;
-      letter-spacing: normal;
-    }
-
     div[id*='edit-purchased-entity'] > div {
       fieldset .form-item {
         display: block;
@@ -304,6 +295,18 @@
 
   #drupal-modal--footer {
     padding: 0 16px;
+
+    .field--name-price {
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal;
+      float: left;
+      padding: 15px 0;
+    }
   }
 
   .button--add-to-cart, .button--add-to-cart:hover {
@@ -385,10 +388,5 @@
       line-height: 1.18 !important;
       letter-spacing: normal;
     }
-  }
-}
-
-@media #{$tablet} {
-  .button--add-to-cart, .button--add-to-cart:hover {
   }
 }
