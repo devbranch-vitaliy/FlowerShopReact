@@ -12,22 +12,19 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: '#FFFFFF'
+      value: '#ffffff'
       label: White
     -
-      value: '#FE2E9A'
-      label: Pink
-    -
-      value: '#DF01D7'
+      value: '#6c187e'
       label: Purple
     -
-      value: '#FFFF00'
+      value: '#f5e259'
       label: Yellow
     -
-      value: '#FFBF00'
+      value: '#e3632b'
       label: Orange
     -
-      value: '#FE2E2E'
+      value: '#b70020'
       label: Red
   allowed_values_function: ''
 module: options
