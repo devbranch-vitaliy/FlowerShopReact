@@ -7681,7 +7681,8 @@ body.path-frontpage .par-back-wrapper {
   #drupal-modal--dialog {
     margin: auto;
     background-color: #ffffff;
-    position: relative; }
+    position: relative;
+    min-height: 100%; }
     #drupal-modal--dialog:after {
       content: '';
       border: 2.5px solid #000000;

@@ -44,26 +44,12 @@
 
   Drupal.behaviors.fleurAddToCartDialogElements = {
     attach: function (context, settings) {
-      var resize_dialog = function () {
-        if ($(window).height() > $('.modal-dialog .modal-content').height()) {
-          $('.modal-dialog').height('100%');
-        }
-        else {
-          $('.modal-dialog').height('auto');
-        }
-      };
-
       // Change variation action price to the bottom.
       $(".modal-dialog", context).once('change-price-position-modal').each(function () {
         var $price = $('.modal-dialog .field--name-price').clone();
 
         $('.modal-dialog .modal-buttons').before($price);
-
-        resize_dialog();
       });
-
-      // Change dialog height.
-      $(window).resize(resize_dialog);
     }
   };
 

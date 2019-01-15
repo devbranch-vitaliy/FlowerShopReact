@@ -235,6 +235,7 @@
     margin: auto;
     background-color: $white;
     position: relative;
+    min-height: 100%;
 
     &:after {
       content: '';
