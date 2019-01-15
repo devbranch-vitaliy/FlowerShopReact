@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - ctools
     - system
   theme:
     - palette_de_fleurs
@@ -25,3 +26,10 @@ visibility:
     pages: '<front>'
     negate: true
     context_mapping: {  }
+  'entity_bundle:commerce_product':
+    id: 'entity_bundle:commerce_product'
+    bundles:
+      default: default
+    negate: true
+    context_mapping:
+      commerce_product: '@commerce_product.product_route_context:commerce_product'
