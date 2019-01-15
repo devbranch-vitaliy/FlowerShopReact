@@ -20,5 +20,11 @@
  */
 #}
 <article{{ attributes }}>
-  {{- product|without('variation_attributes') -}}
+  {#{{- product|without('variation_attributes') -}}#}
+  {{ product.field_images }}
+  {{ product.body }}
+  {{ product.variation_price }}
+  {{ product.variations }}
+  {{ product.addtoany }}
+  {{ product_tags }}
 </article>
