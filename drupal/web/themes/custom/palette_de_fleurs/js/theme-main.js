@@ -5,7 +5,44 @@
 
 (function ($, Drupal, window) {
 
-  Drupal.behaviors.fleur_theme = {
+  Drupal.behaviors.fleurSizeActiveClass = {
+    attach: function (context, settings) {
+      // Add active class to the size wrapper.
+      $('.commerce-order-item-add-to-cart-form input[type="radio"]', context).once().each(function (e) {
+        var $this = $(this);
+
+        var toggleActiveClass = function ($element) {
+          var checked = $element.is(':checked');
+
+          var $input_wrapper = $element.closest('.form-item');
+
+          if (checked) {
+            $input_wrapper.addClass('active');
+          }
+          else {
+            $input_wrapper.removeClass('active');
+          }
+        };
+
+        toggleActiveClass($this);
+        $this.once('set-size-active-class').on('change', toggleActiveClass($this));
+      });
+    }
+  };
+
+  Drupal.behaviors.fleurAddToCart = {
+    attach: function (context, settings) {
+      // Change variation action button and price to the bottom.
+      $(".commerce-order-item-add-to-cart-form", context).once('change-price-position').each(function () {
+        var $action_block = $('.path-product .commerce-order-item-add-to-cart-form .form-actions');
+        var $price = $('.path-product .field--name-price').clone();
+
+        $action_block.addClass('product-action').append($price);
+      });
+    }
+  };
+
+  Drupal.behaviors.fleurTheme = {
     attach: function (context, settings) {
       // Header background color.
       var set_background = function () {
@@ -32,6 +69,11 @@
         $('#navbar-collapse').toggleClass('show');
       });
 
+    }
+  };
+
+  Drupal.behaviors.fleurSlick = {
+    attach: function (context, settings) {
       // Config slick slideshow.
       $('.slick-customers-reviews').once().each(function (e) {
         var $this = $(this);
@@ -50,54 +92,6 @@
             }
           ]
         });
-      });
-
-      // Add active class to the size wrapper.
-      $('.commerce-order-item-add-to-cart-form input[type="radio"]', context).once().each(function (e) {
-        var $this = $(this);
-
-        var toggleActiveClass = function ($element) {
-          var checked = $element.is(':checked');
-
-          var $input_wrapper = $element.closest('.form-item');
-
-          // $input_wrapper.find('input[type="radio"]').removeClass('active');
-
-          if (checked) {
-            $input_wrapper.addClass('active');
-          }
-          else {
-            $input_wrapper.removeClass('active');
-          }
-        };
-
-        toggleActiveClass($this);
-        $this.once('set-size-active-class').on('change', toggleActiveClass($this));
-      });
-
-      // Change variation action button and price to the bottom.
-      $(document).once('change-action-price-position').ready(function () {
-
-        var $action_block = $('.path-product #commerce-product-add-to-cart-form #edit-actions');
-        var $price = $('.path-product .field--name-price');
-
-        var appendActionBlock = function () {
-          if ($(window).width() < 768) {
-            $('#footer-background').append($('.product-action'));
-          }
-          else {
-            $('.path-product #commerce-product-add-to-cart-form .commerce-order-item-add-to-cart-form').append($('.product-action'));
-          }
-        };
-
-        $action_block.addClass('product-action');
-        $price.addClass('product-price');
-
-        $action_block.append($price);
-
-        appendActionBlock();
-        $(window).resize(appendActionBlock);
-
       });
     }
   };
