@@ -21,7 +21,7 @@ content:
   field_color:
     weight: 0
     settings:
-      default_colors: '#FFFFFF,#FE2E9A,#DF01D7,#FFFF00,#FFBF00,#FE2E2E'
+      default_colors: '#FFFFFF,#6C187E,#F5E259,#E3632B,#B70020'
     third_party_settings: {  }
     type: fleur_color_field_widget_box
     region: content

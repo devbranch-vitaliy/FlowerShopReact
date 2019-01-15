@@ -32,7 +32,7 @@ content:
     region: content
   field_characteristics:
     weight: 5
-    label: inline
+    label: above
     settings:
       link: false
     third_party_settings: {  }
@@ -49,7 +49,7 @@ content:
     region: content
   field_occasion:
     weight: 3
-    label: inline
+    label: above
     settings:
       link: false
     third_party_settings: {  }
@@ -57,7 +57,7 @@ content:
     region: content
   field_type_of_flowers:
     weight: 4
-    label: inline
+    label: above
     settings:
       link: false
     third_party_settings: {  }
