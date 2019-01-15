@@ -24,6 +24,11 @@ targetEntityType: commerce_product
 bundle: default
 mode: default
 content:
+  addtoany:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   body:
     type: text_default
     weight: 2
