@@ -1967,17 +1967,17 @@ pre {
     clear: both; }
   @media (min-width: 768px) {
     .container {
-      width: 784px; } }
+      width: 746px; } }
   @media (min-width: 992px) {
     .container {
-      width: 1008px; } }
+      width: 976px; } }
   @media (min-width: 1200px) {
     .container {
       margin-right: auto;
       margin-left: auto;
       padding-left: 12px;
       padding-right: 12px;
-      width: 1224px; }
+      width: 1174px; }
       .container:before, .container:after {
         content: " ";
         display: table; }
@@ -6589,19 +6589,19 @@ body {
 
 @media screen and (min-width: 768px) {
   .navbar.container {
-    max-width: 768px; } }
+    max-width: 730px; } }
 
 @media screen and (min-width: 992px) {
   .navbar.container {
-    max-width: 992px; } }
+    max-width: 960px; } }
 
 @media screen and (min-width: 1200px) {
   .navbar.container {
-    max-width: 1200px; } }
+    max-width: 1150px; } }
 
 @media screen and (min-width: 1320px) {
   .navbar.container {
-    max-width: 1320px; } }
+    max-width: 1270px; } }
 
 .navbar .logo {
   margin-right: -8px;
@@ -6964,7 +6964,7 @@ p:last-child,
 
 @media (min-width: 1320px) {
   .container {
-    width: 1344px; } }
+    width: 1294px; } }
 
 header.navbar {
   background-color: transparent;
@@ -7376,17 +7376,17 @@ body.path-frontpage .paragraph {
       padding-right: 16px; } }
   @media (min-width: 768px) {
     body.path-frontpage .paragraph {
-      width: 784px; } }
+      width: 746px; } }
   @media (min-width: 992px) {
     body.path-frontpage .paragraph {
-      width: 1008px; } }
+      width: 976px; } }
   @media (min-width: 1200px) {
     body.path-frontpage .paragraph {
       margin-right: auto;
       margin-left: auto;
       padding-left: 12px;
       padding-right: 12px;
-      width: 1224px; }
+      width: 1174px; }
       body.path-frontpage .paragraph:before, body.path-frontpage .paragraph:after {
         content: " ";
         display: table; }
@@ -7398,7 +7398,7 @@ body.path-frontpage .paragraph {
       margin-left: auto;
       padding-left: 12px;
       padding-right: 12px;
-      width: 1344px; }
+      width: 1294px; }
       body.path-frontpage .paragraph:before, body.path-frontpage .paragraph:after {
         content: " ";
         display: table; }
@@ -7591,7 +7591,7 @@ body.path-frontpage .par-back-wrapper {
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  border: none;
+  border: 1px solid #ecece9;
   box-shadow: none;
   margin-right: 16px; }
   .commerce-order-item-add-to-cart-form .color-field-widget-box-form > button:focus {
