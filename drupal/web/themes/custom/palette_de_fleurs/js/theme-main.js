@@ -3,7 +3,7 @@
  * Main js code for our theme.
  */
 
-(function ($, Drupal, window) {
+(function ($, Drupal, window, Bootstrap) {
 
   Drupal.behaviors.fleurSizeActiveClass = {
     attach: function (context, settings) {
@@ -32,13 +32,43 @@
 
   Drupal.behaviors.fleurAddToCart = {
     attach: function (context, settings) {
-      // Change variation action button and price to the bottom.
+      // Change variation action price to the bottom.
       $(".commerce-order-item-add-to-cart-form", context).once('change-price-position').each(function () {
         var $action_block = $('.path-product .commerce-order-item-add-to-cart-form .form-actions');
         var $price = $('.path-product .field--name-price').clone();
 
         $action_block.addClass('product-action').append($price);
       });
+    }
+  };
+
+  Drupal.behaviors.fleurAddToCartDialogElements = {
+    attach: function (context, settings) {
+      // Change variation action price to the bottom.
+      $(".modal-dialog", context).once('change-price-position-modal').each(function () {
+        var $price = $('.modal-dialog .field--name-price').clone();
+
+        $('.modal-dialog .modal-buttons').before($price);
+
+      });
+
+      // Change dialog height.
+      $(window).resize(function () {
+        if ($(window).height() > $('.modal-dialog .modal-content').height()) {
+          $('.modal-dialog').height('100%');
+        }
+        else {
+          $('.modal-dialog').height('auto');
+        }
+      });
+    }
+  };
+
+  Drupal.behaviors.fleurAddToCartDialog = {
+    attach: function () {
+      $(window).once('dialog-behavior').bind("dialog:aftercreate", function () {
+          Drupal.attachBehaviors();
+       });
     }
   };
 
