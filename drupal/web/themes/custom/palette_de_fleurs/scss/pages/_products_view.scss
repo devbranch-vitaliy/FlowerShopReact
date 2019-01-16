@@ -2,16 +2,30 @@
 
   .title {
     text-align: center;
+
+    h1, h2 {
+      margin: auto;
+    }
   }
 
   .view-filters {
+
     label {
       @include Cart-item-text;
       color: $black;
     }
 
+    .form-item {
+      float: none;
+      margin-bottom: 16px;
+    }
+
+    form .form-inline div:nth-child(4) .select-wrapper {
+      margin-right: 0;
+    }
+
     .select-wrapper {
-      //width: 100%;
+      border: 2px solid $black;
 
       &:after {
         font-size: 16px;
@@ -22,11 +36,10 @@
     }
 
     select {
-      border: 2px solid $black;
+      border: none;
       border-radius: unset;
       color: $black;
       @include Label-Small;
-      margin-right: 16px;
     }
   }
 
@@ -50,12 +63,27 @@
 
 @media #{$mobile} {
   .view-display-id-products {
+
+    .title {
+      margin: 40px 0 24px;
+    }
+
     .row {
       padding: 0 8px;
     }
 
-    .view-filters label {
-      display: none;
+    .view-filters {
+      padding: 0 8px;
+      margin-bottom: 8px;
+
+      label {
+        display: none;
+      }
+
+      .select-wrapper {
+        width: 100%;
+        margin-right: 8px;
+      }
     }
 
     .product_view {
@@ -64,12 +92,9 @@
 
     .pager {
       margin-top: 24px;
+      padding: 0 8px;
     }
-  }
-}
 
-@media (max-width: 480px) {
-  .view-display-id-products {
     .pager li > a {
       width: 100%;
     }
@@ -79,24 +104,28 @@
 @media #{$tablet} {
   .view-display-id-products {
     .title {
-      margin: 80px 0 40px;
+      margin: 40px 0 24px;
     }
 
     .view-filters {
-      .form-type-select {
-        float: none;
-        //padding-right: 16px;
-        //&:last-child {
-        //  padding-right: 0;
-        //}
+      margin-bottom: 0;
+
+      form .form-inline {
+        display: table;
+        margin: auto;
+      }
+
+      label {
+        margin-right: 4px;
       }
 
       .select-wrapper {
-        width: 196px;
+        width: 152px;
+        margin-right: 8px;
       }
 
       select {
-        min-width: 196px;
+        width: 148px;
       }
     }
 
@@ -113,13 +142,55 @@
 @media #{$normal} {
   .view-display-id-products {
 
+    .title {
+      margin: 60px 0 36px;
+    }
+
+    .product_view {
+      margin-top: 24px;
+    }
+
+    .view-filters {
+      label {
+        margin-right: 8px;
+      }
+
+      .select-wrapper {
+        width: 196px;
+        margin-right: 12px;
+      }
+
+      select {
+        width: 192px;
+      }
+    }
   }
 }
 
 @media #{$wide} {
   .view-display-id-products {
+
+    .title {
+      margin: 80px 0 40px;
+    }
+
     .product_view {
       margin-top: 24px;
+    }
+
+    .view-filters {
+      label {
+        margin-right: 14px;
+      }
+
+      .select-wrapper {
+        width: 196px;
+        margin-right: 16px;
+      }
+
+      select {
+        width: 192px;
+      }
     }
   }
 }
