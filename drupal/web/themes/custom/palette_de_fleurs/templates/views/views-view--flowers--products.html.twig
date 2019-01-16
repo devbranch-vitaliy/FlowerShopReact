@@ -44,12 +44,11 @@
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if title %}
-    {{ title }}
+    <div class="title">
+      <h1 class="text-color-black hidden-xs">{{ title }}</h1>
+      <h2 class="text-color-black visible-xs">{{ title }}</h2>
+    </div>
   {% endif %}
-  <div class="title">
-    <h1 class="text-color-black hidden-xs">{{ "Our Products"|t }}</h1>
-    <h2 class="text-color-black visible-xs">{{ "Our Products"|t }}</h2>
-  </div>
   {{ title_suffix }}
   {% if header %}
     <div class="view-header">
