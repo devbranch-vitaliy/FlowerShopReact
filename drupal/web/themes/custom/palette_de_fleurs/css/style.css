@@ -1595,7 +1595,7 @@ hr {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: Taviraj-SemiBold;
+  font-family: Taviraj;
   font-weight: 600;
   line-height: 1;
   color: #000; }
@@ -6910,7 +6910,8 @@ body.toolbar-loading {
       color: #fff; }
 
 body {
-  margin: 0; }
+  margin: 0;
+  color: #191919; }
 
 ol, ul {
   padding-left: 1.5em; }
@@ -7213,7 +7214,8 @@ footer {
   padding-top: 0 !important; }
 
 .footer {
-  border: 0; }
+  border: 0;
+  margin-top: 80px; }
 
 .fleur-site-footer.row {
   padding-top: 80px; }
@@ -7241,6 +7243,8 @@ footer {
     color: #c9ced5; }
 
 @media screen and (max-width: 767px) {
+  .footer {
+    margin-top: 40px; }
   .fleur-site-footer.row {
     padding-top: 0; }
   .fleur-site-footer.row img {
@@ -7658,6 +7662,7 @@ body.path-frontpage .par-back-wrapper {
 
 .product-action {
   width: 100%;
+  height: 48px;
   position: relative;
   margin-top: 40px; }
   .product-action button.button--add-to-cart {
@@ -8126,3 +8131,46 @@ body.path-frontpage .par-back-wrapper {
       margin-bottom: 40px; }
     .customers-reviews .slick-dots {
       bottom: -40px; } }
+
+.product-flower h1 {
+  margin-top: 0;
+  margin-bottom: 16px; }
+
+.product-flower h2 {
+  margin-top: 40px;
+  margin-bottom: 24px; }
+
+.product-flower .tags {
+  text-align: left;
+  color: #c9ced5; }
+
+.product-flower .social > div {
+  display: inline-block; }
+
+@media screen and (max-width: 767px) {
+  .product-flower .field--name-body {
+    padding-bottom: 24px; }
+  .product-flower .tags {
+    padding: 24px 0; }
+  .product-flower .col-xs-12 {
+    padding: 0; }
+  .product-flower .content-right {
+    padding: 0 16px; } }
+
+@media screen and (min-width: 768px) {
+  .product-flower .product-content {
+    width: 100%; }
+  .product-flower .field--name-body {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #191919; }
+  .product-flower .tags {
+    border-top: 1px solid #191919;
+    padding: 16px 0 40px; } }
+
+@media screen and (min-width: 992px) {
+  .product-flower .product-content {
+    width: 90%; } }
+
+@media screen and (min-width: 1200px) {
+  .product-flower .product-content {
+    width: 83%; } }
