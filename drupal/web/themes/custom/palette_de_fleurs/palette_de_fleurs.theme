@@ -6,3 +6,39 @@
  *
  * Place your custom PHP code in this file.
  */
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_commerce_product__default__full(&$variables) {
+  $array_tags = [];
+
+  if (isset($variables['product_entity'])) {
+    /** @var \Drupal\commerce_product\Entity\Product $product */
+    $product = $variables['product_entity'];
+
+    /** @var \Drupal\taxonomy\Entity\Term $value */
+    foreach ($product->get('field_type_of_flowers')->referencedEntities() as $value) {
+      $array_tags[] = $value->getName();
+    }
+
+    /** @var \Drupal\taxonomy\Entity\Term $value */
+    foreach ($product->get('field_characteristics')->referencedEntities() as $value) {
+      $array_tags[] = $value->getName();
+    }
+
+    /** @var \Drupal\taxonomy\Entity\Term $value */
+    foreach ($product->get('field_occasion')->referencedEntities() as $value) {
+      $array_tags[] = $value->getName();
+    }
+
+    $field_colors = $product->get('field_colors');
+    $colors_options = $field_colors->getFieldDefinition()->getFieldStorageDefinition()->
+        getOptionsProvider('value', $product)->getPossibleOptions();
+    foreach ($field_colors->getValue() as $field_value) {
+      $array_tags[] = $colors_options[$field_value['value']];
+    }
+
+    $variables['product_tags'] = implode(', ', $array_tags);
+  }
+}

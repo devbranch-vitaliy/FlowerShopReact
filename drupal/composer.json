@@ -19,6 +19,7 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal-composer/drupal-scaffold": "^2.5",
+        "drupal/addtoany": "^1.10",
         "drupal/admin_toolbar": "^1.24",
         "drupal/better_exposed_filters": "^3.0",
         "drupal/block_class": "^1.0",

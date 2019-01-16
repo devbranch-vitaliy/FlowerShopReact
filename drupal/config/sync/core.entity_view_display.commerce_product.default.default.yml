@@ -12,9 +12,11 @@ dependencies:
     - field.field.commerce_product.default.field_type_of_flowers
     - field.field.commerce_product.default.stores
     - field.field.commerce_product.default.variations
+    - image.style.product_view_768x886
   module:
     - commerce_product
     - image
+    - options
     - text
 _core:
   default_config_hash: gT03TFcuSod4d9uPQNs_gqK1F1QZ0Ray5CBYW0BNLnk
@@ -23,6 +25,11 @@ targetEntityType: commerce_product
 bundle: default
 mode: default
 content:
+  addtoany:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   body:
     type: text_default
     weight: 2
@@ -31,24 +38,31 @@ content:
     third_party_settings: {  }
     region: content
   field_characteristics:
-    weight: 5
+    weight: 6
     label: above
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_colors:
+    type: list_default
+    weight: 7
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_images:
     weight: 1
-    label: above
+    label: hidden
     settings:
-      image_style: ''
+      image_style: product_view_768x886
       image_link: ''
     third_party_settings: {  }
     type: image
     region: content
   field_occasion:
-    weight: 3
+    weight: 4
     label: above
     settings:
       link: false
@@ -56,7 +70,7 @@ content:
     type: entity_reference_label
     region: content
   field_type_of_flowers:
-    weight: 4
+    weight: 5
     label: above
     settings:
       link: false
@@ -72,7 +86,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
   variations:
-    weight: 6
+    weight: 3
     label: hidden
     settings:
       combine: true
@@ -84,6 +98,5 @@ hidden:
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
-  field_colors: true
   stores: true
   uid: true
