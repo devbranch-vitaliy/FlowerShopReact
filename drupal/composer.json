@@ -22,7 +22,6 @@
         "drupal/addtoany": "^1.10",
         "drupal/admin_toolbar": "^1.24",
         "drupal/better_exposed_filters": "^3.0",
-        "drupal/better_social_sharing_buttons": "^1.4",
         "drupal/block_class": "^1.0",
         "drupal/bootstrap": "^3.16",
         "drupal/color_field": "^2.0",
