@@ -19,12 +19,25 @@
  * @ingroup themeable
  */
 #}
-<article{{ attributes }}>
+<article{{ attributes.addClass('product-flower') }}>
   {#{{- product|without('variation_attributes') -}}#}
-  {{ product.field_images }}
-  {{ product.body }}
-  {{ product.variation_price }}
-  {{ product.variations }}
-  {{ product.addtoany }}
-  {{ product_tags }}
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      {{ product.field_images }}
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <h1 class="title text-color-black hidden-xs">{{ product.title }}</h1>
+      <h2 class="title text-color-black visible-xs">{{ product.title }}</h2>
+      {{ product.body }}
+      {{ product.variation_price }}
+      {{ product.variations }}
+
+      <div class="tags cart-item-text">{{ 'Tags: @tags'|t({'@tags': product_tags }) }}</div>
+      <div class="social">
+        <div class="social-title label-big"> {{ 'Share on:'|t }} </div>
+        <div class="social-icons">{{ product.addtoany }}</div>
+      </div>
+
+    </div>
+  </div>
 </article>

@@ -39,6 +39,6 @@ function palette_de_fleurs_preprocess_commerce_product__default__full(&$variable
       $array_tags[] = $colors_options[$field_value['value']];
     }
 
-    $variables['product_tags']['#plain_text'] = implode(', ', $array_tags);
+    $variables['product_tags'] = implode(', ', $array_tags);
   }
 }
