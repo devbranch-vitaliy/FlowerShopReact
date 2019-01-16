@@ -1,5 +1,5 @@
 buttons_size: 24
-additional_html: "<a class=\"a2a_button_facebook\"></a>\r\n<a class=\"a2a_s_email\"></a>\r\n<a class=\"a2a_s_whatsapp\"></a>\r\n<a class=\"a2a_button_twitter\"></a>"
+additional_html: "<a class=\"a2a_button_facebook\"></a>\r\n<a class=\"a2a_button_email\"></a>\r\n<a class=\"a2a_button_whatsapp\"></a>\r\n<a class=\"a2a_button_twitter\"></a>"
 additional_css: ''
 additional_js: ''
 universal_button: none
