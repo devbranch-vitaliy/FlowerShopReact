@@ -8138,7 +8138,8 @@ body.path-frontpage .par-back-wrapper {
 
 .product-flower h2 {
   margin-top: 40px;
-  margin-bottom: 24px; }
+  margin-bottom: 24px;
+  text-align: center; }
 
 .product-flower .tags {
   text-align: left;
