@@ -105,7 +105,7 @@ $line-height-base:        1.428571429 !default; // 20/14
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
 //** By default, this inherits from the `<body>`.
-$headings-font-family:    Taviraj-SemiBold !default;
+$headings-font-family:    Taviraj !default;
 $headings-line-height:    1 !default;
 $headings-font-weight:    600 !default;
 $headings-color:          $gray-base !default;
