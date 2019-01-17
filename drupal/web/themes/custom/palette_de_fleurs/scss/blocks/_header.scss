@@ -239,6 +239,11 @@ a:hover.Label-Copy, a:focus.Label-Copy {
     right: 74px;
     width: 140px;
     @include Label-Small;
+    font-size: 13px;
+
+    p {
+      padding: 14px 15px;
+    }
   }
   #block-palette-de-fleurs-main-menu {
     right: 214px;
@@ -257,6 +262,7 @@ a:hover.Label-Copy, a:focus.Label-Copy {
       display: none;
     }
   }
+
 }
 
 @media #{$normal} {
@@ -264,6 +270,10 @@ a:hover.Label-Copy, a:focus.Label-Copy {
     right: 94px;
     width: 178px;
     @include Label-Big;
+
+    p {
+      padding: 11px 15px;
+    }
   }
   #block-palette-de-fleurs-main-menu {
     right: 272px;
