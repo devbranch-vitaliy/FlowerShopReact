@@ -7802,7 +7802,9 @@ body.path-frontpage .par-back-wrapper {
   padding: 0 8px; }
   .mobile-filter-container a {
     text-decoration: none;
-    color: inherit; }
+    color: inherit;
+    display: block;
+    width: 100%; }
   .mobile-filter-container .filter-head {
     border: 2px solid black; }
   .mobile-filter-container .filter {
