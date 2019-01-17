@@ -31,3 +31,7 @@ slick-styling:
       css/slick/slick-theme.css: {}
   js:
     js/slick.min.js: {}
+
+mobile-filters:
+  js:
+    js/mobile-filters.js: {}
