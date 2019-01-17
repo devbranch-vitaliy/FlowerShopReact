@@ -27,6 +27,7 @@
                         var $select = $(this);
                         $select.find('option').each(function () {
                             var $option = $(this);
+                            var has_selected = false;
                             var optionVal = $option.val();
                             if (optionVal.toLowerCase() === 'all') {
                                 $('<span class="filter-toggle filter-name"></span>')
@@ -41,13 +42,21 @@
                             var $link = $('<a></a>')
                                 .attr('href', window.location.pathname + '?' + $.param({[$select.attr('name')]: optionVal}))
                                 .text(select_text);
+
+                            if ($option.attr('selected')) {
+                                has_selected = true;
+                                $link.appendTo($('<li class="selected"></li>').appendTo($filter_options));
+                            }
+                            else {
+                                $link.appendTo($('<li></li>').appendTo($filter_options));
+                            }
+
                             $link.click(function (e) {
                                 e.preventDefault();
                                 $form.find('select option').prop('selected', false);
                                 $option.prop('selected', true);
                                 $option.change();
                             });
-                            $link.appendTo($('<li></li>').appendTo($filter_options));
                         });
                         $filter_options.appendTo($filter_menu);
                         $filter_menu.appendTo($filter_container_lvl2);
@@ -59,11 +68,8 @@
                     $('.filter-toggle', $container).once().each(function () {
                         var $this = $(this);
 
-                        if ($this.next().hasClass('show')) {
-                            $this.addClass('fleur-font-icon-16-chevron-up-primary').removeClass('fleur-font-icon-16-chevron-down-primary');
-                        }
-                        else {
-                            $this.removeClass('fleur-font-icon-16-chevron-up-primary').addClass('fleur-font-icon-16-chevron-down-primary');
+                        if (!$this.next().hasClass('show')) {
+                            $this.removeClass('icon-up');
                         }
                     });
 
@@ -73,17 +79,17 @@
                         var $this = $(this);
 
                         if ($this.next().hasClass('show')) {
-                            $this.removeClass('fleur-font-icon-16-chevron-up-primary');
+                            $this.removeClass('icon-up');
                             $this.next().slideUp(350);
                             $this.next().removeClass('show');
                         }
                         else {
-                            $this.parent().parent().find('.filter-toggle').removeClass('fleur-font-icon-16-chevron-up-primary');
+                            $this.parent().parent().find('.filter-toggle').removeClass('icon-up');
                             $this.parent().parent().find('li .inner').slideUp(350);
                             $this.parent().parent().find('li .inner').removeClass('show');
                             $this.next().slideToggle(350);
                             $this.next().toggleClass('show');
-                            $this.addClass('fleur-font-icon-16-chevron-up-primary');
+                            $this.addClass('icon-up');
                         }
                     });
                 });
