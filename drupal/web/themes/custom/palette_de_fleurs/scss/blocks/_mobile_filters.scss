@@ -1,0 +1,86 @@
+.mobile-filter-container {
+  padding: 0 8px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .filter-head {
+    border: 2px solid black;
+  }
+
+  .filter {
+    border-top: 2px solid black;
+  }
+
+  span {
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    padding: 12px 16px;
+
+    &:before {
+      @include fleur-font(icon-16-chevron-down-primary);
+      float: right;
+      color: $brownish-orange;
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    .inner {
+      overflow: hidden;
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    li {
+
+      a.toggle {
+        width: 100%;
+        display: block;
+        background: rgba(0,0,0,0.78);
+        color: #fefefe;
+        padding: .75em;
+        border-radius: 0.15em;
+        transition: background .3s ease;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.9);
+        }
+      }
+    }
+  }
+
+  .filter-option > li {
+    padding: 10px 0 10px 30px;
+
+    &:first-child {
+      padding-top: 8px;
+    }
+
+    &:last-child {
+      padding-bottom: 8px;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .mobile-filter-container {
+    display: block;
+  }
+}
+
+@media #{$tablet} {
+  .mobile-filter-container {
+    display: none;
+  }
+}
