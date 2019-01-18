@@ -4,7 +4,7 @@
  */
 
 (function ($, Drupal) {
-    Drupal.behaviors.fleurMobileFilter = {
+    Drupal.behaviors.fleurFaqToggle = {
         attach: function (context, settings) {
             $('.question', context).once().each(function () {
                 var $container = $(this);
@@ -12,8 +12,7 @@
                 $('.views-field-field-question', $container).click(function (e) {
                     var $this = $(this);
 
-                    $this.next().slideToggle(350);
-                    $this.next().toggleClass('show');
+                    $this.next().slideToggle(350).toggleClass('show');
                     $this.toggleClass('icon-up');
 
                 });
