@@ -72,6 +72,7 @@ function palette_de_fleurs_preprocess_form(&$variables) {
   if ($variables['element']['#id'] == 'contact-message-request-a-call-back-form') {
     if (isset($variables['children'])) {
       $new_children = str_replace(t('Message'), t('When would you like us to call you?'), $variables['children']->jsonSerialize());
+      $new_children = str_replace(t('Send message'), t('Send'), $new_children);
       $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
     }
   }
