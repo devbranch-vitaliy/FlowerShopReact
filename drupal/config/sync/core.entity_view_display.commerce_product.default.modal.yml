@@ -39,6 +39,7 @@ content:
     type: commerce_add_to_cart
     region: content
 hidden:
+  addtoany: true
   body: true
   created: true
   entity_print_view_epub: true

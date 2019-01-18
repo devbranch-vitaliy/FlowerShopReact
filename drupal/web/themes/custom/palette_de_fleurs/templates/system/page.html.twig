@@ -166,7 +166,7 @@
 
 {% block footer %}
   <div class="black-bg" id="footer-background">
-    <footer class="footer {{ container }}" role="contentinfo">
+    <footer class="footer {{ container }} {{ is_front ? 'front-footer' }}" role="contentinfo">
       {% if page.footer %}
         {{ page.footer }}
       {% endif %}

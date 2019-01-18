@@ -41,6 +41,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
+  addtoany: true
   body: true
   created: true
   entity_print_view_epub: true
