@@ -49,3 +49,10 @@ function palette_de_fleurs_preprocess_commerce_product__default__full(&$variable
 function palette_de_fleurs_preprocess_views_view__flowers__products(&$variables) {
   $variables['title'] = $variables['view']->getTitle();
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_views_view__faq__faq_list(&$variables) {
+  $variables['title'] = $variables['view']->getTitle();
+}
