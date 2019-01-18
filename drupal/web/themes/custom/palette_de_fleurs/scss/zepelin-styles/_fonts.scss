@@ -14,7 +14,7 @@
     limitations under the License.
  */
 
-h1 {
+@mixin H1 {
   font-family: Taviraj;
   font-size: 40px;
   font-weight: 600;
@@ -24,7 +24,7 @@ h1 {
   letter-spacing: normal;
 }
 
-h2 {
+@mixin H2 {
   font-family: Taviraj;
   font-size: 32px;
   font-weight: 600;
@@ -34,7 +34,7 @@ h2 {
   letter-spacing: normal;
 }
 
-h3 {
+@mixin H3 {
   font-family: Taviraj;
   font-size: 26px;
   font-weight: 600;
@@ -44,7 +44,7 @@ h3 {
   letter-spacing: normal;
 }
 
-h4 {
+@mixin H4 {
   font-family: Taviraj;
   font-size: 22px;
   font-weight: 600;
@@ -54,7 +54,7 @@ h4 {
   letter-spacing: normal;
 }
 
-h5 {
+@mixin H5 {
   font-family: Taviraj;
   font-size: 16px;
   font-weight: 600;
@@ -114,6 +114,26 @@ h5 {
 
 .text-color-orange {
   color: $brownish-orange;
+}
+
+h1 {
+  @include H1;
+}
+
+h2 {
+  @include H2;
+}
+
+h3 {
+  @include H3;
+}
+
+h4 {
+  @include H4;
+}
+
+h5 {
+  @include H5;
 }
 
 .display-1 {
