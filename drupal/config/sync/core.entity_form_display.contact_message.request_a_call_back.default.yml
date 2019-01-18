@@ -33,7 +33,7 @@ content:
     weight: 3
     settings:
       rows: 1
-      placeholder: 'When would you like us to call you?'
+      placeholder: ''
     region: content
     third_party_settings: {  }
   name:
