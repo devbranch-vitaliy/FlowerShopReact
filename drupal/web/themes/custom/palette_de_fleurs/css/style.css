@@ -7221,6 +7221,8 @@ footer {
 .footer {
   border: 0;
   margin-top: 80px; }
+  .footer.front-footer {
+    margin-top: 0; }
 
 .fleur-site-footer.row {
   padding-top: 80px; }
@@ -7250,6 +7252,8 @@ footer {
 @media screen and (max-width: 767px) {
   .footer {
     margin-top: 40px; }
+    .footer.front-footer {
+      margin-top: 0; }
   .fleur-site-footer.row {
     padding-top: 0; }
   .fleur-site-footer.row img {
@@ -8105,6 +8109,11 @@ body.path-frontpage .par-back-wrapper {
   .instagram h2 {
     margin-top: 40px;
     margin-bottom: 24px; }
+  .instagram .eapps-instagram-feed-title-container {
+    display: none; }
+  .instagram [class*='elfsight-app'] {
+    width: 100% !important;
+    font-size: 0; }
 
 .featured-products {
   text-align: center; }

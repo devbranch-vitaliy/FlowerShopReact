@@ -9,4 +9,13 @@
     margin-top: 40px;
     margin-bottom: 24px;
   }
+
+  .eapps-instagram-feed-title-container {
+    display: none;
+  }
+
+  [class*='elfsight-app'] {
+    width: 100% !important;
+    font-size: 0;
+  }
 }

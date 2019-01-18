@@ -5,6 +5,10 @@ footer {
 .footer {
   border: 0;
   margin-top: 80px;
+
+  &.front-footer {
+    margin-top: 0;
+  }
 }
 
 .fleur-site-footer.row {
@@ -48,6 +52,10 @@ footer {
 @media #{$mobile} {
   .footer {
     margin-top: 40px;
+
+    &.front-footer {
+      margin-top: 0;
+    }
   }
 
   .fleur-site-footer.row {
