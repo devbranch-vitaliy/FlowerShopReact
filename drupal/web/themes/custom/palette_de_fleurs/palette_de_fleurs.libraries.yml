@@ -35,3 +35,7 @@ slick-styling:
 mobile-filters:
   js:
     js/mobile-filters.js: {}
+
+faq-questions:
+  js:
+    js/faq-questions.js: {}
