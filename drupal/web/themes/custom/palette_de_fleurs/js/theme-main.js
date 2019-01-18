@@ -3,7 +3,7 @@
  * Main js code for our theme.
  */
 
-(function ($, Drupal, window, Bootstrap) {
+(function ($, Drupal, window) {
 
   Drupal.behaviors.fleurSizeActiveClass = {
     attach: function (context, settings) {
