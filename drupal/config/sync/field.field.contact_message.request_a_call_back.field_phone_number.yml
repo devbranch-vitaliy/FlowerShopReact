@@ -11,7 +11,7 @@ id: contact_message.request_a_call_back.field_phone_number
 field_name: field_phone_number
 entity_type: contact_message
 bundle: request_a_call_back
-label: 'Phone number'
+label: Phone
 description: ''
 required: true
 translatable: false
