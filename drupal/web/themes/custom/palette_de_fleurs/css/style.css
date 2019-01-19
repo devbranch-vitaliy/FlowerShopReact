@@ -8066,7 +8066,7 @@ body.path-frontpage .par-back-wrapper, body.page-node-type-page-with-paragraphs 
       border: 2px solid #ffffff;
       border-top: none;
       position: relative;
-      padding: 50px 20px 0; }
+      padding: 50px 8px 0; }
     .slogans .slogan:after, .slogans .slogan:before {
       content: "";
       position: absolute;
@@ -8229,6 +8229,55 @@ body.path-frontpage .par-back-wrapper, body.page-node-type-page-with-paragraphs 
 @media screen and (min-width: 1200px) {
   .wide-image {
     height: 600px; } }
+
+.paragraph-content {
+  margin: 56px auto 0;
+  font-family: SourceSansPro;
+  font-size: 24px;
+  line-height: 1.42; }
+  .paragraph-content h1, .paragraph-content h2, .paragraph-content h3, .paragraph-content h4, .paragraph-content h5, .paragraph-content h6 {
+    margin-top: 0;
+    margin-bottom: 24px; }
+
+@media screen and (max-width: 767px) {
+  .paragraph-content {
+    width: 100%;
+    margin: 40px auto 0;
+    font-family: SourceSansPro;
+    font-size: 20px;
+    line-height: 1.4; }
+    .paragraph-content h1, .paragraph-content h2, .paragraph-content h3, .paragraph-content h4, .paragraph-content h5, .paragraph-content h6 {
+      margin-bottom: 16px; } }
+
+@media screen and (min-width: 768px) {
+  .paragraph-content {
+    width: 90%; } }
+
+@media screen and (min-width: 992px) {
+  .paragraph-content {
+    width: 75%; } }
+
+@media screen and (min-width: 1200px) {
+  .paragraph-content {
+    width: 65%; } }
+
+.paragraph-image .paragraph-content {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+
+@media screen and (max-width: 767px) {
+  .paragraph-image .paragraph-content {
+    height: 240px; } }
+
+@media screen and (min-width: 768px) {
+  .paragraph-image .paragraph-content {
+    height: 370px; } }
+
+@media screen and (min-width: 1200px) {
+  .paragraph-image .paragraph-content {
+    height: 500px; } }
 
 .product-flower h1 {
   margin-top: 0;
@@ -8534,3 +8583,21 @@ body.path-frontpage .par-back-wrapper, body.page-node-type-page-with-paragraphs 
   .request-a-call-back-form .contact-message-request-a-call-back-form {
     margin-top: 80px;
     width: 40%; } }
+
+.about-us .title {
+  text-align: center; }
+  .about-us .title h1, .about-us .title h2 {
+    margin: auto; }
+  .about-us .title h1 {
+    margin-top: 80px;
+    margin-bottom: 80px; }
+  .about-us .title h2 {
+    margin-top: 40px;
+    margin-bottom: 40px; }
+
+.about-us .slogans {
+  margin-top: 56px; }
+
+@media screen and (max-width: 767px) {
+  .about-us .slogans {
+    margin-top: 40px; } }
