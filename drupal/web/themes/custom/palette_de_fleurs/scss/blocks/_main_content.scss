@@ -2,6 +2,10 @@ body.path-frontpage {
   .main-container {
     padding: 0;
   }
+}
+
+body.path-frontpage, body.page-node-type-page-with-paragraphs {
+
   .paragraph {
     @include container-fixed;
 
