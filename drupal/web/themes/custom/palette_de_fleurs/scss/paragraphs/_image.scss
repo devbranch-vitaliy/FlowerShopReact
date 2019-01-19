@@ -1,4 +1,4 @@
-.wide-image {
+.paragraph-image .paragraph-content {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -6,19 +6,19 @@
 }
 
 @media #{$mobile} {
-  .wide-image {
+  .paragraph-image .paragraph-content {
     height: 240px;
   }
 }
 
 @media #{$tablet} {
-  .wide-image {
-    height: 420px;
+  .paragraph-image .paragraph-content {
+    height: 370px;
   }
 }
 
 @media #{$wide} {
-  .wide-image {
-    height: 600px;
+  .paragraph-image .paragraph-content {
+    height: 500px;
   }
 }
