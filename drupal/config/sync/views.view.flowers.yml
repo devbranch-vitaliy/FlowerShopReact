@@ -313,7 +313,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      title: 'Our Products'
+      title: Products
       defaults:
         title: false
         filters: false
