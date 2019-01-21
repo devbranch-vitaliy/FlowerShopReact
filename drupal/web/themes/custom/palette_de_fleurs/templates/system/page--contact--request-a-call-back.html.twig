@@ -123,6 +123,7 @@
       {# Content #}
       {%
         set content_classes = [
+          'contact-form',
           'request-a-call-back-form',
           page.sidebar_first and page.sidebar_second ? 'col-sm-6',
           page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
@@ -157,7 +158,9 @@
             <div class="text-color-black leading-text hidden-xs ">{{ description }}</div>
             <div class="text-color-black body-text visible-xs">{{ description }}</div>
           </div>
-          {{ page.content }}
+          <div class="contact-content">
+            {{ page.content }}
+          </div>
         {% endblock %}
       </section>
 

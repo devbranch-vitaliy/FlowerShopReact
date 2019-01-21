@@ -1,0 +1,27 @@
+.feedback-form {
+  .left-content {
+    text-align: center;
+  }
+}
+
+@media #{$mobile} {
+  .feedback-form {
+
+  }
+}
+
+@media #{$tablet} {
+  .feedback-form {
+  }
+}
+
+
+@media #{$normal} {
+  .feedback-form {
+  }
+}
+
+@media #{$wide} {
+  .feedback-form {
+  }
+}
