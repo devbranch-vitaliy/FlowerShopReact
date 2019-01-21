@@ -1,10 +1,3 @@
-.wide-image {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
-
 @media #{$mobile} {
   .wide-image {
     height: 240px;

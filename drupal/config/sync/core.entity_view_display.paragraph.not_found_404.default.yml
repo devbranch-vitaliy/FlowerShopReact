@@ -1,0 +1,32 @@
+uuid: 3fb74f99-382d-45e5-a740-025780d04e84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.not_found_404.field_description
+    - field.field.paragraph.not_found_404.field_title
+    - paragraphs.paragraphs_type.not_found_404
+id: paragraph.not_found_404.default
+targetEntityType: paragraph
+bundle: not_found_404
+mode: default
+content:
+  field_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

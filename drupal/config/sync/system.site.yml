@@ -4,7 +4,7 @@ mail: v.podoba@dev-branch.com
 slogan: ''
 page:
   403: ''
-  404: ''
+  404: /node/67
   front: /node/62
 admin_compact_mode: false
 weight_select_max: 100
