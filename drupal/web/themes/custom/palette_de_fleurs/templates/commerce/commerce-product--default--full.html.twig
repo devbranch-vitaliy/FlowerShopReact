@@ -23,6 +23,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="product-content content-left">
+        <h2 class="title text-color-black visible-xs">{{ product.title }}</h2>
         {{ product.field_images }}
       </div>
     </div>
@@ -30,7 +31,6 @@
       <div class="product-content content-right">
 
         <h1 class="title text-color-black hidden-xs">{{ product.title }}</h1>
-        <h2 class="title text-color-black visible-xs">{{ product.title }}</h2>
 
         {{ product.body }}
         {{ product.variation_price }}

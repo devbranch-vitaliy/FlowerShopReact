@@ -7898,6 +7898,10 @@ ol.breadcrumb {
       width: 90%;
       border-bottom: 2px solid #191919; }
 
+@media screen and (max-width: 767px) {
+  ol.breadcrumb {
+    display: none; } }
+
 .cta-banner {
   height: 600px;
   background-repeat: no-repeat;
@@ -8335,7 +8339,9 @@ ol.breadcrumb {
   .product-flower .col-xs-12 {
     padding: 0; }
   .product-flower .content-right {
-    padding: 0 16px; } }
+    padding: 0 16px; }
+  .product-flower .field--name-field-images {
+    padding-bottom: 24px; } }
 
 @media screen and (min-width: 768px) {
   .product-flower .product-content {
