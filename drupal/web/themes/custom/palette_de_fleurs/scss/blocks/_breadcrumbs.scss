@@ -36,3 +36,9 @@ ol.breadcrumb {
     }
   }
 }
+
+@media #{$mobile} {
+  ol.breadcrumb {
+    display: none;
+  }
+}
