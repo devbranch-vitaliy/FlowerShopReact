@@ -7419,6 +7419,10 @@ body.path-frontpage .paragraph, body.page-node-type-page-with-paragraphs .paragr
         clear: both; } }
 
 body.path-frontpage .par-back-wrapper, body.page-node-type-page-with-paragraphs .par-back-wrapper {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
   width: 100%; }
 
 .main-container {
@@ -7903,11 +7907,7 @@ ol.breadcrumb {
     display: none; } }
 
 .cta-banner {
-  height: 600px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative; }
+  height: 600px; }
   .cta-banner .paragraph .field {
     font-style: normal;
     font-stretch: normal;
@@ -8068,10 +8068,6 @@ ol.breadcrumb {
     padding-top: 166px; } }
 
 .slogans {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
   background-blend-mode: multiply;
   background-color: #d2652a; }
   .slogans h2 {
@@ -8248,12 +8244,6 @@ ol.breadcrumb {
     .customers-reviews .slick-dots {
       bottom: -40px; } }
 
-.wide-image {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative; }
-
 @media screen and (max-width: 767px) {
   .wide-image {
     height: 240px; } }
@@ -8297,12 +8287,6 @@ ol.breadcrumb {
   .paragraph-content {
     width: 65%; } }
 
-.paragraph-image .paragraph-content {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative; }
-
 @media screen and (max-width: 767px) {
   .paragraph-image .paragraph-content {
     height: 240px; } }
@@ -8314,6 +8298,69 @@ ol.breadcrumb {
 @media screen and (min-width: 1200px) {
   .paragraph-image .paragraph-content {
     height: 500px; } }
+
+.page-404 .paragraph--type--not-found-404 {
+  text-align: center; }
+
+.page-404 .button-wrapper {
+  padding-top: 24px; }
+
+.page-404 #block-back-to-homepage {
+  display: block;
+  width: 200px;
+  background-color: #d2652a;
+  color: #ffffff;
+  margin: auto;
+  text-decoration: none;
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1; }
+  .page-404 #block-back-to-homepage p {
+    padding: 15px 10px; }
+
+@media screen and (max-width: 767px) {
+  .page-404 {
+    height: 340px;
+    margin-bottom: 240px; }
+    .page-404 .paragraph--type--not-found-404 {
+      padding-top: 250px; }
+    .page-404 .field--name-field-title {
+      font-family: Taviraj;
+      font-size: 32px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.19 !important;
+      letter-spacing: normal; }
+    .page-404 .field--name-field-description {
+      font-family: SourceSansPro;
+      font-size: 20px;
+      line-height: 1.4; } }
+
+@media screen and (min-width: 768px) {
+  .page-404 {
+    height: 700px; }
+    .page-404 .paragraph--type--not-found-404 {
+      padding-top: 490px; }
+    .page-404 .field--name-field-title {
+      font-family: Taviraj;
+      font-size: 40px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1 !important;
+      letter-spacing: normal; }
+    .page-404 .field--name-field-description {
+      font-family: SourceSansPro;
+      font-size: 24px;
+      line-height: 1.42; } }
+
+@media screen and (min-width: 992px) {
+  .page-404 {
+    height: 800px; }
+    .page-404 .paragraph--type--not-found-404 {
+      padding-top: 590px; } }
 
 .product-flower h1 {
   margin-top: 0;
@@ -8639,3 +8686,8 @@ ol.breadcrumb {
 @media screen and (max-width: 767px) {
   .about-us .slogans {
     margin-top: 40px; } }
+
+.page-title-class-page-not-found {
+  background-color: #f4f4f4; }
+  .page-title-class-page-not-found .title {
+    display: none; }

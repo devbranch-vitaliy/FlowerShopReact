@@ -1,10 +1,3 @@
-.paragraph-image .paragraph-content {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
-
 @media #{$mobile} {
   .paragraph-image .paragraph-content {
     height: 240px;

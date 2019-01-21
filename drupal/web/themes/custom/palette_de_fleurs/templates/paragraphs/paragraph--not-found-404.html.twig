@@ -48,10 +48,19 @@
 %}
 {% block paragraph %}
   <div class="par-back-wrapper page-404" style='background-image: url("{{ base_path ~ directory }}/images/404.png")'>
+  {#<div class="par-back-wrapper page-404">#}
+    {#<img class="img-responsive" src="{{ base_path ~ directory }}/images/404.png">#}
     <div{{ attributes.addClass(classes) }}>
       {% block content %}
         {{ content }}
       {% endblock %}
+      <div class="button-wrapper">
+        <a class="clearfix label-big" id="block-back-to-homepage" href="{{ path('<front>') }}">
+          <p>
+            Back to homepage
+          </p>
+        </a>
+      </div>
     </div>
   </div>
 {% endblock paragraph %}
