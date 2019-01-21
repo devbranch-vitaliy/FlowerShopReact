@@ -49,7 +49,7 @@
     logged_in ? 'user-logged-in',
     not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
     node_type ? 'page-node-type-' ~ node_type|clean_class,
-    page_title_class ? 'page-title-class-' ~ page_title|clean_class,
+    page_title_class ? 'page-title-class-' ~ page_title_class|clean_class,
     db_offline ? 'db-offline',
     theme.settings.navbar_position ? 'navbar-is-' ~ theme.settings.navbar_position,
     theme.has_glyphicons ? 'has-glyphicons',
