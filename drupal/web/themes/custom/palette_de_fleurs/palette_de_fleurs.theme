@@ -85,6 +85,14 @@ function palette_de_fleurs_preprocess_page__contact__request_a_call_back(&$varia
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__contact(&$variables) {
+  $variables['title'] = t('Contact us');
+  $variables['description'] = t('Contact us with your request or question');
+}
+
+/**
 * Implements hook_preprocess_HOOK().
  */
 function palette_de_fleurs_preprocess_form(&$variables) {
@@ -92,6 +100,14 @@ function palette_de_fleurs_preprocess_form(&$variables) {
     if (isset($variables['children'])) {
       $new_children = str_replace(t('Message'), t('When would you like us to call you?'), $variables['children']->jsonSerialize());
       $new_children = str_replace(t('Send message'), t('Send'), $new_children);
+      $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
+    }
+  }
+  if ($variables['element']['#id'] == 'contact-message-feedback-form') {
+    if (isset($variables['children'])) {
+      $new_children = str_replace(t('Message'), t('Your request or question'), $variables['children']->jsonSerialize());
+      $new_children = str_replace(t('Send message'), t('Send'), $new_children);
+      $new_children = str_replace(t('Your email address'), t('E-mail'), $new_children);
       $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
     }
   }
