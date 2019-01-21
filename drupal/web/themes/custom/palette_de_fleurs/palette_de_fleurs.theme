@@ -12,7 +12,7 @@
  */
 function palette_de_fleurs_preprocess_html(&$variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
-    $variables['page_title'] = strtolower(str_replace(' ', '_', trim($node->getTitle())));
+    $variables['page_title_class'] = strtolower(str_replace(' ', '_', trim($node->getTitle())));
   }
 }
 
