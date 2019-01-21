@@ -7373,56 +7373,60 @@ footer {
 body.path-frontpage .main-container {
   padding: 0; }
 
-body.path-frontpage .paragraph {
+body.path-frontpage .paragraph, body.page-node-type-page-with-paragraphs .paragraph {
   margin-right: auto;
   margin-left: auto;
   padding-left: 8px;
   padding-right: 8px; }
-  body.path-frontpage .paragraph:before, body.path-frontpage .paragraph:after {
+  body.path-frontpage .paragraph:before, body.path-frontpage .paragraph:after, body.page-node-type-page-with-paragraphs .paragraph:before, body.page-node-type-page-with-paragraphs .paragraph:after {
     content: " ";
     display: table; }
-  body.path-frontpage .paragraph:after {
+  body.path-frontpage .paragraph:after, body.page-node-type-page-with-paragraphs .paragraph:after {
     clear: both; }
   @media (max-width: 767px) {
-    body.path-frontpage .paragraph {
+    body.path-frontpage .paragraph, body.page-node-type-page-with-paragraphs .paragraph {
       padding-left: 16px;
       padding-right: 16px; } }
   @media (min-width: 768px) {
-    body.path-frontpage .paragraph {
+    body.path-frontpage .paragraph, body.page-node-type-page-with-paragraphs .paragraph {
       width: 746px; } }
   @media (min-width: 992px) {
-    body.path-frontpage .paragraph {
+    body.path-frontpage .paragraph, body.page-node-type-page-with-paragraphs .paragraph {
       width: 976px; } }
   @media (min-width: 1200px) {
-    body.path-frontpage .paragraph {
+    body.path-frontpage .paragraph, body.page-node-type-page-with-paragraphs .paragraph {
       margin-right: auto;
       margin-left: auto;
       padding-left: 12px;
       padding-right: 12px;
       width: 1174px; }
-      body.path-frontpage .paragraph:before, body.path-frontpage .paragraph:after {
+      body.path-frontpage .paragraph:before, body.path-frontpage .paragraph:after, body.page-node-type-page-with-paragraphs .paragraph:before, body.page-node-type-page-with-paragraphs .paragraph:after {
         content: " ";
         display: table; }
-      body.path-frontpage .paragraph:after {
+      body.path-frontpage .paragraph:after, body.page-node-type-page-with-paragraphs .paragraph:after {
         clear: both; } }
   @media (min-width: 1320px) {
-    body.path-frontpage .paragraph {
+    body.path-frontpage .paragraph, body.page-node-type-page-with-paragraphs .paragraph {
       margin-right: auto;
       margin-left: auto;
       padding-left: 12px;
       padding-right: 12px;
       width: 1294px; }
-      body.path-frontpage .paragraph:before, body.path-frontpage .paragraph:after {
+      body.path-frontpage .paragraph:before, body.path-frontpage .paragraph:after, body.page-node-type-page-with-paragraphs .paragraph:before, body.page-node-type-page-with-paragraphs .paragraph:after {
         content: " ";
         display: table; }
-      body.path-frontpage .paragraph:after {
+      body.path-frontpage .paragraph:after, body.page-node-type-page-with-paragraphs .paragraph:after {
         clear: both; } }
 
-body.path-frontpage .par-back-wrapper {
+body.path-frontpage .par-back-wrapper, body.page-node-type-page-with-paragraphs .par-back-wrapper {
   width: 100%; }
 
 .main-container {
   padding-top: 80px; }
+
+.main-container.container-fluid {
+  padding-left: 0;
+  padding-right: 0; }
 
 .main-container > .row {
   margin-left: 0;
@@ -8062,7 +8066,7 @@ body.path-frontpage .par-back-wrapper {
       border: 2px solid #ffffff;
       border-top: none;
       position: relative;
-      padding: 50px 20px 0; }
+      padding: 50px 8px 0; }
     .slogans .slogan:after, .slogans .slogan:before {
       content: "";
       position: absolute;
@@ -8207,6 +8211,73 @@ body.path-frontpage .par-back-wrapper {
       margin-bottom: 40px; }
     .customers-reviews .slick-dots {
       bottom: -40px; } }
+
+.wide-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+
+@media screen and (max-width: 767px) {
+  .wide-image {
+    height: 240px; } }
+
+@media screen and (min-width: 768px) {
+  .wide-image {
+    height: 420px; } }
+
+@media screen and (min-width: 1200px) {
+  .wide-image {
+    height: 600px; } }
+
+.paragraph-content {
+  margin: 56px auto 0;
+  font-family: SourceSansPro;
+  font-size: 24px;
+  line-height: 1.42; }
+  .paragraph-content h1, .paragraph-content h2, .paragraph-content h3, .paragraph-content h4, .paragraph-content h5, .paragraph-content h6 {
+    margin-top: 0;
+    margin-bottom: 24px; }
+
+@media screen and (max-width: 767px) {
+  .paragraph-content {
+    width: 100%;
+    margin: 40px auto 0;
+    font-family: SourceSansPro;
+    font-size: 20px;
+    line-height: 1.4; }
+    .paragraph-content h1, .paragraph-content h2, .paragraph-content h3, .paragraph-content h4, .paragraph-content h5, .paragraph-content h6 {
+      margin-bottom: 16px; } }
+
+@media screen and (min-width: 768px) {
+  .paragraph-content {
+    width: 90%; } }
+
+@media screen and (min-width: 992px) {
+  .paragraph-content {
+    width: 75%; } }
+
+@media screen and (min-width: 1200px) {
+  .paragraph-content {
+    width: 65%; } }
+
+.paragraph-image .paragraph-content {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+
+@media screen and (max-width: 767px) {
+  .paragraph-image .paragraph-content {
+    height: 240px; } }
+
+@media screen and (min-width: 768px) {
+  .paragraph-image .paragraph-content {
+    height: 370px; } }
+
+@media screen and (min-width: 1200px) {
+  .paragraph-image .paragraph-content {
+    height: 500px; } }
 
 .product-flower h1 {
   margin-top: 0;
@@ -8512,3 +8583,21 @@ body.path-frontpage .par-back-wrapper {
   .request-a-call-back-form .contact-message-request-a-call-back-form {
     margin-top: 80px;
     width: 40%; } }
+
+.about-us .title {
+  text-align: center; }
+  .about-us .title h1, .about-us .title h2 {
+    margin: auto; }
+  .about-us .title h1 {
+    margin-top: 80px;
+    margin-bottom: 80px; }
+  .about-us .title h2 {
+    margin-top: 40px;
+    margin-bottom: 40px; }
+
+.about-us .slogans {
+  margin-top: 56px; }
+
+@media screen and (max-width: 767px) {
+  .about-us .slogans {
+    margin-top: 40px; } }

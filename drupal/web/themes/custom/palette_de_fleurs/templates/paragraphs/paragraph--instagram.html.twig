@@ -38,10 +38,20 @@
  * @ingroup themeable
  */
 #}
+{%
+  set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+]
+%}
 {% block paragraph %}
   <div class="par-back-wrapper instagram">
     <h1 class="title text-color-black hidden-xs">{{ content.field_title }}</h1>
     <h2 class="title text-color-black visible-xs">{{ content.field_title }}</h2>
     <div class="widget">{{ content.field_widget_code }}</div>
+
+    <div{{ attributes.addClass(classes) }}></div>
   </div>
 {% endblock paragraph %}

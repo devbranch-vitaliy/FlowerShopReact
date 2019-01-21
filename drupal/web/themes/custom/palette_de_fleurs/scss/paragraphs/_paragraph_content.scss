@@ -1,0 +1,39 @@
+.paragraph-content {
+  margin: 56px auto 0;
+  @include Leading-text;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+}
+
+@media #{$mobile} {
+  .paragraph-content {
+    width: 100%;
+    margin: 40px auto 0;
+    @include Body-text;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .paragraph-content {
+    width: 90%;
+  }
+}
+
+@media #{$normal} {
+  .paragraph-content {
+    width: 75%;
+  }
+}
+
+@media #{$wide} {
+  .paragraph-content {
+    width: 65%;
+  }
+}

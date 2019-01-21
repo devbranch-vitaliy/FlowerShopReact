@@ -2,6 +2,10 @@ body.path-frontpage {
   .main-container {
     padding: 0;
   }
+}
+
+body.path-frontpage, body.page-node-type-page-with-paragraphs {
+
   .paragraph {
     @include container-fixed;
 
@@ -31,6 +35,11 @@ body.path-frontpage {
 
 .main-container {
   padding-top: 80px;
+}
+
+.main-container.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .main-container > .row {
