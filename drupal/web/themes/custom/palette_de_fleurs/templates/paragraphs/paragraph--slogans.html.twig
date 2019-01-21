@@ -47,7 +47,7 @@
   ]
 %}
 {% block paragraph %}
-  <div class="par-back-wrapper slogans" style='background-image: url("{{ base_path ~ directory }}/images/slogan-bg.png")'>
+  <div class="par-back-wrapper slogans" style='background-image: url("{{ active_theme_path() }}/images/slogan-bg.png")'>
     <div{{ attributes.addClass(classes) }}>
       {% block content %}
         {{ content }}
