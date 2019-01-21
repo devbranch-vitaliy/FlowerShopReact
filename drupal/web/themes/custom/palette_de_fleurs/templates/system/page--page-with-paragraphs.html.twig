@@ -148,10 +148,12 @@
         {# Content #}
         {% block content %}
           <a id="main-content"></a>
-          <div class="title">
-            <h1 class="text-color-black hidden-xs">{{ title }}</h1>
-            <h2 class="text-color-black visible-xs">{{ title }}</h2>
-          </div>
+          {% if title %}
+            <div class="title">
+              <h1 class="text-color-black hidden-xs">{{ title }}</h1>
+              <h2 class="text-color-black visible-xs">{{ title }}</h2>
+            </div>
+          {% endif %}
           {{ page.content }}
         {% endblock %}
       </section>
