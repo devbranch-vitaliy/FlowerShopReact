@@ -100,6 +100,7 @@ function palette_de_fleurs_preprocess_form(&$variables) {
     if (isset($variables['children'])) {
       $new_children = str_replace(t('Message'), t('When would you like us to call you?'), $variables['children']->jsonSerialize());
       $new_children = str_replace(t('Send message'), t('Send'), $new_children);
+      $new_children = str_replace(t('Your email address'), t('E-mail'), $new_children);
       $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
     }
   }

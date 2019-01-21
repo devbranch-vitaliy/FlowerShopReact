@@ -7925,16 +7925,22 @@ ol.breadcrumb {
 
 .contact-form input, .contact-form textarea {
   border: 1px solid #d3d8de;
-  border-radius: unset; }
+  border-radius: unset;
+  color: #191919; }
 
 .contact-form label {
+  display: block;
   font-family: SourceSansPro;
   font-size: 18px;
   font-weight: 600;
-  line-height: 1; }
+  line-height: 1;
+  margin-bottom: 8px; }
 
 .contact-form label:after {
   content: none; }
+
+.contact-form textarea {
+  resize: none; }
 
 .contact-form #edit-submit {
   width: 100%;
@@ -7951,13 +7957,15 @@ ol.breadcrumb {
   .contact-content {
     margin-top: 40px; }
   .contact-form .form-actions {
-    margin-top: 24px; } }
+    margin-top: 24px;
+    margin-bottom: 0; } }
 
 @media screen and (min-width: 768px) {
   .contact-content {
     margin-top: 60px; }
   .contact-form .form-actions {
-    margin-top: 40px; } }
+    margin-top: 40px;
+    margin-bottom: 0; } }
 
 @media screen and (min-width: 992px) {
   .contact-content {
@@ -8701,4 +8709,78 @@ ol.breadcrumb {
     display: none; }
 
 .feedback-form .left-content {
+  display: flex;
+  align-items: center;
   text-align: center; }
+
+.feedback-form .right-content {
+  border-left: 1px solid #191919; }
+
+.feedback-form .contact-info {
+  width: 100%; }
+
+.feedback-form .call-us a {
+  display: block; }
+
+.feedback-form .call-us a, .feedback-form .mail-us a {
+  padding-bottom: 12px; }
+
+.feedback-form .call-us, .feedback-form .mail-us, .feedback-form .follow-us {
+  display: table;
+  margin: auto;
+  padding-bottom: 28px; }
+  .feedback-form .call-us div, .feedback-form .mail-us div, .feedback-form .follow-us div {
+    padding-bottom: 12px; }
+
+.feedback-form .fleur-font-icon-24-call-primary, .feedback-form .fleur-font-icon-24-email-primary_2 {
+  position: relative;
+  padding-left: 40px; }
+  .feedback-form .fleur-font-icon-24-call-primary:before, .feedback-form .fleur-font-icon-24-email-primary_2:before {
+    position: absolute;
+    padding-right: 16px;
+    font-size: 24px;
+    line-height: 24px; }
+
+.feedback-form .fleur-font-icon-24-call-primary:before {
+  left: 16px; }
+
+.feedback-form .fleur-font-icon-24-email-primary_2:before {
+  left: 27px; }
+
+.feedback-form .follow-us [class*="fleur-font-icon-"]:focus, .feedback-form .follow-us [class*="fleur-font-icon-"]:hover {
+  text-decoration: none; }
+
+.feedback-form .follow-us [class*="fleur-font-icon-"]:before {
+  font-size: 32px;
+  line-height: 32px; }
+
+@media screen and (max-width: 767px) {
+  .feedback-form .contact-content {
+    padding: 0 8px; }
+  .feedback-form .left-content {
+    margin-bottom: 40px; }
+  .feedback-form .right-content {
+    border: 0; }
+  .feedback-form .contact-info {
+    border-bottom: 1px solid #191919; }
+  .feedback-form .follow-us [class*="fleur-font-icon-"]:before {
+    padding: 0 12px; }
+  .feedback-form .contact-message-feedback-form {
+    width: 100%; } }
+
+@media screen and (min-width: 768px) {
+  .feedback-form .left-content {
+    height: 554px; }
+  .feedback-form .follow-us [class*="fleur-font-icon-"]:before {
+    padding: 0 8px; }
+  .feedback-form .contact-message-feedback-form {
+    width: 80%;
+    margin: auto; } }
+
+@media screen and (min-width: 992px) {
+  .feedback-form .contact-message-feedback-form {
+    width: 70%; } }
+
+@media screen and (min-width: 1200px) {
+  .feedback-form .contact-message-feedback-form {
+    width: 60%; } }
