@@ -1,67 +1,9 @@
-.request-a-call-back-form {
-  .title {
-    text-align: center;
-
-    h1, h2 {
-      margin: auto;
-    }
-
-    h1 {
-      margin-top: 80px;
-      margin-bottom: 24px;
-    }
-
-    h2 {
-      margin-top: 40px;
-      margin-bottom: 16px;
-    }
-  }
-
-  .description {
-    text-align: center;
-  }
-
-  .form-group {
-    margin-bottom: 24px;
-  }
-
-  input, textarea {
-    border: 1px solid $gray-stroke-dark;
-    border-radius: unset;
-  }
-
-  label {
-    @include Label-Big;
-  }
-
-  label:after {
-    content: none;
-  }
-
-
-  #edit-submit {
-    width: 100%;
-    padding: 15px 10px;
-    @include Label-Big;
-  }
-
-  #edit-preview, .form-item-copy {
-    display: none;
-  }
-
-}
-
 @media #{$mobile} {
   .request-a-call-back-form {
     padding: 0 8px !important;
 
     .contact-message-request-a-call-back-form {
-      margin-top: 40px;
       width: 100%;
-    }
-
-    .form-actions {
-      margin-top: 24px;
     }
   }
 }
@@ -70,12 +12,7 @@
   .request-a-call-back-form {
     .contact-message-request-a-call-back-form {
       margin: auto;
-      margin-top: 60px;
       width: 60%;
-    }
-
-    .form-actions {
-      margin-top: 40px;
     }
   }
 }
@@ -84,7 +21,6 @@
 @media #{$normal} {
   .request-a-call-back-form {
     .contact-message-request-a-call-back-form {
-      margin-top: 80px;
       width: 50%;
     }
   }
@@ -93,7 +29,6 @@
 @media #{$wide} {
   .request-a-call-back-form {
     .contact-message-request-a-call-back-form {
-      margin-top: 80px;
       width: 40%;
     }
   }
