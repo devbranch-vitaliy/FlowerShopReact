@@ -206,6 +206,25 @@
   </div>
 {% endblock %}
 
+{# Google map #}
+<div class="fleur-contact-map">
+  <div class="map-info body-text black-bg text-color-white">
+    <div class="info-title fleur-font-icon-24-location-primary-copy">{{ 'Our shop:'|t }}</div>
+    <div class="info-description">
+      <p>{{ 'Palette de Fleurs'|t }}<br />
+        {{ 'Cape Quarter Square'|t }}<br />
+        {{ 'Somerset Road'|t }}<br />
+        {{ 'de Waterkant, Cape Town'|t }}<br />
+      </p>
+    </div>
+    <a class="info-navigate fleur-font-icon-16-navigate-white label-small" href="https://goo.gl/maps/rQBHr4VFDF32">
+      {{ 'Navigate'|t }}
+    </a>
+  </div>
+  <div class="fleur-google-map"></div>
+</div>
+{{ attach_library('palette_de_fleurs/google-map') }}
+
 {% block footer %}
   <div class="black-bg" id="footer-background">
     <footer class="footer {{ container }} {{ is_front ? 'front-footer' }}" role="contentinfo">
