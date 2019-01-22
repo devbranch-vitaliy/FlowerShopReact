@@ -8043,6 +8043,39 @@ ol.breadcrumb {
   .fleur-contact-map .popup-bubble-anchor {
     display: none; } }
 
+.checkout-header {
+  position: relative; }
+  .checkout-header .steps {
+    position: relative;
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #191919; }
+    .checkout-header .steps .step {
+      display: inline-block; }
+    .checkout-header .steps .step-numder {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #191919;
+      border-radius: 16px;
+      text-align: center;
+      padding: 6px 0; }
+    .checkout-header .steps .step-numder.active {
+      background-color: #191919;
+      color: #ffffff; }
+
+@media screen and (min-width: 768px) {
+  .checkout-header .steps {
+    position: absolute;
+    top: 16px;
+    right: 0; }
+    .checkout-header .steps .step > div {
+      display: inline-block; } }
+
 .cta-banner {
   height: 600px; }
   .cta-banner .paragraph .field {

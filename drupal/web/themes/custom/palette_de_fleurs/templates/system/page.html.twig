@@ -158,7 +158,7 @@
               <div class="steps">
                 {% for item in checkout_header %}
                   <div class="step">
-                    <div class="step-numder {{ item.active ? 'active' }}">{{ item.step }}</div>
+                    <div class="step-numder {{ item.active ? 'active' : '' }}">{{ item.step }}</div>
                     <div class="step-title">{{ item.title }}</div>
                   </div>
 

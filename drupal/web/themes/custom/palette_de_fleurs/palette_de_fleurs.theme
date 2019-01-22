@@ -134,10 +134,10 @@ function palette_de_fleurs_preprocess_page__page_with_paragraphs(&$variables) {
  */
 function create_checkout_progress($current_step = 1) {
   return [
-    ['step' => '1', 'title' => t('Add extras'), 'active' => ($current_step <= 1) ? true : false],
-    ['step' => '2', 'title' => t('Shopping cart'), 'active' => ($current_step <= 2) ? true : false],
-    ['step' => '3', 'title' => t('Delivery details'), 'active' => ($current_step <= 3) ? true : false],
-    ['step' => '4', 'title' => t('Review'), 'active' => ($current_step <= 4) ? true : false],
+    ['step' => '1', 'title' => t('Add extras'), 'active' => ($current_step >= 1) ? true : false],
+    ['step' => '2', 'title' => t('Shopping cart'), 'active' => ($current_step >= 2) ? true : false],
+    ['step' => '3', 'title' => t('Delivery details'), 'active' => ($current_step >= 3) ? true : false],
+    ['step' => '4', 'title' => t('Review'), 'active' => ($current_step >= 4) ? true : false],
   ];
 }
 

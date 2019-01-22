@@ -1,0 +1,67 @@
+.checkout-header {
+  position: relative;
+
+  .steps {
+    position: relative;
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: $black;
+
+    .step {
+      display: inline-block;
+    }
+
+    .step-numder {
+      width: 32px;
+      height: 32px;
+      border: 1px solid $black;
+      border-radius: 16px;
+      text-align: center;
+      padding: 6px 0;
+    }
+
+    .step-numder.active {
+      background-color: $black;
+      color: $white;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .checkout-header {
+
+  }
+}
+
+@media #{$tablet} {
+  .checkout-header {
+    .title {
+    }
+
+    .steps {
+      position: absolute;
+      top: 16px;
+      right: 0;
+      .step > div {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media #{$normal} {
+  .checkout-header {
+
+  }
+}
+
+@media #{$wide} {
+  .checkout-header {
+
+  }
+}
