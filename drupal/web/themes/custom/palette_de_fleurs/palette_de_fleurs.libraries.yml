@@ -39,3 +39,11 @@ mobile-filters:
 faq-questions:
   js:
     js/faq-questions.js: {}
+
+google-map:
+  js:
+    "//maps.google.com/maps/api/js?key=AIzaSyDRD-8bsxSOtu5YmoNsMrpuHFiWz8h8-mU&callback=Drupal.attachBehaviors": { type: external }
+    js/google_maps/google-map.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
