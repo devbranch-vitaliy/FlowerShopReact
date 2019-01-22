@@ -148,6 +148,34 @@
         {# Content #}
         {% block content %}
           <a id="main-content"></a>
+
+          {% if checkout_header %}
+            <div class="checkout-header">
+              <div class="title">
+                <h1 class="text-color-black hidden-xs">{{ title }}</h1>
+              </div>
+
+              <div class="steps">
+                {% for item in checkout_header %}
+                  <div class="step">
+                    <div class="step-numder {{ item.active ? 'active' }}">{{ item.step }}</div>
+                    <div class="step-title">{{ item.title }}</div>
+                  </div>
+
+                {% endfor %}
+              </div>
+
+              <div class="title">
+                <h2 class="text-color-black visible-xs">{{ title }}</h2>
+              </div>
+            </div>
+          {% elseif title %}
+            <div class="title">
+              <h1 class="text-color-black hidden-xs">{{ title }}</h1>
+              <h2 class="text-color-black visible-xs">{{ title }}</h2>
+            </div>
+          {% endif %}
+
           {{ page.content }}
         {% endblock %}
       </section>
