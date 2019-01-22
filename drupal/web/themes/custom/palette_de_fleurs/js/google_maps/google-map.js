@@ -252,11 +252,11 @@
             $('.fleur-contact-map .fleur-google-map', context).once('google-map').each(function () {
                 definePopupClass();
 
-                var uluru = {lat: -33.915878809349586, lng: 18.417606580796182};
-                var uluru_center = {lat: -33.9108788, lng: 18.4135065};
+                var position = {lat: -33.915878809349586, lng: 18.417606580796182};
+                var position_center = {lat: -33.9108788, lng: 18.4135065};
                 var map = new google.maps.Map(this, {
                     zoom: 15,
-                    center: uluru_center,
+                    center: position_center,
                     styles: map_style,
                     mapTypeControl: false,
                     streetViewControl: false,
@@ -265,7 +265,7 @@
                 var contentString = $(this).parent().find('.map-info').clone()[0];
 
                 var popup = new Popup(
-                    new google.maps.LatLng(uluru.lat, uluru.lng),
+                    new google.maps.LatLng(position.lat, position.lng),
                     contentString);
                 popup.setMap(map);
 
@@ -277,7 +277,7 @@
                 };
 
                 var marker = new google.maps.Marker({
-                    position: uluru,
+                    position: position,
                     map: map,
                     title: 'Palette de Fleurs',
                     icon: image,
