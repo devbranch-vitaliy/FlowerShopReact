@@ -36,7 +36,7 @@ content:
     type: string_textarea
     weight: 4
     settings:
-      rows: 2
+      rows: 3
       placeholder: ''
     region: content
     third_party_settings: {  }
