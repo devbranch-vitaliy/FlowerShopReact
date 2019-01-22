@@ -7971,6 +7971,78 @@ ol.breadcrumb {
   .contact-content {
     margin-top: 80px; } }
 
+.fleur-contact-map .map-info {
+  text-align: center;
+  padding: 24px;
+  margin-top: 40px;
+  display: none; }
+  .fleur-contact-map .map-info .info-description {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.17;
+    padding: 16px; }
+  .fleur-contact-map .map-info a {
+    display: block;
+    width: 100%;
+    background-color: #d2652a;
+    padding: 15px; }
+  .fleur-contact-map .map-info a, .fleur-contact-map .map-info a:focus, .fleur-contact-map .map-info a:hover {
+    text-decoration: none;
+    color: #ffffff; }
+
+.fleur-contact-map .fleur-google-map {
+  height: 520px;
+  width: 100%;
+  margin: 80px 0 -80px; }
+  .fleur-contact-map .fleur-google-map .map-info {
+    display: block; }
+
+/* The location pointed to by the popup tip. */
+.popup-tip-anchor {
+  position: absolute;
+  /* The max width of the info window. */
+  min-width: 350px; }
+
+/* The bubble is anchored above the tip. */
+.popup-bubble-anchor {
+  position: absolute;
+  width: 100%;
+  bottom: 8px;
+  left: 0; }
+
+/* Draw the tip. */
+.popup-bubble-anchor::after {
+  content: "";
+  position: absolute;
+  bottom: -48px;
+  left: 0;
+  /* Center the tip horizontally. */
+  transform: translate(-50%, 0);
+  /* The tip is a https://css-tricks.com/snippets/css/css-triangle/ */
+  width: 0;
+  height: 0;
+  /* The tip is 8px high, and 12px wide. */
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #191919; }
+
+/* The popup bubble itself. */
+.popup-bubble-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%); }
+
+@media screen and (max-width: 767px) {
+  .fleur-contact-map .map-info {
+    display: block;
+    padding: 40px 16px; }
+  .fleur-contact-map .fleur-google-map {
+    height: 400px;
+    margin-top: 0; }
+  .fleur-contact-map .popup-bubble-anchor {
+    display: none; } }
+
 .cta-banner {
   height: 600px; }
   .cta-banner .paragraph .field {
@@ -8739,7 +8811,8 @@ ol.breadcrumb {
     position: absolute;
     padding-right: 16px;
     font-size: 24px;
-    line-height: 24px; }
+    line-height: 24px;
+    top: 2px; }
 
 .feedback-form .fleur-font-icon-24-call-primary:before {
   left: 16px; }
