@@ -61,3 +61,14 @@
     height: 24px;
   }
 }
+.fleur-icon-cart-white-full {
+  display: inline-block;
+  width: 30px;
+  height: 24px;
+  &:before {
+    @include sprite-content;
+    background-position: 62.5% 100%;
+    width: 30px;
+    height: 24px;
+  }
+}

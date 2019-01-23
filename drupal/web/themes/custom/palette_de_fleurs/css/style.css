@@ -89,6 +89,20 @@
     width: 30px;
     height: 24px; }
 
+.fleur-icon-cart-white-full {
+  display: inline-block;
+  width: 30px;
+  height: 24px; }
+  .fleur-icon-cart-white-full:before {
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    vertical-align: top;
+    display: inline-block;
+    content: ' ';
+    background-position: 62.5% 100%;
+    width: 30px;
+    height: 24px; }
+
 @font-face {
   font-family: "FleurIcons";
   src: url("../fonts/FleurIcons/FleurIcons.eot");
