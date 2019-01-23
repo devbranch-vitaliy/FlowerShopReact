@@ -1,0 +1,25 @@
+@media #{$mobile} {
+  .path-extras {
+    .main-container .row {
+      width: 100%;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .path-extras {
+    .main-container .row {
+      margin: auto;
+      width: 100%;
+    }
+  }
+}
+
+
+@media #{$normal} {
+  .path-extras {
+    .main-container .row {
+      width: 80%;
+    }
+  }
+}
