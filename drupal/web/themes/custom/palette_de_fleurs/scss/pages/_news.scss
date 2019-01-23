@@ -1,16 +1,118 @@
 .path-news {
 
+  a, a:focus, a:hover {
+    text-decoration: none;
+    color: $black;
+  }
+
+  .new-content {
+    display: block;
+  }
+
+  a .new-title {
+    @include H3;
+  }
+
+  .new-date {
+    font-family: SourceSansPro;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #a5a9af;
+  }
+  .new-date {
+    padding-top: 16px;
+  }
+
+  .field--name-body {
+    @include Body-text;
+    color: $white;
+  }
+
+  .read-more {
+    display: inline-block;
+    color: $brownish-orange;
+    width: 95px;
+    @include fleur-font(icon-16-chevron-right-primary);
+
+    &:before {
+      float: right;
+      font-size: 10px;
+      line-height: 18px;
+    }
+  }
 }
 
 @media #{$mobile} {
   .path-news {
 
+    .title {
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    .new-text {
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+
+    .new-column.new-1 {
+      .new-content {
+        background-image: unset !important;
+      }
+
+      .field--name-body, .read-more {
+        display: none;
+      }
+    }
   }
 }
 
 @media #{$tablet} {
   .path-news {
+    .new-text {
+      margin-top: 24px;
+      margin-bottom: 48px;
+      height: 140px;
+      max-height: 140px;
+    }
 
+    .new-column.new-1 {
+      width: 100%;
+      margin-bottom: 40px;
+
+      .new-content {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        height: 420px;
+        margin-right: 416px;
+      }
+
+      img {
+        display: none;
+      }
+
+      .new-text {
+        margin: 0;
+        background-color: $black;
+        position: absolute;
+        right: -416px;
+        width: 416px;
+        padding: 32px;
+        max-height: 100%;
+        height: 100%;
+      }
+
+      .new-title {
+        @include H2;
+        color: $white;
+      }
+    }
   }
 }
 

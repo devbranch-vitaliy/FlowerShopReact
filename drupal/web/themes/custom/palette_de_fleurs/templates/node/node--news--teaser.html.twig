@@ -65,33 +65,33 @@
  *   in different view modes.
  */
 #}
+
+{%
+  set classes = [
+  node.bundle|clean_class,
+  node.isPromoted() ? 'is-promoted',
+  node.isSticky() ? 'is-sticky',
+  not node.isPublished() ? 'is-unpublished',
+  view_mode ? view_mode|clean_class,
+  'clearfix',
+  'new-content',
+]
+%}
+
 {% if first_new %}
-  <a class="new-content" href="{{ url }}" style='background-image: url("{{ file_url(content.field_image.0['#item'].entity.uri.value) }}")'>
+  <a {{ attributes.addClass(classes) }} href="{{ url }}" style='background-image: url("{{ file_url(content.field_image.0['#item'].entity.uri.value) }}")'>
 {% else %}
-  <a class="new-content" href="{{ url }}">
+  <a {{ attributes.addClass(classes) }} href="{{ url }}">
 {% endif %}
   {{ content.field_image }}
   <div class="new-text">
     <div class="new-title">{{ node.getTitle }}</div>
     <div class="new-date">{{ date }}</div>
-  </div>
   {% if first_new %}
     {{ content.body }}
     <div class="read-more label-big">
       {{ 'Read more'|t }}
     </div>
   {% endif %}
+  </div>
 </a>
-
-{%
-  set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-  ]
-%}
-<article{{ attributes.addClass(classes) }}>
-</article>
