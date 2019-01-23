@@ -35,7 +35,7 @@ content:
     label: hidden
     settings:
       image_style: blog_image_1040x650
-      image_link: content
+      image_link: ''
     third_party_settings: {  }
   links:
     weight: 2
