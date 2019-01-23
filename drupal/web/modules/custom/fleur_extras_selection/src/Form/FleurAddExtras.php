@@ -170,6 +170,9 @@ class FleurAddExtras extends FormBase {
     // Current cart.
     $this->cart = reset($carts);
 
+    // Create top submit buttons.
+    $this->buildTopSubmitButtons($form);
+
     foreach ($this->productTypes as $product_type => $options) {
 
       // Get products id's array.
@@ -259,7 +262,7 @@ class FleurAddExtras extends FormBase {
 
     }
 
-    // Create submit buttons.
+    // Create bottom submit buttons.
     $this->buildSubmitButtons($form);
 
     // Attached css library.
@@ -486,6 +489,28 @@ class FleurAddExtras extends FormBase {
    * @param array $form
    *   The form from build function.
    */
+  protected function buildTopSubmitButtons(array &$form) {
+    $form['top_actions'] = [
+      '#type' => 'container',
+    ];
+
+    $form['top_actions']['next_empty'] = [
+      '#type' => 'submit',
+      '#button_type' => 'primary',
+      '#value' => $this->t('Continue without adding specials'),
+      '#submit' => ['::submitWithoutSpecials'],
+      '#attributes' => [
+        'class' => ['next-empty-mobile'],
+      ],
+    ];
+  }
+
+  /**
+   * Build submit buttons.
+   *
+   * @param array $form
+   *   The form from build function.
+   */
   protected function buildSubmitButtons(array &$form) {
     $form['actions'] = [
       '#type' => 'actions',
@@ -496,6 +521,9 @@ class FleurAddExtras extends FormBase {
       '#button_type' => 'primary',
       '#value' => $this->t('Continue without adding specials'),
       '#submit' => ['::submitWithoutSpecials'],
+      '#attributes' => [
+        'class' => ['next-empty-desktop'],
+      ],
     ];
 
     $form['actions']['next'] = [
