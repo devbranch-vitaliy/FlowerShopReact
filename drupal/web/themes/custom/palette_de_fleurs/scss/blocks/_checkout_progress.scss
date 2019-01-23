@@ -1,0 +1,112 @@
+.checkout-header {
+  position: relative;
+
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+
+  .steps {
+    position: relative;
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: $black;
+
+    .step {
+      display: inline-block;
+    }
+
+    .step-numder {
+      width: 32px;
+      height: 32px;
+      border: 1px solid $black;
+      border-radius: 16px;
+      text-align: center;
+      padding: 6px 0;
+      margin-right: 16px;
+    }
+
+    .step-numder.active {
+      background-color: $black;
+      color: $white;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .checkout-header {
+
+    .steps {
+      margin: 40px auto 0;
+      display: table;
+
+      .step {
+        margin-right: 8px;
+        max-width: 65px;
+        text-align: center;
+        vertical-align: top;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .step > div {
+        display: block;
+      }
+
+      .step-numder, .step-title {
+        margin: 0 auto 8px;
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  .checkout-header {
+
+    .steps {
+      position: absolute;
+      top: -8px;
+      right: 0;
+
+      .step {
+        margin-right: 20px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .step > div {
+        display: block;
+      }
+
+      .step-numder, .step-title {
+        margin: 0 auto 8px;
+      }
+    }
+  }
+}
+
+@media #{$normal} {
+  .checkout-header {
+    .steps {
+      top: 4px;
+
+      .step > div {
+        display: inline-block;
+      }
+
+      .step-numder {
+        margin-bottom: 0;
+        margin-right: 8px;
+      }
+    }
+  }
+}

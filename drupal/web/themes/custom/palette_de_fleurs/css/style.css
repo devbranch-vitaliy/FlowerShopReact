@@ -89,6 +89,20 @@
     width: 30px;
     height: 24px; }
 
+.fleur-icon-cart-white-full {
+  display: inline-block;
+  width: 30px;
+  height: 24px; }
+  .fleur-icon-cart-white-full:before {
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    vertical-align: top;
+    display: inline-block;
+    content: ' ';
+    background-position: 62.5% 100%;
+    width: 30px;
+    height: 24px; }
+
 @font-face {
   font-family: "FleurIcons";
   src: url("../fonts/FleurIcons/FleurIcons.eot");
@@ -8042,6 +8056,74 @@ ol.breadcrumb {
     margin-top: 0; }
   .fleur-contact-map .popup-bubble-anchor {
     display: none; } }
+
+.checkout-header {
+  position: relative; }
+  .checkout-header h2 {
+    margin-top: 40px;
+    margin-bottom: 24px; }
+  .checkout-header .steps {
+    position: relative;
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #191919; }
+    .checkout-header .steps .step {
+      display: inline-block; }
+    .checkout-header .steps .step-numder {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #191919;
+      border-radius: 16px;
+      text-align: center;
+      padding: 6px 0;
+      margin-right: 16px; }
+    .checkout-header .steps .step-numder.active {
+      background-color: #191919;
+      color: #ffffff; }
+
+@media screen and (max-width: 767px) {
+  .checkout-header .steps {
+    margin: 40px auto 0;
+    display: table; }
+    .checkout-header .steps .step {
+      margin-right: 8px;
+      max-width: 65px;
+      text-align: center;
+      vertical-align: top; }
+      .checkout-header .steps .step:last-child {
+        margin-right: 0; }
+    .checkout-header .steps .step > div {
+      display: block; }
+    .checkout-header .steps .step-numder, .checkout-header .steps .step-title {
+      margin: 0 auto 8px; } }
+
+@media screen and (min-width: 768px) {
+  .checkout-header .steps {
+    position: absolute;
+    top: -8px;
+    right: 0; }
+    .checkout-header .steps .step {
+      margin-right: 20px; }
+      .checkout-header .steps .step:last-child {
+        margin-right: 0; }
+    .checkout-header .steps .step > div {
+      display: block; }
+    .checkout-header .steps .step-numder, .checkout-header .steps .step-title {
+      margin: 0 auto 8px; } }
+
+@media screen and (min-width: 992px) {
+  .checkout-header .steps {
+    top: 4px; }
+    .checkout-header .steps .step > div {
+      display: inline-block; }
+    .checkout-header .steps .step-numder {
+      margin-bottom: 0;
+      margin-right: 8px; } }
 
 .cta-banner {
   height: 600px; }
