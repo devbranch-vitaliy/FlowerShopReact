@@ -74,7 +74,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'col-sm-4 new-{{ counter | striptags }}'
+          row_class: 'col-sm-4 new-column new-{{ counter | striptags }}'
           default_row_class: false
       row:
         type: fields
@@ -238,8 +238,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.node.news.default'
-        - 'config:core.entity_view_display.node.news.teaser'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.rss'
         - 'config:core.entity_view_display.node.article.teaser'
@@ -251,6 +249,8 @@ display:
         - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.page_with_paragraphs.default'
         - 'config:core.entity_view_display.node.page_with_paragraphs.teaser'
+        - 'config:core.entity_view_display.node.news.default'
+        - 'config:core.entity_view_display.node.news.teaser'
   news:
     display_plugin: page
     id: news
