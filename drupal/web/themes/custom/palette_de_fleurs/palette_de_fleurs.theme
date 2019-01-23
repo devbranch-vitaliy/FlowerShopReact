@@ -132,12 +132,12 @@ function palette_de_fleurs_preprocess_page__page_with_paragraphs(&$variables) {
  * @return array
  *   Array of steps.
  */
-function create_checkout_progress($current_step = 1) {
+function palette_de_fleurs_create_checkout_progress($current_step = 1) {
   return [
-    ['step' => '1', 'title' => t('Add extras'), 'active' => ($current_step >= 1) ? true : false],
-    ['step' => '2', 'title' => t('Shopping cart'), 'active' => ($current_step >= 2) ? true : false],
-    ['step' => '3', 'title' => t('Delivery details'), 'active' => ($current_step >= 3) ? true : false],
-    ['step' => '4', 'title' => t('Review'), 'active' => ($current_step >= 4) ? true : false],
+    ['step' => '1', 'title' => t('Add extras'), 'active' => ($current_step >= 1)],
+    ['step' => '2', 'title' => t('Shopping cart'), 'active' => ($current_step >= 2)],
+    ['step' => '3', 'title' => t('Delivery details'), 'active' => ($current_step >= 3)],
+    ['step' => '4', 'title' => t('Review'), 'active' => ($current_step >= 4)],
   ];
 }
 
@@ -146,5 +146,5 @@ function create_checkout_progress($current_step = 1) {
  */
 function palette_de_fleurs_preprocess_page__extras(&$variables) {
   $variables['title'] = t('Add extras');
-  $variables['checkout_header'] = create_checkout_progress(1);
+  $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(1);
 }
