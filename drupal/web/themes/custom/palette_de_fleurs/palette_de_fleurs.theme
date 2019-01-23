@@ -148,3 +148,40 @@ function palette_de_fleurs_preprocess_page__extras(&$variables) {
   $variables['title'] = t('Add extras');
   $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(1);
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_views_view__news__news(&$variables) {
+  $variables['title'] = $variables['view']->getTitle();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_views_view_unformatted__news__news(&$variables) {
+  foreach ($variables['rows'] as $row) {
+    if ($row['attributes']->hasClass('col-sm-4 new-1')) {
+      $_COOKIE['news_first_new'] = $row['content']['#row']->nid;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_node__news__teaser(&$variables) {
+
+  /** @var \Drupal\node\Entity\Node $node */
+  $node = $variables['node'];
+
+  $date = \Drupal::service('date.formatter')->format($node->getCreatedTime(), drupal_get_user_timezone(), 'F j, Y');
+  $variables['date'] = Drupal\Core\Render\Markup::create($date);
+
+  if ($first_new_id = \Drupal::request()->cookies->get('news_first_new')) {
+    $variables['first_new'] = ($first_new_id == $node->id());
+  }
+  else {
+    $variables['first_new'] = false;
+  }
+}
