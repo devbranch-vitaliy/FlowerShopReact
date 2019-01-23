@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.news.field_meta_tags
     - field.field.node.news.field_tags
     - field.field.node.news.field_yoast_seo
-    - image.style.medium
+    - image.style.blog_image_1040x650
     - node.type.news
   module:
     - image
@@ -34,7 +34,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: medium
+      image_style: blog_image_1040x650
       image_link: content
     third_party_settings: {  }
   links:
