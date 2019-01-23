@@ -8059,6 +8059,9 @@ ol.breadcrumb {
 
 .checkout-header {
   position: relative; }
+  .checkout-header h2 {
+    margin-top: 40px;
+    margin-bottom: 24px; }
   .checkout-header .steps {
     position: relative;
     font-family: SourceSansPro;
@@ -8077,18 +8080,50 @@ ol.breadcrumb {
       border: 1px solid #191919;
       border-radius: 16px;
       text-align: center;
-      padding: 6px 0; }
+      padding: 6px 0;
+      margin-right: 16px; }
     .checkout-header .steps .step-numder.active {
       background-color: #191919;
       color: #ffffff; }
 
+@media screen and (max-width: 767px) {
+  .checkout-header .steps {
+    margin: 40px auto 0;
+    display: table; }
+    .checkout-header .steps .step {
+      margin-right: 8px;
+      max-width: 65px;
+      text-align: center;
+      vertical-align: top; }
+      .checkout-header .steps .step:last-child {
+        margin-right: 0; }
+    .checkout-header .steps .step > div {
+      display: block; }
+    .checkout-header .steps .step-numder, .checkout-header .steps .step-title {
+      margin: 0 auto 8px; } }
+
 @media screen and (min-width: 768px) {
   .checkout-header .steps {
     position: absolute;
-    top: 16px;
+    top: -8px;
     right: 0; }
+    .checkout-header .steps .step {
+      margin-right: 20px; }
+      .checkout-header .steps .step:last-child {
+        margin-right: 0; }
     .checkout-header .steps .step > div {
-      display: inline-block; } }
+      display: block; }
+    .checkout-header .steps .step-numder, .checkout-header .steps .step-title {
+      margin: 0 auto 8px; } }
+
+@media screen and (min-width: 992px) {
+  .checkout-header .steps {
+    top: 4px; }
+    .checkout-header .steps .step > div {
+      display: inline-block; }
+    .checkout-header .steps .step-numder {
+      margin-bottom: 0;
+      margin-right: 8px; } }
 
 .cta-banner {
   height: 600px; }
