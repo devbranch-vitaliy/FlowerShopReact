@@ -9083,6 +9083,10 @@ ol.breadcrumb {
   .path-extras .main-container .row {
     width: 80%; } }
 
+.path-news .view-id-news .form-group {
+  margin-left: -8px;
+  margin-right: -8px; }
+
 .path-news a, .path-news a:focus, .path-news a:hover {
   text-decoration: none;
   color: #191919; }
@@ -9129,17 +9133,37 @@ ol.breadcrumb {
     font-size: 10px;
     line-height: 18px; }
 
+.path-news .pager a {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  border: 2px solid #191919;
+  border-radius: unset;
+  padding: 15px 10px;
+  width: 220px; }
+
 @media screen and (max-width: 767px) {
+  .path-news .view-id-news .form-group {
+    padding-left: 8px;
+    padding-right: 8px; }
   .path-news .title {
     text-align: center;
     padding: 0 8px; }
+    .path-news .title h2 {
+      margin-top: 40px;
+      margin-bottom: 40px; }
   .path-news .new-text {
     margin-top: 16px;
     margin-bottom: 24px; }
   .path-news .new-column.new-1 .new-content {
     background-image: unset !important; }
   .path-news .new-column.new-1 .field--name-body, .path-news .new-column.new-1 .read-more {
-    display: none; } }
+    display: none; }
+  .path-news .pager {
+    padding: 0 8px; }
+    .path-news .pager a {
+      width: 100%; } }
 
 @media screen and (min-width: 768px) {
   .path-news .new-text {
@@ -9149,6 +9173,7 @@ ol.breadcrumb {
     max-height: 140px; }
   .path-news .new-column.new-1 {
     width: 100%;
+    margin-top: 40px;
     margin-bottom: 40px; }
     .path-news .new-column.new-1 .new-content {
       background-repeat: no-repeat;
@@ -9177,3 +9202,8 @@ ol.breadcrumb {
       line-height: 1.19 !important;
       letter-spacing: normal;
       color: #ffffff; } }
+
+@media screen and (min-width: 1200px) {
+  .path-news .view-id-news .form-group {
+    margin-left: -12px;
+    margin-right: -12px; } }
