@@ -1,0 +1,173 @@
+.fleur-add-extras {
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    margin-top: 4px;
+  }
+
+  .radio, .checkbox {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  label {
+    @include Cart-item-text;
+    text-align: left;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .product-container {
+    margin-bottom: 0;
+  }
+
+  .add-specials-product-title {
+    @include H4;
+  }
+
+  .add-specials-product-description {
+    @include Body-text;
+  }
+
+  .extras_img_wrapper {
+    margin-bottom: 0;
+  }
+
+  .variations_wrapper, #edit-radios {
+    margin-left: -($grid-gutter-width / 2);
+    margin-right: -($grid-gutter-width / 2);
+
+    &:before, &:after {
+      content: " ";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+  }
+
+  .variation_wrapper .extras_img_wrapper, .variation_wrapper label {
+    display: block;
+    position: relative;
+  }
+
+  .variation_wrapper, .radio{
+    position: relative;
+    min-height: 1px;
+    margin: 0;
+    float: left;
+    padding-right: $grid-gutter-width / 2;
+    padding-left: $grid-gutter-width / 2;
+  }
+
+  button {
+    @include fleur-font(icon-16-chevron-right-primary);
+    @include Label-Big;
+    padding: 15px 16px;
+    text-align: left;
+
+    &.btn-success {
+      background-color: transparent;
+      color: $brownish-orange;
+      border: 2px solid $brownish-orange;
+      margin-right: 24px;
+      width: 323px;
+    }
+
+    &.btn-primary {
+      margin-right: auto;
+      width: 196px;
+    }
+
+    &:before {
+      float: right;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .fleur-add-extras {
+
+    label {
+      min-height: 86px;
+    }
+
+    .add-specials-product-title {
+      margin-top: 24px;
+    }
+
+    .add-specials-product-description {
+      margin: 16px 0;
+    }
+
+    .next-empty-mobile {
+      display: block;
+    }
+
+    .next-empty-desktop {
+      display: none;
+    }
+
+    .variation_wrapper, .radio {
+      width: 50%;
+    }
+
+    .form-actions {
+      width: 100%;
+      float: none;
+    }
+
+    button.btn-success, button.btn-primary {
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .fleur-add-extras {
+
+    .next-empty-mobile {
+      display: none;
+    }
+
+    .next-empty-desktop {
+      display: inline-block;
+    }
+
+    .add-specials-product-title {
+      margin-top: 60px;
+    }
+
+    .add-specials-product-description {
+      margin: 24px 0;
+    }
+
+    .variation_wrapper, .radio {
+      width: 20%;
+    }
+
+    .form-actions {
+      margin-top: 24px;
+    }
+  }
+}
+
+@media #{$wide} {
+  .fleur-add-extras {
+
+    .extras_img, .variations_wrapper, #edit-radios {
+      margin-left: -($grid-gutter-large-width / 2);
+      margin-right: -($grid-gutter-large-width / 2);
+    }
+
+    .variation_wrapper, .radio {
+      padding-right: $grid-gutter-large-width / 2;
+      padding-left: $grid-gutter-large-width / 2;
+    }
+  }
+}

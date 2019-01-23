@@ -13,6 +13,11 @@
       $('input.extras_select_option', context).once().each(function (e) {
         var $this = $(this);
 
+        var $variations_wrapper = $this.closest('.product-container');
+        var $input_wrapper = $this.closest('label');
+        var $image = $variations_wrapper.find(`div[data-variation-id=${$this.attr('data-variation-id')}].extras_img_wrapper`);
+        $image.insertBefore($input_wrapper);
+
         var controlChildVariation = function ($input) {
           var $variation_wrapper = $input.closest('.variation_wrapper');
           var $children = $variation_wrapper.find('.extras_select_child_option');
@@ -39,7 +44,6 @@
         var elementChecked = function ($input) {
 
           var checked = $input.is(':checked');
-          var $variations_wrapper = $this.closest('.product-container');
 
           // For checkboxes.
           if ($input.attr('type') == "checkbox") {
@@ -54,8 +58,6 @@
           }
 
           // Set image active.
-          var $image = $variations_wrapper.find(`div[data-variation-id=${$input.attr('data-variation-id')}].extras_img_wrapper`);
-
           if (checked) {
             // If radios then uncheck all.
             if ($input.attr('type') == "radio") {
