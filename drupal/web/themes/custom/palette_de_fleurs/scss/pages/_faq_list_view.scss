@@ -1,4 +1,6 @@
 .view-display-id-faq_list {
+  @include faq-width;
+
   .title {
     text-align: center;
 
@@ -57,9 +59,6 @@
 
 @media #{$mobile} {
   .view-display-id-faq_list {
-    width: 100%;
-    padding: 0 8px;
-
     .question {
       margin-bottom: 16px;
       padding-bottom: 16px;
@@ -73,21 +72,6 @@
 
 @media #{$tablet} {
   .view-display-id-faq_list {
-    width: 75%;
-    margin: auto;
-
-    .question {
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-    }
-  }
-}
-
-@media #{$wide} {
-  .view-display-id-faq_list {
-    width: 55%;
-    margin: auto;
-
     .question {
       margin-bottom: 24px;
       padding-bottom: 24px;

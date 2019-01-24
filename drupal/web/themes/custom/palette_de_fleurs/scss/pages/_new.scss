@@ -2,6 +2,7 @@
 
   article.news {
     margin: auto;
+    @include content-width;
   }
 
   .title {
@@ -81,7 +82,6 @@
     }
 
     article.news {
-      width: 100%;
       padding: 0 8px;
     }
   }
@@ -105,24 +105,5 @@
       @include Leading-text;
     }
 
-    article.news {
-      width: 90%;
-    }
-  }
-}
-
-@media #{$normal} {
-  .page-node-type-news {
-    article.news {
-      width: 75%;
-    }
-  }
-}
-
-@media #{$wide} {
-  .page-node-type-news {
-    article.news {
-      width: 65%;
-    }
   }
 }
