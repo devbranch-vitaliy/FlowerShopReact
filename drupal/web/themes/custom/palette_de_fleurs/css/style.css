@@ -9117,15 +9117,16 @@ ol.breadcrumb {
   padding-top: 16px; }
 
 .path-news .field--name-body {
+  display: none;
   font-family: SourceSansPro;
   font-size: 20px;
   line-height: 1.4;
   color: #ffffff; }
 
 .path-news .read-more {
-  display: inline-block;
+  display: none;
   color: #d2652a;
-  width: 95px; }
+  width: 105px; }
   .path-news .read-more:before {
     content: ""; }
   .path-news .read-more:before {
@@ -9201,7 +9202,13 @@ ol.breadcrumb {
       font-stretch: normal;
       line-height: 1.19 !important;
       letter-spacing: normal;
-      color: #ffffff; } }
+      color: #ffffff; }
+    .path-news .new-column.new-1 .new-date {
+      padding-bottom: 16px; }
+    .path-news .new-column.new-1 .field--name-body {
+      display: block; }
+    .path-news .new-column.new-1 .read-more {
+      display: inline-block; } }
 
 @media screen and (min-width: 1200px) {
   .path-news .view-id-news .form-group {

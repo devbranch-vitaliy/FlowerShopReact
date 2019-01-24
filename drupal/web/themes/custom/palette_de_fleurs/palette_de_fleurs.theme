@@ -159,18 +159,6 @@ function palette_de_fleurs_preprocess_views_view__news__news(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function palette_de_fleurs_preprocess_views_view_unformatted__news__news(&$variables) {
-  foreach ($variables['rows'] as $row) {
-    if ($row['attributes']->hasClass('col-sm-4 new-1')) {
-      $tempstore = \Drupal::service('user.private_tempstore')->get('palette_de_fleurs');
-      $tempstore->set('news_first_new', $row['content']['#row']->nid);
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
 function palette_de_fleurs_preprocess_node__news__teaser(&$variables) {
 
   /** @var \Drupal\node\Entity\Node $node */
@@ -178,12 +166,4 @@ function palette_de_fleurs_preprocess_node__news__teaser(&$variables) {
 
   $date = \Drupal::service('date.formatter')->format($node->getCreatedTime(), drupal_get_user_timezone(), 'F j, Y');
   $variables['date'] = Drupal\Core\Render\Markup::create($date);
-
-  $tempstore = \Drupal::service('user.private_tempstore')->get('palette_de_fleurs');
-  if ($first_new_id = $tempstore->get('news_first_new')) {
-    $variables['first_new'] = ($first_new_id == $node->id());
-  }
-  else {
-    $variables['first_new'] = false;
-  }
 }

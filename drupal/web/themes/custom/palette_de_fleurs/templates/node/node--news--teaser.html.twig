@@ -78,20 +78,12 @@
 ]
 %}
 
-{% if first_new %}
-  <a {{ attributes.addClass(classes) }} href="{{ url }}" style='background-image: url("{{ file_url(content.field_image.0['#item'].entity.uri.value) }}")'>
-{% else %}
-  <a {{ attributes.addClass(classes) }} href="{{ url }}">
-{% endif %}
+<a {{ attributes.addClass(classes) }} href="{{ url }}">
   {{ content.field_image }}
   <div class="new-text">
     <div class="new-title">{{ node.getTitle }}</div>
     <div class="new-date">{{ date }}</div>
-  {% if first_new %}
     {{ content.body }}
-    <div class="read-more label-big">
-      {{ 'Read more'|t }}
-    </div>
-  {% endif %}
+    <div class="read-more label-big">{{ 'Read more'|t }}</div>
   </div>
 </a>

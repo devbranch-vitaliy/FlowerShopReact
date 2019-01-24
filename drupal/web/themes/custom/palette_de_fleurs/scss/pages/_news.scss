@@ -33,14 +33,15 @@
   }
 
   .field--name-body {
+    display: none;
     @include Body-text;
     color: $white;
   }
 
   .read-more {
-    display: inline-block;
+    display: none;
     color: $brownish-orange;
-    width: 95px;
+    width: 105px;
     @include fleur-font(icon-16-chevron-right-primary);
 
     &:before {
@@ -145,6 +146,18 @@
       .new-title {
         @include H2;
         color: $white;
+      }
+
+      .new-date {
+        padding-bottom: 16px;
+      }
+
+      .field--name-body {
+        display: block;
+      }
+
+      .read-more {
+        display: inline-block;
       }
     }
   }
