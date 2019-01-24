@@ -82,7 +82,7 @@
   {{ content.field_image }}
   <div class="new-text">
     <div class="new-title">{{ node.getTitle }}</div>
-    <div class="new-date">{{ date }}</div>
+    <div class="new-date">{{ node.getCreatedTime | format_date('custom', 'F j, Y') }}</div>
     {{ content.body }}
     <div class="read-more label-big">{{ 'Read more'|t }}</div>
   </div>
