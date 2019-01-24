@@ -7,12 +7,15 @@
  * Place your custom PHP code in this file.
  */
 
+use Drupal\Component\Utility\Html;
+
 /**
  * Implements hook_preprocess_HOOK().
  */
 function palette_de_fleurs_preprocess_html(&$variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
-    $variables['page_title_class'] = strtolower(str_replace(' ', '_', trim($node->getTitle())));
+    $variables['attributes']->addClass('content-type-'.Html::getClass($node->bundle()));
+    $variables['attributes']->addClass('page-title-class-'.Html::getClass(trim($node->getTitle())));
   }
 }
 
