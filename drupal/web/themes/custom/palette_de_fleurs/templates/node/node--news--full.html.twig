@@ -84,31 +84,29 @@
     <div class="new-date">{{ node.getCreatedTime | format_date('custom', 'F j, Y') }}</div>
   </div>
 
-  <div class="social-links">
-    <div class="fb-share-button-wrapper">
-      <a target="_blank"
-         href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>') }}&title={{ node.getTitle }}"
-         title="{{ 'Share on '|t }} Facebook"
-         class="fb-share-button"
-         rel="noopener">
-        {{ 'Share on '|t }} Facebook</a>
+  <div class="social-links social-links-1">
+    <a target="_blank"
+       href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>') }}&title={{ node.getTitle }}"
+       title="{{ 'Share on '|t }} Facebook"
+       class="fb-share-button"
+       rel="noopener">
+      {{ 'Share on '|t }} Facebook
       <div class="icon-facebook" style='background-image: url("/{{ active_theme_path() }}/images/icon-facebook.svg")'></div>
-    </div>
+    </a>
   </div>
 
   <div{{ content_attributes.addClass('content') }}>
     {{ content }}
   </div>
 
-  <div class="social-links">
-    <div class="fb-share-button-wrapper">
-      <a target="_blank"
-         href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>') }}&title={{ node.getTitle }}"
-         title="{{ 'Share on '|t }} Facebook"
-         class="fb-share-button"
-         rel="noopener">
-        {{ 'Share on '|t }} Facebook</a>
+  <div class="social-links social-links-2">
+    <a target="_blank"
+       href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>') }}&title={{ node.getTitle }}"
+       title="{{ 'Share on '|t }} Facebook"
+       class="fb-share-button"
+       rel="noopener">
+      {{ 'Share on '|t }} Facebook
       <div class="icon-facebook" style='background-image: url("/{{ active_theme_path() }}/images/icon-facebook.svg")'></div>
-    </div>
+    </a>
   </div>
 </article>

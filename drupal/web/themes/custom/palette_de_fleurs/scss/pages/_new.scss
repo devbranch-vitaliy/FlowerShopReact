@@ -1,27 +1,128 @@
 .page-node-type-news {
 
+  article.news {
+    margin: auto;
+  }
+
+  .title {
+    text-align: center;
+
+    h1 {
+      margin-top: 80px;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 0;
+    }
+
+    .new-date {
+      @include Cart-item-text;
+      color: $gray-darker;
+      padding: 24px;
+    }
+  }
+
+  .social-links {
+    a, a:focus, a:hover {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  .social-links-2 {
+    margin-top: 40px;
+  }
+
+  .fb-share-button {
+    @include Label-Small;
+    display: block;
+    margin: auto;
+    width: 220px;
+    background-color: #4267b2;
+    position: relative;
+    padding: 12px 16px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #365899;
+    }
+
+    .icon-facebook {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+
+      float: right;
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 @media #{$mobile} {
   .page-node-type-news {
+    .new-date {
+      padding: 16px;
+    }
 
+    .social-links {
+      margin-bottom: 40px;
+    }
+
+    .field--name-field-image {
+      margin-bottom: 40px;
+    }
+
+    .field--name-body {
+      @include Body-text;
+    }
+
+    article.news {
+      width: 100%;
+      padding: 0 8px;
+    }
   }
 }
 
 @media #{$tablet} {
   .page-node-type-news {
+    .new-date {
+      padding: 24px;
+    }
 
+    .social-links {
+      margin-bottom: 80px;
+    }
+
+    .field--name-field-image {
+      margin-bottom: 56px;
+    }
+
+    .field--name-body {
+      @include Leading-text;
+    }
+
+    article.news {
+      width: 90%;
+    }
   }
 }
 
 @media #{$normal} {
   .page-node-type-news {
-
+    article.news {
+      width: 75%;
+    }
   }
 }
 
 @media #{$wide} {
   .page-node-type-news {
-
+    article.news {
+      width: 65%;
+    }
   }
 }

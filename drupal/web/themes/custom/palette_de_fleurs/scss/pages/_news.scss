@@ -5,9 +5,11 @@
     margin-right: -($grid-gutter-width / 2);
   }
 
-  a, a:focus, a:hover {
-    text-decoration: none;
-    color: $black;
+  .new-column {
+    a, a:focus, a:hover {
+      text-decoration: none;
+      color: $black;
+    }
   }
 
   .new-content {
