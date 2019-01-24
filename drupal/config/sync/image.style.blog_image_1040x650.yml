@@ -1,0 +1,15 @@
+uuid: dd35a630-ae79-4cda-87ed-d156fe4d31ae
+langcode: en
+status: true
+dependencies: {  }
+name: blog_image_1040x650
+label: 'Blog image (1040x650)'
+effects:
+  1742cb71-5286-4b21-996d-4bd2472793c3:
+    uuid: 1742cb71-5286-4b21-996d-4bd2472793c3
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1040
+      height: 650
+      anchor: center-center

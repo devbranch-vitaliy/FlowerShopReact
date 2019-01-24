@@ -115,4 +115,16 @@
     }
   };
 
+  Drupal.behaviors.fleurNews = {
+    attach: function (context, settings) {
+      // Set background to the first new.
+      $('.new-1', context).once().each(function (e) {
+        var $this = $(this);
+
+        var img_src = $this.find('img').attr('src');
+        $this.find('a').attr('style', `background-image: url("${img_src}")`);
+      });
+    }
+  };
+
 })(jQuery, Drupal, window);

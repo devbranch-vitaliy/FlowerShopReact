@@ -6,8 +6,10 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.news.body
     - field.field.node.news.field_image
+    - field.field.node.news.field_meta_tags
     - field.field.node.news.field_tags
-    - image.style.medium
+    - field.field.node.news.field_yoast_seo
+    - image.style.blog_image_1040x650
     - node.type.news
   module:
     - image
@@ -23,7 +25,7 @@ content:
     type: text_summary_or_trimmed
     weight: 1
     settings:
-      trim_length: 400
+      trim_length: 200
     third_party_settings: {  }
     region: content
   field_image:
@@ -32,20 +34,18 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: medium
-      image_link: content
-    third_party_settings: {  }
-  field_tags:
-    type: entity_reference_label
-    weight: 2
-    region: content
-    label: above
-    settings:
-      link: true
+      image_style: blog_image_1040x650
+      image_link: ''
     third_party_settings: {  }
   links:
-    weight: 3
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_meta_tags: true
+  field_tags: true
+  field_yoast_seo: true
