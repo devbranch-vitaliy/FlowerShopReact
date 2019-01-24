@@ -36,6 +36,10 @@ function palette_de_fleurs_preprocess_commerce_product__default__full(&$variable
     /** @var \Drupal\commerce_product\Entity\Product $product */
     $product = $variables['product_entity'];
 
+    if ($product->get('field_fragnanced')->value) {
+      $array_tags[] = $product->get('field_fragnanced')->getFieldDefinition()->getLabel();
+    }
+
     /** @var \Drupal\taxonomy\Entity\Term $value */
     foreach ($product->get('field_type_of_flowers')->referencedEntities() as $value) {
       $array_tags[] = $value->getName();
