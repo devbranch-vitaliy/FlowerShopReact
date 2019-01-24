@@ -14,8 +14,7 @@ use Drupal\Component\Utility\Html;
  */
 function palette_de_fleurs_preprocess_html(&$variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
-    $variables['attributes']->addClass('content-type-'.Html::getClass($node->bundle()));
-    $variables['attributes']->addClass('page-title-class-'.Html::getClass(trim($node->getTitle())));
+    $variables['page_title_class'] = Html::getClass(trim($node->getTitle()));
   }
 }
 
