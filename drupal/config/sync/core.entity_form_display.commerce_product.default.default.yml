@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.default.body
     - field.field.commerce_product.default.field_characteristics
     - field.field.commerce_product.default.field_colors
+    - field.field.commerce_product.default.field_fragnanced
     - field.field.commerce_product.default.field_images
     - field.field.commerce_product.default.field_occasion
     - field.field.commerce_product.default.field_type_of_flowers
@@ -42,16 +43,23 @@ content:
     third_party_settings: {  }
     region: content
   field_characteristics:
-    weight: 11
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_colors:
-    weight: 12
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_fragnanced:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_images:
     weight: 2
@@ -62,13 +70,13 @@ content:
     type: image_image
     region: content
   field_occasion:
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_type_of_flowers:
-    weight: 10
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
