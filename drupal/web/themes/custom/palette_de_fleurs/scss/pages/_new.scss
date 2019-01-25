@@ -4,6 +4,12 @@
     margin: auto;
     @include content-width;
     @include Label-Big;
+  }
+
+  .pager-links {
+    .form-group {
+      margin: auto;
+    }
 
     .previous-link, .next-link {
       color: $brownish-orange;
