@@ -8,14 +8,11 @@ dependencies:
     - field.field.commerce_product.default.body
     - field.field.commerce_product.default.field_characteristics
     - field.field.commerce_product.default.field_colors
-    - field.field.commerce_product.default.field_images
+    - field.field.commerce_product.default.field_fragnanced
     - field.field.commerce_product.default.field_occasion
     - field.field.commerce_product.default.field_type_of_flowers
     - field.field.commerce_product.default.stores
     - field.field.commerce_product.default.variations
-    - image.style.product_view_768x886
-  module:
-    - image
 _core:
   default_config_hash: gT03TFcuSod4d9uPQNs_gqK1F1QZ0Ray5CBYW0BNLnk
 id: commerce_product.default.view
@@ -23,15 +20,6 @@ targetEntityType: commerce_product
 bundle: default
 mode: view
 content:
-  field_images:
-    weight: 1
-    label: hidden
-    settings:
-      image_style: product_view_768x886
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
   title:
     label: hidden
     type: string
@@ -49,6 +37,7 @@ hidden:
   entity_print_view_word_docx: true
   field_characteristics: true
   field_colors: true
+  field_fragnanced: true
   field_occasion: true
   field_type_of_flowers: true
   stores: true

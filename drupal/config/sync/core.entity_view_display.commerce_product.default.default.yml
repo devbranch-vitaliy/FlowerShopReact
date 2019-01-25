@@ -8,15 +8,12 @@ dependencies:
     - field.field.commerce_product.default.field_characteristics
     - field.field.commerce_product.default.field_colors
     - field.field.commerce_product.default.field_fragnanced
-    - field.field.commerce_product.default.field_images
     - field.field.commerce_product.default.field_occasion
     - field.field.commerce_product.default.field_type_of_flowers
     - field.field.commerce_product.default.stores
     - field.field.commerce_product.default.variations
-    - image.style.product_view_768x886
   module:
     - commerce_product
-    - image
     - options
     - text
 _core:
@@ -62,15 +59,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
-  field_images:
-    weight: 1
-    label: hidden
-    settings:
-      image_style: product_view_768x886
-      image_link: ''
-    third_party_settings: {  }
-    type: image
     region: content
   field_occasion:
     weight: 4
