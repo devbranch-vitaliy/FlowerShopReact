@@ -31,7 +31,8 @@ class NodePager extends BlockBase {
     // Get previous nodes.
     $query = \Drupal::entityQuery('node')
       ->condition('type', $node->getType())
-      ->condition('changed', $node->get('changed')->value, '<')
+      ->condition('nid', $node->id(), '!=')
+      ->condition('changed', $node->get('changed')->value, '<=')
       ->sort('changed', 'DESC')
       ->sort('nid', 'DESC')
       ->pager(1);
@@ -41,7 +42,8 @@ class NodePager extends BlockBase {
     // Get next nodes.
     $query = \Drupal::entityQuery('node')
       ->condition('type', $node->getType())
-      ->condition('changed', $node->get('changed')->value, '>')
+      ->condition('nid', $node->id(), '!=')
+      ->condition('changed', $node->get('changed')->value, '>=')
       ->sort('changed', 'ASC')
       ->sort('nid', 'ASC')
       ->pager(1);
