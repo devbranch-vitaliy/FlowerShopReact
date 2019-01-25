@@ -9158,6 +9158,9 @@ ol.breadcrumb {
   padding: 15px 10px;
   width: 220px; }
 
+.path-news .pager a, .path-news .pager a:focus, .path-news .pager a:hover {
+  color: #191919; }
+
 @media screen and (max-width: 767px) {
   .path-news .view-id-news .form-group {
     padding-left: 8px;
