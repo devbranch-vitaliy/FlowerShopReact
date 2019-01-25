@@ -70,7 +70,7 @@ class NodePager extends BlockBase {
         '#type' => 'link',
         '#url' => Url::fromRoute('entity.node.canonical', ['node' => $id], ['absolute' => TRUE]),
         '#attributes' => [
-          'class' => ['previous-links'],
+          'class' => ['previous-link'],
         ],
       ];
     }
@@ -85,7 +85,7 @@ class NodePager extends BlockBase {
         '#type' => 'link',
         '#url' => Url::fromRoute('entity.node.canonical', ['node' => $id], ['absolute' => TRUE]),
         '#attributes' => [
-          'class' => ['next-links'],
+          'class' => ['next-link'],
         ],
       ];
     }
