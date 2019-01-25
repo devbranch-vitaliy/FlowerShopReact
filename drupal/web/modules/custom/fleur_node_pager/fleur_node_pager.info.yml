@@ -1,0 +1,9 @@
+name: 'Fleur node pager'
+type: module
+description: Pager for node page.
+core: 8.x
+version: '1.x'
+package: Custom
+dependencies:
+  - drupal:block
+  - drupal:node

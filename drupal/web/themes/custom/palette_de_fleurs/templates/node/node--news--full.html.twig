@@ -65,25 +65,48 @@
  *   in different view modes.
  */
 #}
-
 {%
   set classes = [
-  node.bundle|clean_class,
-  node.isPromoted() ? 'is-promoted',
-  node.isSticky() ? 'is-sticky',
-  not node.isPublished() ? 'is-unpublished',
-  view_mode ? view_mode|clean_class,
-  'clearfix',
-  'new-content',
-]
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
+  ]
 %}
 
-<a {{ attributes.addClass(classes) }} href="{{ url }}">
-  {{ content.field_image }}
-  <div class="new-text">
-    <div class="new-title">{{ node.getTitle }}</div>
+<article{{ attributes.addClass(classes) }}>
+
+  <div class="title">
+    <h1 class="text-color-black hidden-xs">{{ node.getTitle }}</h1>
+    <h2 class="text-color-black visible-xs">{{ node.getTitle }}</h2>
     <div class="new-date">{{ node.getCreatedTime | format_date('custom', 'F j, Y') }}</div>
-    {{ content.body }}
-    <div class="read-more label-big">{{ 'Read more'|t }}</div>
   </div>
-</a>
+
+  <div class="social-links social-links-1">
+    <a target="_blank"
+       href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>') }}&title={{ node.getTitle }}"
+       title="{{ 'Share on Facebook'|t  }}"
+       class="fb-share-button"
+       rel="noopener">
+      {{ 'Share on Facebook'|t }}
+      <div class="icon-facebook" style='background-image: url("/{{ active_theme_path() }}/images/icon-facebook.svg")'></div>
+    </a>
+  </div>
+
+  <div{{ content_attributes.addClass('content') }}>
+    {{ content }}
+  </div>
+
+  <div class="social-links social-links-2">
+    <a target="_blank"
+       href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>') }}&title={{ node.getTitle }}"
+       title="{{ 'Share on Facebook'|t }}"
+       class="fb-share-button"
+       rel="noopener">
+      {{ 'Share on Facebook'|t }}
+      <div class="icon-facebook" style='background-image: url("/{{ active_theme_path() }}/images/icon-facebook.svg")'></div>
+    </a>
+  </div>
+</article>

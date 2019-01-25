@@ -1,26 +1,6 @@
-@media #{$mobile} {
-  .path-extras {
-    .main-container .row {
-      padding: 0 8px;
-      width: 100%;
-    }
+.path-extras {
+  .main-container .row {
+    @include checkout-width;
   }
 }
 
-@media #{$tablet} {
-  .path-extras {
-    .main-container .row {
-      margin: auto;
-      width: 100%;
-    }
-  }
-}
-
-
-@media #{$normal} {
-  .path-extras {
-    .main-container .row {
-      width: 80%;
-    }
-  }
-}

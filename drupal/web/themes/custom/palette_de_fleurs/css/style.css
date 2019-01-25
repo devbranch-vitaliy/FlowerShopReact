@@ -108,7 +108,7 @@
   src: url("../fonts/FleurIcons/FleurIcons.eot");
   src: url("../fonts/FleurIcons/FleurIcons.eot?#iefix") format("eot"), url("../fonts/FleurIcons/FleurIcons.woff") format("woff"), url("../fonts/FleurIcons/FleurIcons.ttf") format("truetype"), url("../fonts/FleurIcons/FleurIcons.svg#FleurIcons") format("svg"); }
 
-.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before, #drupal-modal--header button.ui-dialog-titlebar-close:before, .button--add-to-cart:before, .button--add-to-cart:hover:before, .mobile-filter-container span:before, .mobile-filter-container span.icon-up:before, ol.breadcrumb > li:before, .fleur-add-extras button:before, .customers-reviews .slick-dots li:before, .customers-reviews .slick-dots li.slick-active:before, .view-display-id-faq_list .question .views-field-field-question:before, .view-display-id-faq_list .question .views-field-field-question.icon-up:before, .path-news .read-more:before {
+.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before, #drupal-modal--header button.ui-dialog-titlebar-close:before, .button--add-to-cart:before, .button--add-to-cart:hover:before, .mobile-filter-container span:before, .mobile-filter-container span.icon-up:before, ol.breadcrumb > li:before, .fleur-add-extras button:before, .pager-links .previous-link:before, .pager-links .next-link:before, .customers-reviews .slick-dots li:before, .customers-reviews .slick-dots li.slick-active:before, .view-display-id-faq_list .question .views-field-field-question:before, .view-display-id-faq_list .question .views-field-field-question.icon-up:before, .path-news .read-more:before {
   font-family: "FleurIcons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8254,6 +8254,22 @@ ol.breadcrumb {
     padding-right: 12px;
     padding-left: 12px; } }
 
+.pager-links .previous-link {
+  position: relative;
+  float: left; }
+  .pager-links .previous-link:before {
+    content: ""; }
+  .pager-links .previous-link:before {
+    float: left; }
+
+.pager-links .next-link {
+  position: relative;
+  float: right; }
+  .pager-links .next-link:before {
+    content: ""; }
+  .pager-links .next-link:before {
+    float: right; }
+
 .cta-banner {
   height: 600px; }
   .cta-banner .paragraph .field {
@@ -8608,32 +8624,34 @@ ol.breadcrumb {
   margin: 56px auto 0;
   font-family: SourceSansPro;
   font-size: 24px;
-  line-height: 1.42; }
+  line-height: 1.42;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (max-width: 767px) {
+    .paragraph-content {
+      padding: 0 8px;
+      width: 100%; } }
+  @media screen and (min-width: 768px) {
+    .paragraph-content {
+      width: 90%; } }
+  @media screen and (min-width: 992px) {
+    .paragraph-content {
+      width: 75%; } }
+  @media screen and (min-width: 1200px) {
+    .paragraph-content {
+      width: 65%; } }
   .paragraph-content h1, .paragraph-content h2, .paragraph-content h3, .paragraph-content h4, .paragraph-content h5, .paragraph-content h6 {
     margin-top: 0;
     margin-bottom: 24px; }
 
 @media screen and (max-width: 767px) {
   .paragraph-content {
-    width: 100%;
     margin: 40px auto 0;
     font-family: SourceSansPro;
     font-size: 20px;
     line-height: 1.4; }
     .paragraph-content h1, .paragraph-content h2, .paragraph-content h3, .paragraph-content h4, .paragraph-content h5, .paragraph-content h6 {
       margin-bottom: 16px; } }
-
-@media screen and (min-width: 768px) {
-  .paragraph-content {
-    width: 90%; } }
-
-@media screen and (min-width: 992px) {
-  .paragraph-content {
-    width: 75%; } }
-
-@media screen and (min-width: 1200px) {
-  .paragraph-content {
-    width: 65%; } }
 
 @media screen and (max-width: 767px) {
   .paragraph-image .paragraph-content {
@@ -8882,72 +8900,69 @@ ol.breadcrumb {
   .view-display-id-products .view-filters select {
     width: 192px; } }
 
-.view-display-id-faq_list .title {
-  text-align: center; }
-  .view-display-id-faq_list .title h1, .view-display-id-faq_list .title h2 {
-    margin: auto; }
-  .view-display-id-faq_list .title h1 {
-    margin-top: 80px;
-    margin-bottom: 80px; }
-  .view-display-id-faq_list .title h2 {
-    margin-top: 40px;
-    margin-bottom: 40px; }
-
-.view-display-id-faq_list .question {
-  border-bottom: 1px solid #191919; }
-  .view-display-id-faq_list .question:last-child {
-    margin-bottom: 0; }
-  .view-display-id-faq_list .question h3 {
-    margin-top: 0;
-    margin-bottom: 0; }
-  .view-display-id-faq_list .question .views-field-field-question {
-    cursor: pointer; }
-    .view-display-id-faq_list .question .views-field-field-question:before {
-      content: ""; }
-    .view-display-id-faq_list .question .views-field-field-question.icon-up:before {
-      content: ""; }
-    .view-display-id-faq_list .question .views-field-field-question:before {
-      float: right;
-      color: #d2652a;
-      font-size: 24px;
-      line-height: 24px; }
-  .view-display-id-faq_list .question .views-field-field-answer {
-    padding-top: 16px;
-    display: none; }
-    .view-display-id-faq_list .question .views-field-field-answer.show {
-      display: block; }
+.view-display-id-faq_list {
+  margin: auto; }
+  @media screen and (max-width: 767px) {
+    .view-display-id-faq_list {
+      padding: 0 8px;
+      width: 100%; } }
+  @media screen and (min-width: 768px) {
+    .view-display-id-faq_list {
+      width: 75%; } }
+  @media screen and (min-width: 1200px) {
+    .view-display-id-faq_list {
+      width: 55%; } }
+  .view-display-id-faq_list .title {
+    text-align: center; }
+    .view-display-id-faq_list .title h1, .view-display-id-faq_list .title h2 {
+      margin: auto; }
+    .view-display-id-faq_list .title h1 {
+      margin-top: 80px;
+      margin-bottom: 80px; }
+    .view-display-id-faq_list .title h2 {
+      margin-top: 40px;
+      margin-bottom: 40px; }
+  .view-display-id-faq_list .question {
+    border-bottom: 1px solid #191919; }
+    .view-display-id-faq_list .question:last-child {
+      margin-bottom: 0; }
+    .view-display-id-faq_list .question h3 {
+      margin-top: 0;
+      margin-bottom: 0; }
+    .view-display-id-faq_list .question .views-field-field-question {
+      cursor: pointer; }
+      .view-display-id-faq_list .question .views-field-field-question:before {
+        content: ""; }
+      .view-display-id-faq_list .question .views-field-field-question.icon-up:before {
+        content: ""; }
+      .view-display-id-faq_list .question .views-field-field-question:before {
+        float: right;
+        color: #d2652a;
+        font-size: 24px;
+        line-height: 24px; }
+    .view-display-id-faq_list .question .views-field-field-answer {
+      padding-top: 16px;
+      display: none; }
+      .view-display-id-faq_list .question .views-field-field-answer.show {
+        display: block; }
 
 @media screen and (max-width: 767px) {
-  .view-display-id-faq_list {
-    width: 100%;
-    padding: 0 8px; }
-    .view-display-id-faq_list .question {
-      margin-bottom: 16px;
-      padding-bottom: 16px; }
-      .view-display-id-faq_list .question h3 {
-        font-family: Taviraj;
-        font-size: 22px;
-        font-weight: 600;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.18 !important;
-        letter-spacing: normal; } }
+  .view-display-id-faq_list .question {
+    margin-bottom: 16px;
+    padding-bottom: 16px; }
+    .view-display-id-faq_list .question h3 {
+      font-family: Taviraj;
+      font-size: 22px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.18 !important;
+      letter-spacing: normal; } }
 
 @media screen and (min-width: 768px) {
-  .view-display-id-faq_list {
-    width: 75%;
-    margin: auto; }
-    .view-display-id-faq_list .question {
-      margin-bottom: 24px;
-      padding-bottom: 24px; } }
-
-@media screen and (min-width: 1200px) {
-  .view-display-id-faq_list {
-    width: 55%;
-    margin: auto; }
-    .view-display-id-faq_list .question {
-      margin-bottom: 24px;
-      padding-bottom: 24px; } }
+  .view-display-id-faq_list .question {
+    margin-bottom: 24px;
+    padding-bottom: 24px; } }
 
 @media screen and (max-width: 767px) {
   .request-a-call-back-form {
@@ -9069,25 +9084,24 @@ ol.breadcrumb {
   .feedback-form .contact-message-feedback-form {
     width: 60%; } }
 
-@media screen and (max-width: 767px) {
-  .path-extras .main-container .row {
-    padding: 0 8px;
-    width: 100%; } }
-
-@media screen and (min-width: 768px) {
-  .path-extras .main-container .row {
-    margin: auto;
-    width: 100%; } }
-
-@media screen and (min-width: 992px) {
-  .path-extras .main-container .row {
-    width: 80%; } }
+.path-extras .main-container .row {
+  margin: auto; }
+  @media screen and (max-width: 767px) {
+    .path-extras .main-container .row {
+      padding: 0 8px;
+      width: 100%; } }
+  @media screen and (min-width: 768px) {
+    .path-extras .main-container .row {
+      width: 100%; } }
+  @media screen and (min-width: 992px) {
+    .path-extras .main-container .row {
+      width: 80%; } }
 
 .path-news .view-id-news .form-group {
   margin-left: -8px;
   margin-right: -8px; }
 
-.path-news a, .path-news a:focus, .path-news a:hover {
+.path-news .new-column a, .path-news .new-column a:focus, .path-news .new-column a:hover {
   text-decoration: none;
   color: #191919; }
 
@@ -9143,6 +9157,9 @@ ol.breadcrumb {
   border-radius: unset;
   padding: 15px 10px;
   width: 220px; }
+
+.path-news .pager a, .path-news .pager a:focus, .path-news .pager a:hover {
+  color: #191919; }
 
 @media screen and (max-width: 767px) {
   .path-news .view-id-news .form-group {
@@ -9214,3 +9231,114 @@ ol.breadcrumb {
   .path-news .view-id-news .form-group {
     margin-left: -12px;
     margin-right: -12px; } }
+
+.page-node-type-news article.news, .page-node-type-news .pager-links {
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (max-width: 767px) {
+    .page-node-type-news article.news, .page-node-type-news .pager-links {
+      padding: 0 8px;
+      width: 100%; } }
+  @media screen and (min-width: 768px) {
+    .page-node-type-news article.news, .page-node-type-news .pager-links {
+      width: 90%; } }
+  @media screen and (min-width: 992px) {
+    .page-node-type-news article.news, .page-node-type-news .pager-links {
+      width: 75%; } }
+  @media screen and (min-width: 1200px) {
+    .page-node-type-news article.news, .page-node-type-news .pager-links {
+      width: 65%; } }
+
+.page-node-type-news .pager-links {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1; }
+  .page-node-type-news .pager-links .form-group {
+    margin: auto; }
+  .page-node-type-news .pager-links .previous-link, .page-node-type-news .pager-links .next-link {
+    color: #d2652a; }
+    .page-node-type-news .pager-links .previous-link:before, .page-node-type-news .pager-links .next-link:before {
+      font-size: 16px;
+      line-height: 18px; }
+    .page-node-type-news .pager-links .previous-link:focus:before, .page-node-type-news .pager-links .previous-link:hover:before, .page-node-type-news .pager-links .next-link:focus:before, .page-node-type-news .pager-links .next-link:hover:before {
+      color: #92461d; }
+    .page-node-type-news .pager-links .previous-link a, .page-node-type-news .pager-links .previous-link a:focus, .page-node-type-news .pager-links .previous-link a:hover, .page-node-type-news .pager-links .next-link a, .page-node-type-news .pager-links .next-link a:focus, .page-node-type-news .pager-links .next-link a:hover {
+      text-decoration: none; }
+
+.page-node-type-news .title {
+  text-align: center; }
+  .page-node-type-news .title h1 {
+    margin-top: 80px;
+    margin-bottom: 0; }
+  .page-node-type-news .title h2 {
+    margin-top: 40px;
+    margin-bottom: 0; }
+  .page-node-type-news .title .new-date {
+    font-family: SourceSansPro;
+    font-size: 18px;
+    line-height: 1;
+    text-align: center;
+    color: #a5a9af;
+    padding: 24px; }
+
+.page-node-type-news .social-links a, .page-node-type-news .social-links a:focus, .page-node-type-news .social-links a:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.page-node-type-news .social-links-2 {
+  margin-top: 40px; }
+
+.page-node-type-news .fb-share-button {
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  display: block;
+  margin: auto;
+  width: 220px;
+  background-color: #4267b2;
+  position: relative;
+  padding: 12px 16px;
+  cursor: pointer; }
+  .page-node-type-news .fb-share-button:hover {
+    background-color: #365899; }
+  .page-node-type-news .fb-share-button .icon-facebook {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    float: right;
+    width: 16px;
+    height: 16px; }
+
+@media screen and (max-width: 767px) {
+  .page-node-type-news .pager-links .long-link {
+    display: none; }
+  .page-node-type-news .new-date {
+    padding: 16px; }
+  .page-node-type-news .social-links {
+    margin-bottom: 40px; }
+  .page-node-type-news .field--name-field-image {
+    margin-bottom: 40px; }
+  .page-node-type-news .field--name-body {
+    font-family: SourceSansPro;
+    font-size: 20px;
+    line-height: 1.4; }
+  .page-node-type-news article.news {
+    padding: 0 8px; } }
+
+@media screen and (min-width: 768px) {
+  .page-node-type-news .pager-links .short-link {
+    display: none; }
+  .page-node-type-news .new-date {
+    padding: 24px; }
+  .page-node-type-news .social-links {
+    margin-bottom: 80px; }
+  .page-node-type-news .field--name-field-image {
+    margin-bottom: 56px; }
+  .page-node-type-news .field--name-body {
+    font-family: SourceSansPro;
+    font-size: 24px;
+    line-height: 1.42; } }

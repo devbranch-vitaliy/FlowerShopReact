@@ -53,6 +53,7 @@ module:
   fleur_date_widget: 0
   fleur_extras_selection: 0
   fleur_message: 0
+  fleur_node_pager: 0
   fleur_notifications: 0
   fleur_order_operations: 0
   fleur_order_state: 0
