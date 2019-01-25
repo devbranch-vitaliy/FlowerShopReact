@@ -50,6 +50,7 @@ class NodePager extends BlockBase {
 
     // Create cacheable metadata.
     $cache = new CacheableMetadata();
+    $cache->addCacheableDependency($node);
 
     // Create elements.
     $block['pager_links'] = [
