@@ -3,10 +3,11 @@
   article.news, .pager-links {
     margin: auto;
     @include content-width;
-    @include Label-Big;
   }
 
   .pager-links {
+    @include Label-Big;
+
     .form-group {
       margin: auto;
     }
