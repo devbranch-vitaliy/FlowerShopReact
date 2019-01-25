@@ -1,0 +1,6 @@
+name: 'Fleur news pager'
+type: module
+description: Pager for news page.
+core: 8.x
+version: '1.x'
+package: Custom
