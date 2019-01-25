@@ -66,7 +66,7 @@ class NodePager extends BlockBase {
       $id = reset($previous);
       $link_node = Node::load($id);
       $cache->addCacheableDependency($link_node);
-      $url = Url::fromRoute('entity.node.canonical', ['node' => $id], ['absolute' => TRUE]);
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $id]);
 
       $block['pager_links']['previous_link']['long'] = [
         '#type' => 'container',
@@ -97,7 +97,7 @@ class NodePager extends BlockBase {
       $id = reset($next);
       $link_node = Node::load($id);
       $cache->addCacheableDependency($link_node);
-      $url = Url::fromRoute('entity.node.canonical', ['node' => $id], ['absolute' => TRUE]);
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $id]);
 
       $block['pager_links']['next_link']['long'] = [
         '#type' => 'container',
