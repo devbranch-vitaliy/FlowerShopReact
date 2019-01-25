@@ -1,8 +1,26 @@
 .page-node-type-news {
 
-  article.news {
+  article.news, .pager-links {
     margin: auto;
     @include content-width;
+    @include Label-Big;
+
+    .previous-link, .next-link {
+      color: $brownish-orange;
+
+      &:before {
+        font-size: 16px;
+        line-height: 18px;
+      }
+
+      &:hover:before {
+        color: $link-hover-color;
+      }
+
+      a, a:focus, a:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   .title {
@@ -65,6 +83,11 @@
 
 @media #{$mobile} {
   .page-node-type-news {
+
+    .pager-links .long-link {
+      display: none;
+    }
+
     .new-date {
       padding: 16px;
     }
@@ -89,6 +112,11 @@
 
 @media #{$tablet} {
   .page-node-type-news {
+
+    .pager-links .short-link {
+      display: none;
+    }
+
     .new-date {
       padding: 24px;
     }
