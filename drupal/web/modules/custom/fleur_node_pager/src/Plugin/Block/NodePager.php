@@ -10,6 +10,7 @@ use Drupal\Core\Block\BlockBase;
  * @Block(
  *   id = "fleur_node_pager",
  *   admin_label = @Translation("Node pager"),
+ *   category = @Translation("Fleur node pager"),
  *   context = {
  *     "node" = @ContextDefinition("entity:node", label = @Translation("Node")),
  *   }
