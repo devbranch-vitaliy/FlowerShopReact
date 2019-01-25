@@ -81,6 +81,11 @@
     &.btn-primary {
       margin-right: auto;
       width: 196px;
+
+      &:hover {
+        background-color: $link-hover-color;
+        border-color: $link-hover-color;
+      }
     }
 
     &:before {

@@ -6,13 +6,17 @@
 (function ($, Drupal) {
     Drupal.behaviors.quantityField = {
         attach: function attach(context, settings) {
-            var markup = '<div class="quantity-button quantity-down">\u2013</div>' + '<div class="quantity-button quantity-up">+</div>';
+            var markup_down = '<div class="quantity-button quantity-down"></div>';
+            var markup_up = '<div class="quantity-button quantity-up"></div>';
 
             var $quantity = $('.js-form-type-number', context);
             $quantity.once('quantity-field').each(function () {
                 var $this = $(this);
-                $this.append(markup);
+
                 var $input = $this.find('input[type="number"]');
+                $input.before(markup_down);
+                $input.after(markup_up);
+
                 var $btnUp = $this.find('.quantity-up');
                 var $btnDown = $this.find('.quantity-down');
                 var min = $input.attr('min');
