@@ -20,7 +20,7 @@
         line-height: 18px;
       }
 
-      &:hover:before {
+      &:focus:before, &:hover:before {
         color: $link-hover-color;
       }
 

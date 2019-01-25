@@ -9259,7 +9259,7 @@ ol.breadcrumb {
     .page-node-type-news .pager-links .previous-link:before, .page-node-type-news .pager-links .next-link:before {
       font-size: 16px;
       line-height: 18px; }
-    .page-node-type-news .pager-links .previous-link:hover:before, .page-node-type-news .pager-links .next-link:hover:before {
+    .page-node-type-news .pager-links .previous-link:focus:before, .page-node-type-news .pager-links .previous-link:hover:before, .page-node-type-news .pager-links .next-link:focus:before, .page-node-type-news .pager-links .next-link:hover:before {
       color: #92461d; }
     .page-node-type-news .pager-links .previous-link a, .page-node-type-news .pager-links .previous-link a:focus, .page-node-type-news .pager-links .previous-link a:hover, .page-node-type-news .pager-links .next-link a, .page-node-type-news .pager-links .next-link a:focus, .page-node-type-news .pager-links .next-link a:hover {
       text-decoration: none; }
