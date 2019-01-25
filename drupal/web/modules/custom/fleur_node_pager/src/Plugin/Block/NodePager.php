@@ -64,13 +64,29 @@ class NodePager extends BlockBase {
       $id = reset($previous);
       $link_node = Node::load($id);
       $cache->addCacheableDependency($link_node);
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $id], ['absolute' => TRUE]);
 
-      $block['pager_links']['previous_link'] = [
-        '#title' => $link_node->getTitle(),
-        '#type' => 'link',
-        '#url' => Url::fromRoute('entity.node.canonical', ['node' => $id], ['absolute' => TRUE]),
+      $block['pager_links']['previous_link']['long'] = [
+        '#type' => 'container',
         '#attributes' => [
-          'class' => ['previous-link'],
+          'class' => ['previous-link', 'long-link'],
+        ],
+        'link' => [
+          '#title' => $link_node->getTitle(),
+          '#type' => 'link',
+          '#url' => $url,
+        ],
+      ];
+
+      $block['pager_links']['previous_link']['short'] = [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => ['previous-link', 'short-link'],
+        ],
+        'link' => [
+          '#title' => $this->t('Previous'),
+          '#type' => 'link',
+          '#url' => $url,
         ],
       ];
     }
@@ -79,13 +95,29 @@ class NodePager extends BlockBase {
       $id = reset($next);
       $link_node = Node::load($id);
       $cache->addCacheableDependency($link_node);
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $id], ['absolute' => TRUE]);
 
-      $block['pager_links']['next_link'] = [
-        '#title' => Node::load($id)->getTitle(),
-        '#type' => 'link',
-        '#url' => Url::fromRoute('entity.node.canonical', ['node' => $id], ['absolute' => TRUE]),
+      $block['pager_links']['next_link']['long'] = [
+        '#type' => 'container',
         '#attributes' => [
-          'class' => ['next-link'],
+          'class' => ['next-link', 'long-link'],
+        ],
+        'link' => [
+          '#title' => Node::load($id)->getTitle(),
+          '#type' => 'link',
+          '#url' => $url,
+        ],
+      ];
+
+      $block['pager_links']['next_link']['short'] = [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => ['next-link', 'short-link'],
+        ],
+        'link' => [
+          '#title' => $this->t('Next'),
+          '#type' => 'link',
+          '#url' => $url,
         ],
       ];
     }
