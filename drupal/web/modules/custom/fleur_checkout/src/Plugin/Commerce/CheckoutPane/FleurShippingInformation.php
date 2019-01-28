@@ -9,6 +9,7 @@ use Drupal\commerce_shipping\Plugin\Commerce\CheckoutPane\ShippingInformation;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -44,9 +45,38 @@ class FleurShippingInformation extends ShippingInformation {
 
     // Prepare the form for ajax.
     // Not using Html::getUniqueId() on the wrapper ID to avoid #2675688.
-    $pane_form['#wrapper_id'] = 'shipping-information-wrapper';
+    $pane_form['#wrapper_id'] = 'fleur-shipping-information-wrapper';
     $pane_form['#prefix'] = '<div id="' . $pane_form['#wrapper_id'] . '">';
     $pane_form['#suffix'] = '</div>';
+
+    $user_input = $form_state->getUserInput();
+    $default_delivery_option = 'delivery';
+    if (isset($user_input['fleur_shipping_information'])
+      && isset($user_input['fleur_shipping_information']['delivery_options'])) {
+      $default_delivery_option = $user_input['fleur_shipping_information']['delivery_options'];
+    }
+//    else {
+//      $default_delivery_option = ($this->order->shipments->referencedEntities()) ? 'delivery' : 'pick_up';
+//    }
+
+    $pane_form['delivery_options'] = [
+      '#type' => 'radios',
+      '#recalculate' => TRUE,
+      '#default_value' => $default_delivery_option,
+      '#options' => [
+        'delivery' => $this->t('I want my order to be delivered for me'),
+        'pick_up' => $this->t('I want to pick up my order from the shop'),
+      ],
+      '#ajax' => [
+        'callback' => [get_class($this), 'ajaxRefresh'],
+        'wrapper' => $pane_form['#wrapper_id'],
+        'event' => 'change',
+      ],
+    ];
+
+    if ($default_delivery_option == 'pick_up') {
+      return $pane_form;
+    }
 
     $pane_form['shipping_profile'] = [
       '#type' => 'commerce_profile_select',
@@ -120,60 +150,37 @@ class FleurShippingInformation extends ShippingInformation {
    * {@inheritdoc}
    */
   public function validatePaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
-    $shipment_indexes = Element::children($pane_form['shipments']);
     $triggering_element = $form_state->getTriggeringElement();
-    $recalculate = !empty($triggering_element['#recalculate']);
-    $button_type = isset($triggering_element['#button_type']) ? $triggering_element['#button_type'] : '';
-    if (!$recalculate && $button_type == 'primary' && empty($shipment_indexes)) {
-      // The checkout step was submitted without shipping being calculated.
-      // Force the recalculation now and reload the page.
-      $recalculate = TRUE;
-      drupal_set_message($this->t('Please select a shipping method.'), 'error');
+    $radio_type = isset($triggering_element['#type']) ? $triggering_element['#type'] : '';
+
+    if ($radio_type == 'radio' && ($triggering_element['#value'] == 'pick_up' || $triggering_element['#value'] == 'delivery')) {
       $form_state->setRebuild(TRUE);
+      return;
     }
 
-    if ($recalculate) {
-      $form_state->set('recalculate_shipping', TRUE);
-      // The profile in form state needs to reflect the submitted values, since
-      // it will be passed to the packers when the form is rebuilt.
-      $form_state->set('shipping_profile', $pane_form['shipping_profile']['#profile']);
+    $delivery_option = $form_state->getValue(['fleur_shipping_information', 'delivery_options'], '');
+
+    if ($delivery_option != 'pick_up') {
+      parent::validatePaneForm($pane_form, $form_state, $complete_form);
     }
 
-    foreach ($shipment_indexes as $index) {
-      $shipment = clone $pane_form['shipments'][$index]['#shipment'];
-      $form_display = EntityFormDisplay::collectRenderDisplay($shipment, 'default');
-      $form_display->removeComponent('shipping_profile');
-      $form_display->removeComponent('title');
-      $form_display->extractFormValues($shipment, $pane_form['shipments'][$index], $form_state);
-      $form_display->validateFormValues($shipment, $pane_form['shipments'][$index], $form_state);
-    }
   }
 
   /**
    * {@inheritdoc}
    */
   public function submitPaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
-    // Save the modified shipments.
-    $shipments = [];
-    foreach (Element::children($pane_form['shipments']) as $index) {
-      /** @var \Drupal\commerce_shipping\Entity\ShipmentInterface $shipment */
-      $shipment = clone $pane_form['shipments'][$index]['#shipment'];
-      $form_display = EntityFormDisplay::collectRenderDisplay($shipment, 'default');
-      $form_display->removeComponent('shipping_profile');
-      $form_display->removeComponent('title');
-      $form_display->extractFormValues($shipment, $pane_form['shipments'][$index], $form_state);
-      $shipment->setShippingProfile($pane_form['shipping_profile']['#profile']);
-      $shipment->save();
-      $shipments[] = $shipment;
-    }
-    $this->order->shipments = $shipments;
 
-    // Delete shipments that are no longer in use.
-    $removed_shipment_ids = $pane_form['removed_shipments']['#value'];
-    if (!empty($removed_shipment_ids)) {
+    $delivery_option = $form_state->getValue(['fleur_shipping_information', 'delivery_options'], '');
+
+    if ($delivery_option == 'pick_up') {
       $shipment_storage = $this->entityTypeManager->getStorage('commerce_shipment');
-      $removed_shipments = $shipment_storage->loadMultiple($removed_shipment_ids);
-      $shipment_storage->delete($removed_shipments);
+      $shipment_storage->delete($this->order->shipments->referencedEntities());
+
+      $this->order->shipments = [];
+    }
+    else {
+      parent::submitPaneForm($pane_form, $form_state, $complete_form);
     }
   }
 
