@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.profile.customer.address
     - field.field.profile.customer.field_address_type
+    - field.field.profile.customer.field_email
     - field.field.profile.customer.field_telephone
     - profile.type.customer
   enforced:
@@ -35,11 +36,21 @@ content:
     third_party_settings: {  }
     type: list_default
     region: content
-  field_telephone:
+  field_email:
     weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_telephone:
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: InternationalPhoneDefaultFormatter
     region: content
-hidden: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

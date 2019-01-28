@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.profile.customer.address
     - field.field.profile.customer.field_address_type
+    - field.field.profile.customer.field_email
     - field.field.profile.customer.field_telephone
     - profile.type.customer
   enforced:
@@ -32,6 +33,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_email:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
     region: content
   field_telephone:
     weight: 2
