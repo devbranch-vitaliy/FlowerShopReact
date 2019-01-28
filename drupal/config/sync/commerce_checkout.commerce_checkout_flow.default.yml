@@ -28,23 +28,20 @@ configuration:
       require_shipping_profile: false
       step: order_information
       weight: 2
-    fleur_add_specials:
-      step: _disabled
-      weight: 11
     payment_information:
       step: order_information
       weight: 3
-    fleur_commerce_checkout_confirmation_checkbox:
-      step: review
-      weight: 6
-      confirmation_checkbox_title: 'I accept site terms and conditions'
-      confirmation_checkbox_validation_message: 'Please accept site terms and conditions'
     review:
       step: review
       weight: 4
     fleur_order_message:
       step: review
       weight: 5
+    fleur_commerce_checkout_confirmation_checkbox:
+      step: review
+      weight: 6
+      confirmation_checkbox_title: 'I accept site terms and conditions'
+      confirmation_checkbox_validation_message: 'Please accept site terms and conditions'
     payment_process:
       capture: true
       step: payment
