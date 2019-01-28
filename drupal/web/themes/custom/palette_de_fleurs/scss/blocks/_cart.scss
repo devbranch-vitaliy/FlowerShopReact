@@ -39,6 +39,33 @@
     padding-right: 0;
   }
 
+  img.img-responsive {
+    max-width: unset;
+  }
+
+  .views-field-nothing {
+    .cart--button-remove {
+      @include Label-Small;
+
+      button {
+        padding: 16px 0 0;
+        background-color: transparent;
+        border: unset;
+        color: $brownish-orange;
+      }
+
+      span {
+        margin: auto;
+        @include fleur-font(icon-16-delete-primary);
+
+        &:before {
+          font-size: 16px;
+        }
+      }
+
+    }
+  }
+
   .views-field-nothing-2 {
     text-align: right;
   }
@@ -51,6 +78,7 @@
     }
 
     input[type='number'] {
+      display: inline-block;
       -moz-appearance: textfield;
       height: 40px;
       width: 40px;
@@ -144,6 +172,110 @@
 @media #{$mobile} {
   .cart-form {
     margin-top: 24px;
+
+    .table-responsive {
+      border: none;
+      margin-bottom: 16px;
+    }
+
+    table {
+      margin-bottom: 40px;
+      border: none;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+
+      tr {
+        border-top: 1px solid $black;
+        border-bottom: 1px solid $black;
+      }
+
+      tr:hover {
+        background-color: transparent;
+      }
+
+      tr > td {
+        display: block;
+        border: none;
+      }
+    }
+
+    .views-field-nothing {
+      float: left;
+      width: 100%;
+
+      .product--field-image {
+        float: left;
+      }
+
+      .cart-description {
+        padding-left: 136px;
+        white-space: normal;
+      }
+    }
+
+    .views-field-nothing-1, .views-field-nothing-2, .views-field-edit-quantity {
+      float: left;
+      width: 33.33333%;
+      background-color: $gray-lighter;
+      margin-bottom: 16px;
+    }
+
+    .js-form-type-number {
+      display: table;
+      margin: auto;
+    }
+
+    .views-field-nothing-1 {
+      padding-left: 16px !important;
+    }
+
+    .views-field-edit-quantity {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .views-field-nothing-2 {
+      padding-right: 16px !important;
+    }
+
+    .form-actions {
+      height: 94px;
+      margin-top: 16px;
+      float: unset;
+
+      &:after {
+        content: '';
+        border: 2.5px solid #000000;
+        position: absolute;
+        bottom: 9px;
+        border-radius: 100px;
+        left: 35%;
+        width: 30%;
+      }
+    }
+
+    .form-actions button {
+      padding: 13px 8px;
+
+      &.btn-info, &.btn-default {
+        margin: auto;
+        width: 47%;
+      }
+
+      &.btn-info {
+        float: left;
+      }
+
+      &.btn-default {
+        float: right;
+      }
+    }
+
   }
 }
 
@@ -151,8 +283,12 @@
   .cart-form {
     margin-top: 80px;
 
+    table {
+      margin-bottom: 40px;
+    }
+
     tbody tr > td {
-      height: 120px;
+      height: 152px;
     }
 
     .cell-title {
@@ -182,39 +318,14 @@
         padding-left: 24px;
       }
 
-      .cart--button-remove {
-        @include Label-Small;
-
-        button {
-          padding: 16px 0 0;
-          background-color: transparent;
-          border: unset;
-          color: $brownish-orange;
-        }
-
-        span {
-          margin: auto;
-          @include fleur-font(icon-16-delete-primary);
-
-          &:before {
-            font-size: 16px;
-          }
-        }
-
-      }
     }
 
     .views-field-nothing-1, .views-field-nothing-2, .views-field-edit-quantity {
       width: 140px;
     }
 
-    .views-field-nothing-1 {
-    }
-
-    .views-field-edit-quantity {
-    }
-
-    .views-field-nothing-2 {
+    .order-total-line {
+      padding: 0;
     }
   }
 }

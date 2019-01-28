@@ -108,7 +108,7 @@
   src: url("../fonts/FleurIcons/FleurIcons.eot");
   src: url("../fonts/FleurIcons/FleurIcons.eot?#iefix") format("eot"), url("../fonts/FleurIcons/FleurIcons.woff") format("woff"), url("../fonts/FleurIcons/FleurIcons.ttf") format("truetype"), url("../fonts/FleurIcons/FleurIcons.svg#FleurIcons") format("svg"); }
 
-.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before, #drupal-modal--header button.ui-dialog-titlebar-close:before, .button--add-to-cart:before, .button--add-to-cart:hover:before, .mobile-filter-container span:before, .mobile-filter-container span.icon-up:before, ol.breadcrumb > li:before, .fleur-add-extras button:before, .pager-links .previous-link:before, .pager-links .next-link:before, .cart-form .js-form-type-number .quantity-down:before, .cart-form .js-form-type-number .quantity-up:before, .cart-form .form-actions button.btn-info:before, .cart-form .form-actions button.btn-default:before, .cart-form .views-field-nothing .cart--button-remove span:before, .customers-reviews .slick-dots li:before, .customers-reviews .slick-dots li.slick-active:before, .view-display-id-faq_list .question .views-field-field-question:before, .view-display-id-faq_list .question .views-field-field-question.icon-up:before, .path-news .read-more:before {
+.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before, #drupal-modal--header button.ui-dialog-titlebar-close:before, .button--add-to-cart:before, .button--add-to-cart:hover:before, .mobile-filter-container span:before, .mobile-filter-container span.icon-up:before, ol.breadcrumb > li:before, .fleur-add-extras button:before, .pager-links .previous-link:before, .pager-links .next-link:before, .cart-form .views-field-nothing .cart--button-remove span:before, .cart-form .js-form-type-number .quantity-down:before, .cart-form .js-form-type-number .quantity-up:before, .cart-form .form-actions button.btn-info:before, .cart-form .form-actions button.btn-default:before, .customers-reviews .slick-dots li:before, .customers-reviews .slick-dots li.slick-active:before, .view-display-id-faq_list .question .views-field-field-question:before, .view-display-id-faq_list .question .views-field-field-question.icon-up:before, .path-news .read-more:before {
   font-family: "FleurIcons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8205,7 +8205,7 @@ ol.breadcrumb {
     color: #d2652a;
     border: 2px solid #d2652a;
     margin-right: 24px;
-    width: 323px; }
+    width: 340px; }
   .fleur-add-extras button.btn-primary {
     margin-right: auto;
     width: 196px; }
@@ -8306,6 +8306,26 @@ ol.breadcrumb {
 .cart-form th:last-child, .cart-form td:last-child {
   padding-right: 0; }
 
+.cart-form img.img-responsive {
+  max-width: unset; }
+
+.cart-form .views-field-nothing .cart--button-remove {
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1; }
+  .cart-form .views-field-nothing .cart--button-remove button {
+    padding: 16px 0 0;
+    background-color: transparent;
+    border: unset;
+    color: #d2652a; }
+  .cart-form .views-field-nothing .cart--button-remove span {
+    margin: auto; }
+    .cart-form .views-field-nothing .cart--button-remove span:before {
+      content: ""; }
+    .cart-form .views-field-nothing .cart--button-remove span:before {
+      font-size: 16px; }
+
 .cart-form .views-field-nothing-2 {
   text-align: right; }
 
@@ -8315,6 +8335,7 @@ ol.breadcrumb {
   margin: 0; }
 
 .cart-form .js-form-type-number input[type='number'] {
+  display: inline-block;
   -moz-appearance: textfield;
   height: 40px;
   width: 40px;
@@ -8393,13 +8414,75 @@ ol.breadcrumb {
 
 @media screen and (max-width: 767px) {
   .cart-form {
-    margin-top: 24px; } }
+    margin-top: 24px; }
+    .cart-form .table-responsive {
+      border: none;
+      margin-bottom: 16px; }
+    .cart-form table {
+      margin-bottom: 40px;
+      border: none; }
+    .cart-form thead {
+      display: none; }
+    .cart-form tbody tr {
+      border-top: 1px solid #191919;
+      border-bottom: 1px solid #191919; }
+    .cart-form tbody tr:hover {
+      background-color: transparent; }
+    .cart-form tbody tr > td {
+      display: block;
+      border: none; }
+    .cart-form .views-field-nothing {
+      float: left;
+      width: 100%; }
+      .cart-form .views-field-nothing .product--field-image {
+        float: left; }
+      .cart-form .views-field-nothing .cart-description {
+        padding-left: 136px;
+        white-space: normal; }
+    .cart-form .views-field-nothing-1, .cart-form .views-field-nothing-2, .cart-form .views-field-edit-quantity {
+      float: left;
+      width: 33.33333%;
+      background-color: #f5f7f9;
+      margin-bottom: 16px; }
+    .cart-form .js-form-type-number {
+      display: table;
+      margin: auto; }
+    .cart-form .views-field-nothing-1 {
+      padding-left: 16px !important; }
+    .cart-form .views-field-edit-quantity {
+      padding-left: 0 !important;
+      padding-right: 0 !important; }
+    .cart-form .views-field-nothing-2 {
+      padding-right: 16px !important; }
+    .cart-form .form-actions {
+      height: 94px;
+      margin-top: 16px;
+      float: unset; }
+      .cart-form .form-actions:after {
+        content: '';
+        border: 2.5px solid #000000;
+        position: absolute;
+        bottom: 9px;
+        border-radius: 100px;
+        left: 35%;
+        width: 30%; }
+    .cart-form .form-actions button {
+      padding: 13px 8px; }
+      .cart-form .form-actions button.btn-info, .cart-form .form-actions button.btn-default {
+        margin: auto;
+        width: 47%; }
+      .cart-form .form-actions button.btn-info {
+        float: left; }
+      .cart-form .form-actions button.btn-default {
+        float: right; } }
 
 @media screen and (min-width: 768px) {
   .cart-form {
     margin-top: 80px; }
+    .cart-form table {
+      margin-bottom: 40px; }
     .cart-form tbody tr > td {
-      height: 120px; }
+      height: 152px; }
     .cart-form .cell-title {
       display: none; }
     .cart-form .cell-value {
@@ -8414,24 +8497,10 @@ ol.breadcrumb {
       float: left; }
     .cart-form .views-field-nothing .cart-description {
       padding-left: 24px; }
-    .cart-form .views-field-nothing .cart--button-remove {
-      font-family: SourceSansPro;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1; }
-      .cart-form .views-field-nothing .cart--button-remove button {
-        padding: 16px 0 0;
-        background-color: transparent;
-        border: unset;
-        color: #d2652a; }
-      .cart-form .views-field-nothing .cart--button-remove span {
-        margin: auto; }
-        .cart-form .views-field-nothing .cart--button-remove span:before {
-          content: ""; }
-        .cart-form .views-field-nothing .cart--button-remove span:before {
-          font-size: 16px; }
     .cart-form .views-field-nothing-1, .cart-form .views-field-nothing-2, .cart-form .views-field-edit-quantity {
-      width: 140px; } }
+      width: 140px; }
+    .cart-form .order-total-line {
+      padding: 0; } }
 
 .cta-banner {
   height: 600px; }
@@ -9505,3 +9574,16 @@ ol.breadcrumb {
     font-family: SourceSansPro;
     font-size: 24px;
     line-height: 1.42; } }
+
+.path-cart .main-container .row {
+  margin: auto; }
+  @media screen and (max-width: 767px) {
+    .path-cart .main-container .row {
+      padding: 0 8px;
+      width: 100%; } }
+  @media screen and (min-width: 768px) {
+    .path-cart .main-container .row {
+      width: 100%; } }
+  @media screen and (min-width: 992px) {
+    .path-cart .main-container .row {
+      width: 80%; } }
