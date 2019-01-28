@@ -1,12 +1,9 @@
-uuid: 124c7cce-e60f-4b3e-b45d-162240cba838
+uuid: da239a8f-3714-4ce3-8063-3179de28f6e9
 langcode: en
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_variation_type.default
-    - views.view.checkout_order_summary_container
-    - views.view.checkout_order_summary_delivery
-    - views.view.checkout_order_summary_specials
+    - commerce_product.commerce_product_variation_type.extras_selection
   enforced:
     module:
       - commerce_checkout
@@ -18,8 +15,8 @@ dependencies:
     - commerce_product
 _core:
   default_config_hash: ZMm_Yy4aujhFs_1hZAQ9maM_nBGEiODMRbCA9eHZUKc
-id: commerce_checkout_order_summary
-label: 'Checkout Order Summary'
+id: checkout_order_summary_specials
+label: 'Checkout Order Summary - specials'
 module: views
 description: ''
 tag: commerce_order_summary
@@ -69,13 +66,37 @@ display:
           default_row_class: true
           override: true
           sticky: false
-          caption: ''
+          caption: 'Specials:'
           summary: ''
           description: ''
           columns:
-            order_number: order_number
+            purchased_entity: purchased_entity
+            quantity: quantity
+            total_price__number: total_price__number
+            nothing: nothing
           info:
-            order_number:
+            purchased_entity:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            quantity:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            total_price__number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -350,7 +371,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            default: default
+            extras_selection: extras_selection
           group: 1
           exposed: false
           expose:
@@ -398,49 +419,7 @@ display:
           entity_field: order_item_id
           plugin_id: standard
       header: {  }
-      footer:
-        view:
-          id: view
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: Container
-          empty: true
-          view_to_insert: 'checkout_order_summary_container:default'
-          inherit_arguments: true
-          plugin_id: view
-        view_1:
-          id: view_1
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: Specials
-          empty: false
-          view_to_insert: 'checkout_order_summary_specials:default'
-          inherit_arguments: true
-          plugin_id: view
-        view_2:
-          id: view_2
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: Delivery
-          empty: false
-          view_to_insert: 'checkout_order_summary_delivery:default'
-          inherit_arguments: true
-          plugin_id: view
-        commerce_order_total:
-          id: commerce_order_total
-          table: views
-          field: commerce_order_total
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          plugin_id: commerce_order_total
+      footer: {  }
       empty: {  }
       relationships:
         order_items:
@@ -501,6 +480,7 @@ display:
           entity_field: order_id
           plugin_id: numeric
       display_extenders: {  }
+      title: ''
     cache_metadata:
       max-age: -1
       contexts:
