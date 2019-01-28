@@ -1,20 +1,20 @@
-uuid: bbb89657-06b5-40e5-ad4f-40a2ca150ce4
+uuid: 16c3c719-a79e-40a9-853f-5df87d2c96a7
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.default
-    - field.storage.commerce_product.field_images
+    - field.storage.commerce_product.field_image
   module:
     - image
-id: commerce_product.default.field_images
-field_name: field_images
+id: commerce_product.default.field_image
+field_name: field_image
 entity_type: commerce_product
 bundle: default
-label: Images
+label: Image
 description: ''
-required: false
-translatable: false
+required: true
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

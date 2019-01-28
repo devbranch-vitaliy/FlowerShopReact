@@ -8,7 +8,7 @@ dependencies:
     - field.field.commerce_product.default.field_characteristics
     - field.field.commerce_product.default.field_colors
     - field.field.commerce_product.default.field_fragnanced
-    - field.field.commerce_product.default.field_images
+    - field.field.commerce_product.default.field_image
     - field.field.commerce_product.default.field_occasion
     - field.field.commerce_product.default.field_type_of_flowers
     - field.field.commerce_product.default.stores
@@ -61,7 +61,7 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_images:
+  field_image:
     weight: 2
     settings:
       progress_indicator: throbber

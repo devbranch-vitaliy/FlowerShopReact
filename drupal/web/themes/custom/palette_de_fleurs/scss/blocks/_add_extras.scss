@@ -75,12 +75,17 @@
       color: $brownish-orange;
       border: 2px solid $brownish-orange;
       margin-right: 24px;
-      width: 323px;
+      width: 340px;
     }
 
     &.btn-primary {
       margin-right: auto;
       width: 196px;
+
+      &:hover {
+        background-color: $link-hover-color;
+        border-color: $link-hover-color;
+      }
     }
 
     &:before {

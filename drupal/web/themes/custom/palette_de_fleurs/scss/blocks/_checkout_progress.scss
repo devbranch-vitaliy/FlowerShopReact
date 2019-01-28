@@ -94,13 +94,13 @@
   }
 }
 
-@media #{$normal} {
+@media #{$wide} {
   .checkout-header {
     .steps {
       top: 4px;
 
       .step {
-        margin-right: 12px;
+        margin-right: 20px;
       }
 
       .step > div {
@@ -110,16 +110,6 @@
       .step-numder {
         margin-bottom: 0;
         margin-right: 8px;
-      }
-    }
-  }
-}
-
-@media #{$wide} {
-  .checkout-header {
-    .steps {
-      .step {
-        margin-right: 20px;
       }
     }
   }

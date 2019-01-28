@@ -158,6 +158,15 @@ function palette_de_fleurs_preprocess_page__extras(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function palette_de_fleurs_preprocess_page__cart(&$variables) {
+  $variables['title'] = t('Shopping cart');
+  $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(2);
+  $variables['#attached']['library'][] =  'palette_de_fleurs/quantity-field';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function palette_de_fleurs_preprocess_views_view__news__news(&$variables) {
   $variables['title'] = $variables['view']->getTitle();
 }
