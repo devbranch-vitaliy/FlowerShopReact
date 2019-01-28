@@ -8116,20 +8116,16 @@ ol.breadcrumb {
     .checkout-header .steps .step-numder, .checkout-header .steps .step-title {
       margin: 0 auto 8px; } }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .checkout-header .steps {
     top: 4px; }
     .checkout-header .steps .step {
-      margin-right: 12px; }
+      margin-right: 20px; }
     .checkout-header .steps .step > div {
       display: inline-block; }
     .checkout-header .steps .step-numder {
       margin-bottom: 0;
       margin-right: 8px; } }
-
-@media screen and (min-width: 1200px) {
-  .checkout-header .steps .step {
-    margin-right: 20px; } }
 
 .fleur-add-extras h1 {
   margin-bottom: 20px; }
