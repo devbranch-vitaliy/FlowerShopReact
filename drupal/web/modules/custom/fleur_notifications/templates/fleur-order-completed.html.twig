@@ -27,7 +27,11 @@
         <tbody>
         <tr>
           <td style="font-weight: bold; padding-top:15px; padding-bottom: 15px; text-align: left; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc">
-            {{ 'Your order #@number was successfully delivered.'|t({'@number': order_entity.id}) }}
+            {% if address %}
+              {{ 'Your order #@number was successfully delivered.'|t({'@number': order_entity.id}) }}
+            {% else %}
+              {{ 'Your order #@number is complete.'|t({'@number': order_entity.id}) }}
+            {% endif %}
           </td>
         </tr>
         <tr>
