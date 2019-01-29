@@ -48,15 +48,19 @@ configuration:
       step: complete
       weight: 8
     order_summary:
-      view: commerce_checkout_order_summary
-      step: _sidebar
-      weight: 9
+      view: ''
+      step: _disabled
+      weight: 10
     login:
       allow_guest_checkout: true
       allow_registration: false
       step: _disabled
-      weight: 10
+      weight: 11
+    fleur_order_summary:
+      view: ''
+      step: _sidebar
+      weight: 9
     shipping_information:
       require_shipping_profile: true
       step: _disabled
-      weight: 11
+      weight: 12
