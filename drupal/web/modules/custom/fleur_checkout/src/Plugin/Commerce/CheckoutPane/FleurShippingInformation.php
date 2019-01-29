@@ -50,14 +50,12 @@ class FleurShippingInformation extends ShippingInformation {
     $pane_form['#suffix'] = '</div>';
 
     $user_input = $form_state->getUserInput();
-    $default_delivery_option = 'delivery';
-    if (isset($user_input['fleur_shipping_information'])
-      && isset($user_input['fleur_shipping_information']['delivery_options'])) {
+    if (isset($user_input['fleur_shipping_information']['delivery_options'])) {
       $default_delivery_option = $user_input['fleur_shipping_information']['delivery_options'];
     }
-//    else {
-//      $default_delivery_option = ($this->order->shipments->referencedEntities()) ? 'delivery' : 'pick_up';
-//    }
+    else {
+      $default_delivery_option = ($this->order->shipments->referencedEntities()) ? 'delivery' : 'pick_up';
+    }
 
     $pane_form['delivery_options'] = [
       '#type' => 'radios',
