@@ -190,6 +190,23 @@ function palette_de_fleurs_preprocess_page__checkout__order_information(&$variab
   $variables['#attached']['library'][] =  'palette_de_fleurs/order-information';
 }
 
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_container(&$variables) {
+  if (isset($variables['element']['#id'])
+    && (strpos($variables['element']['#id'], 'edit-fleur-shipping-information-shipping-profile') !== false
+    || strpos($variables['element']['#id'], 'edit-payment-information-billing-information') !== false)) {
+
+    if (isset($variables['children'])) {
+      $new_children = str_replace(t('Company'), t('Name of business'), $variables['children']->jsonSerialize());
+      $new_children = str_replace(t('Postal code'), t('ZIP code'), $new_children);
+      $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
+    }
+  }
+}
+
 /**
  * Add markup element with wrapper.
  *
