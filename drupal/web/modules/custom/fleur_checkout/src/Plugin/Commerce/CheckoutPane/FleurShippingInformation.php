@@ -130,6 +130,11 @@ class FleurShippingInformation extends ShippingInformation {
       $form_display->removeComponent('title');
       $form_display->buildForm($shipment, $pane_form['shipments'][$index], $form_state);
       $pane_form['shipments'][$index]['#shipment'] = $shipment;
+
+      // Change shipping method label.
+      if (isset($pane_form['shipments'][$index]['shipping_method'])) {
+        $pane_form['shipments'][$index]['shipping_method']['widget'][0]['#title'] = $this->t('Delivery time');
+      }
     }
 
     return $pane_form;

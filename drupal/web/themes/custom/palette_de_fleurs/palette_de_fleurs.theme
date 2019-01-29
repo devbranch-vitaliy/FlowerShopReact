@@ -202,6 +202,8 @@ function palette_de_fleurs_preprocess_container(&$variables) {
     if (isset($variables['children'])) {
       $new_children = str_replace(t('Company'), t('Name of business'), $variables['children']->jsonSerialize());
       $new_children = str_replace(t('Postal code'), t('ZIP code'), $new_children);
+      $new_children = str_replace(t('Street address'), t('Street'), $new_children);
+      $new_children = str_replace(t('Street line 2'), t('Number'), $new_children);
       $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
     }
   }
@@ -248,5 +250,5 @@ function palette_de_fleurs_preprocess_bootstrap_panel__fleur_shipping_informatio
 function palette_de_fleurs_preprocess_bootstrap_panel__payment_information(&$variables) {
   $variables['heading'] = t('Your details');
 
-  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Your address ', ['additional_label', 'label-to-whom']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Your address ', ['additional_label', 'label-where']);
 }

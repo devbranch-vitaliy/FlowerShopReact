@@ -47,7 +47,7 @@
               {% else %}
                 <td class="item-title">{{- order_item.label -}}</td>
               {% endif %}
-              <td>
+              <td class="item-data">
                 {% if order_item.getQuantity | striptags != 1 %}
                   <div class="item-quantity">
                     {{ order_item.getQuantity|number_format }}&nbsp;x
