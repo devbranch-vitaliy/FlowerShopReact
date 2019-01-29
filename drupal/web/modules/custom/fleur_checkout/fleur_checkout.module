@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Provides configurable checkout flows.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function fleur_checkout_theme() {
+  $theme = [
+    'fleur_checkout_order_summary' => [
+      'variables' => [
+        'order_entity' => NULL,
+        'order_items_by_type' => [],
+        'type_names' => [],
+        'shipments' => [],
+        'checkout_step' => '',
+      ],
+    ],
+  ];
+
+  return $theme;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function fleur_checkout_preprocess_fleur_checkout_order_summary(&$variables) {
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+  $order = $variables['order_entity'];
+  /** @var \Drupal\commerce_order\OrderTotalSummaryInterface $order_total_summary */
+  $order_total_summary = \Drupal::service('commerce_order.order_total_summary');
+  $variables['totals'] = $order_total_summary->buildTotals($order);
+  $variables['rendered_totals'] = [
+    '#theme' => 'commerce_order_total_summary',
+    '#totals' => $variables['totals'],
+  ];
+}
