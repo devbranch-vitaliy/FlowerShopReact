@@ -49,6 +49,15 @@
 %}
 <div{{ attributes.addClass(classes) }}>
 
+  {# Additional labels #}
+  {% if additional_labels %}
+    <div class="panel-labels hidden">
+      {% for label in additional_labels %}
+        {{ label }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
   {# Heading #}
   {% if heading %}
     {% block heading %}

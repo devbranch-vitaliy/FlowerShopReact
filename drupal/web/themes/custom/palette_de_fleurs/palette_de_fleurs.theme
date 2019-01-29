@@ -191,10 +191,38 @@ function palette_de_fleurs_preprocess_page__checkout__order_information(&$variab
 }
 
 /**
+ * Add markup element with wrapper.
+ *
+ * @param string $markup_text
+ *   A text of markup.
+ * @param array $classes
+ *   Array with classes.
+ *
+ * @return array
+ *   The form element.
+ */
+function palette_de_fleurs_add_markup($markup_text, array $classes) {
+ return [
+   '#type' => 'container',
+   'label' => [
+     '#type' => 'markup',
+     '#markup' => t($markup_text),
+   ],
+   '#attributes' => [
+     'class' => $classes,
+   ]
+ ];
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  */
 function palette_de_fleurs_preprocess_bootstrap_panel__fleur_shipping_information(&$variables) {
   $variables['heading'] = t('Delivery');
+
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('To whom it should be delivered?', ['additional_label', 'label-to-whom']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Where it will be delivered?', ['additional_label', 'label-where']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('When do you want it delivered?', ['additional_label', 'label-when']);
 }
 
 /**
@@ -202,5 +230,6 @@ function palette_de_fleurs_preprocess_bootstrap_panel__fleur_shipping_informatio
  */
 function palette_de_fleurs_preprocess_bootstrap_panel__payment_information(&$variables) {
   $variables['heading'] = t('Your details');
-}
 
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Your address ', ['additional_label', 'label-to-whom']);
+}
