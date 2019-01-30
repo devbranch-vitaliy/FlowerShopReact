@@ -24,10 +24,12 @@
         $icon.insertAfter($textInput);
 
         var defaultDate = $dateInput.val() ? new Date($dateInput.val()) : undefined;
+        var currentDate = new Date();
+        currentDate.setHours(0,0,0,0);
         $textInput.datetimepicker({
           format: 'L',
           // Current date.
-          minDate: new Date(),
+          minDate: currentDate,
           showClose: true,
           date: defaultDate,
         });
