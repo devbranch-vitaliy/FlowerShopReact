@@ -25,16 +25,30 @@
                 $('.label-when', $container).insertBefore($('div[data-drupal-selector="edit-fleur-shipping-information-shipments"]'));
 
                 // Address.
-                $('.form-type-textfield', $address).addClass('col-sm-6').parent().addClass('row');
-                $('input.locality', $address).parent().insertAfter($('input.organization', $address).parent());
-                $('input.address-line2', $address).parent().find('.control-label').removeClass('sr-only');
-                $('div[class*="-country-code"]', $address).parent().addClass('col-sm-6').insertBefore($('input.locality', $address).parent());
+                $('.form-type-textfield', $address)
+                    .addClass('col-sm-6')
+                    .parent()
+                    .addClass('row');
+                $('input.locality', $address)
+                    .parent()
+                    .insertAfter($('input.organization', $address).parent());
+                $('input.address-line2', $address)
+                    .parent()
+                    .find('.control-label')
+                    .removeClass('sr-only');
+                $('div[class*="-country-code"]', $address)
+                    .parent()
+                    .addClass('col-sm-6')
+                    .insertBefore($('input.locality', $address).parent());
             });
 
             // Order summary.
             $('.layout-region-checkout-secondary', context).once().each(function () {
                 var $summary = $(this).addClass('fleur-order-summary').addClass('hidden-xs').clone();
-                $summary.removeClass().addClass('fleur-order-summary').addClass('visible-xs').prependTo($('.layout-region-checkout-main', context));
+                $summary.removeClass()
+                    .addClass('fleur-order-summary')
+                    .addClass('visible-xs')
+                    .prependTo($('.layout-region-checkout-main', context));
             })
         }
     }
