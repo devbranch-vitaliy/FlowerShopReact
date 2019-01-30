@@ -3,7 +3,7 @@
  * JS code for Order information page.
  */
 
-(function ($, Drupal) {
+(function ($, Drupal, window) {
     Drupal.behaviors.fleurOrderInformation = {
         attach: function (context, settings) {
 
@@ -49,7 +49,37 @@
                     .addClass('fleur-order-summary')
                     .addClass('visible-xs')
                     .prependTo($('.layout-region-checkout-main', context));
-            })
+            });
+
+            // Change Email.
+            $('.checkout-pane-payment-information input[type="email"]', context).once('payment-email').change(function () {
+                $('.checkout-pane-contact-information input[type="email"]').val($(this).val());
+            });
+
+            // Accordion panel.
+            $('.panel-heading', context).once('panel-accordion').click(function () {
+                var $this = $(this);
+                $this.next().slideToggle(350).toggleClass('show');
+                $this.toggleClass('icon-up');
+            });
+
+            // Auto open of the panel.
+            var open_panel = function () {
+                $('.panel-heading', context).each(function () {
+                    var $this = $(this);
+                    var positionFromTop = $this.position().top;
+                    var windowScrollPosition = Math.round(window.scrollY) + Math.round($(window).height() / 2);
+                    console.log(positionFromTop);
+                    console.log(windowScrollPosition);
+                    if (windowScrollPosition > positionFromTop) {
+                        $this.next().once('panel-open').slideToggle(350).addClass('show');
+                        $this.addClass('icon-up');
+                    }
+                });
+            };
+
+            open_panel();
+            $(window).once('panel-open-on-scroll').scroll(open_panel);
         }
     }
-})(jQuery, Drupal);
+})(jQuery, Drupal, window);

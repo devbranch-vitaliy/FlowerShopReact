@@ -33,7 +33,9 @@ function palette_de_fleurs_theme_suggestions_page_alter(array &$suggestions, arr
  */
 function palette_de_fleurs_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
 
-  if (in_array('bootstrap_panel', $suggestions) && $variables['element']['#theme'] == 'commerce_checkout_pane') {
+  if (in_array('bootstrap_panel', $suggestions)
+    && isset($variables['element']['#theme'])
+    && $variables['element']['#theme'] == 'commerce_checkout_pane') {
     $suggestions[] = 'bootstrap_panel__' . $variables['element']['#pane_id'];
   }
 }

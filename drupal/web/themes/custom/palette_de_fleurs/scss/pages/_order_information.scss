@@ -24,8 +24,8 @@
     cursor: pointer;
     @include fleur-font(icon-24-chevron-down-primary);
 
-    &.active {
-      @include fleur-font(icon-24-chevron-up-primary);
+    &.icon-up {
+      @include fleur-font(icon-16-chevron-up-primary);
     }
 
     &:before {
@@ -39,6 +39,14 @@
     .panel-title {
       padding: 0 0 8px;
       border-bottom: 1px solid $black;
+    }
+  }
+
+  .panel-body {
+    display: none;
+
+    &.show {
+      display: block;
     }
   }
 
