@@ -55,3 +55,21 @@ google-map:
   dependencies:
     - core/jquery
     - core/drupalSettings
+
+moment-js:
+  js:
+    js/moment.min.js: {}
+
+bootstrap-datepicker:
+  js:
+    js/bootstrap-datetimepicker.min.js: {}
+  dependencies:
+    - core/jquery
+    - palette_de_fleurs/moment-js
+    - palette_de_fleurs/bootstrap-scripts
+
+fleur-datepicker:
+  js:
+    js/fleur-datepicker.js: {}
+  dependencies:
+    - palette_de_fleurs/bootstrap-datepicker
