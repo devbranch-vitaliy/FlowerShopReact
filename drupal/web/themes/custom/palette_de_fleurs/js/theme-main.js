@@ -127,4 +127,40 @@
     }
   };
 
+  Drupal.behaviors.fleurInput = {
+    attach: function (context, settings) {
+      // Add class to the parent of input.
+      $('input', context).once('add_icon').each(function (e) {
+        var $this = $(this);
+
+        var checked = function ($element) {
+          if ($element.is(':checked')) {
+            $element.parent().addClass('checked');
+          }
+          else {
+            $element.parent().removeClass('checked');
+          }
+        };
+
+        if ($this.attr('type') == "radio") {
+          $this.parent().addClass('input-radio');
+          checked($this);
+          $this.once('change-radio-checked').on('change', function () {
+            $('.input-radio', $this.parent().parent().parent()).removeClass('checked');
+            checked($this);
+          });
+
+        }
+
+        if ($this.attr('type') == "checkbox") {
+          $this.parent().addClass('input-checkbox');
+          checked($this);
+          $this.once('change-checkbox-checked').on('change', function () {
+            checked($this);
+          });
+        }
+      });
+    }
+  };
+
 })(jQuery, Drupal, window);
