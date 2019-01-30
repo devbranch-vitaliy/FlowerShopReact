@@ -101,3 +101,13 @@
     }
   }
 }
+
+legend {
+  @include Label-Big;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: $line-height-computed;
+  color: $legend-color;
+  border: 0;
+}

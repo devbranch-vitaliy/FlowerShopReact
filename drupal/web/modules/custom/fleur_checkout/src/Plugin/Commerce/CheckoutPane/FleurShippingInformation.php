@@ -86,6 +86,9 @@ class FleurShippingInformation extends ShippingInformation {
       '#type' => 'button',
       '#value' => $this->t('Recalculate shipping'),
       '#recalculate' => TRUE,
+      '#attributes' => [
+        'class' => ['fleur-shipping-information-recalculate-shipping'],
+      ],
       '#ajax' => [
         'callback' => [get_class($this), 'ajaxRefresh'],
         'wrapper' => $pane_form['#wrapper_id'],
