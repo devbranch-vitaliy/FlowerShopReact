@@ -92,6 +92,10 @@
       float: right;
     }
   }
+
+  .input-radio.checked:after {
+    top: 22px;
+  }
 }
 
 @media #{$mobile} {
