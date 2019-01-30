@@ -99,7 +99,16 @@
 
 {# Main #}
 {% block main %}
-  <div role="main" class="main-container {{ is_front ? 'container-fluid' : container }} js-quickedit-main-content">
+  {% set content_wrapper_attributes = create_attribute() %}
+  {%
+    set content_wrapper_classes = [
+    'main-container',
+    is_front ? 'container-fluid' : container,
+    checkout_classes ? checkout_classes|clean_class,
+    'js-quickedit-main-content',
+  ]
+  %}
+  <div role="main" {{ content_wrapper_attributes.addClass(content_wrapper_classes) }}>
     <div class="row">
 
       {# Header #}
