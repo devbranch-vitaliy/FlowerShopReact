@@ -72,8 +72,12 @@
                     console.log(positionFromTop);
                     console.log(windowScrollPosition);
                     if (windowScrollPosition > positionFromTop) {
-                        $this.next().once('panel-open').slideToggle(350).addClass('show');
-                        $this.addClass('icon-up');
+                        $this
+                            .once('panel-open')
+                            .addClass('icon-up')
+                            .next()
+                            .slideToggle(350)
+                            .addClass('show');
                     }
                 });
             };

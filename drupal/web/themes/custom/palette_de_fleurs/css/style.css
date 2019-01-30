@@ -8794,7 +8794,7 @@ ol.breadcrumb {
     border-bottom: 1px solid #191919; }
     .fleur-order-summary table tr {
       vertical-align: top; }
-    .fleur-order-summary table tr.order-items td {
+    .fleur-order-summary table tr.order-items td, .fleur-order-summary table tr.order-shipment td {
       padding-bottom: 24px; }
     .fleur-order-summary table tr.product-type td {
       padding-bottom: 8px; }
