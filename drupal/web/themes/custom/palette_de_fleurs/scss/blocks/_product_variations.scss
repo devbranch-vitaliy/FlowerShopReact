@@ -80,8 +80,8 @@
   legend {
     margin-bottom: 16px;
   }
-  label:after, legend span:after {
-    content: unset;
+  label:after, label:before, legend span:after {
+    content: unset !important;
   }
 
   .glyphicon-spin {

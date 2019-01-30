@@ -7866,8 +7866,8 @@ body.path-frontpage .par-back-wrapper, body.page-node-type-page-with-paragraphs 
 .commerce-order-item-add-to-cart-form legend {
   margin-bottom: 16px; }
 
-.commerce-order-item-add-to-cart-form label:after, .commerce-order-item-add-to-cart-form legend span:after {
-  content: unset; }
+.commerce-order-item-add-to-cart-form label:after, .commerce-order-item-add-to-cart-form label:before, .commerce-order-item-add-to-cart-form legend span:after {
+  content: unset !important; }
 
 .commerce-order-item-add-to-cart-form .glyphicon-spin {
   font-size: 15px; }
