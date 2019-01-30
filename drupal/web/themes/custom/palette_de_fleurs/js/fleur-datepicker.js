@@ -20,7 +20,7 @@
         $inputWrapper.insertAfter($dateInput);
         $textInput.val($dateInput.val());
 
-        var $icon = $('<i class="datepicker-icon glyphicon glyphicon-calendar form-control-feedback"></i>');
+        var $icon = $('<i class="datepicker-icon glyphicon fleur-icon-16-calendar-primary form-control-feedback"></i>');
         $icon.insertAfter($textInput);
 
         var defaultDate = $dateInput.val() ? new Date($dateInput.val()) : undefined;
