@@ -188,6 +188,7 @@ function palette_de_fleurs_preprocess_page__checkout__order_information(&$variab
   $variables['title'] = t('Delivery details');
   $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(3);
   $variables['#attached']['library'][] =  'palette_de_fleurs/order-information';
+  $variables['#attached']['library'][] =  'palette_de_fleurs/fleur-datepicker';
 }
 
 

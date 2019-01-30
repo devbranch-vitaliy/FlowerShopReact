@@ -15,6 +15,9 @@
 @import "component/tabs";
 @import "component/toolbar";
 
+// Custom SCSS.
+@import "datetimepicker/datetimepicker";
+
 // jQuery UI style overrides.
 @import "jquery-ui/autocomplete";
 
