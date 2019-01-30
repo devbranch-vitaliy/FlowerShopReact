@@ -108,7 +108,7 @@
   src: url("../fonts/FleurIcons/FleurIcons.eot");
   src: url("../fonts/FleurIcons/FleurIcons.eot?#iefix") format("eot"), url("../fonts/FleurIcons/FleurIcons.woff") format("woff"), url("../fonts/FleurIcons/FleurIcons.ttf") format("truetype"), url("../fonts/FleurIcons/FleurIcons.svg#FleurIcons") format("svg"); }
 
-.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before, #drupal-modal--header button.ui-dialog-titlebar-close:before, .button--add-to-cart:before, .button--add-to-cart:hover:before, .mobile-filter-container span:before, .mobile-filter-container span.icon-up:before, ol.breadcrumb > li:before, .fleur-add-extras button:before, .pager-links .previous-link:before, .pager-links .next-link:before, .cart-form .views-field-nothing .cart--button-remove span:before, .cart-form .js-form-type-number .quantity-down:before, .cart-form .js-form-type-number .quantity-up:before, .cart-form .form-actions button.btn-info:before, .cart-form .form-actions button.btn-default:before, .customers-reviews .slick-dots li:before, .customers-reviews .slick-dots li.slick-active:before, .view-display-id-faq_list .question .views-field-field-question:before, .view-display-id-faq_list .question .views-field-field-question.icon-up:before, .path-news .read-more:before {
+.fleur-font-icon-16-arrow-down-primary:before, .fleur-font-icon-16-arrow-left-primary:before, .fleur-font-icon-16-arrow-right-primary:before, .fleur-font-icon-16-arrow-up-primary:before, .fleur-font-icon-16-arrow-up-primary_2:before, .fleur-font-icon-16-bullet-primary:before, .fleur-font-icon-16-burger-primary:before, .fleur-font-icon-16-calendar-primary:before, .fleur-font-icon-16-check-primary:before, .fleur-font-icon-16-chevron-down-primary:before, .fleur-font-icon-16-chevron-left-primary:before, .fleur-font-icon-16-chevron-right-primary:before, .fleur-font-icon-16-chevron-up-primary:before, .fleur-font-icon-16-close-primary:before, .fleur-font-icon-16-delete-primary:before, .fleur-font-icon-16-error-error:before, .fleur-font-icon-16-info-primary:before, .fleur-font-icon-16-minus-primary:before, .fleur-font-icon-16-navigate-white:before, .fleur-font-icon-16-plus-primary:before, .fleur-font-icon-16-refresh-primary:before, .fleur-font-icon-16-search-primary:before, .fleur-font-icon-16-success-success:before, .fleur-font-icon-16-user-primary:before, .fleur-font-icon-16-warning-warning:before, .fleur-font-icon-16-zoom-in-primary:before, .fleur-font-icon-16-zoom-out-primary:before, .fleur-font-icon-24-arrow-down-primary:before, .fleur-font-icon-24-arrow-left-primary:before, .fleur-font-icon-24-arrow-right-primary:before, .fleur-font-icon-24-burger-primary:before, .fleur-font-icon-24-call-primary:before, .fleur-font-icon-24-check-active-primary:before, .fleur-font-icon-24-check-error-error:before, .fleur-font-icon-24-check-hover-primary:before, .fleur-font-icon-24-check-primary:before, .fleur-font-icon-24-check-standard-grey-300:before, .fleur-font-icon-24-chevron-down-primary:before, .fleur-font-icon-24-chevron-left-primary:before, .fleur-font-icon-24-chevron-right-primary:before, .fleur-font-icon-24-chevron-up-primary:before, .fleur-font-icon-24-close-primary:before, .fleur-font-icon-24-delivery-white:before, .fleur-font-icon-24-dropbox-primary:before, .fleur-font-icon-24-email-primary:before, .fleur-font-icon-24-email-primary_2:before, .fleur-font-icon-24-facebook-primary:before, .fleur-font-icon-24-google-primary:before, .fleur-font-icon-24-info-primary:before, .fleur-font-icon-24-linkedin-primary:before, .fleur-font-icon-24-location-primary-copy:before, .fleur-font-icon-24-minus-primary:before, .fleur-font-icon-24-plus-primary:before, .fleur-font-icon-24-radio-active-primary:before, .fleur-font-icon-24-radio-error-error:before, .fleur-font-icon-24-radio-hover-primary:before, .fleur-font-icon-24-radio-standard-grey-300:before, .fleur-font-icon-24-search-primary:before, .fleur-font-icon-24-toggle-off:before, .fleur-font-icon-24-toggle-on:before, .fleur-font-icon-24-twitter-primary:before, .fleur-font-icon-24-user-primary:before, .fleur-font-icon-24-whatsapp-primary:before, .fleur-font-icon-24-world-white:before, .fleur-font-icon-24-zoom-in-primary:before, .fleur-font-icon-24-zoom-out-primary:before, .fleur-font-icon-32-facebook-primary:before, .fleur-font-icon-32-facebook-white:before, .fleur-font-icon-32-instagram-primary:before, .fleur-font-icon-32-instagram-white:before, .fleur-font-icon-32-twitter-primary:before, .fleur-font-icon-32-twitter-white:before, .fleur-font-icon-cart-black-full:before, .fleur-font-icon-cart-black:before, .fleur-font-icon-cart-white:before, .fleur-font-icon-delivery:before, .fleur-font-icon-quality:before, .fleur-font-icon-reliable:before, .input-radio:before, .input-radio.checked:before, .input-checkbox:before, .input-checkbox.checked:before, #drupal-modal--header button.ui-dialog-titlebar-close:before, .button--add-to-cart:before, .button--add-to-cart:hover:before, .mobile-filter-container span:before, .mobile-filter-container span.icon-up:before, ol.breadcrumb > li:before, .fleur-add-extras button:before, .pager-links .previous-link:before, .pager-links .next-link:before, .cart-form .views-field-nothing .cart--button-remove span:before, .cart-form .js-form-type-number .quantity-down:before, .cart-form .js-form-type-number .quantity-up:before, .cart-form .form-actions button.btn-info:before, .cart-form .form-actions button.btn-default:before, .customers-reviews .slick-dots li:before, .customers-reviews .slick-dots li.slick-active:before, .view-display-id-faq_list .question .views-field-field-question:before, .view-display-id-faq_list .question .views-field-field-question.icon-up:before, .path-news .read-more:before {
   font-family: "FleurIcons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1586,7 +1586,7 @@ hr {
   border: 0;
   border-top: 1px solid #f5f7f9; }
 
-.sr-only {
+.sr-only, .bootstrap-datetimepicker-widget .btn[data-action="incrementHours"]::after, .bootstrap-datetimepicker-widget .btn[data-action="incrementMinutes"]::after, .bootstrap-datetimepicker-widget .btn[data-action="decrementHours"]::after, .bootstrap-datetimepicker-widget .btn[data-action="decrementMinutes"]::after, .bootstrap-datetimepicker-widget .btn[data-action="showHours"]::after, .bootstrap-datetimepicker-widget .btn[data-action="showMinutes"]::after, .bootstrap-datetimepicker-widget .btn[data-action="togglePeriod"]::after, .bootstrap-datetimepicker-widget .btn[data-action="clear"]::after, .bootstrap-datetimepicker-widget .btn[data-action="today"]::after, .bootstrap-datetimepicker-widget .picker-switch::after, .bootstrap-datetimepicker-widget table th.prev::after, .bootstrap-datetimepicker-widget table th.next::after {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -3188,7 +3188,7 @@ select[multiple].input-lg,
 .has-feedback label ~ .form-control-feedback {
   top: 33px; }
 
-.has-feedback label.sr-only ~ .form-control-feedback {
+.has-feedback label.sr-only ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="incrementHours"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="incrementHours"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="incrementMinutes"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="incrementMinutes"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="decrementHours"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="decrementHours"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="decrementMinutes"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="decrementMinutes"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="showHours"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="showHours"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="showMinutes"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="showMinutes"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="togglePeriod"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="togglePeriod"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="clear"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="clear"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.btn[data-action="today"]::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.btn[data-action="today"]::after ~ .form-control-feedback, .has-feedback .bootstrap-datetimepicker-widget label.picker-switch::after ~ .form-control-feedback, .bootstrap-datetimepicker-widget .has-feedback label.picker-switch::after ~ .form-control-feedback {
   top: 0; }
 
 .help-block {
@@ -6882,6 +6882,245 @@ body.toolbar-loading {
     body.toolbar-loading.toolbar {
       margin-bottom: 12px; } }
 
+.radio label,
+.checkbox label {
+  padding-left: 32px; }
+
+.input-radio {
+  position: relative; }
+  .input-radio:before {
+    content: ""; }
+  .input-radio:before {
+    position: absolute;
+    left: 0;
+    font-size: 24px;
+    line-height: 24px;
+    color: #d2652a; }
+  .input-radio input {
+    visibility: hidden; }
+
+.input-radio.checked:before {
+  content: ""; }
+
+.input-radio.checked:after {
+  content: "";
+  position: absolute;
+  background-color: #d2652a;
+  width: 12px;
+  height: 12px;
+  top: 6px;
+  left: 6px;
+  border-radius: 6px; }
+
+.input-checkbox {
+  position: relative; }
+  .input-checkbox:before {
+    content: ""; }
+  .input-checkbox:before {
+    position: absolute;
+    left: 0;
+    font-size: 24px;
+    line-height: 24px;
+    color: #d2652a; }
+  .input-checkbox input {
+    visibility: hidden; }
+
+.input-checkbox.checked:before {
+  content: ""; }
+
+/*!
+ * Datetimepicker for Bootstrap 3
+ * ! version : 4.7.14
+ * https://github.com/Eonasdan/bootstrap-datetimepicker/
+ */
+.bootstrap-datetimepicker-widget {
+  list-style: none; }
+  .bootstrap-datetimepicker-widget.dropdown-menu {
+    margin: 2px 0;
+    padding: 4px;
+    width: 19em; }
+    @media (min-width: 768px) {
+      .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+        width: 38em; } }
+    @media (min-width: 992px) {
+      .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+        width: 38em; } }
+    @media (min-width: 1200px) {
+      .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+        width: 38em; } }
+    .bootstrap-datetimepicker-widget.dropdown-menu:before, .bootstrap-datetimepicker-widget.dropdown-menu:after {
+      content: '';
+      display: inline-block;
+      position: absolute; }
+    .bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid #ccc;
+      border-bottom-color: rgba(0, 0, 0, 0.2);
+      top: -7px;
+      left: 7px; }
+    .bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid white;
+      top: -6px;
+      left: 8px; }
+    .bootstrap-datetimepicker-widget.dropdown-menu.top:before {
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid #ccc;
+      border-top-color: rgba(0, 0, 0, 0.2);
+      bottom: -7px;
+      left: 6px; }
+    .bootstrap-datetimepicker-widget.dropdown-menu.top:after {
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid white;
+      bottom: -6px;
+      left: 7px; }
+    .bootstrap-datetimepicker-widget.dropdown-menu.pull-right:before {
+      left: auto;
+      right: 6px; }
+    .bootstrap-datetimepicker-widget.dropdown-menu.pull-right:after {
+      left: auto;
+      right: 7px; }
+  .bootstrap-datetimepicker-widget .list-unstyled {
+    margin: 0; }
+  .bootstrap-datetimepicker-widget a[data-action] {
+    padding: 6px 0; }
+  .bootstrap-datetimepicker-widget a[data-action]:active {
+    box-shadow: none; }
+  .bootstrap-datetimepicker-widget .timepicker-hour, .bootstrap-datetimepicker-widget .timepicker-minute, .bootstrap-datetimepicker-widget .timepicker-second {
+    width: 54px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0; }
+  .bootstrap-datetimepicker-widget button[data-action] {
+    padding: 6px; }
+  .bootstrap-datetimepicker-widget .btn[data-action="incrementHours"]::after {
+    content: "Increment Hours"; }
+  .bootstrap-datetimepicker-widget .btn[data-action="incrementMinutes"]::after {
+    content: "Increment Minutes"; }
+  .bootstrap-datetimepicker-widget .btn[data-action="decrementHours"]::after {
+    content: "Decrement Hours"; }
+  .bootstrap-datetimepicker-widget .btn[data-action="decrementMinutes"]::after {
+    content: "Decrement Minutes"; }
+  .bootstrap-datetimepicker-widget .btn[data-action="showHours"]::after {
+    content: "Show Hours"; }
+  .bootstrap-datetimepicker-widget .btn[data-action="showMinutes"]::after {
+    content: "Show Minutes"; }
+  .bootstrap-datetimepicker-widget .btn[data-action="togglePeriod"]::after {
+    content: "Toggle AM/PM"; }
+  .bootstrap-datetimepicker-widget .btn[data-action="clear"]::after {
+    content: "Clear the picker"; }
+  .bootstrap-datetimepicker-widget .btn[data-action="today"]::after {
+    content: "Set the date to today"; }
+  .bootstrap-datetimepicker-widget .picker-switch {
+    text-align: center; }
+    .bootstrap-datetimepicker-widget .picker-switch::after {
+      content: "Toggle Date and Time Screens"; }
+    .bootstrap-datetimepicker-widget .picker-switch td {
+      padding: 0;
+      margin: 0;
+      height: auto;
+      width: auto;
+      line-height: inherit; }
+      .bootstrap-datetimepicker-widget .picker-switch td span {
+        line-height: 2.5;
+        height: 2.5em;
+        width: 100%; }
+  .bootstrap-datetimepicker-widget table {
+    width: 100%;
+    margin: 0; }
+    .bootstrap-datetimepicker-widget table td,
+    .bootstrap-datetimepicker-widget table th {
+      text-align: center;
+      border-radius: 3px; }
+    .bootstrap-datetimepicker-widget table th {
+      height: 20px;
+      line-height: 20px;
+      width: 20px; }
+      .bootstrap-datetimepicker-widget table th.picker-switch {
+        width: 145px; }
+      .bootstrap-datetimepicker-widget table th.disabled, .bootstrap-datetimepicker-widget table th.disabled:hover {
+        background: none;
+        color: #e9ecf1;
+        cursor: not-allowed; }
+      .bootstrap-datetimepicker-widget table th.prev::after {
+        content: "Previous Month"; }
+      .bootstrap-datetimepicker-widget table th.next::after {
+        content: "Next Month"; }
+    .bootstrap-datetimepicker-widget table thead tr:first-child th {
+      cursor: pointer; }
+      .bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+        background: #f5f7f9; }
+    .bootstrap-datetimepicker-widget table td {
+      height: 54px;
+      line-height: 54px;
+      width: 54px; }
+      .bootstrap-datetimepicker-widget table td.cw {
+        font-size: .8em;
+        height: 20px;
+        line-height: 20px;
+        color: #e9ecf1; }
+      .bootstrap-datetimepicker-widget table td.day {
+        height: 20px;
+        line-height: 20px;
+        width: 20px; }
+      .bootstrap-datetimepicker-widget table td.day:hover, .bootstrap-datetimepicker-widget table td.hour:hover, .bootstrap-datetimepicker-widget table td.minute:hover, .bootstrap-datetimepicker-widget table td.second:hover {
+        background: #f5f7f9;
+        cursor: pointer; }
+      .bootstrap-datetimepicker-widget table td.old, .bootstrap-datetimepicker-widget table td.new {
+        color: #e9ecf1; }
+      .bootstrap-datetimepicker-widget table td.today {
+        position: relative; }
+        .bootstrap-datetimepicker-widget table td.today:before {
+          content: '';
+          display: inline-block;
+          border: solid transparent;
+          border-width: 0 0 7px 7px;
+          border-bottom-color: #d2652a;
+          border-top-color: rgba(0, 0, 0, 0.2);
+          position: absolute;
+          bottom: 4px;
+          right: 4px; }
+      .bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
+        background-color: #d2652a;
+        color: #fff;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); }
+      .bootstrap-datetimepicker-widget table td.active.today:before {
+        border-bottom-color: #fff; }
+      .bootstrap-datetimepicker-widget table td.disabled, .bootstrap-datetimepicker-widget table td.disabled:hover {
+        background: none;
+        color: #e9ecf1;
+        cursor: not-allowed; }
+      .bootstrap-datetimepicker-widget table td span {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        line-height: 54px;
+        margin: 2px 1.5px;
+        cursor: pointer;
+        border-radius: 3px; }
+        .bootstrap-datetimepicker-widget table td span:hover {
+          background: #f5f7f9; }
+        .bootstrap-datetimepicker-widget table td span.active {
+          background-color: #d2652a;
+          color: #fff;
+          text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); }
+        .bootstrap-datetimepicker-widget table td span.old {
+          color: #e9ecf1; }
+        .bootstrap-datetimepicker-widget table td span.disabled, .bootstrap-datetimepicker-widget table td span.disabled:hover {
+          background: none;
+          color: #e9ecf1;
+          cursor: not-allowed; }
+  .bootstrap-datetimepicker-widget.usetwentyfour td.hour {
+    height: 27px;
+    line-height: 27px; }
+
+i.datepicker-icon {
+  cursor: pointer; }
+
 /**
  * jQuery UI autocomplete widget style overrides.
  *
@@ -8211,6 +8450,9 @@ ol.breadcrumb {
   .fleur-add-extras button:before {
     float: right; }
 
+.fleur-add-extras .input-radio.checked:after {
+  top: 22px; }
+
 @media screen and (max-width: 767px) {
   .fleur-add-extras label {
     min-height: 86px; }
@@ -8497,6 +8739,60 @@ ol.breadcrumb {
       width: 140px; }
     .cart-form .order-total-line {
       padding: 0; } }
+
+.fleur-order-summary {
+  background-color: #f5f7f9;
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #191919; }
+  .fleur-order-summary h3 {
+    font-family: Taviraj;
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.18 !important;
+    letter-spacing: normal;
+    margin: auto;
+    padding: 24px 24px; }
+  .fleur-order-summary table {
+    width: 100%;
+    border-bottom: 1px solid #191919; }
+    .fleur-order-summary table tr {
+      vertical-align: top; }
+    .fleur-order-summary table tr.order-items td {
+      padding-bottom: 24px; }
+    .fleur-order-summary table tr.product-type td {
+      padding-bottom: 8px; }
+  .fleur-order-summary .checkout-pane {
+    padding: 0 24px; }
+  .fleur-order-summary .item-data {
+    text-align: right; }
+  .fleur-order-summary .order-total-line {
+    display: none; }
+  .fleur-order-summary .order-total-line.order-total-line__total {
+    display: block;
+    padding: 24px 0; }
+    .fleur-order-summary .order-total-line.order-total-line__total .order-total-line-label {
+      float: left; }
+    .fleur-order-summary .order-total-line.order-total-line__total .order-total-line-value {
+      float: right; }
+    .fleur-order-summary .order-total-line.order-total-line__total:after, .fleur-order-summary .order-total-line.order-total-line__total:before {
+      content: " ";
+      display: table; }
+    .fleur-order-summary .order-total-line.order-total-line__total:after {
+      clear: both; }
+
+@media screen and (max-width: 767px) {
+  .fleur-order-summary h3 {
+    padding: 24px 16px; }
+  .fleur-order-summary .checkout-pane {
+    padding: 0 16px 40px; } }
 
 .cta-banner {
   height: 600px; }

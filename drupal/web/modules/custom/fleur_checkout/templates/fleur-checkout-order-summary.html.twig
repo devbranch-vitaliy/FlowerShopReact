@@ -49,14 +49,9 @@
               {% endif %}
               <td class="item-data">
                 {% if order_item.getQuantity | striptags != 1 %}
-                  <div class="item-quantity">
-                    {{ order_item.getQuantity|number_format }}&nbsp;x
-                  </div>
+                  {{ order_item.getQuantity|number_format }}&nbsp;x
                 {% endif %}
-                <div class="item-price">
-                  {{- order_item.getUnitPrice|commerce_price_format -}}
-                </div>
-
+                {{- order_item.getUnitPrice|commerce_price_format -}}
               </td>
             </tr>
           {% endfor %}
