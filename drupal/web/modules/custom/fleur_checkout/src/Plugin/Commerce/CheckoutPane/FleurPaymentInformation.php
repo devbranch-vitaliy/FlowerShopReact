@@ -88,16 +88,13 @@ class FleurPaymentInformation extends PaymentInformation {
     $summary = [];
     if ($this->isVisible()) {
 
-      if (!$this->order->hasField('shipments') || $this->order->get('shipments')->isEmpty()) {
-        return $summary;
-      }
       $billing_profile = $this->order->getBillingProfile();
       if (!$billing_profile) {
         return $summary;
       }
 
       $summary['payment'] = ['#type' => 'container'];
-      $summary['payment']['panel_title'] = $this->addMarkup($this->t('Delivery information:'), ['panel-title']);
+      $summary['payment']['panel_title'] = $this->addMarkup($this->t('Your information:'), ['panel-title']);
 
       $address = $billing_profile->get('address')->first()->getValue();
 

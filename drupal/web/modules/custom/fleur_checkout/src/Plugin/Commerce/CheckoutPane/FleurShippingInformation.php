@@ -76,8 +76,8 @@ class FleurShippingInformation extends ShippingInformation {
   public function buildPaneSummary() {
     $summary = [];
     if ($this->isVisible()) {
-
-      $default_summary = $this->addMarkup($this->t('The order will be waiting for you in our store'), ['panel-data']);
+      $default_summary['panel_title'] = $this->addMarkup($this->t('Delivery information:'), ['panel-title']);
+      $default_summary['panel_info'] = $this->addMarkup($this->t('The order will be waiting for you in our store'), ['information-field']);
 
       if (!$this->order->hasField('shipments') || $this->order->get('shipments')->isEmpty()) {
         return $summary[0] = $default_summary;
