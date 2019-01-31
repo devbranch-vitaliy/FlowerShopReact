@@ -261,7 +261,7 @@ function palette_de_fleurs_preprocess_bootstrap_panel__fleur_shipping_informatio
 /**
  * Implements hook_preprocess_HOOK().
  */
-function palette_de_fleurs_preprocess_bootstrap_panel__payment_information(&$variables) {
+function palette_de_fleurs_preprocess_bootstrap_panel__fleur_payment_information(&$variables) {
   $variables['heading'] = t('Your details');
 
   $variables['additional_labels'][] = palette_de_fleurs_add_markup('Your address ', ['additional_label', 'label-where']);

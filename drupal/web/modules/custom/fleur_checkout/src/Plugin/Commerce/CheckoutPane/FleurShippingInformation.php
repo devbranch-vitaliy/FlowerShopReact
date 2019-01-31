@@ -87,7 +87,6 @@ class FleurShippingInformation extends ShippingInformation {
       $first_shipment = reset($shipments);
       $shipping_profile = $first_shipment->getShippingProfile();
       if (!$shipping_profile) {
-        // Trying to generate a summary of incomplete shipments.
         return $summary[0] = $default_summary;
       }
       $single_shipment = count($shipments) === 1;
