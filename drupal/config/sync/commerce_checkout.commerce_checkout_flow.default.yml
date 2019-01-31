@@ -24,8 +24,8 @@ configuration:
       step: order_information
       weight: 1
     payment_information:
-      step: order_information
-      weight: 2
+      step: _disabled
+      weight: 12
     review:
       step: review
       weight: 3
@@ -47,6 +47,13 @@ configuration:
     completion_registration:
       step: complete
       weight: 8
+    fleur_order_summary:
+      view: ''
+      step: _sidebar
+      weight: 9
+    fleur_payment_information:
+      step: order_information
+      weight: 2
     order_summary:
       view: ''
       step: _disabled
@@ -56,11 +63,7 @@ configuration:
       allow_registration: false
       step: _disabled
       weight: 11
-    fleur_order_summary:
-      view: ''
-      step: _sidebar
-      weight: 9
     shipping_information:
       require_shipping_profile: true
       step: _disabled
-      weight: 12
+      weight: 13
