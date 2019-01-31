@@ -211,7 +211,7 @@ function palette_de_fleurs_preprocess_page__checkout__review(&$variables) {
 function palette_de_fleurs_preprocess_container(&$variables) {
   if (isset($variables['element']['#id'])
     && (strpos($variables['element']['#id'], 'edit-fleur-shipping-information-shipping-profile') !== false
-    || strpos($variables['element']['#id'], 'edit-payment-information-billing-information') !== false)) {
+    || strpos($variables['element']['#id'], 'edit-fleur-payment-information-billing-information') !== false)) {
 
     if (isset($variables['children'])) {
       $new_children = str_replace(t('Company'), t('Name of business'), $variables['children']->jsonSerialize());
