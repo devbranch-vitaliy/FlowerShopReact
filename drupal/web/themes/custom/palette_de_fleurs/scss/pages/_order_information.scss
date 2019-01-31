@@ -1,4 +1,8 @@
 .checkout-order-information {
+  & > .row {
+    @include checkout-width;
+  }
+
   .layout-checkout-form {
     margin-top: 80px;
   }
@@ -157,7 +161,7 @@
     display: none;
   }
 
-  button {
+  .layout-region-checkout-footer button {
     @include fleur-font(icon-16-chevron-right-primary);
     @include Label-Big;
     padding: 15px 16px;
@@ -176,6 +180,8 @@
 @media #{$mobile} {
   .checkout-order-information {
     & > .row {
+      width: auto;
+      padding: 0;
       margin-left: -8px;
       margin-right: -8px;
     }

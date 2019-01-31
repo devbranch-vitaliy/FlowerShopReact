@@ -48,6 +48,10 @@ order-information:
   js:
     js/order_information.js: {}
 
+order-summary:
+  js:
+    js/order_summary.js: {}
+
 google-map:
   js:
     "//maps.google.com/maps/api/js?key=AIzaSyDRD-8bsxSOtu5YmoNsMrpuHFiWz8h8-mU&callback=Drupal.attachBehaviors": { type: external }

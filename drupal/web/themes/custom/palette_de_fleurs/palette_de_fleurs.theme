@@ -190,10 +190,20 @@ function palette_de_fleurs_preprocess_page__checkout__order_information(&$variab
   $variables['title'] = t('Delivery details');
   $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(3);
   $variables['#attached']['library'][] =  'palette_de_fleurs/order-information';
+  $variables['#attached']['library'][] =  'palette_de_fleurs/order-summary';
   $variables['#attached']['library'][] =  'palette_de_fleurs/fleur-datepicker';
   $variables['checkout_classes'] = 'checkout-order-information';
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__checkout__review(&$variables) {
+  $variables['title'] = t('Review');
+  $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(4);
+  $variables['#attached']['library'][] =  'palette_de_fleurs/order-summary';
+  $variables['checkout_classes'] = 'checkout-review';
+}
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -201,7 +211,7 @@ function palette_de_fleurs_preprocess_page__checkout__order_information(&$variab
 function palette_de_fleurs_preprocess_container(&$variables) {
   if (isset($variables['element']['#id'])
     && (strpos($variables['element']['#id'], 'edit-fleur-shipping-information-shipping-profile') !== false
-    || strpos($variables['element']['#id'], 'edit-payment-information-billing-information') !== false)) {
+    || strpos($variables['element']['#id'], 'edit-fleur-payment-information-billing-information') !== false)) {
 
     if (isset($variables['children'])) {
       $new_children = str_replace(t('Company'), t('Name of business'), $variables['children']->jsonSerialize());
@@ -251,7 +261,7 @@ function palette_de_fleurs_preprocess_bootstrap_panel__fleur_shipping_informatio
 /**
  * Implements hook_preprocess_HOOK().
  */
-function palette_de_fleurs_preprocess_bootstrap_panel__payment_information(&$variables) {
+function palette_de_fleurs_preprocess_bootstrap_panel__fleur_payment_information(&$variables) {
   $variables['heading'] = t('Your details');
 
   $variables['additional_labels'][] = palette_de_fleurs_add_markup('Your address ', ['additional_label', 'label-where']);
