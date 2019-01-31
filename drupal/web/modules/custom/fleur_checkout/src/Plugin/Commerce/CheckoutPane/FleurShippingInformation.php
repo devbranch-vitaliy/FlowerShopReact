@@ -127,7 +127,7 @@ class FleurShippingInformation extends ShippingInformation {
         $summary[$index]['delivery'] = $this->addContainer(['delivery-information information-group form-group']);
         $summary[$index]['delivery']['title'] = $this->addMarkup($this->t('Delivery time:'), ['information-title']);
         $summary[$index]['delivery']['time'] = $this->addMarkup($date->format('M, d, Y') . ' (' .
-          strtolower($this->t($shipment->getShippingMethod()->getName())) .  ')', ['information-field']);
+          strtolower($shipment->getShippingMethod()->getName()) .  ')', ['information-field']);
       }
     }
     return $summary;
