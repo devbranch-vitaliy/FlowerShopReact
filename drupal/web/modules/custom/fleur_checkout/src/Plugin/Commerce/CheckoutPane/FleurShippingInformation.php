@@ -2,17 +2,12 @@
 
 namespace Drupal\fleur_checkout\Plugin\Commerce\CheckoutPane;
 
-use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowInterface;
-use Drupal\commerce_shipping\OrderShipmentSummaryInterface;
-use Drupal\commerce_shipping\PackerManagerInterface;
 use Drupal\commerce_shipping\Plugin\Commerce\CheckoutPane\ShippingInformation;
 use Drupal\Component\Utility\NestedArray;
+use Drupal\Console\Bootstrap\Drupal;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Element;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides the shipping information pane.
@@ -27,6 +22,118 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * )
  */
 class FleurShippingInformation extends ShippingInformation {
+
+  /**
+   * Add markup element with wrapper.
+   *
+   * @param string $markup_text
+   *   A text of markup.
+   * @param array $classes
+   *   Array with classes.
+   *
+   * @return array
+   *   The form element.
+   */
+  private function addMarkup($markup_text, array $classes) {
+
+    if (empty($markup_text)) {
+      return [];
+    }
+
+    return [
+      '#type' => 'container',
+      'label' => [
+        '#type' => 'markup',
+        '#markup' => $markup_text,
+      ],
+      '#attributes' => [
+        'class' => $classes,
+      ],
+    ];
+  }
+
+  /**
+   * Add container element.
+   *
+   * @param array $classes
+   *   Array with classes.
+   *
+   * @return array
+   *   The form element.
+   */
+  private function addContainer(array $classes) {
+    return [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => $classes,
+      ],
+    ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildPaneSummary() {
+    $summary = [];
+    if ($this->isVisible()) {
+
+      $default_summary = $this->addMarkup($this->t('The order will be waiting for you in our store'), ['panel-data']);
+
+      if (!$this->order->hasField('shipments') || $this->order->get('shipments')->isEmpty()) {
+        return $summary[0] = $default_summary;
+      }
+      /** @var \Drupal\commerce_shipping\Entity\ShipmentInterface[] $shipments */
+      $shipments = $this->order->get('shipments')->referencedEntities();
+      $first_shipment = reset($shipments);
+      $shipping_profile = $first_shipment->getShippingProfile();
+      if (!$shipping_profile) {
+        // Trying to generate a summary of incomplete shipments.
+        return $summary[0] = $default_summary;
+      }
+      $single_shipment = count($shipments) === 1;
+
+      foreach ($shipments as $index => $shipment) {
+        $shipping_profile = $shipment->getShippingProfile();
+
+        $summary[$index] = [
+          '#type' => $single_shipment ? 'container' : 'details',
+          '#title' => $this->t('Delivery information:'),
+          '#open' => TRUE,
+        ];
+
+        if ($single_shipment) {
+          $summary[$index]['panel_title'] = $this->addMarkup($this->t('Delivery information:'), ['panel-title']);
+        }
+
+        $address = $shipping_profile->get('address')->first()->getValue();
+
+        $summary[$index]['receiver'] = $this->addContainer(['receiver-information information-group form-group']);
+        $summary[$index]['receiver']['title'] = $this->addMarkup($this->t('Receiver:'), ['information-title']);
+        $summary[$index]['receiver']['name'] = $this->addMarkup($address['given_name'] . ' ' . $address['family_name'], ['information-field']);
+        $summary[$index]['receiver']['telephone'] = $this->addMarkup($shipping_profile->get('field_telephone')->getString(), ['information-field']);
+        $summary[$index]['receiver']['email'] = $this->addMarkup($shipping_profile->get('field_email')->getString(), ['information-field']);
+
+        $summary[$index]['address'] = $this->addContainer(['address-information information-group form-group']);
+        $summary[$index]['address']['title'] = $this->addMarkup($this->t('Address:'), ['information-title']);
+        $summary[$index]['address']['organization'] = $this->addMarkup($address['organization'], ['information-field']);
+        $summary[$index]['address']['address_line1'] = $this->addMarkup($address['address_line1'], ['information-field']);
+        $summary[$index]['address']['address_line2'] = $this->addMarkup($address['address_line2'], ['information-field']);
+        $summary[$index]['address']['city'] = $this->addMarkup($address['locality'] . ', ' . $address['postal_code'], ['information-field']);
+        $summary[$index]['address']['dependent_locality'] = $this->addMarkup($address['dependent_locality'], ['information-field']);
+        $summary[$index]['address']['administrative_area'] = $this->addMarkup($address['administrative_area'], ['information-field']);
+        $summary[$index]['address']['additional_name'] = $this->addMarkup($address['additional_name'], ['information-field']);
+        $summary[$index]['address']['country'] = $this->addMarkup(\Drupal::service('address.country_repository')->get($address['country_code'])->getName(), ['information-field']);
+
+        $date = new DrupalDateTime($shipment->get('field_delivery_date')->value);
+
+        $summary[$index]['delivery'] = $this->addContainer(['delivery-information information-group form-group']);
+        $summary[$index]['delivery']['title'] = $this->addMarkup($this->t('Delivery time:'), ['information-title']);
+        $summary[$index]['delivery']['time'] = $this->addMarkup($date->format('M, d, Y') . ' (' .
+          strtolower($this->t($shipment->getShippingMethod()->getName())) .  ')', ['information-field']);
+      }
+    }
+    return $summary;
+  }
 
   /**
    * {@inheritdoc}

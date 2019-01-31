@@ -60,7 +60,7 @@ class FleurOrderSummary extends OrderSummary {
       /** @var \Drupal\commerce_shipping\Entity\ShipmentInterface $shipment */
       foreach ($this->order->get('shipments')->referencedEntities() as $shipment) {
         $shipments[] = [
-          'title' => $shipment->getShippingMethod()->getName(),
+          'title' => $this->t($shipment->getShippingMethod()->getName()),
           'price' => $shipment->getAmount(),
         ];
       }
