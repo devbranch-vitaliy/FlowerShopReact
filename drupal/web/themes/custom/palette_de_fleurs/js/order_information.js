@@ -42,15 +42,6 @@
                     .insertBefore($('input.locality', $address).parent());
             });
 
-            // Order summary.
-            $('.layout-region-checkout-secondary', context).once().each(function () {
-                var $summary = $(this).addClass('fleur-order-summary').addClass('hidden-xs').clone();
-                $summary.removeClass()
-                    .addClass('fleur-order-summary')
-                    .addClass('visible-xs')
-                    .prependTo($('.layout-region-checkout-main', context));
-            });
-
             // Change Email.
             $('.checkout-pane-payment-information input[type="email"]', context).once('payment-email').change(function () {
                 $('.checkout-pane-contact-information input[type="email"]').val($(this).val());
