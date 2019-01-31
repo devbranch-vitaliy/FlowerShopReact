@@ -82,6 +82,7 @@
 
             open_panel();
             $(window).once('panel-open-on-scroll').scroll(open_panel);
+            $(window).once('panel-open-on-resize').resize(open_panel);
         }
     }
 })(jQuery, Drupal, window);
