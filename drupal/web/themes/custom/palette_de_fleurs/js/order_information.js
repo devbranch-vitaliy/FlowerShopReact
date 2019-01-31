@@ -69,8 +69,6 @@
                     var $this = $(this);
                     var positionFromTop = $this.position().top;
                     var windowScrollPosition = Math.round(window.scrollY) + Math.round($(window).height() / 2);
-                    console.log(positionFromTop);
-                    console.log(windowScrollPosition);
                     if (windowScrollPosition > positionFromTop) {
                         $this
                             .once('panel-open')
