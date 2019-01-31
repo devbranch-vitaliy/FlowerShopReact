@@ -38,6 +38,9 @@ class DateWidgetTodayOrLater extends DateTimeDefaultWidget {
    */
   public function validate($element, FormStateInterface $form_state) {
     $value = $element['value']['#value'];
+    if (empty($value['object'])) {
+      return;
+    }
     $date_obj = $value['object']->setTime(17, 00, 00);
     $current_date_obj = new DrupalDateTime();
 

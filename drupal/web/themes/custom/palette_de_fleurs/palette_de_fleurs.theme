@@ -29,6 +29,18 @@ function palette_de_fleurs_theme_suggestions_page_alter(array &$suggestions, arr
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function palette_de_fleurs_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+
+  if (in_array('bootstrap_panel', $suggestions)
+    && isset($variables['element']['#theme'])
+    && $variables['element']['#theme'] == 'commerce_checkout_pane') {
+    $suggestions[] = 'bootstrap_panel__' . $variables['element']['#pane_id'];
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  */
 function palette_de_fleurs_preprocess_commerce_product__default__full(&$variables) {
@@ -79,6 +91,13 @@ function palette_de_fleurs_preprocess_views_view__flowers__products(&$variables)
  * Implements hook_preprocess_HOOK().
  */
 function palette_de_fleurs_preprocess_views_view__faq__faq_list(&$variables) {
+  $variables['title'] = $variables['view']->getTitle();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_views_view__news__news(&$variables) {
   $variables['title'] = $variables['view']->getTitle();
 }
 
@@ -167,6 +186,73 @@ function palette_de_fleurs_preprocess_page__cart(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function palette_de_fleurs_preprocess_views_view__news__news(&$variables) {
-  $variables['title'] = $variables['view']->getTitle();
+function palette_de_fleurs_preprocess_page__checkout__order_information(&$variables) {
+  $variables['title'] = t('Delivery details');
+  $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(3);
+  $variables['#attached']['library'][] =  'palette_de_fleurs/order-information';
+  $variables['#attached']['library'][] =  'palette_de_fleurs/fleur-datepicker';
+  $variables['checkout_classes'] = 'checkout-order-information';
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_container(&$variables) {
+  if (isset($variables['element']['#id'])
+    && (strpos($variables['element']['#id'], 'edit-fleur-shipping-information-shipping-profile') !== false
+    || strpos($variables['element']['#id'], 'edit-payment-information-billing-information') !== false)) {
+
+    if (isset($variables['children'])) {
+      $new_children = str_replace(t('Company'), t('Name of business'), $variables['children']->jsonSerialize());
+      $new_children = str_replace(t('Postal code'), t('ZIP code'), $new_children);
+      $new_children = str_replace(t('Street address'), t('Street'), $new_children);
+      $new_children = str_replace(t('Street line 2'), t('Number'), $new_children);
+      $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
+    }
+  }
+}
+
+/**
+ * Add markup element with wrapper.
+ *
+ * @param string $markup_text
+ *   A text of markup.
+ * @param array $classes
+ *   Array with classes.
+ *
+ * @return array
+ *   The form element.
+ */
+function palette_de_fleurs_add_markup($markup_text, array $classes) {
+ return [
+   '#type' => 'container',
+   'label' => [
+     '#type' => 'markup',
+     '#markup' => t($markup_text),
+   ],
+   '#attributes' => [
+     'class' => $classes,
+   ]
+ ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_bootstrap_panel__fleur_shipping_information(&$variables) {
+  $variables['heading'] = t('Delivery');
+
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('To whom it should be delivered?', ['additional_label', 'label-to-whom']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Where it will be delivered?', ['additional_label', 'label-where']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('When do you want it delivered?', ['additional_label', 'label-when']);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_bootstrap_panel__payment_information(&$variables) {
+  $variables['heading'] = t('Your details');
+
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Your address ', ['additional_label', 'label-where']);
 }

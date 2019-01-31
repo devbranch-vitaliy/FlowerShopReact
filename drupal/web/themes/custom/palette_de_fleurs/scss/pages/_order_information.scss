@@ -1,0 +1,263 @@
+.checkout-order-information {
+  .layout-checkout-form {
+    margin-top: 80px;
+  }
+
+  .layout-region-checkout-footer {
+    margin-top: 40px;
+  }
+
+  .checkout-pane-contact-information {
+    display: none;
+  }
+
+  .panel-default {
+    border: none;
+    box-shadow: none;
+  }
+
+  .panel-heading {
+    background-color: transparent;
+    border: none;
+    color: $black;
+    position: relative;
+    cursor: pointer;
+    @include fleur-font(icon-24-chevron-down-primary);
+
+    &.icon-up {
+      @include fleur-font(icon-16-chevron-up-primary);
+    }
+
+    &:before {
+      color: $brownish-orange;
+      font-size: 24px;
+      line-height: 24px;
+      position: absolute;
+      right: 0;
+    }
+
+    .panel-title {
+      padding: 0 0 8px;
+      border-bottom: 1px solid $black;
+    }
+  }
+
+  .panel-body {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  label {
+    @include Label-Big;
+
+    &:after {
+      content: unset;
+    }
+
+    &.input-radio {
+      font-family: SourceSansPro;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.3;
+      letter-spacing: normal;
+      color: $black;
+    }
+  }
+
+  legend {
+    margin-bottom: 6px;
+
+    span:after {
+      content: unset;
+    }
+  }
+
+  .additional_label {
+    @include H4;
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+
+  .address-container-inline, .fields-contacts {
+    margin: 0 -$grid-gutter-width/2;
+
+    @media #{$wide} {
+      margin-left: -$grid-gutter-large-width/2;
+      margin-right: -$grid-gutter-large-width/2;
+    }
+
+    &:after, &:before {
+      content: " ";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    & > div {
+
+      display: block;
+      float: left;
+      width: 50%;
+      margin: 0 0 16px;
+      padding-left: $grid-gutter-width/2;
+      padding-right: $grid-gutter-width/2;
+
+      @media #{$mobile} {
+        width: 100%;
+      }
+
+      @media #{$wide} {
+        padding-left: $grid-gutter-large-width/2;
+        padding-right: $grid-gutter-large-width/2;
+      }
+    }
+  }
+
+  .field--name-field-delivery-date {
+    width: 50%;
+
+    .form-type-date {
+      width: 100%;
+
+      input, .form-group {
+        width: 100%;
+      }
+
+      input {
+        cursor: pointer;
+      }
+    }
+
+    i {
+      padding: 12px;
+    }
+
+    @media #{$mobile} {
+      width: 100%;
+      padding-right: 0;
+    }
+
+    @media #{$tablet} {
+      padding-right: $grid-gutter-width/2;
+    }
+
+    @media #{$wide} {
+      padding-right: $grid-gutter-large-width/2;
+    }
+  }
+
+  input[type=date], .fleur-shipping-information-recalculate-shipping {
+    display: none;
+  }
+
+  button {
+    @include fleur-font(icon-16-chevron-right-primary);
+    @include Label-Big;
+    padding: 15px 16px;
+    text-align: left;
+
+    &.btn-primary {
+      width: 50%;
+    }
+
+    &:before {
+      float: right;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .checkout-order-information {
+    & > .row {
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    .checkout-header {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .layout-checkout-form {
+      margin-top: 40px;
+    }
+
+    .layout-region-checkout-main {
+      padding-right: 0;
+
+      & > div:not(#payment-information-wrapper) {
+        margin-bottom: 40px;
+      }
+
+      & > div:not(.fleur-order-summary) {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .panel-body {
+        margin-top: 40px;
+        padding: 0;
+      }
+    }
+
+    .layout-region-checkout-footer {
+      margin-top: 24px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .panel-title {
+      @include H3;
+    }
+
+    button.btn-primary {
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .checkout-order-information {
+
+    .panel-title {
+      @include H2;
+    }
+
+    .layout-region-checkout-main {
+      float: left;
+      width: 65%;
+      padding-right: 16px;
+      box-sizing: border-box;
+
+      & > div:not(#payment-information-wrapper) {
+        margin-bottom: 80px;
+      }
+
+      .panel-body {
+        margin-top: 40px;
+        padding: 0;
+      }
+    }
+
+    .layout-region-checkout-secondary {
+      float: right;
+      width: 35%;
+    }
+  }
+}
+
+@media #{$wide} {
+  .checkout-order-information {
+    .layout-region-checkout-main {
+      padding-right: 24px;
+    }
+  }
+}

@@ -13,66 +13,54 @@ id: default
 label: 'Flowers sale'
 plugin: multistep_default
 configuration:
-  display_checkout_progress: true
+  display_checkout_progress: false
   panes:
-    login:
-      allow_guest_checkout: true
-      allow_registration: false
-      step: login
-      weight: 0
     contact_information:
       double_entry: false
       step: order_information
-      weight: 1
-    shipping_information:
+      weight: 0
+    fleur_shipping_information:
       require_shipping_profile: false
       step: order_information
-      weight: 2
-    fleur_add_specials:
-      step: order_information
-      weight: 3
-      product_types:
-        containers:
-          selected: '1'
-          options:
-            weight: '0'
-            title: 'Add containers'
-            description: 'Containers will be the choice from our store''s extensive range, selected at our discretion and suitable for the flowers ordered.'
-            choose_type: radios
-            sort_by: product_id
-        extras_selection:
-          selected: '1'
-          options:
-            weight: '1'
-            title: 'Add specials:'
-            description: ''
-            choose_type: checkboxes
-            sort_by: product_id
+      weight: 1
     payment_information:
       step: order_information
+      weight: 2
+    review:
+      step: review
+      weight: 3
+    fleur_order_message:
+      step: review
       weight: 4
     fleur_commerce_checkout_confirmation_checkbox:
-      step: order_information
+      step: review
       weight: 5
       confirmation_checkbox_title: 'I accept site terms and conditions'
       confirmation_checkbox_validation_message: 'Please accept site terms and conditions'
-    review:
-      step: review
-      weight: 6
-    fleur_order_message:
-      step: review
-      weight: 7
     payment_process:
       capture: true
       step: payment
-      weight: 8
+      weight: 6
     completion_message:
       step: complete
-      weight: 9
+      weight: 7
     completion_registration:
       step: complete
-      weight: 10
+      weight: 8
     order_summary:
       view: ''
-      step: _sidebar
+      step: _disabled
+      weight: 10
+    login:
+      allow_guest_checkout: true
+      allow_registration: false
+      step: _disabled
       weight: 11
+    fleur_order_summary:
+      view: ''
+      step: _sidebar
+      weight: 9
+    shipping_information:
+      require_shipping_profile: true
+      step: _disabled
+      weight: 12

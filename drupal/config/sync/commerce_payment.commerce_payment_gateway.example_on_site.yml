@@ -1,6 +1,6 @@
 uuid: c76ff3eb-aa97-4865-83c1-387b198e8fdf
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - commerce_payment_example

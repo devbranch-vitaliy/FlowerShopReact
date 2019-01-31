@@ -1,0 +1,87 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the checkout order summary.
+ *
+ * The rendered order totals come from commerce-order-total-summary.html.twig.
+ * See commerce-order-receipt.html.twig for examples of manual total theming.
+ *
+ * Available variables:
+ * - order_entity: The order entity.
+ * - order_items_by_type: The order items by product variation type.
+ * - type_names: The names of the product variation types.
+ * - delivery: The shipments of the order.
+ * - checkout_step: The current checkout step.
+ * - totals: An array of order total values with the following keys:
+ *   - subtotal: The order subtotal price.
+ *   - adjustments: An array of adjustment totals:
+ *     - type: The adjustment type.
+ *     - label: The adjustment label.
+ *     - total: The adjustment total price.
+ *     - weight: The adjustment weight, taken from the adjustment type.
+ *   - total: The order total price.
+ * - rendered_totals: The rendered order totals.
+ */
+#}
+<div{{ attributes.addClass('checkout-order-summary') }}>
+  {% block order_items %}
+    <table class="order-summary">
+      <tbody>
+
+      {# Order items #}
+      {% for items_type, order_items in order_items_by_type %}
+
+        {% if order_items %}
+          {% if type_names[items_type] %}
+            <tr class="items-title product-type">
+              <td colspan="2">
+                {{ type_names[items_type] }}
+              </td>
+            </tr>
+          {% endif %}
+
+          {% for order_item in order_items %}
+            <tr class="items-item order-items">
+              {% if order_item.hasPurchasedEntity %}
+                <td class="item-title">{{ order_item.getPurchasedEntity.getTitle }}</td>
+              {% else %}
+                <td class="item-title">{{- order_item.label -}}</td>
+              {% endif %}
+              <td class="item-data">
+                {% if order_item.getQuantity | striptags != 1 %}
+                  {{ order_item.getQuantity|number_format }}&nbsp;x
+                {% endif %}
+                {{- order_item.getUnitPrice|commerce_price_format -}}
+              </td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+
+      {# Order shipments #}
+      {% if shipments %}
+        <tr class="items-title shipment-title">
+          <td colspan="2">
+            {{ 'Delivery:'|t }}
+          </td>
+        </tr>
+
+        {% for shipment in shipments %}
+          <tr class="items-item order-shipment">
+            <td>{{ shipment.title }}</td>
+            <td>
+              <div class="item-price">
+                {{- shipment.price|commerce_price_format -}}
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      {% endif %}
+
+      </tbody>
+    </table>
+  {% endblock %}
+  {% block totals %}
+    {{ rendered_totals }}
+  {% endblock %}
+</div>

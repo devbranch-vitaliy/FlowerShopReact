@@ -6,6 +6,17 @@
   content: ' ';
 }
 
+.fleur-icon-16-calendar-primary {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  &:before {
+    @include sprite-content;
+    background-position: 96.7741935483871% 85.71428571428571%;
+    width: 16px;
+    height: 16px;
+  }
+}
 .fleur-icon-24-toggle-off {
   display: inline-block;
   width: 48px;

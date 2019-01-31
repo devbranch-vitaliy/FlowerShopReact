@@ -11,7 +11,7 @@ id: profile.customer.field_address_type
 field_name: field_address_type
 entity_type: profile
 bundle: customer
-label: 'Address type'
+label: Address
 description: ''
 required: true
 translatable: false
