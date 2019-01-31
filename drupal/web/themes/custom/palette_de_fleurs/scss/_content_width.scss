@@ -18,6 +18,10 @@
   @media #{$wide} {
     width: 65%;
   }
+
+  @media #{$extra-wide} {
+    width: 65%;
+  }
 }
 
 @mixin checkout-width {
@@ -35,6 +39,14 @@
   @media #{$normal} {
     width: 80%;
   }
+
+  @media #{$wide} {
+    width: 80%;
+  }
+
+  @media #{$extra-wide} {
+    width: 80%;
+  }
 }
 
 @mixin faq-width {
@@ -49,7 +61,15 @@
     width: 75%;
   }
 
+  @media #{$normal} {
+    width: 75%;
+  }
+
   @media #{$wide} {
+    width: 55%;
+  }
+
+  @media #{$extra-wide} {
     width: 55%;
   }
 }

@@ -1,4 +1,8 @@
 .checkout-order-information {
+  & > .row {
+    @include checkout-width;
+  }
+
   .layout-checkout-form {
     margin-top: 80px;
   }
@@ -176,6 +180,8 @@
 @media #{$mobile} {
   .checkout-order-information {
     & > .row {
+      width: auto;
+      padding: 0;
       margin-left: -8px;
       margin-right: -8px;
     }
