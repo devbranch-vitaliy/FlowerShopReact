@@ -68,11 +68,9 @@
 
         {% for shipment in shipments %}
           <tr class="items-item order-shipment">
-            <td>{{ shipment.title }}</td>
-            <td>
-              <div class="item-price">
-                {{- shipment.price|commerce_price_format -}}
-              </div>
+            <td class="item-title">{{ shipment.title }}</td>
+            <td class="item-data">
+              {{- shipment.price|commerce_price_format -}}
             </td>
           </tr>
         {% endfor %}
