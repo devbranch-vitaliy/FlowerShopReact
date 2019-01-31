@@ -115,8 +115,7 @@ class FleurShippingInformation extends ShippingInformation {
         $summary[$index]['address'] = $this->addContainer(['address-information information-group form-group']);
         $summary[$index]['address']['title'] = $this->addMarkup($this->t('Address:'), ['information-title']);
         $summary[$index]['address']['organization'] = $this->addMarkup($address['organization'], ['information-field']);
-        $summary[$index]['address']['address_line1'] = $this->addMarkup($address['address_line1'], ['information-field']);
-        $summary[$index]['address']['address_line2'] = $this->addMarkup($address['address_line2'], ['information-field']);
+        $summary[$index]['address']['address'] = $this->addMarkup($address['address_line2'] . ' ' . $address['address_line1'], ['information-field']);
         $summary[$index]['address']['city'] = $this->addMarkup($address['locality'] . ', ' . $address['postal_code'], ['information-field']);
         $summary[$index]['address']['dependent_locality'] = $this->addMarkup($address['dependent_locality'], ['information-field']);
         $summary[$index]['address']['administrative_area'] = $this->addMarkup($address['administrative_area'], ['information-field']);
