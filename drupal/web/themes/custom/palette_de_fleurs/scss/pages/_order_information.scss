@@ -144,7 +144,7 @@
       padding-right: 0;
     }
 
-    @media #{$wide} {
+    @media #{$tablet} {
       padding-right: $grid-gutter-width/2;
     }
 

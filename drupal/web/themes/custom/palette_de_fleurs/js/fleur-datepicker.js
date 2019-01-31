@@ -32,6 +32,13 @@
           minDate: currentDate,
           showClose: true,
           date: defaultDate,
+          icons: {
+            up: 'fleur-font-icon-16-chevron-up-primary',
+            down: 'fleur-font-icon-16-chevron-down-primary',
+            previous: 'fleur-font-icon-16-chevron-left-primary',
+            next: 'fleur-font-icon-16-chevron-right-primary',
+            close: 'fleur-font-icon-16-close-primary',
+          }
         });
         $textInput.on('dp.change', function () {
           $dateInput.val($textInput.data("DateTimePicker").viewDate().format('YYYY-MM-DD'));
