@@ -43,7 +43,7 @@
             });
 
             // Change Email.
-            $('.checkout-pane-payment-information input[type="email"]', context).once('payment-email').change(function () {
+            $('.checkout-pane-fleur-payment-information input[type="email"]', context).once('payment-email').change(function () {
                 $('.checkout-pane-contact-information input[type="email"]').val($(this).val());
             });
 

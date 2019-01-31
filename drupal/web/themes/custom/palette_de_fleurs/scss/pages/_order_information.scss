@@ -161,7 +161,7 @@
     display: none;
   }
 
-  button {
+  .layout-region-checkout-footer button {
     @include fleur-font(icon-16-chevron-right-primary);
     @include Label-Big;
     padding: 15px 16px;
