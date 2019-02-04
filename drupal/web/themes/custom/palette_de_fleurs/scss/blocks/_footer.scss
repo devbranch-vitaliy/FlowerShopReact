@@ -49,6 +49,19 @@ footer {
   }
 }
 
+.fleur-site-footer .interflora {
+  padding-top: 80px;
+
+  .interflora-logo {
+    margin-bottom: 14px;
+  }
+
+  img {
+    width: auto;
+    height: 70px;
+  }
+}
+
 @media #{$mobile} {
   .footer {
     margin-top: 40px;
@@ -70,6 +83,16 @@ footer {
   .fleur-site-footer.row > div {
     text-align: center;
     padding-top: 56px;
+  }
+
+  .fleur-site-footer .interflora {
+    padding-top: 56px;
+
+    img {
+      width: auto;
+      height: 70px;
+      margin: auto;
+    }
   }
 }
 
