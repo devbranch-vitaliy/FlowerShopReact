@@ -7574,6 +7574,14 @@ footer {
     text-decoration: none;
     color: #c9ced5; }
 
+.fleur-site-footer .interflora {
+  padding-top: 80px; }
+  .fleur-site-footer .interflora .interflora-logo {
+    margin-bottom: 14px; }
+  .fleur-site-footer .interflora img {
+    width: auto;
+    height: 70px; }
+
 @media screen and (max-width: 767px) {
   .footer {
     margin-top: 40px; }
@@ -7586,7 +7594,13 @@ footer {
     width: 185px; }
   .fleur-site-footer.row > div {
     text-align: center;
-    padding-top: 56px; } }
+    padding-top: 56px; }
+  .fleur-site-footer .interflora {
+    padding-top: 56px; }
+    .fleur-site-footer .interflora img {
+      width: auto;
+      height: 70px;
+      margin: auto; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .fleur-site-footer .body-text {
