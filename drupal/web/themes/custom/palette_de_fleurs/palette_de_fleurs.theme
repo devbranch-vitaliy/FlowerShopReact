@@ -208,6 +208,13 @@ function palette_de_fleurs_preprocess_page__checkout__review(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function palette_de_fleurs_preprocess_page__checkout__complete(&$variables) {
+  $variables['checkout_classes'] = 'checkout-order-complete';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function palette_de_fleurs_preprocess_container(&$variables) {
   if (isset($variables['element']['#id'])
     && (strpos($variables['element']['#id'], 'edit-fleur-shipping-information-shipping-profile') !== false

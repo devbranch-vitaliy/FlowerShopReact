@@ -42,15 +42,18 @@ configuration:
       step: payment
       weight: 6
     completion_message:
-      step: complete
-      weight: 7
-    completion_registration:
       step: _disabled
-      weight: 9
+      weight: 12
     fleur_order_summary:
       view: ''
       step: _sidebar
       weight: 8
+    completion_registration:
+      step: _disabled
+      weight: 9
+    fleur_completion_message:
+      step: complete
+      weight: 7
     order_summary:
       view: ''
       step: _disabled
@@ -62,8 +65,8 @@ configuration:
       weight: 11
     payment_information:
       step: _disabled
-      weight: 12
+      weight: 13
     shipping_information:
       require_shipping_profile: true
       step: _disabled
-      weight: 13
+      weight: 14

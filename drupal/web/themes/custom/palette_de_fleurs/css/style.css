@@ -10322,3 +10322,32 @@ ol.breadcrumb {
 @media screen and (min-width: 1200px) {
   .checkout-review .layout-region-checkout-main {
     padding-right: 24px; } }
+
+.checkout-order-complete .checkout-complete {
+  margin: auto;
+  text-align: center; }
+  @media screen and (max-width: 767px) {
+    .checkout-order-complete .checkout-complete {
+      padding: 0 8px;
+      width: 100%; } }
+  @media screen and (min-width: 768px) {
+    .checkout-order-complete .checkout-complete {
+      width: 75%; } }
+  @media screen and (min-width: 992px) {
+    .checkout-order-complete .checkout-complete {
+      width: 75%; } }
+  @media screen and (min-width: 1200px) {
+    .checkout-order-complete .checkout-complete {
+      width: 55%; } }
+  @media screen and (min-width: 1320px) {
+    .checkout-order-complete .checkout-complete {
+      width: 55%; } }
+  .checkout-order-complete .checkout-complete h1 {
+    margin-top: 80px;
+    margin-bottom: 40px; }
+  .checkout-order-complete .checkout-complete h2 {
+    margin-top: 40px;
+    margin-bottom: 16px; }
+
+.checkout-order-complete .checkout-pane {
+  margin-bottom: auto; }
