@@ -19,9 +19,9 @@
   <div class="logo">
     <a class="navbar-btn pull-left" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
       {% if is_front %}
-        <img class="img-responsive" src="/themes/custom/palette_de_fleurs/images/logo-white.svg" alt="{{ 'Home'|t }}" />
+        <img class="img-responsive" src="/{{ active_theme_path() }}/images/logo-white.svg" alt="{{ 'Home'|t }}" />
       {% else %}
-        <img class="img-responsive" src="/themes/custom/palette_de_fleurs/images/logo-black.svg" alt="{{ 'Home'|t }}" />
+        <img class="img-responsive" src="/{{ active_theme_path() }}/images/logo-black.svg" alt="{{ 'Home'|t }}" />
       {% endif %}
     </a>
   </div>
