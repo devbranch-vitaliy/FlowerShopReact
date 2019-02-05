@@ -1,0 +1,11 @@
+uuid: 148983c9-8c70-470b-9462-b41c09ad872b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.type_of_flowers
+id: taxonomy_vocabulary_type_of_flowers
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

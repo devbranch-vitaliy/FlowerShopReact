@@ -1,0 +1,11 @@
+uuid: e911cd11-c51a-4130-a94e-5a5a29d05058
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.occasion
+id: taxonomy_vocabulary_occasion
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
