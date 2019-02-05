@@ -31,6 +31,11 @@ content:
     third_party_settings: {  }
     type: mailchimp_lists_select
     region: content
+  google_analytics:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   language:
     weight: 0
     region: content
