@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d68b80c93dd04ca749e0135e6f8f1d07",
+    "content-hash": "6ea64cda66ccf672bcaf74b953bd7be9",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5074,17 +5074,17 @@
         },
         {
             "name": "drupal/yoast_seo",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/yoast_seo",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/yoast_seo-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "c54ebbeef22679efe5dd0c068a5e5abdb94fad94"
+                "url": "https://ftp.drupal.org/files/projects/yoast_seo-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "e2b361277e44af50d4f560cf7fca83a192ca2345"
             },
             "require": {
                 "drupal/core": "*",
@@ -5096,8 +5096,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1540886284",
+                    "version": "8.x-1.5",
+                    "datestamp": "1544198284",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
