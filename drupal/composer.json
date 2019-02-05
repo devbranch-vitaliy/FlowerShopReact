@@ -23,7 +23,7 @@
         "drupal/admin_toolbar": "^1.24",
         "drupal/better_exposed_filters": "^3.0",
         "drupal/block_class": "^1.0",
-        "drupal/bootstrap": "^3.16",
+        "drupal/bootstrap": "^3.17",
         "drupal/color_field": "^2.0",
         "drupal/commerce": "^2.10",
         "drupal/commerce_bulk": "^1.0@alpha",
@@ -32,10 +32,10 @@
         "drupal/core": "^8.6.0",
         "drupal/devel": "~1.0",
         "drupal/entity_print": "2.x",
-        "drupal/google_analytics": "^2.3",
+        "drupal/google_analytics": "^3.0",
         "drupal/international_phone": "^1.0",
         "drupal/linked_field": "^1.1",
-        "drupal/mailchimp": "^1.7",
+        "drupal/mailchimp": "^1.8",
         "drupal/mailgun": "^1.0@beta",
         "drupal/menu_link_attributes": "^1.0",
         "drupal/paragraphs": "^1.5",
@@ -46,7 +46,7 @@
         "drupal/twig_tweak": "^2.1",
         "drupal/views_infinite_scroll": "^1.5",
         "drupal/viewsreference": "^1.4",
-        "drupal/yoast_seo": "^1.4",
+        "drupal/yoast_seo": "^1.5",
         "drush/drush": "^9.0.0",
         "tecnickcom/tcpdf": "~6",
         "vlucas/phpdotenv": "^2.4",
@@ -101,6 +101,9 @@
             },
             "drupal/commerce_shipping": {
                 "Support taxing the shipping cost": "https://www.drupal.org/files/issues/2018-10-03/shipping-tax-2874158-20.patch"
+            },
+            "drupal/rabbit_hole": {
+                "Support for the commerce entities": "https://www.drupal.org/files/issues/commerce_support-2900548-3.patch"
             }
         },
         "installer-paths": {
