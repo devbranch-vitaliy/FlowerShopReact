@@ -8885,6 +8885,21 @@ ol.breadcrumb {
 
 .cta-banner {
   height: 600px; }
+  @media screen and (max-width: 767px) {
+    .cta-banner {
+      background-image: url("../images/front-top-banner/front-top-banner-767.png"); } }
+  @media screen and (min-width: 768px) {
+    .cta-banner {
+      background-image: url("../images/front-top-banner/front-top-banner-992.png"); } }
+  @media screen and (min-width: 992px) {
+    .cta-banner {
+      background-image: url("../images/front-top-banner/front-top-banner-1200.png"); } }
+  @media screen and (min-width: 1200px) {
+    .cta-banner {
+      background-image: url("../images/front-top-banner/front-top-banner-1320.png"); } }
+  @media screen and (min-width: 1320px) {
+    .cta-banner {
+      background-image: url("../images/front-top-banner/front-top-banner-full.png"); } }
   .cta-banner .paragraph .field {
     font-style: normal;
     font-stretch: normal;
