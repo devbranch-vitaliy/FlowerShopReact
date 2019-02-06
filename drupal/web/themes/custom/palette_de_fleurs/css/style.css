@@ -9062,6 +9062,21 @@ ol.breadcrumb {
 .slogans {
   background-blend-mode: multiply;
   background-color: #d2652a; }
+  @media screen and (max-width: 767px) {
+    .slogans {
+      background-image: url("../images/slogan-bg/slogan-bg-767.png"); } }
+  @media screen and (min-width: 768px) {
+    .slogans {
+      background-image: url("../images/slogan-bg/slogan-bg-992.png"); } }
+  @media screen and (min-width: 992px) {
+    .slogans {
+      background-image: url("../images/slogan-bg/slogan-bg-1200.png"); } }
+  @media screen and (min-width: 1200px) {
+    .slogans {
+      background-image: url("../images/slogan-bg/slogan-bg-1320.png"); } }
+  @media screen and (min-width: 1320px) {
+    .slogans {
+      background-image: url("../images/slogan-bg/slogan-bg-full.png"); } }
   .slogans h2 {
     margin-top: 0;
     margin-bottom: 8px;

@@ -1,4 +1,5 @@
 .slogans {
+  @include set_background("/slogan-bg/", "slogan-bg", ".png");
   background-blend-mode: multiply;
   background-color: $brownish-orange;
   h2 {
