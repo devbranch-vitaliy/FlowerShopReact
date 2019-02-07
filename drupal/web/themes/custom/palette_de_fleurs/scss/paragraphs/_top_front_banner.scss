@@ -1,4 +1,5 @@
 .cta-banner {
+  @include set_background("/front-top-banner/", "front-top-banner", ".png");
   height: 600px;
 
   .paragraph .field {
