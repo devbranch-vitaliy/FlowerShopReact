@@ -178,6 +178,7 @@ class FleurAddExtras extends FormBase {
       // Get products id's array.
       $query = $this->productStorage->getQuery();
       $query->condition('type', $product_type)->sort('product_id');
+      $query->condition('status', 1);
       $products_ids = $query->execute();
 
       // Don't show when product list is empty.
@@ -206,6 +207,10 @@ class FleurAddExtras extends FormBase {
       $products = $this->productStorage->loadMultiple($products_ids);
       foreach ($products as $product) {
         $default_variation = $product->getDefaultVariation();
+        if (!$default_variation) {
+          // There's no default variation, so just skip.
+          continue;
+        }
         $default_price = $default_variation->getPrice();
         $variations = $product->getVariations();
 
