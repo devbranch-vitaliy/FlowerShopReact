@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.extras_selection
     - field.field.commerce_product.extras_selection.body
     - field.field.commerce_product.extras_selection.field_image
+    - field.field.commerce_product.extras_selection.field_meta_tags
     - field.field.commerce_product.extras_selection.stores
     - field.field.commerce_product.extras_selection.variations
     - image.style.extras_selection_196x196
@@ -51,9 +52,11 @@ content:
     type: commerce_add_to_cart
     region: content
 hidden:
+  addtoany: true
   created: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  field_meta_tags: true
   stores: true
   uid: true

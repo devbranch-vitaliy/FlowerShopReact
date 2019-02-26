@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.containers
     - field.field.commerce_product.containers.body
     - field.field.commerce_product.containers.field_image
+    - field.field.commerce_product.containers.field_meta_tags
     - field.field.commerce_product.containers.stores
     - field.field.commerce_product.containers.variations
     - image.style.extras_selection_196x196
@@ -51,9 +52,11 @@ content:
       combine: true
     third_party_settings: {  }
 hidden:
+  addtoany: true
   created: true
   entity_print_view_epub: true
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
+  field_meta_tags: true
   stores: true
   uid: true

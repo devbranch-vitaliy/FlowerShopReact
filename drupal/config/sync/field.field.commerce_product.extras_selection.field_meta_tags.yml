@@ -1,0 +1,21 @@
+uuid: b8ed7d84-1534-40b6-8edf-dfad53daa4d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.extras_selection
+    - field.storage.commerce_product.field_meta_tags
+  module:
+    - metatag
+id: commerce_product.extras_selection.field_meta_tags
+field_name: field_meta_tags
+entity_type: commerce_product
+bundle: extras_selection
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag
