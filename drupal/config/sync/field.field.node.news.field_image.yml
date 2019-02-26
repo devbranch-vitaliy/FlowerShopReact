@@ -11,7 +11,7 @@ id: node.news.field_image
 field_name: field_image
 entity_type: node
 bundle: news
-label: Image
+label: 'Preview image'
 description: ''
 required: false
 translatable: true
