@@ -35,7 +35,7 @@ services:
 #      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
 #      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
     volumes:
-      - ./drupal:/var/www/html
+      - ../drupal:/var/www/html
 ## For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
 #      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
@@ -56,14 +56,14 @@ services:
       NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
 #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
-      - ./drupal:/var/www/html
+      - ../drupal:/var/www/html
 # For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
 #      - ./:/var/www/html:cached # User-guided caching
 #      - docker-sync:/var/www/html # Docker-sync
-    labels:
-      - 'traefik.backend=${PROJECT_NAME}_nginx'
-      - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+    #labels:
+    #  - 'traefik.backend=${PROJECT_NAME}_nginx'
+    #  - 'traefik.port=80'
+    #  - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
 
   mailhog:
     image: mailhog/mailhog
@@ -272,7 +272,7 @@ services:
     image: wodby/drupal-node:$DRUPAL_NODE_TAG
     working_dir: /var/www/html/web/themes/custom/palette_de_fleurs
     volumes:
-    - ./drupal:/var/www/html
+    - ../drupal:/var/www/html
     command: sh -c 'npm i gulp-svg-sprite gulp-iconfont gulp-iconfont-css; npm install; ./node_modules/.bin/gulp sprite; ./node_modules/.bin/gulp iconfont; ./node_modules/.bin/gulp styles; ./node_modules/.bin/gulp'
 
 #volumes:
