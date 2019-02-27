@@ -1,0 +1,11 @@
+uuid: f1c01627-8c3b-4e38-9ab6-95b10da929c4
+langcode: en
+status: true
+dependencies: {  }
+id: extras_selection
+label: 'Extras selection'
+orderItemType: extras
+generateTitle: false
+traits:
+  - purchasable_entity_shippable
+locked: false

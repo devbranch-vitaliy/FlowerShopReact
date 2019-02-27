@@ -1,0 +1,55 @@
+uuid: 64ce67d7-2ddc-484e-843d-abb0b90ef0be
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - core.entity_view_mode.commerce_product.modal
+    - field.field.commerce_product.default.body
+    - field.field.commerce_product.default.field_characteristics
+    - field.field.commerce_product.default.field_colors
+    - field.field.commerce_product.default.field_fragnanced
+    - field.field.commerce_product.default.field_occasion
+    - field.field.commerce_product.default.field_type_of_flowers
+    - field.field.commerce_product.default.stores
+    - field.field.commerce_product.default.variations
+  module:
+    - commerce_product
+_core:
+  default_config_hash: gT03TFcuSod4d9uPQNs_gqK1F1QZ0Ray5CBYW0BNLnk
+id: commerce_product.default.modal
+targetEntityType: commerce_product
+bundle: default
+mode: modal
+content:
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  variations:
+    weight: 2
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings: {  }
+    type: commerce_add_to_cart
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_characteristics: true
+  field_colors: true
+  field_fragnanced: true
+  field_image: true
+  field_occasion: true
+  field_type_of_flowers: true
+  stores: true
+  uid: true

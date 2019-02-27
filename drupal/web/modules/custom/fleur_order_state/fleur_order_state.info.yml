@@ -1,6 +1,0 @@
-name: 'Fleur order state'
-type: module
-description: Set order state from Validation to Fulfillment if payment was completed
-core: 8.x
-version: '1.x'
-package: Custom

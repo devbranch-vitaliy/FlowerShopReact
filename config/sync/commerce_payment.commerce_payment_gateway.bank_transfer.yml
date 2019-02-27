@@ -1,0 +1,18 @@
+uuid: e6269814-6f94-4312-ab1e-06b3890eb5c2
+langcode: en
+status: false
+dependencies: {  }
+id: bank_transfer
+label: 'Bank Transfer (Manual)'
+weight: -10
+plugin: manual
+configuration:
+  instructions:
+    value: "<p>Please use the following credentials for a bank transfer:</p>\r\n\r\n<p>Bank name: …</p>\r\n\r\n<p>Account name: …</p>\r\n\r\n<p>Branch name: …</p>\r\n\r\n<p>Transaction comment: …</p>\r\n\r\n<p>Please email us at&nbsp;<a href=\"mailto:store@domain.com\" rel=\"nofollow\" title=\"Follow link\">store@domain.com</a>&nbsp;so we could process your transaction.</p>\r\n"
+    format: full_html
+  display_label: 'Bank Transfer'
+  mode: n/a
+  payment_method_types:
+    - credit_card
+conditions: {  }
+conditionOperator: AND

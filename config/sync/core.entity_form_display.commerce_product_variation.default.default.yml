@@ -1,0 +1,57 @@
+uuid: d8b21a52-ba37-4d90-9552-ecad88861676
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+    - field.field.commerce_product_variation.default.attribute_size
+    - field.field.commerce_product_variation.default.weight
+  module:
+    - commerce_bulk
+    - commerce_price
+_core:
+  default_config_hash: tPYXAFcoBHG1jtgfl021t-ns7EE7da_S-o2zfS7aLUQ
+id: commerce_product_variation.default.default
+targetEntityType: commerce_product_variation
+bundle: default
+mode: default
+content:
+  attribute_size:
+    type: options_select
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  price:
+    type: commerce_price_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  sku:
+    type: commerce_bulk_sku
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+      custom_label: ''
+      uniqid_enabled: true
+      more_entropy: false
+      hide: false
+      prefix: sku-
+      suffix: ''
+      maximum: 500
+    third_party_settings: {  }
+    region: content
+  status:
+    type: boolean_checkbox
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  list_price: true
+  uid: true
+  weight: true

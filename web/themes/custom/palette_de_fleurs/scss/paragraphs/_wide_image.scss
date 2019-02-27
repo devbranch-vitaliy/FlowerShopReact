@@ -1,0 +1,17 @@
+@media #{$mobile} {
+  .wide-image {
+    height: 240px;
+  }
+}
+
+@media #{$tablet} {
+  .wide-image {
+    height: 420px;
+  }
+}
+
+@media #{$wide} {
+  .wide-image {
+    height: 600px;
+  }
+}

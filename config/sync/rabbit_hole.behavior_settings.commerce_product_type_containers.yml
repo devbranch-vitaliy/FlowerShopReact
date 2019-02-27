@@ -1,0 +1,11 @@
+uuid: 72c9e034-9431-49b0-8448-02effd200588
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.containers
+id: commerce_product_type_containers
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

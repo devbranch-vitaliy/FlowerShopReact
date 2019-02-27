@@ -1,0 +1,244 @@
+{#
+/**
+ * @file
+ * Template for the order receipt.
+ *
+ * Available variables:
+ * - order_entity: The order entity.
+ * - billing_information: The billing information.
+ * - billing_address: The address information.
+ * - billing_country: The country information.
+ * - payment_method: The payment method.
+ * - paid_time: The time when order was paid.
+ * - totals: An array of order totals values with the following keys:
+ *   - subtotal: The order subtotal price.
+ *   - adjustments: An array of adjustment totals:
+ *     - type: The adjustment type.
+ *     - label: The adjustment label.
+ *     - total: The adjustment total price.
+ *     - weight: The adjustment weight, taken from the adjustment type.
+ *   - paid: The order paid price.
+ *   - total: The order total price.
+ *   - balance: The balance due.
+ *
+ * @ingroup themeable
+ */
+#}
+{% block head %}
+  <style type="text/css">
+    table {
+      font-size: 8px;
+      width: 100%;
+      border-collapse: collapse;
+      padding: 0;
+    }
+    .head tr {
+      vertical-align: top;
+    }
+    td {
+      padding: 0;
+    }
+    .order_items div {
+      padding: 5px;
+    }
+    .text_left{
+      text-align: left;
+    }
+    .text_right{
+      text-align: right;
+    }
+    .title {
+      font-size: 12px; font-weight: bold;
+    }
+    .table_title {
+      background-color: #fb817d; font-weight: bold; color: #ffffff;
+    }
+    .top_bot_space_large {
+      padding: 20px 0;
+    }
+    .top_bot_space_midle {
+      padding: 10px 0;
+    }
+    .left_space{
+      padding-left: 3px;
+    }
+    .total td {
+      padding: 20px 0 15px;
+    }
+    .summary {
+      font-size: 10px; font-weight: bold; color: #ffffff;
+    }
+    .summary_cell_color {
+      background-color: #fb817d;
+    }
+  </style>
+{% endblock %}
+
+<table style="margin: 15px auto 0 auto; max-width: 768px; font-family: arial,sans-serif;">
+  <tr>
+    <td>
+      <table style="min-width: 480px; margin: 0 auto; border: 1px solid #cccccc; border-radius: 5px; padding: 5px;">
+
+        <thead>
+        <tr>
+          <td>
+            <table width="100%" class="head">
+              <tr style="padding-bottom: 20px;">
+                <td class="text_left" style="width: 50%">
+                  <div class="title">Palette de Fleurs -<br>Celain Trading cc</div>
+                  <div>Cape Quarter Square<br>Somerset Road<br>de Waterkant, Cape Town, 8004<br>pieter@palettedefleurs.co.za<br>021 4218258<br>VAT Reg No: 47900177754</div>
+                </td>
+                <td class="text_right" style="width: 50%">
+                  <div class="title">{{ 'Tax Invoice'|t }}</div>
+                  <table class="text_right" style="padding: 0;">
+                    <tr>
+                      <td width="80%">{{ 'Invoice No:'|t }}</td>
+                      <td width="20%">{{ order_entity.id }}</td>
+                    </tr>
+                    <tr>
+                      <td>{{ 'Date:'|t }}</td>
+                      <td>{{ order_entity.getPlacedTime|date("m/d/Y") }}</td>
+                    </tr>
+                    <tr>
+                      <td>{{ 'Terms:'|t }}</td>
+                      <td>{{ 'NET14'|t }}</td>
+                    </tr>
+                    <tr>
+                      <td>{{ 'Due Date:'|t }}</td>
+                      {% if paid_time %}
+                        <td>{{ paid_time|date("m/d/Y") }}</td>
+                      {% endif %}
+                    </tr>
+
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="top_bot_space_large">
+                  <div></div>
+                  <table>
+                    <tr>
+                      <td width="10%" class="text_left">{{ 'Bill'|t }}<br>{{ 'To:'|t }}</td>
+                      <td width="90%" class="left_space">
+                        {{ billing_address.getGivenName }} {{ ' ' }} {{ billing_address.getFamilyName }}<br>
+                        {{ order_entity.getEmail }}<br>
+                        {{ 'Shop A02'|t }}<br>
+                        {% if billing_address.getAddressLine1 %}
+                          {{ billing_address.getAddressLine1 }}<br>
+                        {% endif %}
+                        {% if billing_address.getAddressLine2 %}
+                          {{ billing_address.getAddressLine2 }}{{ ', ' }}
+                        {% endif %}
+                        {% if billing_address.getDependentLocality %}
+                          {{ billing_address.getDependentLocality }}{{ ', ' }}
+                        {% endif %}
+                        {% if billing_address.getLocality %}
+                          {{ billing_address.getLocality }}{{ ', ' }}
+                        {% endif %}
+                        {% if billing_country %}
+                          {{ billing_country.getName }}{{ ', ' }}
+                        {% endif %}
+                        {% if billing_address.getPostalCode %}
+                          {{ billing_address.getPostalCode }}<br>
+                        {% endif %}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        </thead>
+
+        {#<tbody>#}
+        <tr>
+          <td class="top_bot_space_midle">
+            {% block orderitems %}
+              <table class="text_right">
+                <tr class="table_title">
+                  <td width="40%" class="text_left"><div><br>   Description<br></div></td>
+                  <td width="15%"><div><br>Quality<br></div></td>
+                  <td width="15%"><div><br>Rate<br></div></td>
+                  <td width="15%"><div><br>VAT<br></div></td>
+                  <td width="15%"><div><br>Amount   </div></td>
+                </tr>
+                {% for order_item in order_entity.getItems %}
+                  <tr>
+
+                    <td class="text_left">
+                      <div>   {{ order_item.label }}</div>
+                    </td>
+                    <td >
+                      <div>{{ order_item.getQuantity|number_format }}</div>
+                    </td>
+                    <td>
+                      <div>{{ order_item.getUnitPrice|commerce_price_format }}</div>
+                    </td>
+                    <td>
+                      {% set vat = 0 %}
+                      {% for adjustment in order_item.getAdjustments %}
+                        {% if adjustment.getType == 'tax' %}
+                          {% set vat = adjustment.getPercentage * 100 %}
+                        {% endif %}
+                      {% endfor %}
+                      <div>{{ vat }} {{ '%' }}</div>
+                    </td>
+                    <td>
+                      <div>{{ order_item.getTotalPrice|commerce_price_format }}   </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+                <tr>
+                  <td height="20px"></td>
+                </tr>
+                <tr class="total">
+                  <td class="text_left" colspan="3">
+                    <div>
+                      <div style="font-weight: bold; margin-bottom: 5px">{{ 'Payment Details'|t }}</div>
+                      <div>
+                        {{ payment_method }}
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div>{{ 'Subtotal:'|t }}</div>
+                    {% for adjustment in totals.adjustments %}
+                      {% if adjustment.type == 'tax' %}
+                        <div>{{ adjustment.label }} {{ adjustment.percentage * 100 }}%:</div>
+                      {% else %}
+                        <div>{{ adjustment.label }}:</div>
+                      {% endif %}
+                    {% endfor %}
+                    <div>{{ 'Total:'|t }}</div>
+                    <div>{{ 'Paid:'|t }}</div>
+                  </td>
+                  <td>
+                    <div>{{ totals.subtotal|commerce_price_format }}   </div>
+                    {% for adjustment in totals.adjustments %}
+                      <div>{{ adjustment.total|commerce_price_format }}   </div>
+                    {% endfor %}
+                    <div>{{ totals.total|commerce_price_format }}   </div>
+                    <div>{{ totals.paid|commerce_price_format }}   </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="10px"></td>
+                </tr>
+                <tr class="summary">
+                  <td colspan="2"></td>
+                  <td colspan="2" class="summary_cell_color"><div><br>{{ 'Balance Due'|t }}<br></div></td>
+                  <td class="summary_cell_color"><div><br>{{ totals.balance|commerce_price_format }}   </div></td>
+                </tr>
+                {#</tbody>#}
+              </table>
+            {% endblock %}
+            <div class="top_bot_space_midle">{{ 'Notes'|t }}</div>
+            <div>{{ 'We value your support.'|t }}</div>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>

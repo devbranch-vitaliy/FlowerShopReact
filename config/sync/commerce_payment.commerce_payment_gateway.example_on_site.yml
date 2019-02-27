@@ -1,0 +1,23 @@
+uuid: c76ff3eb-aa97-4865-83c1-387b198e8fdf
+langcode: en
+status: false
+dependencies:
+  module:
+    - commerce_payment_example
+id: example_on_site
+label: 'Example On-site'
+weight: -8
+plugin: example_onsite
+configuration:
+  api_key: '123'
+  display_label: Example
+  mode: test
+  payment_method_types:
+    - credit_card
+conditions:
+  -
+    plugin: order_customer_role
+    configuration:
+      roles:
+        - administrator
+conditionOperator: AND

@@ -1,0 +1,33 @@
+uuid: 4ea06de8-dc1f-40c1-b5e0-2c1e57d673e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cta_banner.field_banner_description
+    - field.field.paragraph.cta_banner.field_banner_title
+    - paragraphs.paragraphs_type.cta_banner
+id: paragraph.cta_banner.default
+targetEntityType: paragraph
+bundle: cta_banner
+mode: default
+content:
+  field_banner_description:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_banner_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

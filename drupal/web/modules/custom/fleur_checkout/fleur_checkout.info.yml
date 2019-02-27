@@ -1,6 +1,0 @@
-name: 'Fleur checkout'
-type: module
-description: Additional functional for checkout
-core: 8.x
-version: '1.x'
-package: Custom

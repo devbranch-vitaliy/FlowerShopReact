@@ -1,8 +1,0 @@
-address_type:
-  version: VERSION
-  js:
-    js/address_type.js: {}
-  dependencies:
-  - core/jquery
-  - core/jquery.once
-  - core/drupal

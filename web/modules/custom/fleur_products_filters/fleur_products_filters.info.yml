@@ -1,0 +1,6 @@
+name: 'Fleur products filters'
+type: module
+description: To change -Any- variant selection of products view filters
+core: 8.x
+version: '1.x'
+package: Custom

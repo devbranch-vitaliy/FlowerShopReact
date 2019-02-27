@@ -1,8 +1,0 @@
-name: 'Fleur color field'
-type: module
-description: To make changes to color field module
-core: 8.x
-version: '1.x'
-package: Custom
-dependencies:
-  - color_field:color_field

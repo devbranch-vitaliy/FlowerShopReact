@@ -1,7 +1,0 @@
-uuid: 222406a0-03b8-4cc2-ba43-875e3f5ea982
-langcode: en
-status: true
-dependencies: {  }
-id: product_text
-label: 'Product text'
-elementType: select

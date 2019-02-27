@@ -1,0 +1,15 @@
+uuid: bada80a0-e0d4-4040-9753-5966e0812cbe
+langcode: en
+status: true
+dependencies: {  }
+name: blog_image_1284x750
+label: 'Blog image (1284x750)'
+effects:
+  b41edabb-f527-466a-9f07-e9455c08c5ed:
+    uuid: b41edabb-f527-466a-9f07-e9455c08c5ed
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1284
+      height: 750
+      anchor: center-center

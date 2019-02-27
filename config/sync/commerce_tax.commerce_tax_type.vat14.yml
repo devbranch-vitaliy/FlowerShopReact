@@ -1,0 +1,19 @@
+uuid: 61cf677d-2e3b-4811-8457-d9ffd8e479ac
+langcode: en
+status: true
+dependencies: {  }
+id: vat14
+label: VAT14
+plugin: custom
+configuration:
+  display_label: vat
+  round: true
+  rates:
+    -
+      id: a418b9a1-e6eb-42ca-8573-8de05e4834fb
+      label: '14'
+      percentage: '0.14'
+  territories:
+    -
+      country_code: ZA
+  display_inclusive: true

@@ -1,0 +1,17 @@
+uuid: 5810f5f3-0208-4624-a9a4-61eb8695685d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Page with paragraphs'
+type: page_with_paragraphs
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

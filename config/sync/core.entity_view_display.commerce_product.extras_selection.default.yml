@@ -1,0 +1,62 @@
+uuid: 37f22bed-e734-44e1-b952-e59089dee5e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.extras_selection
+    - field.field.commerce_product.extras_selection.body
+    - field.field.commerce_product.extras_selection.field_image
+    - field.field.commerce_product.extras_selection.field_meta_tags
+    - field.field.commerce_product.extras_selection.stores
+    - field.field.commerce_product.extras_selection.variations
+    - image.style.extras_selection_196x196
+  module:
+    - commerce_product
+    - image
+    - text
+id: commerce_product.extras_selection.default
+targetEntityType: commerce_product
+bundle: extras_selection
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: extras_selection_196x196
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  variations:
+    weight: 3
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings: {  }
+    type: commerce_add_to_cart
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_meta_tags: true
+  stores: true
+  uid: true

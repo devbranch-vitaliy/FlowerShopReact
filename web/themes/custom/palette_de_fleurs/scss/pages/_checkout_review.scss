@@ -1,0 +1,145 @@
+.checkout-review {
+  & > .row {
+    @include checkout-width;
+  }
+
+  .layout-checkout-form {
+    margin-top: 80px;
+  }
+
+  .panel-heading {
+    display: none;
+  }
+
+  #edit-review-contact-information {
+    display: none;
+  }
+
+  #edit-review-fleur-shipping-information, #edit-review-fleur-payment-information {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid $black;
+  }
+
+  .panel-default {
+    border: none;
+    box-shadow: none;
+  }
+
+  .panel-body {
+    padding: 0;
+  }
+
+  .information-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group > .information-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .panel-title {
+    @include H4;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+
+  .information-title {
+    @include Label-Big;
+    margin-bottom: 8px;
+  }
+
+  .information-field {
+    font-family: SourceSansPro;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    margin-bottom: 8px;
+  }
+
+  .checkout-pane-fleur-order-message, .checkout-pane-fleur-commerce-checkout-confirmation-checkbox {
+    margin-bottom: 40px;
+  }
+
+  .layout-region-checkout-footer {
+
+    a {
+      display: none;
+    }
+
+    button {
+      @include Label-Big;
+      width: 50%;
+      padding: 15px 16px;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .checkout-review {
+    & > .row {
+      width: auto;
+      padding: 0;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    .layout-checkout-form {
+      margin-top: 40px;
+    }
+
+    .layout-region-checkout-main {
+      padding-right: 0;
+
+      & > div:not(.fleur-order-summary) {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+    }
+
+    .layout-region-checkout-footer {
+      margin-top: 24px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .layout-region-checkout-footer {
+      padding: 0 16px;
+      button {
+        width: 100%;
+      }
+    }
+
+    .checkout-order-summary {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .checkout-review {
+    .layout-region-checkout-main {
+      float: left;
+      width: 65%;
+      padding-right: 16px;
+      box-sizing: border-box;
+    }
+
+    .layout-region-checkout-secondary {
+      float: right;
+      width: 35%;
+    }
+  }
+}
+
+@media #{$wide} {
+  .checkout-review {
+    .layout-region-checkout-main {
+      padding-right: 24px;
+    }
+  }
+}

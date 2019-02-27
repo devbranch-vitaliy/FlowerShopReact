@@ -1,0 +1,27 @@
+@mixin set_background($file_path, $file_path_base, $file_type) {
+
+  @media #{$mobile} {
+    $file_size: "-767";
+    background-image: url($image-path + $file_path + $file_path_base + $file_size + $file_type);
+  }
+
+  @media #{$tablet} {
+    $file_size: "-992";
+    background-image: url($image-path + $file_path + $file_path_base + $file_size + $file_type);
+  }
+
+  @media #{$normal} {
+    $file_size: "-1200";
+    background-image: url($image-path + $file_path + $file_path_base + $file_size + $file_type);
+  }
+
+  @media #{$wide} {
+    $file_size: "-1320";
+    background-image: url($image-path + $file_path + $file_path_base + $file_size + $file_type);
+  }
+
+  @media #{$extra-wide} {
+    $file_size: "-full";
+    background-image: url($image-path + $file_path + $file_path_base + $file_size + $file_type);
+  }
+}

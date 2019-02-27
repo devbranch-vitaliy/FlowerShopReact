@@ -1,0 +1,42 @@
+uuid: 89a2ef3f-9a1c-40fc-b811-4055114c4771
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_a_call_back
+    - field.field.contact_message.request_a_call_back.field_phone_number
+  module:
+    - international_phone
+id: contact_message.request_a_call_back.default
+targetEntityType: contact_message
+bundle: request_a_call_back
+mode: default
+content:
+  field_phone_number:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: InternationalPhoneDefaultWidget
+    region: content
+  mail:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  message:
+    type: string_textarea
+    weight: 3
+    settings:
+      rows: 1
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  name:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  copy: true
+  preview: true
+  subject: true

@@ -1,0 +1,19 @@
+uuid: ad3276f2-6fe7-4864-b771-e9c79610c27c
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - international_phone
+id: contact_message.field_phone_number
+field_name: field_phone_number
+entity_type: contact_message
+type: international_phone
+settings: {  }
+module: international_phone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

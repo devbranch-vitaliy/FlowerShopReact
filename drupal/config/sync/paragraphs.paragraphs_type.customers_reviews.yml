@@ -1,9 +1,0 @@
-uuid: 5d044ba0-16b3-4d09-ade1-0bcbf8822de7
-langcode: en
-status: true
-dependencies: {  }
-id: customers_reviews
-label: 'Customers reviews'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

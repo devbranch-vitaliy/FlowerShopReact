@@ -1,8 +1,0 @@
-#!/bin/bash
-for file in ./*.svg
-do
-if [ -f "$file" ]
-then
-inkscape -f $file --verb EditSelectAll --verb SelectionUnGroup --verb EditSelectAll --verb ObjectToPath --verb EditSelectAll --verb StrokeToPath --verb FileSave --verb FileQuit
-fi
-done

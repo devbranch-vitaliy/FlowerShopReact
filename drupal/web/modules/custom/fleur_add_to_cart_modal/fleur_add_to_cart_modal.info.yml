@@ -1,6 +1,0 @@
-name: 'Fleur add to cart modal'
-type: module
-description: Helper module replacing a product entity view mode for a popup.
-core: 8.x
-version: '1.x'
-package: Custom

@@ -1,0 +1,27 @@
+uuid: bc673fd9-ea2d-421a-bc99-b648566862d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - profile
+id: profile.field_address_type
+field_name: field_address_type
+entity_type: profile
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: Home
+    -
+      value: 1
+      label: Business/Office
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

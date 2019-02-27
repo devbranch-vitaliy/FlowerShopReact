@@ -1,0 +1,275 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_html(&$variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $variables['page_title_class'] = Html::getClass(trim($node->getTitle()));
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function palette_de_fleurs_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__'.$node->bundle();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function palette_de_fleurs_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+
+  if (in_array('bootstrap_panel', $suggestions)
+    && isset($variables['element']['#theme'])
+    && $variables['element']['#theme'] == 'commerce_checkout_pane') {
+    $suggestions[] = 'bootstrap_panel__' . $variables['element']['#pane_id'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_commerce_product__default__full(&$variables) {
+  $array_tags = [];
+
+  if (isset($variables['product_entity'])) {
+    /** @var \Drupal\commerce_product\Entity\Product $product */
+    $product = $variables['product_entity'];
+
+    if ($product->get('field_fragnanced')->value) {
+      $array_tags[] = $product->get('field_fragnanced')->getFieldDefinition()->getLabel();
+    }
+
+    /** @var \Drupal\taxonomy\Entity\Term $value */
+    foreach ($product->get('field_type_of_flowers')->referencedEntities() as $value) {
+      $array_tags[] = $value->getName();
+    }
+
+    /** @var \Drupal\taxonomy\Entity\Term $value */
+    foreach ($product->get('field_characteristics')->referencedEntities() as $value) {
+      $array_tags[] = $value->getName();
+    }
+
+    /** @var \Drupal\taxonomy\Entity\Term $value */
+    foreach ($product->get('field_occasion')->referencedEntities() as $value) {
+      $array_tags[] = $value->getName();
+    }
+
+    $field_colors = $product->get('field_colors');
+    $colors_options = $field_colors->getFieldDefinition()->getFieldStorageDefinition()->
+        getOptionsProvider('value', $product)->getPossibleOptions();
+    foreach ($field_colors->getValue() as $field_value) {
+      $array_tags[] = $colors_options[$field_value['value']];
+    }
+
+    $variables['product_tags'] = implode(', ', $array_tags);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_views_view__flowers__products(&$variables) {
+  $variables['title'] = t('Our Products');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_views_view__faq__faq_list(&$variables) {
+  $variables['title'] = $variables['view']->getTitle();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_views_view__news__news(&$variables) {
+  $variables['title'] = $variables['view']->getTitle();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__contact__request_a_call_back(&$variables) {
+  $variables['title'] = t('Request a call back');
+  $variables['description'] = t('Please fill out the form and we will call you back');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__contact(&$variables) {
+  $variables['title'] = t('Contact us');
+  $variables['description'] = t('Contact us with your request or question');
+}
+
+/**
+* Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_form(&$variables) {
+  if ($variables['element']['#id'] == 'contact-message-request-a-call-back-form') {
+    if (isset($variables['children'])) {
+      $new_children = str_replace(t('Message'), t('When would you like us to call you?'), $variables['children']->jsonSerialize());
+      $new_children = str_replace(t('Send message'), t('Send'), $new_children);
+      $new_children = str_replace(t('Your email address'), t('E-mail'), $new_children);
+      $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
+    }
+  }
+  if ($variables['element']['#id'] == 'contact-message-feedback-form') {
+    if (isset($variables['children'])) {
+      $new_children = str_replace(t('Message'), t('Your request or question'), $variables['children']->jsonSerialize());
+      $new_children = str_replace(t('Send message'), t('Send'), $new_children);
+      $new_children = str_replace(t('Your email address'), t('E-mail'), $new_children);
+      $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__page_with_paragraphs(&$variables) {
+  if (!$variables['is_front']) {
+    $variables['title'] = $variables['node']->getTitle();
+  }
+}
+
+/**
+ * Creating checkout progress info.
+ *
+ * @param int $current_step
+ *   Number of step.
+ *
+ * @return array
+ *   Array of steps.
+ */
+function palette_de_fleurs_create_checkout_progress($current_step = 1) {
+  return [
+    ['step' => '1', 'title' => t('Add extras'), 'active' => ($current_step >= 1)],
+    ['step' => '2', 'title' => t('Shopping cart'), 'active' => ($current_step >= 2)],
+    ['step' => '3', 'title' => t('Delivery details'), 'active' => ($current_step >= 3)],
+    ['step' => '4', 'title' => t('Review'), 'active' => ($current_step >= 4)],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__extras(&$variables) {
+  $variables['title'] = t('Add extras');
+  $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(1);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__cart(&$variables) {
+  $variables['title'] = t('Shopping cart');
+  $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(2);
+  $variables['#attached']['library'][] =  'palette_de_fleurs/quantity-field';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__checkout__order_information(&$variables) {
+  $variables['title'] = t('Delivery details');
+  $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(3);
+  $variables['#attached']['library'][] =  'palette_de_fleurs/order-information';
+  $variables['#attached']['library'][] =  'palette_de_fleurs/order-summary';
+  $variables['#attached']['library'][] =  'palette_de_fleurs/fleur-datepicker';
+  $variables['checkout_classes'] = 'checkout-order-information';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__checkout__review(&$variables) {
+  $variables['title'] = t('Review');
+  $variables['checkout_header'] = palette_de_fleurs_create_checkout_progress(4);
+  $variables['#attached']['library'][] =  'palette_de_fleurs/order-summary';
+  $variables['checkout_classes'] = 'checkout-review';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_page__checkout__complete(&$variables) {
+  $variables['checkout_classes'] = 'checkout-order-complete';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_container(&$variables) {
+  if (isset($variables['element']['#id'])
+    && (strpos($variables['element']['#id'], 'edit-fleur-shipping-information-shipping-profile') !== false
+    || strpos($variables['element']['#id'], 'edit-fleur-payment-information-billing-information') !== false)) {
+
+    if (isset($variables['children'])) {
+      $new_children = str_replace(t('Company'), t('Name of business'), $variables['children']->jsonSerialize());
+      $new_children = str_replace(t('Postal code'), t('ZIP code'), $new_children);
+      $new_children = str_replace(t('Street address'), t('Street'), $new_children);
+      $new_children = str_replace(t('Street line 2'), t('Number'), $new_children);
+      $variables['children'] = Drupal\Core\Render\Markup::create($new_children);
+    }
+  }
+}
+
+/**
+ * Add markup element with wrapper.
+ *
+ * @param string $markup_text
+ *   A text of markup.
+ * @param array $classes
+ *   Array with classes.
+ *
+ * @return array
+ *   The form element.
+ */
+function palette_de_fleurs_add_markup($markup_text, array $classes) {
+ return [
+   '#type' => 'container',
+   'label' => [
+     '#type' => 'markup',
+     '#markup' => t($markup_text),
+   ],
+   '#attributes' => [
+     'class' => $classes,
+   ]
+ ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_bootstrap_panel__fleur_shipping_information(&$variables) {
+  $variables['heading'] = t('Delivery');
+
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('To whom it should be delivered?', ['additional_label', 'label-to-whom']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Where it will be delivered?', ['additional_label', 'label-where']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('When do you want it delivered?', ['additional_label', 'label-when']);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function palette_de_fleurs_preprocess_bootstrap_panel__fleur_payment_information(&$variables) {
+  $variables['heading'] = t('Your details');
+
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Your address ', ['additional_label', 'label-where']);
+}

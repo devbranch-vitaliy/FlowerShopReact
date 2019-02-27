@@ -1,0 +1,23 @@
+uuid: 0f9e58a6-6643-410d-a25f-c8d2ef0041a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_address_type
+    - profile.type.customer
+  module:
+    - options
+id: profile.customer.field_address_type
+field_name: field_address_type
+entity_type: profile
+bundle: customer
+label: Address
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

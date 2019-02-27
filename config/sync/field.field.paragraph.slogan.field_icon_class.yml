@@ -1,0 +1,19 @@
+uuid: f07fe927-572d-4ae2-900f-f93899956d85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_class
+    - paragraphs.paragraphs_type.slogan
+id: paragraph.slogan.field_icon_class
+field_name: field_icon_class
+entity_type: paragraph
+bundle: slogan
+label: 'Icon class'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

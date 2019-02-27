@@ -1,9 +1,0 @@
-uuid: 28e2f5e1-21b5-4e96-ad2c-cdd2323234d1
-langcode: en
-status: true
-dependencies: {  }
-id: slogans
-label: Slogans
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

@@ -1,7 +1,0 @@
-name: 'Fleur date widget'
-type: module
-description: Widget for date condition
-core: 8.x
-version: '1.x'
-package: Custom
-project: 'fleur_date_widget'

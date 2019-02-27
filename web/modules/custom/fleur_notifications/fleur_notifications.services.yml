@@ -1,0 +1,6 @@
+services:
+  fleur_notifications.order_email_notifications:
+    class: Drupal\fleur_notifications\EventSubscriber\OrderReceiptSubscriber
+    arguments: ['@entity_type.manager', '@language_manager', '@plugin.manager.mail', '@commerce_order.order_total_summary', '@renderer', '@entity_print.print_builder', '@plugin.manager.entity_print.print_engine', '@file_system']
+    tags:
+      - { name: event_subscriber }

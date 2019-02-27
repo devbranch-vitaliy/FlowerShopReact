@@ -1,9 +1,0 @@
-uuid: 537f65aa-7101-4229-8dc2-4371063a200e
-langcode: en
-status: true
-dependencies: {  }
-id: not_found_404
-label: 'Not found (404)'
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

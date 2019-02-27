@@ -1,0 +1,23 @@
+uuid: bd108339-ba4d-44d7-b2f5-950ea97db8f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_a_call_back
+    - field.storage.contact_message.field_phone_number
+  module:
+    - international_phone
+id: contact_message.request_a_call_back.field_phone_number
+field_name: field_phone_number
+entity_type: contact_message
+bundle: request_a_call_back
+label: Phone
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '+27'
+default_value_callback: ''
+settings: {  }
+field_type: international_phone

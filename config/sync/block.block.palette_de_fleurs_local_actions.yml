@@ -1,0 +1,20 @@
+uuid: ce83c279-8f96-49bd-82c3-b5d15354c901
+langcode: en
+status: true
+dependencies:
+  theme:
+    - palette_de_fleurs
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: palette_de_fleurs_local_actions
+theme: palette_de_fleurs
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,35 @@
+@media #{$mobile} {
+  .request-a-call-back-form {
+    padding: 0 8px !important;
+
+    .contact-message-request-a-call-back-form {
+      width: 100%;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .request-a-call-back-form {
+    .contact-message-request-a-call-back-form {
+      margin: auto;
+      width: 60%;
+    }
+  }
+}
+
+
+@media #{$normal} {
+  .request-a-call-back-form {
+    .contact-message-request-a-call-back-form {
+      width: 50%;
+    }
+  }
+}
+
+@media #{$wide} {
+  .request-a-call-back-form {
+    .contact-message-request-a-call-back-form {
+      width: 40%;
+    }
+  }
+}

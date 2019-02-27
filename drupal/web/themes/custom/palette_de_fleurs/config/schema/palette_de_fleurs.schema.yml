@@ -1,5 +1,0 @@
-# Schema for the theme setting configuration file of the Palette de Fleurs settings theme.
-
-palette_de_fleurs.settings:
-  type: theme_settings
-  label: 'Palette de Fleurs settings'

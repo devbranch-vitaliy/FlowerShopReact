@@ -1,6 +1,0 @@
-name: 'Fleur commerce - message to the recipient'
-type: module
-description: Allows to write message to the recipient during checkout flow process
-core: 8.x
-version: '1.x'
-package: Custom

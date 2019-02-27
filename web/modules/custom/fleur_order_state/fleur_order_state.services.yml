@@ -1,0 +1,5 @@
+services:
+  fleur_order_state.order_state_subscriber:
+    class: Drupal\fleur_order_state\EventSubscriber\OrderEventsSubscriber
+    tags:
+      - { name: event_subscriber }

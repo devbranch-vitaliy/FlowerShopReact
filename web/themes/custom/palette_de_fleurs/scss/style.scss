@@ -1,0 +1,52 @@
+// Default variables.
+@import "default-variables";
+
+// Bootstrap Framework.
+@import '../bootstrap/assets/stylesheets/bootstrap';
+
+// Base-theme overrides.
+@import 'overrides';
+
+// Blocks design.
+@import "blocks/header";
+@import "blocks/footer";
+@import "blocks/mobile_menu";
+@import "blocks/main_content";
+@import "blocks/product_view";
+@import "blocks/product_variations";
+@import "blocks/mobile_filters";
+@import "blocks/breadcrumbs";
+@import "blocks/contact";
+@import "blocks/contact_map";
+@import "blocks/checkout_progress";
+@import "blocks/add_extras";
+@import "blocks/node_pager";
+@import "blocks/cart";
+@import "blocks/order_summary";
+
+// Paragraphs design.
+@import "paragraphs/top_front_banner";
+@import "paragraphs/slogans";
+@import "paragraphs/instagram";
+@import "paragraphs/featured_products";
+@import "paragraphs/customers_reviews";
+@import "paragraphs/wide_image";
+@import "paragraphs/paragraph_content";
+@import "paragraphs/image";
+@import "paragraphs/not_foud_404";
+
+// Pages design.
+@import "pages/product_flowers";
+@import "pages/products_view";
+@import "pages/faq_list_view";
+@import "pages/request_a_call_back";
+@import "pages/page_with_paragraphs";
+@import "pages/404";
+@import "pages/feedback";
+@import "pages/extras";
+@import "pages/news";
+@import "pages/new";
+@import "pages/cart";
+@import "pages/checkout_order_information";
+@import "pages/checkout_review";
+@import "pages/checkout_complete";

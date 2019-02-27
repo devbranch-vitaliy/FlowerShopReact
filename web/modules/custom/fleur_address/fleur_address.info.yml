@@ -1,0 +1,11 @@
+name: 'Fleur address'
+type: module
+description: Fleur address type
+core: 8.x
+version: '1.x'
+package: Custom
+project: 'fleur_address'
+
+dependencies:
+  - drupal:field
+

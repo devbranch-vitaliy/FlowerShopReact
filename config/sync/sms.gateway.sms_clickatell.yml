@@ -1,0 +1,17 @@
+uuid: a2b7f0f4-e944-4f0d-961d-00b6f2fc7eff
+langcode: en
+status: true
+dependencies:
+  module:
+    - sms_clickatell
+id: sms_clickatell
+label: 'SMS Clickatell'
+plugin: clickatell
+settings:
+  account:
+    auth_token: 4poqBGliSdS3UfH2R4lRWw==
+skip_queue: true
+incoming_push_path: /sms/incoming/receive/0DK1sSJC1IvNpSDlupICjg
+reports_push_path: /sms/delivery-report/receive/yDWGM8Y713tu04j0BWp6Ww
+retention_duration_incoming: 0
+retention_duration_outgoing: 0

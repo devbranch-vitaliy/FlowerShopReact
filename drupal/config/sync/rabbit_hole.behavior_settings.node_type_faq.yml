@@ -1,9 +1,0 @@
-uuid: c9698fda-591e-4499-b359-573dcb5d9862
-langcode: en
-status: true
-dependencies: {  }
-id: node_type_faq
-action: page_not_found
-allow_override: 0
-redirect: ''
-redirect_code: 301
