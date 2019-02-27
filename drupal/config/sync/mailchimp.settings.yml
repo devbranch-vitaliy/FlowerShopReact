@@ -1,4 +1,4 @@
-api_key: 2644a4f54f7c0e770b3df84dcbed118b-us19
+api_key: 52facdf048e9a356b6b5b7ed6e04ddb5-us15
 cron: false
 batch_limit: 100
 api_classname: Mailchimp\Mailchimp
