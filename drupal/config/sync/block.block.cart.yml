@@ -17,5 +17,5 @@ settings:
   label: Cart
   provider: commerce_cart
   label_display: '0'
-  dropdown: true
+  dropdown: false
 visibility: {  }
