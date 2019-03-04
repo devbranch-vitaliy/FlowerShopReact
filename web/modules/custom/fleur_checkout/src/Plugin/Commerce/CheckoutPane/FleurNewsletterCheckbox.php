@@ -110,7 +110,7 @@ class FleurNewsletterCheckbox extends CheckoutPaneBase implements CheckoutPaneIn
     if (!empty($this->configuration['mailchimp_list'])) {
       $pane_form['newsletter_checkbox'] = [
         '#type' => 'checkbox',
-        '#default_value' => $this->order->getData('newsletter_checkbox', FALSE),
+        '#default_value' => boolval($this->order->getData('mailchimp_list', NULL)),
         '#title' => $this->configuration['checkbox_title'],
       ];
     }
@@ -124,7 +124,8 @@ class FleurNewsletterCheckbox extends CheckoutPaneBase implements CheckoutPaneIn
   public function submitPaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
     $values = $form_state->getValue($pane_form['#parents']);
     $value = !empty($values['newsletter_checkbox']);
-    $this->order->setData('newsletter_checkbox', $value);
+    $this->order->setData('mailchimp_list', $value ? $this->configuration['mailchimp_list'] : NULL);
+    $this->order->setData('mailchimp_double_opt_in', $value ? $this->configuration['require_double_opt_in'] : NULL);
   }
 
   /**
