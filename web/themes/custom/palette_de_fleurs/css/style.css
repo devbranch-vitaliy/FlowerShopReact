@@ -7345,13 +7345,8 @@ header.navbar {
     width: 200px;
     height: 115px;
     background: #ffffff;
-    color: #191919;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
-    top: 32px;
-    font-family: SourceSansPro;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1; }
+    top: 32px; }
     @media screen and (max-width: 767px) {
       #block-cart #call-block-popup {
         left: -90px; } }
@@ -7364,9 +7359,6 @@ header.navbar {
     @media screen and (min-width: 1200px) {
       #block-cart #call-block-popup {
         left: -50px; } }
-    #block-cart #call-block-popup div {
-      margin: 24px 0 24px 24px;
-      height: 18px; }
     #block-cart #call-block-popup:after {
       content: "";
       position: absolute;
@@ -7376,6 +7368,15 @@ header.navbar {
       border-width: 5px;
       border-style: solid;
       border-color: transparent transparent #ffffff transparent; }
+    #block-cart #call-block-popup a {
+      color: #191919;
+      display: block;
+      font-family: SourceSansPro;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1;
+      margin: 24px 0 24px 24px;
+      height: 18px; }
   #block-cart #call-block-popup.show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
