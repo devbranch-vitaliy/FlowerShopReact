@@ -260,9 +260,9 @@ function palette_de_fleurs_add_markup($markup_text, array $classes) {
 function palette_de_fleurs_preprocess_bootstrap_panel__fleur_shipping_information(&$variables) {
   $variables['heading'] = t('Delivery');
 
-  $variables['additional_labels'][] = palette_de_fleurs_add_markup('To whom it should be delivered?', ['additional_label', 'label-to-whom']);
-  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Where it will be delivered?', ['additional_label', 'label-where']);
-  $variables['additional_labels'][] = palette_de_fleurs_add_markup('When do you want it delivered?', ['additional_label', 'label-when']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Who is this delivery for?', ['additional_label', 'label-to-whom']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Delivery Address', ['additional_label', 'label-where']);
+  $variables['additional_labels'][] = palette_de_fleurs_add_markup('Delivery date and time', ['additional_label', 'label-when']);
 }
 
 /**

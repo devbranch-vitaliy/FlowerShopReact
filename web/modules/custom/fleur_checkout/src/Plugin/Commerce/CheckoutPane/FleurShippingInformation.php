@@ -107,13 +107,13 @@ class FleurShippingInformation extends ShippingInformation {
         $address = $shipping_profile->get('address')->first()->getValue();
 
         $summary[$index]['receiver'] = $this->addContainer(['receiver-information information-group form-group']);
-        $summary[$index]['receiver']['title'] = $this->addMarkup($this->t('Receiver:'), ['information-title']);
+        $summary[$index]['receiver']['title'] = $this->addMarkup($this->t('Recipient:'), ['information-title']);
         $summary[$index]['receiver']['name'] = $this->addMarkup($address['given_name'] . ' ' . $address['family_name'], ['information-field']);
         $summary[$index]['receiver']['telephone'] = $this->addMarkup($shipping_profile->get('field_telephone')->getString(), ['information-field']);
         $summary[$index]['receiver']['email'] = $this->addMarkup($shipping_profile->get('field_email')->getString(), ['information-field']);
 
         $summary[$index]['address'] = $this->addContainer(['address-information information-group form-group']);
-        $summary[$index]['address']['title'] = $this->addMarkup($this->t('Address:'), ['information-title']);
+        $summary[$index]['address']['title'] = $this->addMarkup($this->t('Delivery Address:'), ['information-title']);
         $summary[$index]['address']['organization'] = $this->addMarkup($address['organization'], ['information-field']);
         $summary[$index]['address']['address'] = $this->addMarkup($address['address_line2'] . ' ' . $address['address_line1'], ['information-field']);
         $summary[$index]['address']['city'] = $this->addMarkup($address['locality'] . ', ' . $address['postal_code'], ['information-field']);
@@ -167,7 +167,7 @@ class FleurShippingInformation extends ShippingInformation {
       '#recalculate' => TRUE,
       '#default_value' => $default_delivery_option,
       '#options' => [
-        'delivery' => $this->t('I want my order to be delivered for me'),
+        'delivery' => $this->t('I want my order to be delivered to me'),
         'pick_up' => $this->t('I want to pick up my order from the shop'),
       ],
       '#ajax' => [
@@ -242,6 +242,10 @@ class FleurShippingInformation extends ShippingInformation {
       // Change shipping method label.
       if (isset($pane_form['shipments'][$index]['shipping_method'])) {
         $pane_form['shipments'][$index]['shipping_method']['widget'][0]['#title'] = $this->t('Delivery time');
+        $options = &$pane_form['shipments'][$index]['shipping_method']['widget'][0]['#options'];
+        foreach ($options as $key => $option) {
+          $options[$key] = $this->t($option->getUntranslatedString() . ' delivery fee',$option->getArguments());
+        }
       }
     }
 

@@ -105,7 +105,7 @@ class FleurPaymentInformation extends PaymentInformation {
       $summary['payment']['client']['email'] = $this->addMarkup($billing_profile->get('field_email')->getString(), ['information-field']);
 
       $summary['payment']['address'] = $this->addContainer(['address-information information-group form-group']);
-      $summary['payment']['address']['title'] = $this->addMarkup($this->t('Address:'), ['information-title']);
+      $summary['payment']['address']['title'] = $this->addMarkup($this->t('Billing Address:'), ['information-title']);
       $summary['payment']['address']['organization'] = $this->addMarkup($address['organization'], ['information-field']);
       $summary['payment']['address']['address'] = $this->addMarkup($address['address_line2'] . ' ' . $address['address_line1'], ['information-field']);
       $summary['payment']['address']['city'] = $this->addMarkup($address['locality'] . ', ' . $address['postal_code'], ['information-field']);
