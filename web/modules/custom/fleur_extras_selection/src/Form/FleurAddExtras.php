@@ -376,7 +376,11 @@ class FleurAddExtras extends FormBase {
     // Radios variant.
     if ($choose_type == 'radios') {
       // If radios type then default None element.
-      $default_values = (count($default_values)) ? end($default_values) : 'none';
+      $none_element = 'none';
+      if (!key_exists($none_element, $products_elements)) {
+        $none_element = key($products_elements);
+      }
+      $default_values = (count($default_values)) ? end($default_values) : $none_element;
 
       $variations['radios'] = [
         '#type' => $choose_type,
