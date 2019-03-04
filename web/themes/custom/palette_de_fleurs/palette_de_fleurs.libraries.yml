@@ -51,6 +51,9 @@ order-information:
 order-summary:
   js:
     js/order_summary.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
 
 google-map:
   js:
