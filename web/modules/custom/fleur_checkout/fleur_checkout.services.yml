@@ -1,0 +1,5 @@
+services:
+  fleur_checkout.mailchimp_signup:
+    class: Drupal\fleur_checkout\EventSubscriber\OrderPlacementSubscriber
+    tags:
+      - { name: event_subscriber }
