@@ -44,9 +44,11 @@ configuration:
       checkbox_title: 'I would like to receive the latest news, deals and special reminders'
       require_double_opt_in: 0
     payment_process:
-      capture: true
-      step: payment
-      weight: 7
+      step: review
+      weight: 6
+      mailchimp_list: cb23ca13e3
+      checkbox_title: 'I would like to receive the latest news, deals and special reminders'
+      require_double_opt_in: 0
     fleur_completion_message:
       step: complete
       weight: 8
@@ -54,6 +56,10 @@ configuration:
       view: ''
       step: _sidebar
       weight: 9
+    fleur_payment_process:
+      capture: true
+      step: payment
+      weight: 7
     completion_registration:
       step: _disabled
       weight: 10
@@ -71,8 +77,8 @@ configuration:
       weight: 13
     payment_information:
       step: _disabled
-      weight: 14
+      weight: 15
     shipping_information:
       require_shipping_profile: true
       step: _disabled
-      weight: 15
+      weight: 16
