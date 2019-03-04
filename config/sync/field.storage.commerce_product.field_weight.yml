@@ -1,0 +1,20 @@
+uuid: caf97f8b-e35b-4368-bc6d-7c322265b568
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - weight
+id: commerce_product.field_weight
+field_name: field_weight
+entity_type: commerce_product
+type: weight
+settings:
+  unsigned: false
+module: weight
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

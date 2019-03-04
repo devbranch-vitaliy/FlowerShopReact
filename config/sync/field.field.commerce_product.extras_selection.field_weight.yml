@@ -1,0 +1,24 @@
+uuid: dd097e81-8325-4c81-a0c7-bc3399a009ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.extras_selection
+    - field.storage.commerce_product.field_weight
+  module:
+    - weight
+id: commerce_product.extras_selection.field_weight
+field_name: field_weight
+entity_type: commerce_product
+bundle: extras_selection
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings:
+  range: '20'
+field_type: weight

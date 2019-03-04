@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.extras_selection.body
     - field.field.commerce_product.extras_selection.field_image
     - field.field.commerce_product.extras_selection.field_meta_tags
+    - field.field.commerce_product.extras_selection.field_weight
     - field.field.commerce_product.extras_selection.stores
     - field.field.commerce_product.extras_selection.variations
     - image.style.thumbnail
@@ -17,6 +18,7 @@ dependencies:
     - metatag
     - path
     - text
+    - weight
 id: commerce_product.extras_selection.default
 targetEntityType: commerce_product
 bundle: extras_selection
@@ -50,6 +52,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
+    region: content
+  field_weight:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: weight_selector
     region: content
   path:
     type: path

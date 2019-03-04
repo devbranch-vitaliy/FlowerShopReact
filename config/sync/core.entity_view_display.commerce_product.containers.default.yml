@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.containers.body
     - field.field.commerce_product.containers.field_image
     - field.field.commerce_product.containers.field_meta_tags
+    - field.field.commerce_product.containers.field_weight
     - field.field.commerce_product.containers.stores
     - field.field.commerce_product.containers.variations
     - image.style.extras_selection_196x196
@@ -58,5 +59,6 @@ hidden:
   entity_print_view_pdf: true
   entity_print_view_word_docx: true
   field_meta_tags: true
+  field_weight: true
   stores: true
   uid: true
