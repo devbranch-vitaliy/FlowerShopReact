@@ -202,6 +202,7 @@ class FleurAddExtras extends FormBase {
       $default_values = [];
       $products_elements = [];
       $products_elements_img = [];
+      $products_elements_weight = [];
 
       /** @var \Drupal\commerce_product\Entity\ProductInterface[] $products */
       $products = $this->productStorage->loadMultiple($products_ids);
@@ -219,6 +220,7 @@ class FleurAddExtras extends FormBase {
         if (count($variations) > 1) {
           // For parent use a label because id can be the same as variation id.
           $element_id = "product_{$product->id()}";
+          $products_elements_weight[$element_id] = (empty($product->get('field_weight')->getString())) ? "0" : $product->get('field_weight')->getString();
           $products_elements[$element_id]['title'] = $this->getProductLabel($product->getTitle(), $default_price);
 
           foreach ($variations as $variation) {
@@ -240,7 +242,7 @@ class FleurAddExtras extends FormBase {
             $element_id = $default_variation->id();
             $products_elements[$element_id] = $this->getProductLabel($product->getTitle(), $default_price);
           }
-
+          $products_elements_weight[$element_id] = (empty($product->get('field_weight')->getString())) ? "0" : $product->get('field_weight')->getString();
           if (in_array($element_id, $cart_variations)) {
             $default_values[] = $default_variation->id();
           }
@@ -260,10 +262,10 @@ class FleurAddExtras extends FormBase {
       }
 
       // Create images containers.
-      $this->buildImages($form, $product_type, $products_elements_img);
+      $this->buildImages($form, $product_type, $products_elements_img, $products_elements_weight);
 
       // Create radios/checkboxes elements.
-      $this->buildRadiosCheckboxes($form, $product_type, $options['choose_type'], $products_elements, $default_values);
+      $this->buildRadiosCheckboxes($form, $product_type, $options['choose_type'], $products_elements, $default_values, $products_elements_weight);
 
     }
 
@@ -327,8 +329,10 @@ class FleurAddExtras extends FormBase {
    *   The product type.
    * @param array $products_elements_img
    *   The images to render.
+   * @param array $weights
+   *   Weights of the elements.
    */
-  protected function buildImages(array &$form, $product_type, array $products_elements_img) {
+  protected function buildImages(array &$form, $product_type, array $products_elements_img, array $weights) {
     $form['add_extras_selection'][$product_type]['variations_img'] = [
       '#type' => 'container',
       '#attributes' => [
@@ -343,6 +347,7 @@ class FleurAddExtras extends FormBase {
           'class' => ['extras_img_wrapper'],
           'data-variation-id' => $id,
         ],
+        '#weight' => $weights[$id],
       ];
 
       $form['add_extras_selection'][$product_type]['variations_img']["extras_img_wrapper_{$id}"][$id] = $value;
@@ -362,8 +367,10 @@ class FleurAddExtras extends FormBase {
    *   The elements to render.
    * @param array $default_values
    *   The default values of elements.
+   * @param array $weights
+   *   Weights of the elements.
    */
-  protected function buildRadiosCheckboxes(array &$form, $product_type, $choose_type, array $products_elements, array $default_values) {
+  protected function buildRadiosCheckboxes(array &$form, $product_type, $choose_type, array $products_elements, array $default_values, array $weights) {
     $variations = [];
 
     // Radios variant.
@@ -385,6 +392,7 @@ class FleurAddExtras extends FormBase {
             'class' => ['extras_select_option'],
             'data-variation-id' => $element_id,
           ],
+          '#weight' => $weights[$element_id],
         ];
       }
     }
@@ -404,6 +412,7 @@ class FleurAddExtras extends FormBase {
           '#attributes' => [
             'class' => ['variation_wrapper'],
           ],
+          '#weight' => $weights[$element_id],
         ];
 
         // If checkbox fas children checkboxes.
