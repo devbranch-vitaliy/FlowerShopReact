@@ -51,13 +51,16 @@ function fleur_add_to_cart_modal_form_commerce_order_item_add_to_cart_form_alter
     /** @var \Drupal\commerce_product\Entity\ProductVariationInterface[] $variations */
     $variations = $form_state->getStorage()['product']->getVariations();
     foreach ($variations as $variation) {
-      $prices[$variation->getAttributeValue('attribute_size')->id()] = $variation->getPrice();
+      $attribute_id = $variation->getAttributeValue('attribute_size')->id();
+      if ($variation->isActive() && !isset($prices[$attribute_id])) {
+        $prices[$attribute_id] = $variation->getPrice();
+      }
     }
 
     foreach ($size_options as $id => $label) {
       $size_options[$id] = t('@label (@price)', [
         '@label' => $label,
-        '@price' => $currency_formatter->format($prices[$id]->getNumber(), $prices[$id]->getCurrencyCode())
+        '@price' => $currency_formatter->format($prices[$id]->getNumber(), $prices[$id]->getCurrencyCode()),
       ]);
     }
   }
