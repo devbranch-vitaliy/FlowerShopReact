@@ -35,15 +35,15 @@ configuration:
     fleur_commerce_checkout_confirmation_checkbox:
       step: review
       weight: 5
-      confirmation_checkbox_title: 'I accept site terms and conditions'
+      confirmation_checkbox_title: 'I have read and accept the terms and conditions'
       confirmation_checkbox_validation_message: 'Please accept site terms and conditions'
     payment_process:
       capture: true
       step: payment
       weight: 6
-    completion_message:
-      step: _disabled
-      weight: 12
+    fleur_completion_message:
+      step: complete
+      weight: 7
     fleur_order_summary:
       view: ''
       step: _sidebar
@@ -51,9 +51,6 @@ configuration:
     completion_registration:
       step: _disabled
       weight: 9
-    fleur_completion_message:
-      step: complete
-      weight: 7
     order_summary:
       view: ''
       step: _disabled
@@ -63,6 +60,9 @@ configuration:
       allow_registration: false
       step: _disabled
       weight: 11
+    completion_message:
+      step: _disabled
+      weight: 12
     payment_information:
       step: _disabled
       weight: 13

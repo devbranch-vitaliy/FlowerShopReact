@@ -107,13 +107,13 @@ class FleurShippingInformation extends ShippingInformation {
         $address = $shipping_profile->get('address')->first()->getValue();
 
         $summary[$index]['receiver'] = $this->addContainer(['receiver-information information-group form-group']);
-        $summary[$index]['receiver']['title'] = $this->addMarkup($this->t('Receiver:'), ['information-title']);
+        $summary[$index]['receiver']['title'] = $this->addMarkup($this->t('Recipient:'), ['information-title']);
         $summary[$index]['receiver']['name'] = $this->addMarkup($address['given_name'] . ' ' . $address['family_name'], ['information-field']);
         $summary[$index]['receiver']['telephone'] = $this->addMarkup($shipping_profile->get('field_telephone')->getString(), ['information-field']);
         $summary[$index]['receiver']['email'] = $this->addMarkup($shipping_profile->get('field_email')->getString(), ['information-field']);
 
         $summary[$index]['address'] = $this->addContainer(['address-information information-group form-group']);
-        $summary[$index]['address']['title'] = $this->addMarkup($this->t('Address:'), ['information-title']);
+        $summary[$index]['address']['title'] = $this->addMarkup($this->t('Delivery Address:'), ['information-title']);
         $summary[$index]['address']['organization'] = $this->addMarkup($address['organization'], ['information-field']);
         $summary[$index]['address']['address'] = $this->addMarkup($address['address_line2'] . ' ' . $address['address_line1'], ['information-field']);
         $summary[$index]['address']['city'] = $this->addMarkup($address['locality'] . ', ' . $address['postal_code'], ['information-field']);
