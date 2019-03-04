@@ -1,0 +1,15 @@
+entity.commerce_product.add_extras:
+  route_name: entity.commerce_product.add_form
+  route_parameters:
+    commerce_product_type: extras_selection
+  title: 'Add product'
+  appears_on:
+    - view.products_extras.products_extras
+
+entity.commerce_product.add_containers:
+  route_name: entity.commerce_product.add_form
+  route_parameters:
+    commerce_product_type: containers
+  title: 'Add product'
+  appears_on:
+    - view.products_containers.products_containers
