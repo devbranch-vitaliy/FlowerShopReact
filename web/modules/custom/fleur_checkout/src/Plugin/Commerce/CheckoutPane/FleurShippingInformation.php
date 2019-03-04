@@ -167,7 +167,7 @@ class FleurShippingInformation extends ShippingInformation {
       '#recalculate' => TRUE,
       '#default_value' => $default_delivery_option,
       '#options' => [
-        'delivery' => $this->t('I want my order to be delivered for me'),
+        'delivery' => $this->t('I want my order to be delivered to me'),
         'pick_up' => $this->t('I want to pick up my order from the shop'),
       ],
       '#ajax' => [
@@ -242,6 +242,10 @@ class FleurShippingInformation extends ShippingInformation {
       // Change shipping method label.
       if (isset($pane_form['shipments'][$index]['shipping_method'])) {
         $pane_form['shipments'][$index]['shipping_method']['widget'][0]['#title'] = $this->t('Delivery time');
+        $options = &$pane_form['shipments'][$index]['shipping_method']['widget'][0]['#options'];
+        foreach ($options as $key => $option) {
+          $options[$key] = $this->t($option->getUntranslatedString() . ' delivery fee',$option->getArguments());
+        }
       }
     }
 
