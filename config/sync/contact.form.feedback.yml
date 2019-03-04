@@ -7,7 +7,8 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - v.podoba@dev-branch.com
+  - pieter@palettedefleurs.co.za
+  - alex.beninca@b-works.io
 reply: ''
 weight: 0
 message: 'Your message has been sent.'
