@@ -13,3 +13,11 @@ entity.commerce_product.add_containers:
   title: 'Add product'
   appears_on:
     - view.products_containers.products_containers
+
+entity.commerce_product.add_page:
+  route_name: entity.commerce_product.add_form
+  route_parameters:
+    commerce_product_type: default
+  title: 'Add product'
+  appears_on:
+    - entity.commerce_product.collection

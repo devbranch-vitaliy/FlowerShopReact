@@ -2,6 +2,8 @@ uuid: 466b7c1e-062e-4e98-87d0-98553b3c95be
 langcode: en
 status: true
 dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
   module:
     - commerce
     - commerce_product
@@ -505,13 +507,14 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            default: default
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: type_op
-            label: Type
-            description: ''
+            label: 'Product type'
+            description: null
             use_operator: false
             operator: type_op
             identifier: type
@@ -520,8 +523,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
             hide_single_bundle: true
           is_grouped: false
