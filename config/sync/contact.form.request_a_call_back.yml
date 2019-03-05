@@ -5,7 +5,7 @@ dependencies: {  }
 id: request_a_call_back
 label: 'Request a call back'
 recipients:
-  - v.podoba@dev-branch.com
+  - alex.beninca@b-works.io
 reply: ''
 weight: 0
 message: ''

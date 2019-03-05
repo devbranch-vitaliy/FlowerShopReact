@@ -69,6 +69,7 @@ module:
   link: 0
   mailchimp: 0
   mailchimp_lists: 0
+  mailchimp_signup: 0
   mailgun: 0
   mailsystem: 0
   menu_link_attributes: 0

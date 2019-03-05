@@ -4,7 +4,6 @@ namespace Drupal\fleur_checkout\Plugin\Commerce\CheckoutPane;
 
 use Drupal\commerce_shipping\Plugin\Commerce\CheckoutPane\ShippingInformation;
 use Drupal\Component\Utility\NestedArray;
-use Drupal\Console\Bootstrap\Drupal;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Form\FormStateInterface;
@@ -22,6 +21,9 @@ use Drupal\Core\Form\FormStateInterface;
  * )
  */
 class FleurShippingInformation extends ShippingInformation {
+
+  const DELIVERY_OPTION_PICK_UP = 'pick_up';
+  const DELIVERY_OPTION_SHIPPING = 'delivery';
 
   /**
    * Add markup element with wrapper.
@@ -124,10 +126,10 @@ class FleurShippingInformation extends ShippingInformation {
 
         $date = new DrupalDateTime($shipment->get('field_delivery_date')->value);
 
-        $summary[$index]['delivery'] = $this->addContainer(['delivery-information information-group form-group']);
-        $summary[$index]['delivery']['title'] = $this->addMarkup($this->t('Delivery time:'), ['information-title']);
-        $summary[$index]['delivery']['time'] = $this->addMarkup($date->format('M, d, Y') . ' (' .
-          strtolower($shipment->getShippingMethod()->getName()) .  ')', ['information-field']);
+        $summary[$index][self::DELIVERY_OPTION_SHIPPING] = $this->addContainer(['delivery-information information-group form-group']);
+        $summary[$index][self::DELIVERY_OPTION_SHIPPING]['title'] = $this->addMarkup($this->t('Delivery time:'), ['information-title']);
+        $summary[$index][self::DELIVERY_OPTION_SHIPPING]['time'] = $this->addMarkup($date->format('M, d, Y') . ' (' .
+          strtolower($shipment->getShippingMethod()->getName()) . ')', ['information-field']);
       }
     }
     return $summary;
@@ -154,21 +156,15 @@ class FleurShippingInformation extends ShippingInformation {
     $pane_form['#prefix'] = '<div id="' . $pane_form['#wrapper_id'] . '">';
     $pane_form['#suffix'] = '</div>';
 
-    $user_input = $form_state->getUserInput();
-    if (isset($user_input['fleur_shipping_information']['delivery_options'])) {
-      $default_delivery_option = $user_input['fleur_shipping_information']['delivery_options'];
-    }
-    else {
-      $default_delivery_option = ($this->order->shipments->referencedEntities()) ? 'delivery' : 'pick_up';
-    }
+    $default_delivery_option = $this->getDefaultDeliveryOption($form_state);
 
     $pane_form['delivery_options'] = [
       '#type' => 'radios',
       '#recalculate' => TRUE,
       '#default_value' => $default_delivery_option,
       '#options' => [
-        'delivery' => $this->t('I want my order to be delivered to me'),
-        'pick_up' => $this->t('I want to pick up my order from the shop'),
+        self::DELIVERY_OPTION_SHIPPING => $this->t('I want my order to be delivered to me'),
+        self::DELIVERY_OPTION_PICK_UP => $this->t('I want to pick up my order from the shop'),
       ],
       '#ajax' => [
         'callback' => [get_class($this), 'ajaxRefresh'],
@@ -177,7 +173,7 @@ class FleurShippingInformation extends ShippingInformation {
       ],
     ];
 
-    if ($default_delivery_option == 'pick_up') {
+    if ($default_delivery_option == self::DELIVERY_OPTION_PICK_UP) {
       return $pane_form;
     }
 
@@ -268,14 +264,14 @@ class FleurShippingInformation extends ShippingInformation {
     $triggering_element = $form_state->getTriggeringElement();
     $radio_type = isset($triggering_element['#type']) ? $triggering_element['#type'] : '';
 
-    if ($radio_type == 'radio' && ($triggering_element['#value'] == 'pick_up' || $triggering_element['#value'] == 'delivery')) {
+    if ($radio_type == 'radio' && ($triggering_element['#value'] == self::DELIVERY_OPTION_PICK_UP || $triggering_element['#value'] == self::DELIVERY_OPTION_SHIPPING)) {
       $form_state->setRebuild(TRUE);
       return;
     }
 
     $delivery_option = $form_state->getValue(['fleur_shipping_information', 'delivery_options'], '');
 
-    if ($delivery_option != 'pick_up') {
+    if ($delivery_option != self::DELIVERY_OPTION_PICK_UP) {
       parent::validatePaneForm($pane_form, $form_state, $complete_form);
     }
 
@@ -285,10 +281,13 @@ class FleurShippingInformation extends ShippingInformation {
    * {@inheritdoc}
    */
   public function submitPaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
+    $values = $form_state->getValue($pane_form['#parents']);
+    $delivery_option = $values['delivery_options'];
 
-    $delivery_option = $form_state->getValue(['fleur_shipping_information', 'delivery_options'], '');
+    // Store selected value in case we need to navigate back.
+    $this->order->setData('delivery_option', $delivery_option);
 
-    if ($delivery_option == 'pick_up') {
+    if ($delivery_option == self::DELIVERY_OPTION_PICK_UP) {
       $shipment_storage = $this->entityTypeManager->getStorage('commerce_shipment');
       $shipment_storage->delete($this->order->shipments->referencedEntities());
 
@@ -297,6 +296,34 @@ class FleurShippingInformation extends ShippingInformation {
     else {
       parent::submitPaneForm($pane_form, $form_state, $complete_form);
     }
+  }
+
+  /**
+   * Returns current order delivery type value.
+   *
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The form state.
+   *
+   * @return string
+   *   One of self::DELIVERY_OPTION_PICK_UP, self::DELIVERY_OPTION_SHIPPING
+   *   constants.
+   */
+  protected function getDefaultDeliveryOption(FormStateInterface $form_state) {
+    // Use user input if set; it may happen during form validation.
+    $user_input = $form_state->getUserInput();
+    if (isset($user_input['fleur_shipping_information']['delivery_options'])
+    && in_array($user_input['fleur_shipping_information']['delivery_options'], [self::DELIVERY_OPTION_PICK_UP, self::DELIVERY_OPTION_SHIPPING])) {
+      return $user_input['fleur_shipping_information']['delivery_options'];
+    }
+
+    // Use value stored in order; it happens when user navigates back to a
+    // previous order step.
+    if ($order_delivery_option = $this->order->getData('delivery_option')) {
+      return $order_delivery_option;
+    }
+
+    // Default is 'Delivery'.
+    return self::DELIVERY_OPTION_SHIPPING;
   }
 
 }

@@ -37,36 +37,48 @@ configuration:
       weight: 5
       confirmation_checkbox_title: 'I have read and accept the terms and conditions'
       confirmation_checkbox_validation_message: 'Please accept site terms and conditions'
-    payment_process:
-      capture: true
-      step: payment
+    fleur_commerce_checkout_newsletter_checkbox:
+      step: review
       weight: 6
+      mailchimp_list: cb23ca13e3
+      checkbox_title: 'I would like to receive the latest news, deals and special reminders'
+      require_double_opt_in: 0
+    payment_process:
+      step: review
+      weight: 6
+      mailchimp_list: cb23ca13e3
+      checkbox_title: 'I would like to receive the latest news, deals and special reminders'
+      require_double_opt_in: 0
     fleur_completion_message:
       step: complete
-      weight: 7
+      weight: 8
     fleur_order_summary:
       view: ''
       step: _sidebar
-      weight: 8
+      weight: 9
+    fleur_payment_process:
+      capture: true
+      step: payment
+      weight: 7
     completion_registration:
       step: _disabled
-      weight: 9
+      weight: 10
     order_summary:
       view: ''
       step: _disabled
-      weight: 10
+      weight: 11
     login:
       allow_guest_checkout: true
       allow_registration: false
       step: _disabled
-      weight: 11
+      weight: 12
     completion_message:
       step: _disabled
-      weight: 12
+      weight: 13
     payment_information:
       step: _disabled
-      weight: 13
+      weight: 15
     shipping_information:
       require_shipping_profile: true
       step: _disabled
-      weight: 14
+      weight: 16
