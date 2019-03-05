@@ -40,6 +40,11 @@
       background-color: $black;
       color: $white;
     }
+
+    a {
+      text-decoration: none;
+      color: $black;
+    }
   }
 }
 
@@ -59,10 +64,9 @@
         &:last-child {
           margin-right: 0;
         }
-      }
-
-      .step > div {
-        display: block;
+        > div,  a > div {
+          display: block;
+        }
       }
 
       .step-numder, .step-title {
@@ -86,10 +90,9 @@
         &:last-child {
           margin-right: 0;
         }
-      }
-
-      .step > div {
-        display: block;
+        > div, a > div {
+          display: block;
+        }
       }
 
       .step-numder, .step-title {
@@ -106,10 +109,9 @@
 
       .step {
         margin-right: 20px;
-      }
-
-      .step > div {
-        display: inline-block;
+        > div, a > div {
+          display: inline-block;
+        }
       }
 
       .step-numder {

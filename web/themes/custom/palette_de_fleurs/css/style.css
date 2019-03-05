@@ -8413,6 +8413,9 @@ ol.breadcrumb {
     .checkout-header .steps .step-numder.active {
       background-color: #191919;
       color: #ffffff; }
+    .checkout-header .steps a {
+      text-decoration: none;
+      color: #191919; }
 
 @media screen and (max-width: 767px) {
   .checkout-header .steps {
@@ -8425,8 +8428,8 @@ ol.breadcrumb {
       vertical-align: top; }
       .checkout-header .steps .step:last-child {
         margin-right: 0; }
-    .checkout-header .steps .step > div {
-      display: block; }
+      .checkout-header .steps .step > div, .checkout-header .steps .step a > div {
+        display: block; }
     .checkout-header .steps .step-numder, .checkout-header .steps .step-title {
       margin: 0 auto 8px; } }
 
@@ -8439,8 +8442,8 @@ ol.breadcrumb {
       margin-right: 20px; }
       .checkout-header .steps .step:last-child {
         margin-right: 0; }
-    .checkout-header .steps .step > div {
-      display: block; }
+      .checkout-header .steps .step > div, .checkout-header .steps .step a > div {
+        display: block; }
     .checkout-header .steps .step-numder, .checkout-header .steps .step-title {
       margin: 0 auto 8px; } }
 
@@ -8449,8 +8452,8 @@ ol.breadcrumb {
     top: 4px; }
     .checkout-header .steps .step {
       margin-right: 20px; }
-    .checkout-header .steps .step > div {
-      display: inline-block; }
+      .checkout-header .steps .step > div, .checkout-header .steps .step a > div {
+        display: inline-block; }
     .checkout-header .steps .step-numder {
       margin-bottom: 0;
       margin-right: 8px; } }

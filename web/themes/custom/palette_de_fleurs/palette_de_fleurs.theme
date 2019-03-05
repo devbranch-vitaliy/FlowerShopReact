@@ -8,6 +8,7 @@
  */
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -158,12 +159,36 @@ function palette_de_fleurs_preprocess_page__page_with_paragraphs(&$variables) {
  *   Array of steps.
  */
 function palette_de_fleurs_create_checkout_progress($current_step = 1) {
-  return [
-    ['step' => '1', 'title' => t('Add extras'), 'active' => ($current_step >= 1)],
-    ['step' => '2', 'title' => t('Shopping cart'), 'active' => ($current_step >= 2)],
-    ['step' => '3', 'title' => t('Delivery details'), 'active' => ($current_step >= 3)],
-    ['step' => '4', 'title' => t('Review'), 'active' => ($current_step >= 4)],
+  $current_order = \Drupal::routeMatch()->getParameter('commerce_order');
+  $steps = [
+    [
+      'step' => '1',
+      'title' => t('Add extras'),
+      'url' => Url::fromRoute('fleur_add_extras.form')->toString(),
+    ],
+    [
+      'step' => '2',
+      'title' => t('Shopping cart'),
+      'url' => Url::fromRoute('commerce_cart.page')->toString(),
+    ],
+    [
+      'step' => '3',
+      'title' => t('Delivery details'),
+      'url' => $current_order ? Url::fromRoute('commerce_checkout.form', [
+        'commerce_order' => $current_order->id(),
+        'step' => 'order_information',
+      ])->toString() : NULL,
+    ],
+    [
+      'step' => '4',
+      'title' => t('Review'),
+    ],
   ];
+  foreach ($steps as &$step) {
+    $step['active'] = $current_step >= $step['step'];
+    $step['link_active'] = !empty($step['url']) && $current_step >= $step['step'];
+  }
+  return $steps;
 }
 
 /**

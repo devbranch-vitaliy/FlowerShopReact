@@ -167,8 +167,15 @@
               <div class="steps">
                 {% for item in checkout_header %}
                   <div class="step">
-                    <div class="step-numder {{ item.active ? 'active' : '' }}">{{ item.step }}</div>
-                    <div class="step-title">{{ item.title }}</div>
+                    {% if item.link_active %}
+                      <a href="{{ item.url }}">
+                        <div class="step-numder {{ item.active ? 'active' : '' }}">{{ item.step }}</div>
+                        <div class="step-title">{{ item.title }}</div>
+                      </a>
+                    {% else %}
+                      <div class="step-numder {{ item.active ? 'active' : '' }}">{{ item.step }}</div>
+                      <div class="step-title">{{ item.title }}</div>
+                    {% endif %}
                   </div>
 
                 {% endfor %}
