@@ -2,6 +2,7 @@
 
 namespace Drupal\fleur_notifications\EventSubscriber;
 
+use CommerceGuys\Addressing\Country\CountryRepositoryInterface;
 use Drupal\commerce_order\Entity\Order;
 use Drupal\commerce_order\Entity\OrderInterface;
 use Drupal\commerce_order\Event\OrderEvent;
@@ -89,6 +90,13 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
   protected $fileSystem;
 
   /**
+   * The country repository.
+   *
+   * @var \CommerceGuys\Addressing\Country\CountryRepositoryInterface
+   */
+  protected $countryRepository;
+
+  /**
    * Constructs a new OrderReceiptSubscriber object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
@@ -107,11 +115,13 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
    *   The print engine.
    * @param \Drupal\Core\File\FileSystem $file_system
    *   File system service.
+   * @param \CommerceGuys\Addressing\Country\CountryRepositoryInterface $country_repository
+   *   The country repository.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager, MailManagerInterface $mail_manager, OrderTotalSummaryInterface $order_total_summary, Renderer $renderer, PrintBuilderInterface $print_builder, EntityPrintPluginManagerInterface $plugin_manager, FileSystem $file_system) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager, MailManagerInterface $mail_manager, OrderTotalSummaryInterface $order_total_summary, Renderer $renderer, PrintBuilderInterface $print_builder, EntityPrintPluginManagerInterface $plugin_manager, FileSystem $file_system, CountryRepositoryInterface $country_repository) {
     $this->orderOrderStorage = $entity_type_manager->getStorage('commerce_order');;
     $this->orderTotalSummary = $order_total_summary;
     $this->profileViewBuilder = $entity_type_manager->getViewBuilder('profile');
@@ -121,6 +131,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
     $this->printBuilder = $print_builder;
     $this->pluginManager = $plugin_manager;
     $this->fileSystem = $file_system;
+    $this->countryRepository = $country_repository;
   }
 
   /**
@@ -224,6 +235,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
         /** @var \Drupal\address\Plugin\Field\FieldType\AddressItem $address */
         $address = current($shipments)->getShippingProfile()->get('address')->get(0);
         $build['#address'] = $address;
+        $build['#country'] = $this->countryRepository->get($build['#address']->getCountryCode());
       }
     }
 

@@ -23,7 +23,8 @@ function fleur_notifications_theme($existing, $type, $theme, $path) {
     'fleur_order_completed' => [
       'variables' => [
         'order_entity' => NULL,
-        'address' => NULL
+        'address' => NULL,
+        'country' => NULL
       ],
     ],
     'fleur_order_receipt' => [
