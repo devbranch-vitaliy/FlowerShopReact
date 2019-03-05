@@ -125,11 +125,23 @@
 
       .btn-wrapper-left {
         padding-right: 12px;
+        width: 50%;
       }
 
       .btn-wrapper-right {
         padding-left: 12px;
+        width: 50%;
       }
+    }
+  }
+
+  .checkout-review .layout-region-checkout-footer {
+    .btn-wrapper-left {
+      width: 30%;
+    }
+
+    .btn-wrapper-right {
+      width: 70%;
     }
   }
 }

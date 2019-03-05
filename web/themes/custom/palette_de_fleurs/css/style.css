@@ -8559,9 +8559,15 @@ ol.breadcrumb {
   .checkout-order-information .layout-region-checkout-footer, .checkout-review .layout-region-checkout-footer, .checkout-payment .layout-region-checkout-footer {
     padding-right: 16px; }
     .checkout-order-information .layout-region-checkout-footer .btn-wrapper-left, .checkout-review .layout-region-checkout-footer .btn-wrapper-left, .checkout-payment .layout-region-checkout-footer .btn-wrapper-left {
-      padding-right: 12px; }
+      padding-right: 12px;
+      width: 50%; }
     .checkout-order-information .layout-region-checkout-footer .btn-wrapper-right, .checkout-review .layout-region-checkout-footer .btn-wrapper-right, .checkout-payment .layout-region-checkout-footer .btn-wrapper-right {
-      padding-left: 12px; } }
+      padding-left: 12px;
+      width: 50%; }
+  .checkout-review .layout-region-checkout-footer .btn-wrapper-left {
+    width: 30%; }
+  .checkout-review .layout-region-checkout-footer .btn-wrapper-right {
+    width: 70%; } }
 
 @media screen and (min-width: 1200px) {
   .checkout-order-information .layout-region-checkout-main, .checkout-review .layout-region-checkout-main, .checkout-payment .layout-region-checkout-main {
@@ -10269,7 +10275,9 @@ ol.breadcrumb {
     font-style: normal;
     font-stretch: normal;
     line-height: 1.31 !important;
-    letter-spacing: normal; } }
+    letter-spacing: normal; }
+  .checkout-order-information .country-list {
+    width: 300px !important; } }
 
 @media screen and (min-width: 768px) {
   .checkout-order-information .panel-title {
