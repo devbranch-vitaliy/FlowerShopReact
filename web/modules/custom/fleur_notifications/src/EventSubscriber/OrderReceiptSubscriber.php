@@ -208,6 +208,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
       'from' => $order->getStore()->getEmail(),
       'subject' => $subject,
       'order' => $order,
+      'cc' => 'shop@palettedefleurs.co.za',
     ];
 
     $build = [
@@ -278,7 +279,7 @@ class OrderReceiptSubscriber implements EventSubscriberInterface {
         break;
 
       case 'fleur_order_paid':
-        $subject = $this->t("IT'S TIME TO GET EXCITED!");
+        $subject = $this->t("Thank you for your payment");
         break;
 
       case 'fleur_order_completed':
