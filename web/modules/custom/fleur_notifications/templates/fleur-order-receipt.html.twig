@@ -123,23 +123,23 @@
                         {{ billing_address.getGivenName }} {{ ' ' }} {{ billing_address.getFamilyName }}<br>
                         {{ order_entity.getEmail }}<br>
                         {{ 'Shop A02'|t }}<br>
+                        {% if billing_address.getAddressLine2 %}
+                          {{ billing_address.getAddressLine2 }}{{ ' ' }}
+                        {% endif %}
                         {% if billing_address.getAddressLine1 %}
                           {{ billing_address.getAddressLine1 }}<br>
-                        {% endif %}
-                        {% if billing_address.getAddressLine2 %}
-                          {{ billing_address.getAddressLine2 }}{{ ', ' }}
-                        {% endif %}
-                        {% if billing_address.getDependentLocality %}
-                          {{ billing_address.getDependentLocality }}{{ ', ' }}
                         {% endif %}
                         {% if billing_address.getLocality %}
                           {{ billing_address.getLocality }}{{ ', ' }}
                         {% endif %}
-                        {% if billing_country %}
-                          {{ billing_country.getName }}{{ ', ' }}
-                        {% endif %}
                         {% if billing_address.getPostalCode %}
                           {{ billing_address.getPostalCode }}<br>
+                        {% endif %}
+                        {% if billing_address.getDependentLocality %}
+                          {{ billing_address.getDependentLocality }}{{ ', ' }}
+                        {% endif %}
+                        {% if billing_country %}
+                          {{ billing_country.getName }}
                         {% endif %}
                       </td>
                     </tr>

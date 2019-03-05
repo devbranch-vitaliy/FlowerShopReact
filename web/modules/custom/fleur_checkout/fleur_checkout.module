@@ -52,7 +52,58 @@ function fleur_checkout_preprocess_fleur_checkout_order_summary(&$variables) {
  * Implements hook_form_FORM_ID_alter().
  */
 function fleur_checkout_form_commerce_checkout_flow_multistep_default_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (!isset($form['actions']['next']['#suffix'])) {
-    $form['actions']['next']['#suffix'] = Link::createFromRoute(t('Go back'), 'commerce_cart.page')->toString();
+
+  if (!isset($form['actions']['next'])) {
+    return;
   }
+
+  // Get parameters for link.
+  $current_order = \Drupal::routeMatch()->getParameter('commerce_order');
+  if (empty($current_order)) {
+    return;
+  }
+
+  $route_name = '';
+  $link_parameters = [];
+  $link_options = [
+    'attributes' => [
+      'class' => 'btn btn-info'
+    ],
+  ];
+
+
+  if ($form['#step_id'] == 'order_information') {
+    $route_name = 'commerce_cart.page';
+  }
+  elseif ($form['#step_id'] == 'review') {
+    $route_name = 'commerce_checkout.form';
+    $link_parameters = [
+      'commerce_order' => $current_order->id(),
+      'step' => 'order_information',
+    ];
+  }
+  elseif ($form['#step_id'] == 'payment') {
+    $route_name = 'commerce_checkout.form';
+    $link_parameters = [
+      'commerce_order' => $current_order->id(),
+      'step' => 'review',
+    ];
+  }
+  else {
+    return;
+  }
+
+  // Get Go back link.
+  $link = Link::createFromRoute(
+    t('Go back'),
+    $route_name,
+    $link_parameters,
+    $link_options
+  )->toString();
+
+  if (empty($link)) {
+    return;
+  }
+  $form['actions']['next']['#prefix'] = '<div class="btn-wrapper btn-wrapper-left">' . $link . '</div><div class="btn-wrapper btn-wrapper-right">';
+  $form['actions']['next']['#suffix'] = '</div>';
 }

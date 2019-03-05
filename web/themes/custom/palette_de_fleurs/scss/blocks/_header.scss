@@ -64,10 +64,8 @@ header.navbar {
     width: 200px;
     height: 115px;
     background: $white;
-    color: $black;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
     top: 32px;
-    @include Label-Big;
 
     // Calc popup position: half of popup width + padding + half of icon.
     @media #{$mobile} {
@@ -83,11 +81,6 @@ header.navbar {
       left: -200px/2 + 40px + 20px/2;
     }
 
-    div {
-      margin: 24px 0 24px 24px;
-      height: 18px;
-    }
-
     &:after {
       content: "";
       position: absolute;
@@ -97,6 +90,14 @@ header.navbar {
       border-width: 5px;
       border-style: solid;
       border-color: transparent transparent $white transparent;
+    }
+
+    a {
+      color: $black;
+      display: block;
+      @include Label-Big;
+      margin: 24px 0 24px 24px;
+      height: 18px;
     }
   }
 

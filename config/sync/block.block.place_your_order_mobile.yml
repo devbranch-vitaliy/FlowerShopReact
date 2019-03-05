@@ -6,7 +6,6 @@ dependencies:
     - 'block_content:basic:699578b0-0b26-4d1c-a759-67e43bea1526'
   module:
     - block_content
-    - system
   theme:
     - palette_de_fleurs
 id: place_your_order_mobile
@@ -19,13 +18,8 @@ settings:
   id: 'block_content:699578b0-0b26-4d1c-a759-67e43bea1526'
   label: 'Place your order'
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full
-visibility:
-  request_path:
-    id: request_path
-    pages: "/cart\r\n/extras\r\n/checkout/*"
-    negate: true
-    context_mapping: {  }
+visibility: {  }

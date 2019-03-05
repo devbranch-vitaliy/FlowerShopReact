@@ -25,13 +25,23 @@
       <table style="text-align: left; min-width: 450px; margin: 5px auto 0 auto; border: 1px solid #cccccc; border-radius: 5px; padding: 40px 30px 30px 30px;">
         <tbody>
         <tr>
-          <td style="font-weight: bold; padding-top:15px; padding-bottom: 15px; text-align: left; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc">
-            {{ 'We have received you payment made towards your order #@number placed on @date - thank you!'|t({'@number': order_entity.id, '@date': order_entity.getPlacedTime|date("m/d/Y")}) }}
+          <td style="font-weight: bold; padding-top:15px; text-align: left; border-top: 1px solid #cccccc;">
+            {{ 'IT’S TIME TO GET EXCITED!'|t }}
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; padding-top:15px; padding-bottom: 15px; text-align: left; border-bottom: 1px solid #cccccc">
+            {{ 'We have received you payment made towards your order #@number placed on @date - thank you very much.'|t({'@number': order_entity.id, '@date': order_entity.getPlacedTime|date("m/d/Y")}) }}
           </td>
         </tr>
         <tr>
           <td>
-            {{ 'Your order is being prepared by our team of professional floral designers to ensure only the best quality flowers and design gets delivered.'|t }}
+            {{ 'Thank you for placing your order with our team of expert floral designers. We will take very good care to deliver the best quality and floral design .'|t }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {{ 'Looking forward to be of service to you in the near future again.'|t }}
           </td>
         </tr>
         <tr>

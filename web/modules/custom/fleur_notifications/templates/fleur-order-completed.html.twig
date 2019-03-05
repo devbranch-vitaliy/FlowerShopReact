@@ -6,6 +6,7 @@
  * Available variables:
  * - order_entity: The order entity.
  * - address: The address information.
+ * - country: The country information.
  *
  * @ingroup themeable
  */
@@ -41,23 +42,26 @@
             {% if address %}
               <div style="padding-top:10px; padding-bottom: 10px; margin-top: 5px; margin-bottom: 5px; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc">
                 <p style="margin-top: 0; font-weight: bold;">{{ 'Delivery address'|t }}</p>
+                {% if address.getAddressLine2 %}
+                  {{ address.getAddressLine2 }}{{ ' ' }}
+                {% endif %}
                 {% if address.getAddressLine1 %}
                   {{ address.getAddressLine1 }}<br>
                 {% endif %}
-                {% if address.getAddressLine2 %}
-                  {{ address.getAddressLine2 }}<br>
+                {% if address.getLocality %}
+                  {{ address.getLocality }}
+                {% endif %}
+                {% if address.getPostalCode %}
+                  {{ ', ' }}{{ address.getPostalCode }}<br>
                 {% endif %}
                 {% if address.getDependentLocality %}
                   {{ address.getDependentLocality }}<br>
                 {% endif %}
-                {% if address.getLocality %}
-                  {{ address.getLocality }}<br>
-                {% endif %}
-                {% if address.getPostalCode %}
-                  {{ address.getPostalCode }}<br>
-                {% endif %}
                 {% if address.getCompletedTime %}
                   {{ address.getCompletedTime }}<br>
+                {% endif %}
+                {% if country.getName %}
+                  {{ country.getName }}<br>
                 {% endif %}
               </div>
             {% endif %}

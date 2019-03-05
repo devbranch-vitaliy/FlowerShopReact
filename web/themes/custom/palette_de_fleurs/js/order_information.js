@@ -29,9 +29,9 @@
                     .addClass('col-sm-6')
                     .parent()
                     .addClass('row');
-                $('input.locality', $address)
+                $('input.dependent-locality', $address)
                     .parent()
-                    .insertAfter($('input.organization', $address).parent());
+                    .insertAfter($('input.locality', $address).parent());
                 $('input.address-line2', $address)
                     .parent()
                     .find('.control-label')
