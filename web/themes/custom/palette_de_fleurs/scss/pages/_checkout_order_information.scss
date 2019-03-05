@@ -1,15 +1,4 @@
 .checkout-order-information {
-  & > .row {
-    @include checkout-width;
-  }
-
-  .layout-checkout-form {
-    margin-top: 80px;
-  }
-
-  .layout-region-checkout-footer {
-    margin-top: 40px;
-  }
 
   .checkout-pane-contact-information {
     display: none;
@@ -161,72 +150,15 @@
     display: none;
   }
 
-  .layout-region-checkout-footer {
-    a {
-      display: inline-block;
-      @include fleur-font(icon-16-chevron-left-primary);
-      @include Label-Big;
-      width: 40%;
-      padding: 14px 15px;
-      background-color: transparent;
-      color: $brownish-orange;
-      border: 2px solid $brownish-orange;
-      margin-right: 24px;
-      vertical-align: top;
-      float: left;
-      text-align: right;
-      white-space: nowrap;
-      &:before {
-        float: left;
-      }
-    }
-
-    button {
-      @include fleur-font(icon-16-chevron-right-primary);
-      @include Label-Big;
-      padding: 15px 16px;
-      text-align: left;
-      vertical-align: top;
-
-      &.btn-primary {
-        width: 40%;
-      }
-
-      &:before {
-        float: right;
-      }
-    }
-  }
 }
 
 @media #{$mobile} {
   .checkout-order-information {
-    & > .row {
-      width: auto;
-      padding: 0;
-      margin-left: -8px;
-      margin-right: -8px;
-    }
-
-    .checkout-header {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-
-    .layout-checkout-form {
-      margin-top: 40px;
-    }
 
     .layout-region-checkout-main {
-      padding-right: 0;
 
       & > div:not(#payment-information-wrapper) {
         margin-bottom: 40px;
-      }
-
-      & > div:not(.fleur-order-summary) {
-        padding-left: 16px;
-        padding-right: 16px;
       }
 
       .panel-body {
@@ -235,20 +167,10 @@
       }
     }
 
-    .layout-region-checkout-footer {
-      margin-top: 24px;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-
     .panel-title {
       @include H3;
     }
 
-    button.btn-primary {
-      font-size: 16px;
-      width: 100%;
-    }
   }
 }
 
@@ -260,11 +182,6 @@
     }
 
     .layout-region-checkout-main {
-      float: left;
-      width: 65%;
-      padding-right: 16px;
-      box-sizing: border-box;
-
       & > div:not(#payment-information-wrapper) {
         margin-bottom: 80px;
       }
@@ -279,13 +196,17 @@
       float: right;
       width: 35%;
     }
-  }
-}
 
-@media #{$wide} {
-  .checkout-order-information {
-    .layout-region-checkout-main {
-      padding-right: 24px;
+    .layout-region-checkout-footer {
+      padding-right: 16px;
+
+      .btn-wrapper-left {
+        padding-right: 12px;
+      }
+
+      .btn-wrapper-right {
+        padding-left: 12px;
+      }
     }
   }
 }

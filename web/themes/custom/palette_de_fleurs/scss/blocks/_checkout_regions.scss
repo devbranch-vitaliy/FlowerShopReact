@@ -1,0 +1,154 @@
+.checkout-order-information, .checkout-review, .checkout-payment {
+
+  & > .row {
+    @include checkout-width;
+  }
+
+  .layout-checkout-form {
+    margin-top: 80px;
+  }
+
+  .layout-region-checkout-footer {
+    margin-top: 40px;
+    padding-right: 24px;
+
+    .form-actions:before, .form-actions:after {
+      content: " ";
+      display: table;
+    }
+
+    .form-actions:after {
+      clear: both;
+    }
+
+    .btn-wrapper {
+      float: left;
+      width: 50%;
+
+      .btn {
+        @include Label-Big;
+        padding: 15px 16px;
+        margin-right: 0;
+        text-align: left;
+        vertical-align: top;
+        width: 100%;
+      }
+
+      .btn.btn-info {
+        @include fleur-font(icon-16-chevron-left-primary);
+        padding: 14px 15px;
+        background-color: transparent !important;
+        color: $brownish-orange;
+        border: 2px solid $brownish-orange;
+        vertical-align: top;
+        text-align: right;
+        white-space: nowrap;
+
+        &:before {
+          float: left;
+        }
+      }
+
+      .btn.btn-primary {
+        @include fleur-font(icon-16-chevron-right-primary);
+
+        &:before {
+          float: right;
+        }
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  .checkout-order-information, .checkout-review, .checkout-payment {
+    & > .row {
+      width: auto;
+      padding: 0;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    .checkout-header {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .layout-checkout-form {
+      margin-top: 24px;
+    }
+
+    .layout-region-checkout-main {
+      padding-right: 0;
+
+      & > div:not(.fleur-order-summary) {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+    .layout-region-checkout-footer {
+      padding-left: 16px;
+      padding-right: 16px;
+      margin-top: 24px;
+
+      .btn-wrapper {
+        float: none;
+        width: 100%;
+        .btn {
+          font-size: 16px;
+        }
+        .btn-info {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  .checkout-order-information, .checkout-review, .checkout-payment {
+    .layout-region-checkout-main {
+      float: left;
+      width: 65%;
+      padding-right: 16px;
+      box-sizing: border-box;
+    }
+
+    .layout-region-checkout-secondary {
+      float: right;
+      width: 35%;
+    }
+
+    .layout-region-checkout-footer {
+      padding-right: 16px;
+
+      .btn-wrapper-left {
+        padding-right: 12px;
+      }
+
+      .btn-wrapper-right {
+        padding-left: 12px;
+      }
+    }
+  }
+}
+
+@media #{$wide} {
+  .checkout-order-information, .checkout-review, .checkout-payment {
+    .layout-region-checkout-main {
+      padding-right: 24px;
+    }
+    .layout-region-checkout-footer {
+      padding-right: 24px;
+
+      .btn-wrapper-left {
+        padding-right: 12px;
+      }
+
+      .btn-wrapper-right {
+        padding-left: 12px;
+      }
+    }
+  }
+}

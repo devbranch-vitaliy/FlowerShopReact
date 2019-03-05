@@ -1,11 +1,4 @@
 .checkout-review {
-  & > .row {
-    @include checkout-width;
-  }
-
-  .layout-checkout-form {
-    margin-top: 80px;
-  }
 
   .panel-heading {
     display: none;
@@ -64,70 +57,10 @@
     margin-bottom: 40px;
   }
 
-  .layout-region-checkout-footer {
-    a {
-      display: inline-block;
-      @include fleur-font(icon-16-chevron-left-primary);
-      @include Label-Big;
-      width: 40%;
-      padding: 14px 15px;
-      background-color: transparent;
-      color: $brownish-orange;
-      border: 2px solid $brownish-orange;
-      margin-right: 24px;
-      vertical-align: top;
-      float: left;
-      text-align: right;
-      white-space: nowrap;
-      &:before {
-        float: left;
-      }
-    }
-
-    button {
-      @include Label-Big;
-      width: 40%;
-      padding: 15px 16px;
-      vertical-align: top;
-    }
-  }
 }
 
 @media #{$mobile} {
   .checkout-review {
-    & > .row {
-      width: auto;
-      padding: 0;
-      margin-left: -8px;
-      margin-right: -8px;
-    }
-
-    .layout-checkout-form {
-      margin-top: 40px;
-    }
-
-    .layout-region-checkout-main {
-      padding-right: 0;
-
-      & > div:not(.fleur-order-summary) {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-    }
-
-    .layout-region-checkout-footer {
-      margin-top: 24px;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-
-    .layout-region-checkout-footer {
-      padding: 0 16px;
-      button {
-        width: 100%;
-      }
-    }
 
     .checkout-order-summary {
       margin-bottom: 40px;
@@ -135,26 +68,3 @@
   }
 }
 
-@media #{$tablet} {
-  .checkout-review {
-    .layout-region-checkout-main {
-      float: left;
-      width: 65%;
-      padding-right: 16px;
-      box-sizing: border-box;
-    }
-
-    .layout-region-checkout-secondary {
-      float: right;
-      width: 35%;
-    }
-  }
-}
-
-@media #{$wide} {
-  .checkout-review {
-    .layout-region-checkout-main {
-      padding-right: 24px;
-    }
-  }
-}
