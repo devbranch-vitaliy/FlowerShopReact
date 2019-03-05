@@ -9464,7 +9464,8 @@ ol.breadcrumb {
   font-family: SourceSansPro;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1; }
+  line-height: 1;
+  line-height: 1.4; }
 
 .view-display-id-products .pager {
   margin-bottom: 0; }
