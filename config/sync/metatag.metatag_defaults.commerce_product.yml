@@ -1,0 +1,11 @@
+uuid: 8244dc1b-0877-4701-9c33-0b536b7bd54f
+langcode: en
+status: true
+dependencies: {  }
+id: commerce_product
+label: Product
+tags:
+  og_description: '[commerce_product:body]'
+  og_image_url: '[commerce_product:field_image]'
+  og_url: '[commerce_product:url]'
+  og_image: '[commerce_product:title]'
