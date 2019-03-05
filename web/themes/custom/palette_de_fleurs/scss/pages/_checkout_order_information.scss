@@ -161,18 +161,40 @@
     display: none;
   }
 
-  .layout-region-checkout-footer button {
-    @include fleur-font(icon-16-chevron-right-primary);
-    @include Label-Big;
-    padding: 15px 16px;
-    text-align: left;
-
-    &.btn-primary {
-      width: 50%;
+  .layout-region-checkout-footer {
+    a {
+      display: inline-block;
+      @include fleur-font(icon-16-chevron-left-primary);
+      @include Label-Big;
+      width: 40%;
+      padding: 14px 15px;
+      background-color: transparent;
+      color: $brownish-orange;
+      border: 2px solid $brownish-orange;
+      margin-right: 24px;
+      vertical-align: top;
+      float: left;
+      text-align: right;
+      white-space: nowrap;
+      &:before {
+        float: left;
+      }
     }
 
-    &:before {
-      float: right;
+    button {
+      @include fleur-font(icon-16-chevron-right-primary);
+      @include Label-Big;
+      padding: 15px 16px;
+      text-align: left;
+      vertical-align: top;
+
+      &.btn-primary {
+        width: 40%;
+      }
+
+      &:before {
+        float: right;
+      }
     }
   }
 }
