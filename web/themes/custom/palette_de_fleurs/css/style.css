@@ -10262,6 +10262,9 @@ ol.breadcrumb {
 .checkout-order-information input[type=date], .checkout-order-information .fleur-shipping-information-recalculate-shipping {
   display: none; }
 
+.checkout-order-information .field--name-address .col-sm-6 {
+  height: 71px; }
+
 @media screen and (max-width: 767px) {
   .checkout-order-information .layout-region-checkout-main > div:not(#payment-information-wrapper) {
     margin-bottom: 40px; }
