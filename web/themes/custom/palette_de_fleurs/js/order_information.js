@@ -29,12 +29,6 @@
                     .addClass('col-sm-6')
                     .parent()
                     .addClass('row');
-                $('input.organization', $address)
-                    .parent()
-                    .clone()
-                    .addClass('hidden-field')
-                    .addClass('hidden-xs')
-                    .insertAfter($('input.organization', $address).parent());
                 $('input.dependent-locality', $address)
                     .parent()
                     .insertAfter($('input.locality', $address).parent());
