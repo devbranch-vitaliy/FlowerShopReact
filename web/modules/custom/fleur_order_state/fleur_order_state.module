@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Fleur order state - module file.
+ */
+
+/**
+ * Implements hook_workflows_alter().
+ */
+function fleur_order_state_workflows_alter(array &$workflows) {
+  if (isset($workflows['order_fulfillment_validation'])) {
+    $workflow = &$workflows['order_fulfillment_validation'];
+    $states = [
+      'validation' => 'Payment pending',
+      'fulfillment' => 'Process order',
+      'completed' => 'Delivered',
+    ];
+    $transitions = [
+      'validate' => 'Payment received',
+      'fulfill' => 'Delivery successful',
+    ];
+    foreach ($states as $state => $label) {
+      if (isset($workflow['states'][$state])) {
+        $workflow['states'][$state]['label'] = $label;
+      }
+    }
+    foreach ($transitions as $transition => $label) {
+      if (isset($workflow['transitions'][$transition])) {
+        $workflow['transitions'][$transition]['label'] = $label;
+      }
+    }
+  }
+}
