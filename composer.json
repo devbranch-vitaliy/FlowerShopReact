@@ -110,6 +110,9 @@
             },
             "drupal/rabbit_hole": {
                 "Support for the commerce entities": "https://www.drupal.org/files/issues/commerce_support-2900548-3.patch"
+            },
+            "drupal/core": {
+                "ResourceTypeRepository wrongly assumes that all entity reference fields have the setting \"target_type\"": "https://www.drupal.org/files/issues/2019-11-29/3057545-27.patch"
             }
         },
         "installer-paths": {
