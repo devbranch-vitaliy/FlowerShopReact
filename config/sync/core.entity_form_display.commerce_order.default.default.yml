@@ -3,10 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - commerce_order.commerce_order_type.default
-    - field.field.commerce_order.default.field_message
-    - field.field.commerce_order.default.order_items
-    - field.field.commerce_order.default.shipments
+    0: commerce_order.commerce_order_type.default
+    1: field.field.commerce_order.default.field_message
+    3: field.field.commerce_order.default.shipments
   module:
     - commerce_order
     - inline_entity_form

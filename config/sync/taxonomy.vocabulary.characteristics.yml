@@ -5,5 +5,4 @@ dependencies: {  }
 name: Characteristics
 vid: characteristics
 description: Characteristics
-hierarchy: 0
 weight: 0

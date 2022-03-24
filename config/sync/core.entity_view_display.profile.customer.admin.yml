@@ -1,0 +1,45 @@
+uuid: 57a3f9e0-c5f8-45c6-b765-5214790cc876
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.profile.admin
+    - field.field.profile.customer.address
+    - field.field.profile.customer.field_address_type
+    - field.field.profile.customer.field_email
+    - field.field.profile.customer.field_telephone
+    - field.field.profile.customer.tax_number
+    - profile.type.customer
+  enforced:
+    module:
+      - commerce_order
+  module:
+    - address
+    - commerce_tax
+id: profile.customer.admin
+targetEntityType: profile
+bundle: customer
+mode: admin
+content:
+  address:
+    type: address_default
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  tax_number:
+    type: commerce_tax_number_default
+    settings:
+      show_verification: true
+    weight: 1
+    label: above
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_address_type: true
+  field_email: true
+  field_telephone: true

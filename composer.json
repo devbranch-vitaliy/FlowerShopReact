@@ -16,9 +16,9 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.2",
+        "php": ">=7.4",
+        "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.6.5",
-        "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/addtoany": "^1.10",
         "drupal/admin_toolbar": "^1.24",
         "drupal/better_exposed_filters": "^3.0",
@@ -29,7 +29,8 @@
         "drupal/commerce_bulk": "^1.0@alpha",
         "drupal/commerce_shipping": "^2.0@beta",
         "drupal/console": "^1.0.2",
-        "drupal/core": "^8.6.0",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-recommended": "^8.9",
         "drupal/devel": "^2.0",
         "drupal/entity_print": "2.x",
         "drupal/google_analytics": "^3.0",
@@ -55,7 +56,8 @@
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "^8.6.0"
+        "drupal/core-dev": "^8.9",
+        "zaporylie/composer-drupal-optimizations": "^1.2"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -64,7 +66,7 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
-        "platform": {"php": "5.6"}
+        "platform": {"php": "7.4"}
     },
     "autoload": {
         "classmap": [
@@ -96,10 +98,7 @@
                 "Module doesn't work with jQuery 3+": "https://www.drupal.org/files/issues/fix-type-error-in-international-phone_2.patch",
                 "Fix field label": "https://www.drupal.org/files/issues/2018-07-12/international_phone-fix_custom_field_label-2915431-10-D8.patch"
             },
-            "drupal/commerce": {
-                "Implement registration after guest checkout": "https://www.drupal.org/files/issues/2018-11-09/2857157-108.patch",
-                "Entity print support": "https://www.drupal.org/files/issues/2018-10-30/commerce-order-2831952-66.patch"
-            },
+            "drupal/commerce": {},
             "drupal/commerce_shipping": {
                 "Support taxing the shipping cost": "https://www.drupal.org/files/issues/2018-10-03/shipping-tax-2874158-20.patch"
             },
@@ -116,9 +115,8 @@
             "drush/Commands/{$name}": ["type:drupal-drush"]
         },
         "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
+            "locations": {
+                "web-root": "web/"
             }
         }
     }

@@ -19,6 +19,7 @@ module:
   commerce_cart: 0
   commerce_checkout: 0
   commerce_generate: 0
+  commerce_number_pattern: 0
   commerce_order: 0
   commerce_payfast: 0
   commerce_payment: 0
@@ -80,6 +81,7 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  path_alias: 0
   physical: 0
   profile: 0
   quickedit: 0

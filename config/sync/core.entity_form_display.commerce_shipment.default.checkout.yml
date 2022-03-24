@@ -1,0 +1,33 @@
+uuid: b222b9b1-0d9f-4c93-a33a-4162effb219b
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_shipping.commerce_shipment_type.default
+    - core.entity_form_mode.commerce_shipment.checkout
+    - field.field.commerce_shipment.default.field_delivery_date
+  module:
+    - commerce_shipping
+id: commerce_shipment.default.checkout
+targetEntityType: commerce_shipment
+bundle: default
+mode: checkout
+content:
+  shipping_method:
+    type: commerce_shipping_rate
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  shipping_profile:
+    type: commerce_shipping_profile
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_delivery_date: true
+  state: true
+  title: true
+  tracking_code: true
+  weight: true

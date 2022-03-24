@@ -7,12 +7,14 @@ dependencies:
     - field.field.profile.customer.field_address_type
     - field.field.profile.customer.field_email
     - field.field.profile.customer.field_telephone
+    - field.field.profile.customer.tax_number
     - profile.type.customer
   enforced:
     module:
       - commerce_order
   module:
     - address
+    - commerce_tax
     - international_phone
     - options
 _core:
@@ -49,6 +51,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: InternationalPhoneDefaultFormatter
+    region: content
+  tax_number:
+    type: commerce_tax_number_default
+    settings:
+      show_verification: false
+    weight: 4
+    label: above
+    third_party_settings: {  }
     region: content
 hidden:
   entity_print_view_epub: true
