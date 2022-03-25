@@ -113,6 +113,9 @@
             },
             "drupal/core": {
                 "ResourceTypeRepository wrongly assumes that all entity reference fields have the setting \"target_type\"": "https://www.drupal.org/files/issues/2019-11-29/3057545-27.patch"
+            },
+            "drupal/dynamic_entity_reference": {
+                "Incompatibility with jsonapi relatable resource search": "https://www.drupal.org/files/issues/2019-12-21/3057556-4.patch"
             }
         },
         "installer-paths": {
