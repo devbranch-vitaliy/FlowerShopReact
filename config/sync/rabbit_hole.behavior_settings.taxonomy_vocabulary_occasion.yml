@@ -5,7 +5,10 @@ dependencies:
   config:
     - taxonomy.vocabulary.occasion
 id: taxonomy_vocabulary_occasion
+entity_type_id: taxonomy_vocabulary
+entity_id: occasion
 action: page_not_found
 allow_override: 0
 redirect: ''
 redirect_code: 301
+redirect_fallback_action: access_denied

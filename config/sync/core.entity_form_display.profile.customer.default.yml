@@ -7,6 +7,7 @@ dependencies:
     - field.field.profile.customer.field_address_type
     - field.field.profile.customer.field_email
     - field.field.profile.customer.field_telephone
+    - field.field.profile.customer.tax_number
     - profile.type.customer
   enforced:
     module:
@@ -48,4 +49,6 @@ content:
     third_party_settings: {  }
     type: InternationalPhoneDefaultWidget
     region: content
-hidden: {  }
+hidden:
+  is_default: true
+  tax_number: true

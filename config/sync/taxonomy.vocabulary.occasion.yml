@@ -5,5 +5,4 @@ dependencies: {  }
 name: Occasion
 vid: occasion
 description: Occasion
-hierarchy: 0
 weight: 0

@@ -1,0 +1,36 @@
+uuid: ff8d8f55-2406-42e8-9014-1c8e1e0b955f
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_shipping.commerce_shipment_type.default
+    - core.entity_view_mode.commerce_shipment.checkout
+    - field.field.commerce_shipment.default.field_delivery_date
+  module:
+    - commerce_shipping
+id: commerce_shipment.default.checkout
+targetEntityType: commerce_shipment
+bundle: default
+mode: checkout
+content:
+  shipping_method:
+    label: above
+    type: commerce_shipping_method
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  amount: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_delivery_date: true
+  items: true
+  original_amount: true
+  package_type: true
+  shipping_profile: true
+  state: true
+  title: true
+  tracking_code: true
+  weight: true
