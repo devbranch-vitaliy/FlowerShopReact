@@ -70,7 +70,6 @@ module:
   jsonapi: 0
   jsonapi_defaults: 0
   jsonapi_extras: 0
-  kint: 0
   link: 0
   mailchimp: 0
   mailchimp_lists: 0
