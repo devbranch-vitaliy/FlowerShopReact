@@ -32,9 +32,11 @@ services:
 #      # Read instructions at https://wodby.com/docs/stacks/php/local/#xdebug
       PHP_XDEBUG: 1
       PHP_XDEBUG_MODE: debug
-#      PHP_IDE_CONFIG: serverName=my-ide
+      PHP_IDE_CONFIG: serverName=FlowerShop
 #      PHP_XDEBUG_IDEKEY: "my-ide"
+#      PHP_XDEBUG_START_WITH_REQUEST: "yes"
 #      PHP_XDEBUG_CLIENT_HOST: 172.17.0.1 # Linux
+      PHP_XDEBUG_CLIENT_HOST: 192.168.0.109 # Linux
 #      PHP_XDEBUG_CLIENT_HOST: host.docker.internal # Docker 18.03+ Mac/Win
 #      PHP_XDEBUG_CLIENT_HOST: 10.0.75.1 # Windows, Docker < 18.03
 #      PHP_XDEBUG_LOG: /tmp/php-xdebug.log
@@ -44,6 +46,7 @@ services:
 #      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
     volumes:
     - ../:/var/www/html:cached
+    - ./mariadb-init:/docker-entrypoint-init.d
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
 #    - drupal:/var/www/html
 ## For XHProf and Xdebug profiler traces
@@ -137,16 +140,16 @@ services:
 #    container_name: "${PROJECT_NAME}_redis"
 #    image: wodby/redis:$REDIS_TAG
 
-#  adminer:
-#    container_name: "${PROJECT_NAME}_adminer"
-#    image: wodby/adminer:$ADMINER_TAG
-#    environment:
-#      # For PostgreSQL:
-#      #      ADMINER_DEFAULT_DB_DRIVER: pgsql
-#      ADMINER_DEFAULT_DB_HOST: $DB_HOST
-#      ADMINER_DEFAULT_DB_NAME: $DB_NAME
-#    labels:
-#    - "traefik.http.routers.${PROJECT_NAME}_adminer.rule=Host(`adminer.${PROJECT_BASE_URL}`)"
+  adminer:
+    container_name: "${PROJECT_NAME}_adminer"
+    image: wodby/adminer:$ADMINER_TAG
+    environment:
+      # For PostgreSQL:
+      #      ADMINER_DEFAULT_DB_DRIVER: pgsql
+      ADMINER_DEFAULT_DB_HOST: $DB_HOST
+      ADMINER_DEFAULT_DB_NAME: $DB_NAME
+    labels:
+    - "traefik.http.routers.${PROJECT_NAME}_adminer.rule=Host(`adminer.${PROJECT_BASE_URL}`)"
 
 #  pma:
 #    image: phpmyadmin/phpmyadmin
