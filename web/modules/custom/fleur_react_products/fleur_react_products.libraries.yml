@@ -1,0 +1,3 @@
+products-list:
+  js:
+    js/products_list/dist/index.js: { preprocess: false }

@@ -18,10 +18,10 @@ class ProductsList extends ControllerBase {
   public function productsReact(): array {
     $page = [];
     $page['fleur_products_list'] = [
-      '#markup' => '<div id="react-products_list">There will be react widget here.</div>',
-//      '#attached' => [
-//        'library' => 'ww_react_list/react-list'
-//      ],
+      '#markup' => '<div id="react-products-list"></div>',
+      '#attached' => [
+        'library' => 'fleur_react_products/products-list',
+      ],
     ];
 
     return $page;
