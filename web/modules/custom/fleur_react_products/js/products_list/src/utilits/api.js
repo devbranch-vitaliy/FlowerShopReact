@@ -17,10 +17,14 @@ export function request(endpoint, parameters = {}) {
   switch (endpoint) {
     case 'products_list':
       apiParams
-        .addFields('commerce_product--default', ['title', 'field_image', 'default_variation'])
+        .addFields('commerce_product--default',
+          ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation'])
         .addInclude(['default_variation', 'field_image'])
-        .addPageLimit(3)
-        .addCustomParam({ page: { offset: parameters.page ?? 0 }})
+        .addPageLimit(parameters.perPage)
+        .addCustomParam({ page: {
+          offset: (parameters.page ?? 0) * parameters.perPage,
+          limit: parameters.perPage
+        }})
       url += 'commerce_product/default?' + apiParams.getQueryString();
       break;
 
@@ -47,12 +51,12 @@ export function request(endpoint, parameters = {}) {
  * @return {Object|false}
  *  Result of the field data if we found it or false in the other case.
  */
-export function findRelationship(relationship, includes) {
-  if (!relationship) {
+export function attachRelationship(relationship, includes) {
+  if (!relationship.data) {
     return false;
   }
   const relationship_data = includes.find((element) => {
-    return element.type === relationship.type && element.id === relationship.id;
+    return element.type === relationship.data.type && element.id === relationship.data.id;
   })
   if (typeof relationship_data === 'undefined') {
     return false
@@ -60,5 +64,6 @@ export function findRelationship(relationship, includes) {
   if (!relationship_data.attributes) {
     return false;
   }
-  return relationship_data.attributes;
+  relationship.relationship = relationship_data.attributes;
+  return relationship;
 }

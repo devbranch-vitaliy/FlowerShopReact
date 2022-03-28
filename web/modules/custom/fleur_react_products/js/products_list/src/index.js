@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Page from './components/Page';
+import ProductsList from './components/ProductsList';
 
 ReactDOM.render(
-  <Page />,
+  <ProductsList />,
   document.getElementById('react-products-list')
 );

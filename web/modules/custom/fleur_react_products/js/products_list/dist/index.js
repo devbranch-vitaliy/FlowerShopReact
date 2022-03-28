@@ -1,10 +1,97 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/components/Page.js":
-/*!********************************!*\
-  !*** ./src/components/Page.js ***!
-  \********************************/
+/***/ "./src/components/ProductRow.js":
+/*!**************************************!*\
+  !*** ./src/components/ProductRow.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _ProductView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductView */ "./src/components/ProductView.js");
+
+
+
+var ProductRow = function ProductRow(_ref) {
+  var key = _ref.key,
+      products = _ref.products;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "products-row row",
+    key: key
+  }, products && products.map(function (product) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductView__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      product: product
+    });
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductRow);
+
+/***/ }),
+
+/***/ "./src/components/ProductView.js":
+/*!***************************************!*\
+  !*** ./src/components/ProductView.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var ProductView = function ProductView(_ref) {
+  var product = _ref.product;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "col-xs-12 col-sm-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "product_view",
+    key: product.id
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    className: "product_content",
+    href: product.path
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "img-responsive",
+    src: product.field_image.relationship.image_style_uri.find(function (element) {
+      return element.product_view_768x886;
+    }).product_view_768x886,
+    "typeof": "foaf:Image",
+    alt: product.field_image.data.meta.alt
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "product-info black-bg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "product-name"
+  }, product.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+    className: "text-color-white"
+  }, product.default_variation.relationship.price.formatted)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "hover-bg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "hover-bg-border"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "hover-bg-text-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "hover-bg-text label-big"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "\"See product\""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+    className: "fleur-font-icon-16-arrow-right-primary"
+  }))))))));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductView);
+
+/***/ }),
+
+/***/ "./src/components/ProductsList.js":
+/*!****************************************!*\
+  !*** ./src/components/ProductsList.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14,6 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _utilits_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilits/api */ "./src/utilits/api.js");
+/* harmony import */ var _ProductRow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductRow */ "./src/components/ProductRow.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -37,7 +125,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Page = function Page() {
+
+var ProductsList = function ProductsList() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
@@ -59,20 +148,31 @@ var Page = function Page() {
       setErrorMsg = _useState8[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var perRow = 3;
     setIsLoading(true);
     (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.request)('products_list', {
-      page: 0
+      page: 0,
+      perPage: perRow
     }).then(function (products) {
-      var products_data = [];
+      var products_data = []; // Fill products data.
+
       products.data.map(function (product) {
         products_data.push({
+          id: product.attributes.drupal_internal__product_id,
           title: product.attributes.title,
-          default_variation: (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.findRelationship)(product.relationships.default_variation.data, products.included),
-          field_image: (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.findRelationship)(product.relationships.field_image.data, products.included)
+          path: product.attributes.path.alias,
+          default_variation: (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.attachRelationship)(product.relationships.default_variation, products.included),
+          field_image: (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.attachRelationship)(product.relationships.field_image, products.included)
         });
-      });
-      setData([].concat(_toConsumableArray(data), products_data));
-      console.log(data);
+      }); // Split data to rows.
+
+      products_data = products_data.map(function (e, i) {
+        return i % perRow === 0 ? products_data.slice(i, i + perRow) : null;
+      }).filter(function (e) {
+        return e;
+      }); // Store data.
+
+      setData([].concat(_toConsumableArray(data), _toConsumableArray(products_data)));
     })["catch"](function (err) {
       if (err.name === 'AbortError') {
         console.log('fetch aborted');
@@ -83,11 +183,16 @@ var Page = function Page() {
     });
   }, [page]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "products-list"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, "REACT"), " There will be react widget here."));
+    className: "products-list clearfix"
+  }, data && data.map(function (row, key) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      key: key,
+      products: row
+    });
+  }));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Page);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductsList);
 
 /***/ }),
 
@@ -100,7 +205,7 @@ var Page = function Page() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "findRelationship": () => (/* binding */ findRelationship),
+/* harmony export */   "attachRelationship": () => (/* binding */ attachRelationship),
 /* harmony export */   "request": () => (/* binding */ request)
 /* harmony export */ });
 /* harmony import */ var drupal_jsonapi_params__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! drupal-jsonapi-params */ "./node_modules/drupal-jsonapi-params/lib/index.js");
@@ -125,9 +230,10 @@ function request(endpoint) {
 
   switch (endpoint) {
     case 'products_list':
-      apiParams.addFields('commerce_product--default', ['title', 'field_image', 'default_variation']).addInclude(['default_variation', 'field_image']).addPageLimit(3).addCustomParam({
+      apiParams.addFields('commerce_product--default', ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation']).addInclude(['default_variation', 'field_image']).addPageLimit(parameters.perPage).addCustomParam({
         page: {
-          offset: (_parameters$page = parameters.page) !== null && _parameters$page !== void 0 ? _parameters$page : 0
+          offset: ((_parameters$page = parameters.page) !== null && _parameters$page !== void 0 ? _parameters$page : 0) * parameters.perPage,
+          limit: parameters.perPage
         }
       });
       url += 'commerce_product/default?' + apiParams.getQueryString();
@@ -156,20 +262,25 @@ function request(endpoint) {
  *  Result of the field data if we found it or false in the other case.
  */
 
-function findRelationship(relationship, includes) {
-  if (!relationship) {
+function attachRelationship(relationship, includes) {
+  if (!relationship.data) {
     return false;
   }
 
   var relationship_data = includes.find(function (element) {
-    return element.type === relationship.type && element.id === relationship.id;
+    return element.type === relationship.data.type && element.id === relationship.data.id;
   });
 
   if (typeof relationship_data === 'undefined') {
     return false;
   }
 
-  return relationship_data;
+  if (!relationship_data.attributes) {
+    return false;
+  }
+
+  relationship.relationship = relationship_data.attributes;
+  return relationship;
 }
 
 /***/ }),
@@ -32587,11 +32698,11 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_Page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Page */ "./src/components/Page.js");
+/* harmony import */ var _components_ProductsList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ProductsList */ "./src/components/ProductsList.js");
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Page__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('react-products-list'));
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductsList__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('react-products-list'));
 })();
 
 /******/ })()
