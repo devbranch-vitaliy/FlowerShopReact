@@ -22,7 +22,7 @@
 <p>
   {% if items %}
     {% for item in items %}
-      {{ link(item.title, item.url, link_attributes.addClass(item.in_active_trail ? 'active-trail')) }}<br />
+      {{ link(item.title, item.url, item.link_attributes.addClass(item.in_active_trail ? 'active-trail')) }}<br />
     {% endfor %}
   {% endif %}
 </p>
