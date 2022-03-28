@@ -1,0 +1,19 @@
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*********************************************************************************************************/
+.products-list-wrapper .product_view {
+  margin-top: 24px;
+}
+.products-list-wrapper button.load-more {
+  width: 220px;
+  border: 2px solid #191919;
+  border-radius: unset;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  color: #191919;
+  background: #ffffff;
+  padding: 15px 0;
+}
+
+/*# sourceMappingURL=index.css.map*/

@@ -51,7 +51,7 @@ const ProductsList = () => {
   };
 
   return (
-    <div className="product-list-wrapper">
+    <div className="products-list-wrapper">
       <div className="products-list clearfix">
         {data && data.map((row, id) => (
           <ProductRow key={id} products={row} />

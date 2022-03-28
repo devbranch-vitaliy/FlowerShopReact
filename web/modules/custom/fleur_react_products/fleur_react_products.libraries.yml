@@ -1,3 +1,6 @@
 products-list:
   js:
     js/products_list/dist/index.js: { preprocess: false }
+  css:
+    theme:
+      js/products_list/dist/index.css: { }
