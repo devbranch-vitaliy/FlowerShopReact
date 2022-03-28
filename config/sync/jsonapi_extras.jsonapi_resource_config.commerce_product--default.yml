@@ -9,6 +9,10 @@ dependencies:
 third_party_settings:
   jsonapi_defaults:
     page_limit: 50
+    default_include:
+      - 'default_variation,field_image'
+    default_filter:
+      'filter:status': '1'
 id: commerce_product--default
 disabled: false
 path: commerce_product/default
@@ -27,11 +31,11 @@ resourceFields:
       id: ''
     disabled: false
   langcode:
+    disabled: true
     fieldName: langcode
     publicName: langcode
     enhancer:
       id: ''
-    disabled: false
   type:
     fieldName: type
     publicName: type
@@ -39,11 +43,11 @@ resourceFields:
       id: ''
     disabled: false
   uid:
+    disabled: true
     fieldName: uid
     publicName: uid
     enhancer:
       id: ''
-    disabled: false
   status:
     fieldName: status
     publicName: status
@@ -51,11 +55,11 @@ resourceFields:
       id: ''
     disabled: false
   stores:
+    disabled: true
     fieldName: stores
     publicName: stores
     enhancer:
       id: ''
-    disabled: false
   title:
     fieldName: title
     publicName: title
@@ -75,65 +79,65 @@ resourceFields:
       id: ''
     disabled: false
   path:
+    disabled: true
     fieldName: path
     publicName: path
     enhancer:
       id: ''
-    disabled: false
   created:
+    disabled: true
     fieldName: created
     publicName: created
     enhancer:
       id: ''
-    disabled: false
   changed:
+    disabled: true
     fieldName: changed
     publicName: changed
     enhancer:
       id: ''
-    disabled: false
   default_langcode:
+    disabled: true
     fieldName: default_langcode
     publicName: default_langcode
     enhancer:
       id: ''
-    disabled: false
   metatag:
+    disabled: true
     fieldName: metatag
     publicName: metatag
     enhancer:
       id: ''
-    disabled: false
   rh_action:
+    disabled: true
     fieldName: rh_action
     publicName: rh_action
     enhancer:
       id: ''
-    disabled: false
   rh_redirect:
+    disabled: true
     fieldName: rh_redirect
     publicName: rh_redirect
     enhancer:
       id: ''
-    disabled: false
   rh_redirect_response:
+    disabled: true
     fieldName: rh_redirect_response
     publicName: rh_redirect_response
     enhancer:
       id: ''
-    disabled: false
   rh_redirect_fallback_action:
+    disabled: true
     fieldName: rh_redirect_fallback_action
     publicName: rh_redirect_fallback_action
     enhancer:
       id: ''
-    disabled: false
   body:
+    disabled: true
     fieldName: body
     publicName: body
     enhancer:
       id: ''
-    disabled: false
   field_characteristics:
     fieldName: field_characteristics
     publicName: field_characteristics
@@ -147,23 +151,23 @@ resourceFields:
       id: ''
     disabled: false
   field_fragnanced:
+    disabled: true
     fieldName: field_fragnanced
     publicName: field_fragnanced
     enhancer:
       id: ''
-    disabled: false
   field_image:
     fieldName: field_image
     publicName: field_image
     enhancer:
-      id: ''
+      id: json
     disabled: false
   field_meta_tags:
+    disabled: true
     fieldName: field_meta_tags
     publicName: field_meta_tags
     enhancer:
       id: ''
-    disabled: false
   field_occasion:
     fieldName: field_occasion
     publicName: field_occasion
