@@ -13,7 +13,7 @@ const ProductsList = () => {
     const perRow = 3;
     setIsLoading(true);
 
-    request('products_list', { page: 0 , perPage: perRow})
+    request('products_list', { page: page , perPage: perRow})
       .then(products => {
         let products_data = [];
 
@@ -34,24 +34,32 @@ const ProductsList = () => {
         }).filter(e => { return e; });
 
         // Store data.
+        setIsLoading(false);
         setData([...data, ...products_data]);
       })
       .catch(err => {
         if (err.name === 'AbortError') {
           console.log('fetch aborted')
         } else {
-          // auto catches network / connection error
-          // setIsPending(false);
-          // setError(err.message);
+          console.log(err.message);
         }
       })
   }, [page]);
 
+  const loadMoreHandler = () => {
+    setPage((page) => page + 1);
+  };
+
   return (
-    <div className="products-list clearfix">
-      {data && data.map((row, key) => (
-        <ProductRow key={key} products={row} />
-      ))}
+    <div className="product-list-wrapper">
+      <div className="products-list clearfix">
+        {data && data.map((row, id) => (
+          <ProductRow key={id} products={row} />
+        ))}
+      </div>
+      <div className="pager">
+        <button className="load-more" onClick={loadMoreHandler}>{isLoading ? 'Loading...' : 'Load more products'}</button>
+      </div>
     </div>
   )
 };

@@ -18,16 +18,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProductRow = function ProductRow(_ref) {
-  var key = _ref.key,
-      products = _ref.products;
+  var products = _ref.products;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "products-row row",
-    key: key
+    className: "products-row-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "products-row row"
   }, products && products.map(function (product) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductView__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      key: product.id,
       product: product
     });
-  }));
+  })));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductRow);
@@ -60,8 +61,8 @@ var ProductView = function ProductView(_ref) {
     href: product.path
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "img-responsive",
-    src: product.field_image.relationship.image_style_uri.find(function (element) {
-      return element.product_view_768x886;
+    src: product.field_image.relationship.image_style_uri.find(function (e) {
+      return e.product_view_768x886;
     }).product_view_768x886,
     "typeof": "foaf:Image",
     alt: product.field_image.data.meta.alt
@@ -151,7 +152,7 @@ var ProductsList = function ProductsList() {
     var perRow = 3;
     setIsLoading(true);
     (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.request)('products_list', {
-      page: 0,
+      page: page,
       perPage: perRow
     }).then(function (products) {
       var products_data = []; // Fill products data.
@@ -172,24 +173,38 @@ var ProductsList = function ProductsList() {
         return e;
       }); // Store data.
 
+      setIsLoading(false);
       setData([].concat(_toConsumableArray(data), _toConsumableArray(products_data)));
     })["catch"](function (err) {
       if (err.name === 'AbortError') {
         console.log('fetch aborted');
-      } else {// auto catches network / connection error
-        // setIsPending(false);
-        // setError(err.message);
+      } else {
+        console.log(err.message);
       }
     });
   }, [page]);
+
+  var loadMoreHandler = function loadMoreHandler() {
+    setPage(function (page) {
+      return page + 1;
+    });
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "product-list-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "products-list clearfix"
-  }, data && data.map(function (row, key) {
+  }, data && data.map(function (row, id) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      key: key,
+      key: id,
       products: row
     });
-  }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "pager"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "load-more",
+    onClick: loadMoreHandler
+  }, isLoading ? 'Loading...' : 'Load more products')));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductsList);
