@@ -138,24 +138,31 @@ var ProductsList = function ProductsList() {
       page = _useState4[0],
       setPage = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState6 = _slicedToArray(_useState5, 2),
-      isLoading = _useState6[0],
-      setIsLoading = _useState6[1];
+      count = _useState6[0],
+      setCount = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState8 = _slicedToArray(_useState7, 2),
-      errorMsg = _useState8[0],
-      setErrorMsg = _useState8[1];
+      isLoading = _useState8[0],
+      setIsLoading = _useState8[1];
 
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      errorMsg = _useState10[0],
+      setErrorMsg = _useState10[1];
+
+  var perRow = 3;
+  var perPage = perRow;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var perRow = 3;
     setIsLoading(true);
     (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.request)('products_list', {
       page: page,
-      perPage: perRow
+      perPage: perPage
     }).then(function (products) {
-      var products_data = []; // Fill products data.
+      var products_data = [];
+      setCount(Number(products.meta.count)); // Fill products data.
 
       products.data.map(function (product) {
         products_data.push({
@@ -199,7 +206,7 @@ var ProductsList = function ProductsList() {
       key: id,
       products: row
     });
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  })), (page + 1) * perPage < count && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pager"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "load-more",

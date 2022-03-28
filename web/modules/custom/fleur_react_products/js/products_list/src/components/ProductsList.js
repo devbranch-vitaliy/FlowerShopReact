@@ -6,16 +6,19 @@ const ProductsList = () => {
 
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
+  const [count, setCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const perRow = 3;
+  const perPage = perRow;
 
   useEffect(() => {
-    const perRow = 3;
     setIsLoading(true);
 
-    request('products_list', { page: page , perPage: perRow})
+    request('products_list', { page: page , perPage: perPage})
       .then(products => {
         let products_data = [];
+        setCount(Number(products.meta.count));
 
         // Fill products data.
         products.data.map((product) => {
@@ -57,9 +60,9 @@ const ProductsList = () => {
           <ProductRow key={id} products={row} />
         ))}
       </div>
-      <div className="pager">
+      {((page + 1) * perPage < count) && <div className="pager">
         <button className="load-more" onClick={loadMoreHandler}>{isLoading ? 'Loading...' : 'Load more products'}</button>
-      </div>
+      </div>}
     </div>
   )
 };
