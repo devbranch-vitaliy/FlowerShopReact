@@ -32,7 +32,7 @@ const FetchProducts = () => {
   const [filters_values] = useGlobalState("filters_values");
   const prevValue = useRef({filters_values}).current;
   const perRow = 3;
-  const perPage = perRow;
+  const perPage = perRow * 2;
 
   useEffect(() => {
     setGlobalState("isLoading", true);
