@@ -20,12 +20,18 @@ export function request(endpoint, parameters = {}) {
         .addFields('commerce_product--default',
           ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation'])
         .addInclude(['default_variation', 'field_image'])
-        .addPageLimit(parameters.perPage)
         .addCustomParam({ page: {
           offset: (parameters.page ?? 0) * parameters.perPage,
           limit: parameters.perPage
         }})
       url += 'commerce_product/default?' + apiParams.getQueryString();
+      break;
+
+    case 'taxonomy_term':
+      apiParams
+        .addFields('taxonomy_term--' + parameters.name, ['id', 'name'])
+        .addSort('weight');
+      url += 'taxonomy_term/' + parameters.name + '?' + apiParams.getQueryString();
       break;
 
     default:

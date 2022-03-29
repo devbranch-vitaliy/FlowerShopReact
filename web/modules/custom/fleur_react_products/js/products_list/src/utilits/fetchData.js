@@ -2,6 +2,31 @@ import React, {useEffect} from 'react';
 import {setGlobalState, useGlobalState, dispatch} from "./globals";
 import {attachRelationship, request} from "./api";
 
+const FetchFilters = () => {
+  const [filters, setFilters] = useGlobalState('filters');
+  useEffect(() => {
+    for (const filter_name in filters) {
+      if (filter_name === 'colors') {
+        continue;
+      }
+      request('taxonomy_term', { name: filter_name})
+        .then(terms => {
+          terms.data.map((term) => {
+            filters[filter_name].push({
+              value: term.id,
+              name: term.attributes.name
+            });
+          })
+          setFilters(filters);
+        })
+        .catch(err => {
+          setGlobalState("isLoading", false);
+          console.log(err.message);
+        })
+    }
+  }, [])
+}
+
 const FetchProducts = () => {
   const [page] = useGlobalState("page");
   const perRow = 3;
@@ -37,13 +62,9 @@ const FetchProducts = () => {
       })
       .catch(err => {
         setGlobalState("isLoading", false);
-        if (err.name === 'AbortError') {
-          console.log('fetch aborted')
-        } else {
-          console.log(err.message);
-        }
+        console.log(err.message);
       })
   }, [page]);
 }
 
-export default FetchProducts;
+export {FetchProducts, FetchFilters};
