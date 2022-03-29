@@ -30,7 +30,9 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'showMore': return { ...state, page: state.page + 1 };
     case 'addProducts': return { ...state, products: [...state.products, ...action.products] };
+    case 'filterUpdate': return { ...state, filters_values: {...state.filters_values, [action.name]: action.value}, page: 0};
+
     default: return state;
   }
 };
-export const { dispatch, setGlobalState, getGlobalState, useGlobalState } = createStore(reducer, initialGlobalState);
+export const { dispatch, setGlobalState, useGlobalState } = createStore(reducer, initialGlobalState);

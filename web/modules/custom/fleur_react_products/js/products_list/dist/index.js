@@ -164,7 +164,14 @@ var ProductsFilters = function ProductsFilters() {
   }, "Filter by:"), filters && Object.keys(filters).map(function (filter_name) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
       key: filter_name,
-      defaultValue: filters_values[filter_name]
+      defaultValue: filters_values[filter_name],
+      onChange: function onChange(e) {
+        return (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
+          type: "filterUpdate",
+          name: filter_name,
+          value: e.target.value
+        });
+      }
     }, filters[filter_name].map(function (filter_data) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
         value: filter_data.value,
@@ -300,6 +307,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "request": () => (/* binding */ request)
 /* harmony export */ });
 /* harmony import */ var drupal_jsonapi_params__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! drupal-jsonapi-params */ "./node_modules/drupal-jsonapi-params/lib/index.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 /**
  * The helper function for making requests to a Drupal backend.
@@ -321,12 +340,27 @@ function request(endpoint) {
 
   switch (endpoint) {
     case 'products_list':
-      apiParams.addFields('commerce_product--default', ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation']).addInclude(['default_variation', 'field_image']).addCustomParam({
+      var fields = ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation'];
+      apiParams.addInclude(['default_variation', 'field_image']).addCustomParam({
         page: {
           offset: ((_parameters$page = parameters.page) !== null && _parameters$page !== void 0 ? _parameters$page : 0) * parameters.perPage,
           limit: parameters.perPage
         }
       });
+
+      for (var _i = 0, _Object$entries = Object.entries(parameters.filters); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            filter_name = _Object$entries$_i[0],
+            value = _Object$entries$_i[1];
+
+        if (value !== '_none_') {
+          var field_name = 'field_' + filter_name + (filter_name !== 'colors' ? '.id' : '');
+          apiParams.addFilter(field_name, value);
+          fields.push(field_name);
+        }
+      }
+
+      apiParams.addFields('commerce_product--default', fields);
       url += 'commerce_product/default?' + apiParams.getQueryString();
       break;
 
@@ -453,13 +487,21 @@ var FetchProducts = function FetchProducts() {
       _useGlobalState4 = _slicedToArray(_useGlobalState3, 1),
       page = _useGlobalState4[0];
 
+  var _useGlobalState5 = (0,_globals__WEBPACK_IMPORTED_MODULE_1__.useGlobalState)("filters_values"),
+      _useGlobalState6 = _slicedToArray(_useGlobalState5, 1),
+      filters_values = _useGlobalState6[0];
+
+  var prevValue = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+    filters_values: filters_values
+  }).current;
   var perRow = 3;
   var perPage = perRow;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", true);
     (0,_api__WEBPACK_IMPORTED_MODULE_2__.request)('products_list', {
       page: page,
-      perPage: perPage
+      perPage: perPage,
+      filters: filters_values
     }).then(function (products) {
       var products_data = []; // Fill products data.
 
@@ -481,15 +523,23 @@ var FetchProducts = function FetchProducts() {
 
       (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", false);
       (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("pager", (page + 1) * perPage < Number(products.meta.count));
-      (0,_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
-        type: "addProducts",
-        products: products_data
-      });
+
+      if (prevValue.filters_values === filters_values) {
+        (0,_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
+          type: "addProducts",
+          products: products_data
+        });
+      } else {
+        (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("products", products_data);
+      } // Updated prev value.
+
+
+      prevValue.filters_values = filters_values;
     })["catch"](function (err) {
       (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", false);
       console.log(err.message);
     });
-  }, [page]);
+  }, [page, filters_values]);
 };
 
 
@@ -506,7 +556,6 @@ var FetchProducts = function FetchProducts() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "dispatch": () => (/* binding */ dispatch),
-/* harmony export */   "getGlobalState": () => (/* binding */ getGlobalState),
 /* harmony export */   "setGlobalState": () => (/* binding */ setGlobalState),
 /* harmony export */   "useGlobalState": () => (/* binding */ useGlobalState)
 /* harmony export */ });
@@ -590,6 +639,12 @@ var reducer = function reducer(state, action) {
         products: [].concat(_toConsumableArray(state.products), _toConsumableArray(action.products))
       });
 
+    case 'filterUpdate':
+      return _objectSpread(_objectSpread({}, state), {}, {
+        filters_values: _objectSpread(_objectSpread({}, state.filters_values), {}, _defineProperty({}, action.name, action.value)),
+        page: 0
+      });
+
     default:
       return state;
   }
@@ -598,7 +653,6 @@ var reducer = function reducer(state, action) {
 var _createStore = (0,react_hooks_global_state__WEBPACK_IMPORTED_MODULE_1__.createStore)(reducer, initialGlobalState),
     dispatch = _createStore.dispatch,
     setGlobalState = _createStore.setGlobalState,
-    getGlobalState = _createStore.getGlobalState,
     useGlobalState = _createStore.useGlobalState;
 
 

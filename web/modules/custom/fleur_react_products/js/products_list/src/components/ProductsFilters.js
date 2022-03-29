@@ -1,5 +1,5 @@
 import React from 'react';
-import {useGlobalState} from "../utilits/globals";
+import {dispatch, useGlobalState} from "../utilits/globals";
 
 const ProductsFilters = () => {
   const [filters] = useGlobalState("filters");
@@ -11,6 +11,7 @@ const ProductsFilters = () => {
         <select
           key={filter_name}
           defaultValue={filters_values[filter_name]}
+          onChange={(e) => dispatch({type: "filterUpdate", name: filter_name, value: e.target.value})}
         >
           {filters[filter_name].map((filter_data) => {
               return (

@@ -16,14 +16,21 @@ export function request(endpoint, parameters = {}) {
 
   switch (endpoint) {
     case 'products_list':
+      const fields = ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation'];
       apiParams
-        .addFields('commerce_product--default',
-          ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation'])
         .addInclude(['default_variation', 'field_image'])
         .addCustomParam({ page: {
           offset: (parameters.page ?? 0) * parameters.perPage,
           limit: parameters.perPage
         }})
+      for (const [filter_name, value] of Object.entries(parameters.filters)) {
+        if (value !== '_none_') {
+          const field_name = 'field_' + filter_name + (filter_name !== 'colors' ? '.id' : '');
+          apiParams.addFilter(field_name, value);
+          fields.push(field_name);
+        }
+      }
+      apiParams.addFields('commerce_product--default', fields);
       url += 'commerce_product/default?' + apiParams.getQueryString();
       break;
 

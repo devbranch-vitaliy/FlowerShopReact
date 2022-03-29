@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {setGlobalState, useGlobalState, dispatch} from "./globals";
 import {attachRelationship, request} from "./api";
 
@@ -29,13 +29,15 @@ const FetchFilters = () => {
 
 const FetchProducts = () => {
   const [page] = useGlobalState("page");
+  const [filters_values] = useGlobalState("filters_values");
+  const prevValue = useRef({filters_values}).current;
   const perRow = 3;
   const perPage = perRow;
 
   useEffect(() => {
     setGlobalState("isLoading", true);
 
-    request('products_list', { page: page , perPage: perPage})
+    request('products_list', { page: page , perPage: perPage, filters: filters_values})
       .then(products => {
         let products_data = [];
 
@@ -58,13 +60,21 @@ const FetchProducts = () => {
         // Store data.
         setGlobalState("isLoading", false);
         setGlobalState("pager", ((page + 1) * perPage < Number(products.meta.count)));
-        dispatch({type: "addProducts", products: products_data});
+        if (prevValue.filters_values === filters_values) {
+          dispatch({type: "addProducts", products: products_data});
+        }
+        else {
+          setGlobalState("products", products_data);
+        }
+
+        // Updated prev value.
+        prevValue.filters_values = filters_values;
       })
       .catch(err => {
         setGlobalState("isLoading", false);
         console.log(err.message);
       })
-  }, [page]);
+  }, [page, filters_values]);
 }
 
 export {FetchProducts, FetchFilters};
