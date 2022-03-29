@@ -1,6 +1,35 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/App.js":
+/*!*******************************!*\
+  !*** ./src/components/App.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _ProductsList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductsList */ "./src/components/ProductsList.js");
+/* harmony import */ var _utilits_fetchData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilits/fetchData */ "./src/utilits/fetchData.js");
+
+
+
+
+var App = function App() {
+  //Prepare the data for the app.
+  (0,_utilits_fetchData__WEBPACK_IMPORTED_MODULE_2__["default"])(); // Render the app.
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductsList__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+
+/***/ }),
+
 /***/ "./src/components/ProductRow.js":
 /*!**************************************!*\
   !*** ./src/components/ProductRow.js ***!
@@ -101,16 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _utilits_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilits/api */ "./src/utilits/api.js");
-/* harmony import */ var _ProductRow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductRow */ "./src/components/ProductRow.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
+/* harmony import */ var _ProductRow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductRow */ "./src/components/ProductRow.js");
+/* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilits/globals */ "./src/utilits/globals.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -128,85 +149,32 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var ProductsList = function ProductsList() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      data = _useState2[0],
-      setData = _useState2[1];
+  var _useGlobalState = (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.useGlobalState)("products"),
+      _useGlobalState2 = _slicedToArray(_useGlobalState, 1),
+      products = _useGlobalState2[0];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      page = _useState4[0],
-      setPage = _useState4[1];
+  var _useGlobalState3 = (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.useGlobalState)("pager"),
+      _useGlobalState4 = _slicedToArray(_useGlobalState3, 1),
+      pager = _useGlobalState4[0];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState6 = _slicedToArray(_useState5, 2),
-      count = _useState6[0],
-      setCount = _useState6[1];
-
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      isLoading = _useState8[0],
-      setIsLoading = _useState8[1];
-
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-      _useState10 = _slicedToArray(_useState9, 2),
-      errorMsg = _useState10[0],
-      setErrorMsg = _useState10[1];
-
-  var perRow = 3;
-  var perPage = perRow;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setIsLoading(true);
-    (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.request)('products_list', {
-      page: page,
-      perPage: perPage
-    }).then(function (products) {
-      var products_data = [];
-      setCount(Number(products.meta.count)); // Fill products data.
-
-      products.data.map(function (product) {
-        products_data.push({
-          id: product.attributes.drupal_internal__product_id,
-          title: product.attributes.title,
-          path: product.attributes.path.alias,
-          default_variation: (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.attachRelationship)(product.relationships.default_variation, products.included),
-          field_image: (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.attachRelationship)(product.relationships.field_image, products.included)
-        });
-      }); // Split data to rows.
-
-      products_data = products_data.map(function (e, i) {
-        return i % perRow === 0 ? products_data.slice(i, i + perRow) : null;
-      }).filter(function (e) {
-        return e;
-      }); // Store data.
-
-      setIsLoading(false);
-      setData([].concat(_toConsumableArray(data), _toConsumableArray(products_data)));
-    })["catch"](function (err) {
-      if (err.name === 'AbortError') {
-        console.log('fetch aborted');
-      } else {
-        console.log(err.message);
-      }
-    });
-  }, [page]);
+  var _useGlobalState5 = (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.useGlobalState)("isLoading"),
+      _useGlobalState6 = _slicedToArray(_useGlobalState5, 1),
+      isLoading = _useGlobalState6[0];
 
   var loadMoreHandler = function loadMoreHandler() {
-    setPage(function (page) {
-      return page + 1;
-    });
+    (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.setGlobalState)("page", (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.getGlobalState)("page") + 1);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "products-list-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "products-list clearfix"
-  }, data && data.map(function (row, id) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductRow__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, products && products.map(function (row, id) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductRow__WEBPACK_IMPORTED_MODULE_1__["default"], {
       key: id,
       products: row
     });
-  })), (page + 1) * perPage < count && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  })), pager && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pager"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "load-more",
@@ -304,6 +272,127 @@ function attachRelationship(relationship, includes) {
   relationship.relationship = relationship_data.attributes;
   return relationship;
 }
+
+/***/ }),
+
+/***/ "./src/utilits/fetchData.js":
+/*!**********************************!*\
+  !*** ./src/utilits/fetchData.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./src/utilits/globals.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api */ "./src/utilits/api.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var FetchProducts = function FetchProducts() {
+  var _useGlobalState = (0,_globals__WEBPACK_IMPORTED_MODULE_1__.useGlobalState)("page"),
+      _useGlobalState2 = _slicedToArray(_useGlobalState, 1),
+      page = _useGlobalState2[0];
+
+  var perRow = 3;
+  var perPage = perRow;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", true);
+    (0,_api__WEBPACK_IMPORTED_MODULE_2__.request)('products_list', {
+      page: page,
+      perPage: perPage
+    }).then(function (products) {
+      var products_data = []; // Fill products data.
+
+      products.data.map(function (product) {
+        products_data.push({
+          id: product.attributes.drupal_internal__product_id,
+          title: product.attributes.title,
+          path: product.attributes.path.alias,
+          default_variation: (0,_api__WEBPACK_IMPORTED_MODULE_2__.attachRelationship)(product.relationships.default_variation, products.included),
+          field_image: (0,_api__WEBPACK_IMPORTED_MODULE_2__.attachRelationship)(product.relationships.field_image, products.included)
+        });
+      }); // Split data to rows.
+
+      products_data = products_data.map(function (e, i) {
+        return i % perRow === 0 ? products_data.slice(i, i + perRow) : null;
+      }).filter(function (e) {
+        return e;
+      }); // Store data.
+
+      (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", false);
+      (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("pager", (page + 1) * perPage < Number(products.meta.count));
+      (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("products", [].concat(_toConsumableArray((0,_globals__WEBPACK_IMPORTED_MODULE_1__.getGlobalState)("products")), _toConsumableArray(products_data)));
+    })["catch"](function (err) {
+      (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", false);
+
+      if (err.name === 'AbortError') {
+        console.log('fetch aborted');
+      } else {
+        console.log(err.message);
+      }
+    });
+  }, [page]);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FetchProducts);
+
+/***/ }),
+
+/***/ "./src/utilits/globals.js":
+/*!********************************!*\
+  !*** ./src/utilits/globals.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getGlobalState": () => (/* binding */ getGlobalState),
+/* harmony export */   "setGlobalState": () => (/* binding */ setGlobalState),
+/* harmony export */   "useGlobalState": () => (/* binding */ useGlobalState)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_hooks_global_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-hooks-global-state */ "./node_modules/react-hooks-global-state/dist/index.modern.js");
+
+
+var initialGlobalState = {
+  products: [],
+  page: 0,
+  isLoading: false,
+  pager: false
+};
+
+var _createGlobalState = (0,react_hooks_global_state__WEBPACK_IMPORTED_MODULE_1__.createGlobalState)(initialGlobalState),
+    setGlobalState = _createGlobalState.setGlobalState,
+    getGlobalState = _createGlobalState.getGlobalState,
+    useGlobalState = _createGlobalState.useGlobalState;
+
+
 
 /***/ }),
 
@@ -29115,6 +29204,26 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-hooks-global-state/dist/index.modern.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/react-hooks-global-state/dist/index.modern.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createGlobalState": () => (/* binding */ u),
+/* harmony export */   "createStore": () => (/* binding */ i),
+/* harmony export */   "reduxDevToolsExt": () => (/* binding */ p)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function s(){return(s=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var r=arguments[e];for(var o in r)Object.prototype.hasOwnProperty.call(r,o)&&(t[o]=r[o])}return t}).apply(this,arguments)}const c=(t,e)=>{if(!t.includes(e))throw new Error(`'${e}' not found. It must be provided in initialState as a property key.`)},a= true?Symbol("UPDATE_STATE"):0,l=(l,u)=>{const i=Object.keys(u);let p=u,d=null;const f={};i.forEach(t=>{f[t]=new Set});const E=(t,e)=>e.type===a?e.r?e.r(t):e.e:l(t,e),S=(t,e)=>{ true&&c(i,t);const r=r=>{return s({},r,{[t]:(o=r[t],n=e,"function"==typeof n?n(o):n)});var o,n};if(d)d({type:a,r});else{p=r(p);const e=p[t];f[t].forEach(t=>t(e))}},b=(t,e)=>{i.forEach(r=>{const o=e[r];t[r]!==o&&f[r].forEach(t=>t(o))})};return{useGlobalStateProvider:()=>{const[o,n]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(E,p);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{if(d)throw new Error("Only one global state provider is allowed");return d=n,n({type:a,e:p}),()=>{d=null}},[]);const s=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(o);b(s.current,o),s.current=o,(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{p=o},[o])},useGlobalState:t=>{ true&&c(i,t);const[r,s]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(p[t]);return (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>(f[t].add(s),s(p[t]),()=>{f[t].delete(s)}),[t]),[r,(0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(e=>S(t,e),[t])]},getGlobalState:t=>( true&&c(i,t),p[t]),setGlobalState:S,getState:()=>p,setState:t=>{if(d)d({type:a,e:t});else{const e=p;p=t,b(e,p)}},dispatch:t=>{if(d)d(t);else{const e=p;p=l(p,t),b(e,p)}return t}}},u=t=>l((t,e)=>t,t),i=(t,e=t(void 0,{type:void 0}),r)=>r?r(i)(t,e):l(t,e),p=()=>{if(!window.__REDUX_DEVTOOLS_EXTENSION__)return t=>t;const{before:t,after:e}=(()=>{let t,e;return{before:r=>(o,n,c)=>{if(t=o,e=n,c)return c(r)(o,n);const a=r(o,n);return s({},a,{useGlobalState:t=>{const[e]=a.useGlobalState(t);return[e,()=>{throw new Error("Update is not allowed when using DevTools")}]}})},after:r=>(o,n,c)=>{if(c)return c(r)(o,n);const a=r(t,e);let l=s({},o(n,{type:"@@redux/INIT"}),e);const u=[];return s({},a,{getState:()=>l,dispatch:t=>(l=o(l,t),a.setState(l.computedStates[l.currentStateIndex].state),u.forEach(t=>t()),t),subscribe:t=>(u.push(t),()=>{const e=u.indexOf(t);u.splice(e,1)})})}}})();return((...t)=>t.reduce((t,e)=>(...r)=>t(e(...r))))(t,window.__REDUX_DEVTOOLS_EXTENSION__(),e)};
+//# sourceMappingURL=index.modern.mjs.map
+
+
+/***/ }),
+
 /***/ "./node_modules/react/cjs/react.development.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -32734,12 +32843,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.scss */ "./src/index.scss");
-/* harmony import */ var _components_ProductsList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ProductsList */ "./src/components/ProductsList.js");
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/App */ "./src/components/App.js");
 
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductsList__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('react-products-list'));
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_App__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('react-products-list'));
 })();
 
 /******/ })()

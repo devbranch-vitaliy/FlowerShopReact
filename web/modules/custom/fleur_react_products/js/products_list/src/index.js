@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './index.scss';
 
-import ProductsList from './components/ProductsList';
+import App from "./components/App";
 
 ReactDOM.render(
-  <ProductsList />,
+  <App />,
   document.getElementById('react-products-list')
 );
