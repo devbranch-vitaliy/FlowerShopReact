@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {setGlobalState, getGlobalState, useGlobalState} from "./globals";
+import {setGlobalState, useGlobalState, dispatch} from "./globals";
 import {attachRelationship, request} from "./api";
 
 const FetchProducts = () => {
@@ -33,7 +33,7 @@ const FetchProducts = () => {
         // Store data.
         setGlobalState("isLoading", false);
         setGlobalState("pager", ((page + 1) * perPage < Number(products.meta.count)));
-        setGlobalState("products", [...getGlobalState("products"), ...products_data]);
+        dispatch({type: "addProducts", products: products_data});
       })
       .catch(err => {
         setGlobalState("isLoading", false);

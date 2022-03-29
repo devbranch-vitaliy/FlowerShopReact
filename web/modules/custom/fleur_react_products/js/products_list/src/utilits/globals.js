@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalState } from 'react-hooks-global-state';
+import { createStore } from 'react-hooks-global-state';
 
 const initialGlobalState = {
   products: [],
@@ -7,4 +7,11 @@ const initialGlobalState = {
   isLoading: false,
   pager: false
 };
-export const { setGlobalState, getGlobalState, useGlobalState } = createGlobalState(initialGlobalState);
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'showMore': return { ...state, page: state.page + 1 };
+    case 'addProducts': return { ...state, products: [...state.products, ...action.products] };
+    default: return state;
+  }
+};
+export const { dispatch, setGlobalState, getGlobalState, useGlobalState } = createStore(reducer, initialGlobalState);

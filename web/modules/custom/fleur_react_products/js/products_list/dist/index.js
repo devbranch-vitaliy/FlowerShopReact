@@ -161,10 +161,6 @@ var ProductsList = function ProductsList() {
       _useGlobalState6 = _slicedToArray(_useGlobalState5, 1),
       isLoading = _useGlobalState6[0];
 
-  var loadMoreHandler = function loadMoreHandler() {
-    (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.setGlobalState)("page", (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.getGlobalState)("page") + 1);
-  };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "products-list-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -178,7 +174,11 @@ var ProductsList = function ProductsList() {
     className: "pager"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: "load-more",
-    onClick: loadMoreHandler
+    onClick: function onClick() {
+      return (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.dispatch)({
+        type: "showMore"
+      });
+    }
   }, isLoading ? 'Loading...' : 'Load more products')));
 };
 
@@ -289,14 +289,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./src/utilits/globals.js");
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api */ "./src/utilits/api.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -346,7 +338,10 @@ var FetchProducts = function FetchProducts() {
 
       (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", false);
       (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("pager", (page + 1) * perPage < Number(products.meta.count));
-      (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("products", [].concat(_toConsumableArray((0,_globals__WEBPACK_IMPORTED_MODULE_1__.getGlobalState)("products")), _toConsumableArray(products_data)));
+      (0,_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
+        type: "addProducts",
+        products: products_data
+      });
     })["catch"](function (err) {
       (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", false);
 
@@ -372,12 +367,31 @@ var FetchProducts = function FetchProducts() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "dispatch": () => (/* binding */ dispatch),
 /* harmony export */   "getGlobalState": () => (/* binding */ getGlobalState),
 /* harmony export */   "setGlobalState": () => (/* binding */ setGlobalState),
 /* harmony export */   "useGlobalState": () => (/* binding */ useGlobalState)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_hooks_global_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-hooks-global-state */ "./node_modules/react-hooks-global-state/dist/index.modern.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 var initialGlobalState = {
@@ -387,10 +401,28 @@ var initialGlobalState = {
   pager: false
 };
 
-var _createGlobalState = (0,react_hooks_global_state__WEBPACK_IMPORTED_MODULE_1__.createGlobalState)(initialGlobalState),
-    setGlobalState = _createGlobalState.setGlobalState,
-    getGlobalState = _createGlobalState.getGlobalState,
-    useGlobalState = _createGlobalState.useGlobalState;
+var reducer = function reducer(state, action) {
+  switch (action.type) {
+    case 'showMore':
+      return _objectSpread(_objectSpread({}, state), {}, {
+        page: state.page + 1
+      });
+
+    case 'addProducts':
+      return _objectSpread(_objectSpread({}, state), {}, {
+        products: [].concat(_toConsumableArray(state.products), _toConsumableArray(action.products))
+      });
+
+    default:
+      return state;
+  }
+};
+
+var _createStore = (0,react_hooks_global_state__WEBPACK_IMPORTED_MODULE_1__.createStore)(reducer, initialGlobalState),
+    dispatch = _createStore.dispatch,
+    setGlobalState = _createStore.setGlobalState,
+    getGlobalState = _createStore.getGlobalState,
+    useGlobalState = _createStore.useGlobalState;
 
 
 

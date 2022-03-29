@@ -1,15 +1,11 @@
 import React from "react";
 import ProductRow from "./ProductRow";
-import {setGlobalState, getGlobalState, useGlobalState} from "../utilits/globals";
+import {dispatch, useGlobalState} from "../utilits/globals";
 
 const ProductsList = () => {
   const [products] = useGlobalState("products");
   const [pager] = useGlobalState("pager");
   const [isLoading] = useGlobalState("isLoading");
-
-  const loadMoreHandler = () => {
-    setGlobalState("page", getGlobalState("page") + 1);
-  };
 
   return (
     <div className="products-list-wrapper">
@@ -19,7 +15,7 @@ const ProductsList = () => {
         ))}
       </div>
       {pager && <div className="pager">
-        <button className="load-more" onClick={loadMoreHandler}>{isLoading ? 'Loading...' : 'Load more products'}</button>
+        <button className="load-more" onClick={() => dispatch({type: "showMore"})}>{isLoading ? 'Loading...' : 'Load more products'}</button>
       </div>}
     </div>
   )
