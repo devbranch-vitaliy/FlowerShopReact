@@ -162,8 +162,10 @@ var ProductsFilters = function ProductsFilters() {
     className: "filters-label",
     key: "label"
   }, "Filter by:"), filters && Object.keys(filters).map(function (filter_name) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-      key: filter_name,
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "select-wrapper",
+      key: filter_name
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
       defaultValue: filters_values[filter_name],
       onChange: function onChange(e) {
         return (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
@@ -177,7 +179,7 @@ var ProductsFilters = function ProductsFilters() {
         value: filter_data.value,
         key: filter_data.value
       }, filter_data.name);
-    }));
+    })));
   }));
 };
 
@@ -226,7 +228,13 @@ var ProductsList = function ProductsList() {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "products-list-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductsFilters__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "title"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+    className: "text-color-black hidden-xs"
+  }, "Our Products"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+    className: "text-color-black visible-xs"
+  }, "Our Products")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductsFilters__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "products-list clearfix"
   }, products && products.map(function (row, id) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductRow__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -495,7 +503,7 @@ var FetchProducts = function FetchProducts() {
     filters_values: filters_values
   }).current;
   var perRow = 3;
-  var perPage = perRow;
+  var perPage = perRow * 2;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("isLoading", true);
     (0,_api__WEBPACK_IMPORTED_MODULE_2__.request)('products_list', {
