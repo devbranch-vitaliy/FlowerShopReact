@@ -31,73 +31,6 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./src/components/ModalCart.js":
-/*!*************************************!*\
-  !*** ./src/components/ModalCart.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
-/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilits/globals */ "./src/utilits/globals.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-var ModalCart = function ModalCart() {
-  var _useGlobalState = (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.useGlobalState)('modal_cart'),
-      _useGlobalState2 = _slicedToArray(_useGlobalState, 1),
-      modal_cart = _useGlobalState2[0];
-
-  var customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)'
-    }
-  };
-
-  function closeModal() {
-    (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.dispatch)({
-      type: 'hideCart'
-    });
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), {
-    isOpen: modal_cart.show,
-    onRequestClose: closeModal,
-    style: customStyles,
-    ariaHideApp: false
-  }, modal_cart.product && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, modal_cart.product.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    onClick: closeModal
-  }, "close"));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalCart);
-
-/***/ }),
-
 /***/ "./src/components/ProductRow.js":
 /*!**************************************!*\
   !*** ./src/components/ProductRow.js ***!
@@ -289,8 +222,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ProductRow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductRow */ "./src/components/ProductRow.js");
 /* harmony import */ var _ProductsPager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductsPager */ "./src/components/ProductsPager.js");
 /* harmony import */ var _ProductsFilters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProductsFilters */ "./src/components/ProductsFilters.js");
-/* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utilits/globals */ "./src/utilits/globals.js");
-/* harmony import */ var _ModalCart__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ModalCart */ "./src/components/ModalCart.js");
+/* harmony import */ var _modal_ModalCart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal/ModalCart */ "./src/components/modal/ModalCart.js");
+/* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utilits/globals */ "./src/utilits/globals.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -311,13 +244,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var ProductsList = function ProductsList() {
-  var _useGlobalState = (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_4__.useGlobalState)("products"),
+  var _useGlobalState = (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_5__.useGlobalState)("products"),
       _useGlobalState2 = _slicedToArray(_useGlobalState, 1),
       products = _useGlobalState2[0];
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "products-list-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ModalCart__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_modal_ModalCart__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "title"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     className: "text-color-black hidden-xs"
@@ -388,6 +321,138 @@ var ProductsPager = function ProductsPager() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductsPager);
+
+/***/ }),
+
+/***/ "./src/components/modal/ModalCart.js":
+/*!*******************************************!*\
+  !*** ./src/components/modal/ModalCart.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
+/* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilits/globals */ "./src/utilits/globals.js");
+/* harmony import */ var _ModalColors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ModalColors */ "./src/components/modal/ModalColors.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var ModalCart = function ModalCart() {
+  var _useGlobalState = (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.useGlobalState)('modal_cart'),
+      _useGlobalState2 = _slicedToArray(_useGlobalState, 1),
+      modal_cart = _useGlobalState2[0]; // Customise styles
+
+
+  if (modal_cart.show) {
+    document.body.classList.add('modal-open');
+  } else {
+    document.body.classList.remove('modal-open');
+  }
+
+  (react_modal__WEBPACK_IMPORTED_MODULE_1___default().defaultStyles.overlay.backgroundColor) = 'rgba(0,0,0,0.5)';
+  var customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+  };
+
+  function closeModal() {
+    (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.dispatch)({
+      type: 'hideCart'
+    });
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), {
+    isOpen: modal_cart.show,
+    onRequestClose: closeModal,
+    style: customStyles,
+    ariaHideApp: false
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'product-modal-cart'
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'product-modal-header'
+  }, modal_cart.product && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, modal_cart.product.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: 'close-modal',
+    "aria-label": 'Close',
+    onClick: closeModal
+  })), modal_cart.product && modal_cart.choice.color && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ModalColors__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    colors: modal_cart.product.colors,
+    default_color: modal_cart.choice.color
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalCart);
+
+/***/ }),
+
+/***/ "./src/components/modal/ModalColors.js":
+/*!*********************************************!*\
+  !*** ./src/components/modal/ModalColors.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilits/globals */ "./src/utilits/globals.js");
+
+
+
+var ModalColors = function ModalColors(_ref) {
+  var colors = _ref.colors,
+      default_color = _ref.default_color;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'product-colors-wrapper'
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    className: "control-label"
+  }, "Select color:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'product-colors'
+  }, colors && default_color && colors.map(function (color) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      className: "color-button ".concat(color === default_color ? 'active' : ''),
+      value: color,
+      style: {
+        backgroundColor: color
+      },
+      onClick: function onClick() {
+        return (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
+          type: 'chooseColor',
+          color: color
+        });
+      }
+    });
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalColors);
 
 /***/ }),
 
@@ -778,6 +843,10 @@ var initialGlobalState = {
  *   The product of the cart.
  * @param {Object} action.cartChoice
  *   The product of the cart.
+ * @param {string} action.color
+ *   The selected product color on the cart.
+ * @param {string} action.variation
+ *   The selected product variation on the cart.
  *
  * @returns {{state}}
  *   Updated states.
@@ -793,7 +862,9 @@ var reducer = function reducer(states) {
       value: value
     },
     cartProduct: {},
-    cartChoice: {}
+    cartChoice: {},
+    color: color,
+    variation: variation
   };
 
   switch (action.type) {
@@ -838,6 +909,24 @@ var reducer = function reducer(states) {
           show: false,
           product: null,
           choice: null
+        })
+      });
+
+    case 'chooseColor':
+      return _objectSpread(_objectSpread({}, states), {}, {
+        modal_cart: _objectSpread(_objectSpread({}, states.modal_cart), {}, {
+          choice: _objectSpread(_objectSpread({}, states.modal_cart.choice), {}, {
+            color: action.color
+          })
+        })
+      });
+
+    case 'chooseVariation':
+      return _objectSpread(_objectSpread({}, states), {}, {
+        modal_cart: _objectSpread(_objectSpread({}, states.modal_cart), {}, {
+          choice: _objectSpread(_objectSpread({}, states.modal_cart.choice), {}, {
+            variation: action.variation
+          })
         })
       });
 

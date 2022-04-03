@@ -61,12 +61,16 @@ const initialGlobalState = {
  *   The product of the cart.
  * @param {Object} action.cartChoice
  *   The product of the cart.
+ * @param {string} action.color
+ *   The selected product color on the cart.
+ * @param {string} action.variation
+ *   The selected product variation on the cart.
  *
  * @returns {{state}}
  *   Updated states.
  */
 const reducer = (states, action = {
-  type, products: [], includes: [], filter: {name, value}, cartProduct: {}, cartChoice: {}
+  type, products: [], includes: [], filter: {name, value}, cartProduct: {}, cartChoice: {}, color, variation
 }) => {
   switch (action.type) {
     // Main view actions.
@@ -89,6 +93,8 @@ const reducer = (states, action = {
       }
     }
     case 'hideCart': return { ...states, modal_cart: {...states.modal_cart, show: false, product: null, choice: null}}
+    case 'chooseColor': return { ...states, modal_cart: {...states.modal_cart, choice: {...states.modal_cart.choice, color: action.color}}}
+    case 'chooseVariation': return { ...states, modal_cart: {...states.modal_cart, choice: {...states.modal_cart.choice, variation: action.variation}}}
 
     default: return states;
   }

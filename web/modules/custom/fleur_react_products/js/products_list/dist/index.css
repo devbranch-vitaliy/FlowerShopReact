@@ -1,6 +1,60 @@
 /*!*********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*********************************************************************************************************/
+.product-modal-cart .product-modal-header {
+  padding: 40px 40px 24px;
+  border: none;
+}
+.product-modal-cart .product-modal-header h4 {
+  margin: 0;
+}
+.product-modal-cart .product-modal-header .close-modal {
+  color: #d2652a;
+  font-size: 16px;
+  line-height: 16px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  opacity: 0.5;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  float: right;
+  font-weight: bold;
+  text-shadow: 0 1px 0 #fff;
+}
+.product-modal-cart .product-modal-header .close-modal:before {
+  content: "\e00e";
+  font-family: "FleurIcons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+.product-modal-cart .product-modal-header .close-modal:hover {
+  opacity: 1;
+}
+.product-modal-cart .product-colors-wrapper {
+  margin-bottom: 30px;
+}
+.product-modal-cart .product-colors-wrapper .product-colors > button {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ecece9;
+  box-shadow: none;
+  margin-right: 16px;
+}
+.product-modal-cart .product-colors-wrapper .product-colors > button.active {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #d2652a;
+}
+
 .products-list-wrapper .title {
   margin: 40px 0 24px;
   text-align: center;
