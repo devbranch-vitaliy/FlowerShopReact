@@ -2,10 +2,13 @@ import React from 'react';
 import { createStore } from 'react-hooks-global-state';
 
 const initialGlobalState = {
+  // Main view data.
   products: [],
   page: 0,
   isLoading: true,
   pager: true,
+
+  // Filters.
   filters: {
     occasion: [{value: "_none_", name: "Occasion"}],
     type_of_flowers: [{value: "_none_", name: "Type of flowers"}],
@@ -24,15 +27,54 @@ const initialGlobalState = {
     type_of_flowers: "_none_",
     colors: "_none_",
     characteristics: "_none_",
+  },
+
+  // Cart data.
+  modal_cart: {
+    show: false,
+    product: null,
+    choice: null,
   }
 };
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'showMore': return { ...state, page: state.page + 1 };
-    case 'addProducts': return { ...state, products: [...state.products, ...action.products] };
-    case 'filterUpdate': return { ...state, filters_values: {...state.filters_values, [action.name]: action.value}, page: 0};
 
-    default: return state;
+/**
+ * Reducer of the global states.
+ *
+ * @param {Object} states
+ *   Current global states.
+ * @param {Object} action
+ *   Incoming action.
+ * @param {string} action.type
+ *   The type of the action.
+ * @param {array} action.products
+ *   The products list of the main view.
+ * @param {Object} action.filter
+ *   The updated filter of the main view.
+ * @param {string} action.filter.name
+ *   The name of the filter.
+ * @param {string} action.filter.value
+ *   The value of the filter.
+ * @param {Object} action.cartProduct
+ *   The product of the cart.
+ * @param {Object} action.cartChoice
+ *   The product of the cart.
+ *
+ * @returns {{state}}
+ *   Updated states.
+ */
+const reducer = (states, action = {
+  type, products: [], filter: {name, value}, cartProduct: {}, cartChoice: {}
+}) => {
+  switch (action.type) {
+    // Main view actions.
+    case 'showMore': return { ...states, page: states.page + 1 };
+    case 'addProducts': return { ...states, products: [...states.products, ...action.products] };
+    case 'filterUpdate': return { ...states, filters_values: {...states.filters_values, [action.filter.name]: action.filter.value}, page: 0};
+    // Modal actions.
+    case 'showCart': return { ...states, modal_cart: {...states.modal_cart, show: true, product: action.cartProduct}}
+    case 'hideCart': return { ...states, modal_cart: {...states.modal_cart, show: false, product: null, choice: null}}
+
+    default: return states;
   }
 };
 export const { dispatch, setGlobalState, useGlobalState } = createStore(reducer, initialGlobalState);

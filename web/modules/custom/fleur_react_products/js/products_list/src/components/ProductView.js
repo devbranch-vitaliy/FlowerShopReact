@@ -1,4 +1,5 @@
 import React from 'react';
+import {dispatch} from "../utilits/globals";
 
 const ProductView = ({ product }) => (
   <div className="col-xs-12 col-sm-4">
@@ -19,11 +20,19 @@ const ProductView = ({ product }) => (
             <div className="hover-bg-text-wrapper">
               <div className="hover-bg-text label-big">
                 <span>"See product"</span>
-                <i className="fleur-font-icon-16-arrow-right-primary"></i>
+                <i className="fleur-font-icon-16-arrow-right-primary">&nbsp;</i>
               </div>
             </div>
           </div>
         </div>
+      </a>
+      <a href={'#'} className={'cart-button'}>
+        <div className={'fleur-icon-cart-white'} onClick={
+          (event) => {
+            event.preventDefault()
+            dispatch({type: 'showCart', cartProduct: product})
+          }
+        }></div>
       </a>
     </div>
   </div>

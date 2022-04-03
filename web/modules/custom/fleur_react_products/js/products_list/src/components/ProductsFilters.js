@@ -11,7 +11,7 @@ const ProductsFilters = () => {
         <div className={"select-wrapper"} key={filter_name}>
           <select
             defaultValue={filters_values[filter_name]}
-            onChange={(e) => dispatch({type: "filterUpdate", name: filter_name, value: e.target.value})}
+            onChange={(e) => dispatch({type: "filterUpdate", filter: {name: filter_name, value: e.target.value}})}
           >
             {filters[filter_name].map((filter_data) => {
                 return (
