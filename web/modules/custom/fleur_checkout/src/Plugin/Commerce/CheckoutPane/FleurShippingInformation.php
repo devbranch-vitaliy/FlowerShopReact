@@ -3,7 +3,6 @@
 namespace Drupal\fleur_checkout\Plugin\Commerce\CheckoutPane;
 
 use Drupal\commerce_shipping\Plugin\Commerce\CheckoutPane\ShippingInformation;
-use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
@@ -239,7 +238,7 @@ class FleurShippingInformation extends ShippingInformation {
       // Change shipping method label.
       if (isset($pane_form['shipments'][$index]['shipping_method'])) {
         $pane_form['shipments'][$index]['shipping_method']['widget'][0]['#title'] = $this->t('Delivery time');
-        /** @var $options FormattableMarkup[] */
+        /** @var \Drupal\Component\Render\FormattableMarkup[] $options */
         $options = &$pane_form['shipments'][$index]['shipping_method']['widget'][0]['#options'];
         foreach ($options as $key => $option) {
           $options[$key] = $this->t('@option delivery fee', ['@option' => $option->jsonSerialize()]);

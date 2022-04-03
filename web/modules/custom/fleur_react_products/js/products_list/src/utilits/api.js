@@ -5,12 +5,18 @@ import {DrupalJsonApiParams} from 'drupal-jsonapi-params';
  *
  * @param {string} endpoint
  *  The name of the end point you want to use.
- *  @param {Object} [parameters={}]
+ * @param {Object} [parameters={}]
  *  Route string construction parameters.
+ * @param {int} [parameters.page=0]
+ *  Current page.
+ * @param {int} [parameters.perPage=6]
+ *  Items per page.
+ * @param {array} [parameters.filters=[]]
+ *  An array with filters for the query.
  * @return {Promise}
  *  Result of the fetch operation.
  */
-export function request(endpoint, parameters = {}) {
+export function request(endpoint, parameters = { page: 0, perPage: 6, filters: []}) {
   let url = '/jsonapi/';
   const apiParams = new DrupalJsonApiParams();
 

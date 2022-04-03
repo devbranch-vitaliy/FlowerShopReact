@@ -333,8 +333,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  *
  * @param {string} endpoint
  *  The name of the end point you want to use.
- *  @param {Object} [parameters={}]
+ * @param {Object} [parameters={}]
  *  Route string construction parameters.
+ * @param {int} [parameters.page=0]
+ *  Current page.
+ * @param {int} [parameters.perPage=6]
+ *  Items per page.
+ * @param {array} [parameters.filters=[]]
+ *  An array with filters for the query.
  * @return {Promise}
  *  Result of the fetch operation.
  */
@@ -342,7 +348,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function request(endpoint) {
   var _parameters$page;
 
-  var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+    page: 0,
+    perPage: 6,
+    filters: []
+  };
   var url = '/jsonapi/';
   var apiParams = new drupal_jsonapi_params__WEBPACK_IMPORTED_MODULE_0__.DrupalJsonApiParams();
 

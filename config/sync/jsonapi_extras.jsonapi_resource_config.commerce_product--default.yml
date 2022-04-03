@@ -9,8 +9,6 @@ dependencies:
 third_party_settings:
   jsonapi_defaults:
     page_limit: 50
-    default_include:
-      - 'default_variation,field_image'
     default_filter:
       'filter:status': '1'
 id: commerce_product--default
@@ -79,11 +77,11 @@ resourceFields:
       id: ''
     disabled: false
   path:
-    disabled: true
     fieldName: path
     publicName: path
     enhancer:
       id: ''
+    disabled: false
   created:
     disabled: true
     fieldName: created
