@@ -145,11 +145,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilits/globals */ "./src/utilits/globals.js");
+/* harmony import */ var _utilits_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilits/api */ "./src/utilits/api.js");
+
 
 
 
 var ProductView = function ProductView(_ref) {
   var product = _ref.product;
+  var variation = (0,_utilits_api__WEBPACK_IMPORTED_MODULE_2__.getRelationshipEntity)(product.default_variation),
+      image = (0,_utilits_api__WEBPACK_IMPORTED_MODULE_2__.getRelationshipEntity)(product.field_image);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "col-xs-12 col-sm-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -160,18 +164,18 @@ var ProductView = function ProductView(_ref) {
     href: product.path
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "img-responsive",
-    src: product.field_image.relationship.image_style_uri.find(function (e) {
+    src: image.image_style_uri.find(function (e) {
       return e.product_view_768x886;
     }).product_view_768x886,
     "typeof": "foaf:Image",
-    alt: product.field_image.data.meta.alt
+    alt: product.field_image.meta.alt
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "product-info black-bg"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "product-name"
   }, product.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
     className: "text-color-white"
-  }, product.default_variation.relationship.price.formatted)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, variation.price.formatted)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "hover-bg"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "hover-bg-border"
@@ -396,10 +400,11 @@ var ProductsPager = function ProductsPager() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "attachRelationship": () => (/* binding */ attachRelationship),
+/* harmony export */   "getRelationshipEntity": () => (/* binding */ getRelationshipEntity),
 /* harmony export */   "request": () => (/* binding */ request)
 /* harmony export */ });
 /* harmony import */ var drupal_jsonapi_params__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! drupal-jsonapi-params */ "./node_modules/drupal-jsonapi-params/lib/index.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./src/utilits/globals.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -411,6 +416,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 /**
@@ -443,7 +449,7 @@ function request(endpoint) {
 
   switch (endpoint) {
     case 'products_list':
-      var fields = ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation'];
+      var fields = ['drupal_internal__product_id', 'title', 'path', 'field_colors', 'field_image', 'default_variation', 'variations'];
       apiParams.addInclude(['default_variation', 'field_image']).addCustomParam({
         page: {
           offset: ((_parameters$page = parameters.page) !== null && _parameters$page !== void 0 ? _parameters$page : 0) * parameters.perPage,
@@ -489,19 +495,23 @@ function request(endpoint) {
  *
  * @param {Object} relationship
  *  The data of the relationship field object loaded via request().
- * @param {array} includes[{}]
- *  The list of the includes that loaded via request().
  * @return {Object|false}
  *  Result of the field data if we found it or false in the other case.
  */
 
-function attachRelationship(relationship, includes) {
-  if (!relationship.data) {
+function getRelationshipEntity(relationship) {
+  if (!relationship) {
+    return false;
+  }
+
+  var includes = (0,_globals__WEBPACK_IMPORTED_MODULE_1__.getGlobalState)('includes');
+
+  if (!includes.length) {
     return false;
   }
 
   var relationship_data = includes.find(function (element) {
-    return element.type === relationship.data.type && element.id === relationship.data.id;
+    return element.type === relationship.type && element.id === relationship.id;
   });
 
   if (typeof relationship_data === 'undefined') {
@@ -512,8 +522,7 @@ function attachRelationship(relationship, includes) {
     return false;
   }
 
-  relationship.relationship = relationship_data.attributes;
-  return relationship;
+  return relationship_data.attributes;
 }
 
 /***/ }),
@@ -613,8 +622,10 @@ var FetchProducts = function FetchProducts() {
           id: product.attributes.drupal_internal__product_id,
           title: product.attributes.title,
           path: product.attributes.path.alias,
-          default_variation: (0,_api__WEBPACK_IMPORTED_MODULE_2__.attachRelationship)(product.relationships.default_variation, products.included),
-          field_image: (0,_api__WEBPACK_IMPORTED_MODULE_2__.attachRelationship)(product.relationships.field_image, products.included)
+          colors: product.attributes.field_colors,
+          variations: product.relationships.variations.data,
+          default_variation: product.relationships.default_variation.data,
+          field_image: product.relationships.field_image.data
         });
       }); // Split data to rows.
 
@@ -629,10 +640,15 @@ var FetchProducts = function FetchProducts() {
 
       if (prevValue.filters_values === filters_values) {
         (0,_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
+          type: "addIncludes",
+          includes: products.included
+        });
+        (0,_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
           type: "addProducts",
           products: products_data
         });
       } else {
+        (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("includes", products.included);
         (0,_globals__WEBPACK_IMPORTED_MODULE_1__.setGlobalState)("products", products_data);
       } // Updated prev value.
 
@@ -659,6 +675,7 @@ var FetchProducts = function FetchProducts() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "dispatch": () => (/* binding */ dispatch),
+/* harmony export */   "getGlobalState": () => (/* binding */ getGlobalState),
 /* harmony export */   "setGlobalState": () => (/* binding */ setGlobalState),
 /* harmony export */   "useGlobalState": () => (/* binding */ useGlobalState)
 /* harmony export */ });
@@ -687,6 +704,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialGlobalState = {
   // Main view data.
   products: [],
+  includes: [],
   page: 0,
   isLoading: true,
   pager: true,
@@ -748,6 +766,8 @@ var initialGlobalState = {
  *   The type of the action.
  * @param {array} action.products
  *   The products list of the main view.
+ * @param {array} action.includes
+ *   The request includes list, detailed entities of some product fields.
  * @param {Object} action.filter
  *   The updated filter of the main view.
  * @param {string} action.filter.name
@@ -767,6 +787,7 @@ var reducer = function reducer(states) {
   var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
     type: type,
     products: [],
+    includes: [],
     filter: {
       name: name,
       value: value
@@ -787,6 +808,11 @@ var reducer = function reducer(states) {
         products: [].concat(_toConsumableArray(states.products), _toConsumableArray(action.products))
       });
 
+    case 'addIncludes':
+      return _objectSpread(_objectSpread({}, states), {}, {
+        includes: [].concat(_toConsumableArray(states.includes), _toConsumableArray(action.includes))
+      });
+
     case 'filterUpdate':
       return _objectSpread(_objectSpread({}, states), {}, {
         filters_values: _objectSpread(_objectSpread({}, states.filters_values), {}, _defineProperty({}, action.filter.name, action.filter.value)),
@@ -798,7 +824,11 @@ var reducer = function reducer(states) {
       return _objectSpread(_objectSpread({}, states), {}, {
         modal_cart: _objectSpread(_objectSpread({}, states.modal_cart), {}, {
           show: true,
-          product: action.cartProduct
+          product: action.cartProduct,
+          choice: {
+            color: action.cartProduct.colors[0],
+            variation: action.cartProduct.default_variation.id
+          }
         })
       });
 
@@ -819,6 +849,7 @@ var reducer = function reducer(states) {
 var _createStore = (0,react_hooks_global_state__WEBPACK_IMPORTED_MODULE_1__.createStore)(reducer, initialGlobalState),
     dispatch = _createStore.dispatch,
     setGlobalState = _createStore.setGlobalState,
+    getGlobalState = _createStore.getGlobalState,
     useGlobalState = _createStore.useGlobalState;
 
 

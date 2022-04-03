@@ -1,4 +1,5 @@
 import {DrupalJsonApiParams} from 'drupal-jsonapi-params';
+import {getGlobalState} from "./globals";
 
 /**
  * The helper function for making requests to a Drupal backend.
@@ -22,7 +23,7 @@ export function request(endpoint, parameters = { page: 0, perPage: 6, filters: [
 
   switch (endpoint) {
     case 'products_list':
-      const fields = ['drupal_internal__product_id', 'title', 'path', 'field_image', 'default_variation'];
+      const fields = ['drupal_internal__product_id', 'title', 'path', 'field_colors', 'field_image', 'default_variation', 'variations'];
       apiParams
         .addInclude(['default_variation', 'field_image'])
         .addCustomParam({ page: {
@@ -65,17 +66,20 @@ export function request(endpoint, parameters = { page: 0, perPage: 6, filters: [
  *
  * @param {Object} relationship
  *  The data of the relationship field object loaded via request().
- * @param {array} includes[{}]
- *  The list of the includes that loaded via request().
  * @return {Object|false}
  *  Result of the field data if we found it or false in the other case.
  */
-export function attachRelationship(relationship, includes) {
-  if (!relationship.data) {
+export function getRelationshipEntity(relationship) {
+  if (!relationship) {
     return false;
   }
+  const includes = getGlobalState('includes');
+  if (!includes.length) {
+    return false;
+  }
+
   const relationship_data = includes.find((element) => {
-    return element.type === relationship.data.type && element.id === relationship.data.id;
+    return element.type === relationship.type && element.id === relationship.id;
   })
   if (typeof relationship_data === 'undefined') {
     return false
@@ -83,6 +87,5 @@ export function attachRelationship(relationship, includes) {
   if (!relationship_data.attributes) {
     return false;
   }
-  relationship.relationship = relationship_data.attributes;
-  return relationship;
+  return relationship_data.attributes;
 }

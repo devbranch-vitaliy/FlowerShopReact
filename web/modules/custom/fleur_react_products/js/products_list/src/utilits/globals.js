@@ -4,6 +4,7 @@ import { createStore } from 'react-hooks-global-state';
 const initialGlobalState = {
   // Main view data.
   products: [],
+  includes: [],
   page: 0,
   isLoading: true,
   pager: true,
@@ -48,6 +49,8 @@ const initialGlobalState = {
  *   The type of the action.
  * @param {array} action.products
  *   The products list of the main view.
+ * @param {array} action.includes
+ *   The request includes list, detailed entities of some product fields.
  * @param {Object} action.filter
  *   The updated filter of the main view.
  * @param {string} action.filter.name
@@ -63,18 +66,31 @@ const initialGlobalState = {
  *   Updated states.
  */
 const reducer = (states, action = {
-  type, products: [], filter: {name, value}, cartProduct: {}, cartChoice: {}
+  type, products: [], includes: [], filter: {name, value}, cartProduct: {}, cartChoice: {}
 }) => {
   switch (action.type) {
     // Main view actions.
     case 'showMore': return { ...states, page: states.page + 1 };
     case 'addProducts': return { ...states, products: [...states.products, ...action.products] };
-    case 'filterUpdate': return { ...states, filters_values: {...states.filters_values, [action.filter.name]: action.filter.value}, page: 0};
+    case 'addIncludes': return { ...states, includes: [...states.includes, ...action.includes] };
+    case 'filterUpdate': return {
+      ...states,
+      filters_values: {...states.filters_values, [action.filter.name]: action.filter.value},
+      page: 0
+    };
     // Modal actions.
-    case 'showCart': return { ...states, modal_cart: {...states.modal_cart, show: true, product: action.cartProduct}}
+    case 'showCart': return {
+      ...states,
+      modal_cart: {
+        ...states.modal_cart,
+        show: true,
+        product: action.cartProduct,
+        choice: {color: action.cartProduct.colors[0], variation: action.cartProduct.default_variation.id}
+      }
+    }
     case 'hideCart': return { ...states, modal_cart: {...states.modal_cart, show: false, product: null, choice: null}}
 
     default: return states;
   }
 };
-export const { dispatch, setGlobalState, useGlobalState } = createStore(reducer, initialGlobalState);
+export const { dispatch, setGlobalState, getGlobalState, useGlobalState } = createStore(reducer, initialGlobalState);

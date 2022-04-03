@@ -47,8 +47,10 @@ const FetchProducts = () => {
             id: product.attributes.drupal_internal__product_id,
             title: product.attributes.title,
             path: product.attributes.path.alias,
-            default_variation: attachRelationship(product.relationships.default_variation, products.included),
-            field_image: attachRelationship(product.relationships.field_image, products.included),
+            colors: product.attributes.field_colors,
+            variations: product.relationships.variations.data,
+            default_variation: product.relationships.default_variation.data,
+            field_image: product.relationships.field_image.data,
           });
         })
 
@@ -61,9 +63,11 @@ const FetchProducts = () => {
         setGlobalState("isLoading", false);
         setGlobalState("pager", ((page + 1) * perPage < Number(products.meta.count)));
         if (prevValue.filters_values === filters_values) {
+          dispatch({type: "addIncludes", includes: products.included});
           dispatch({type: "addProducts", products: products_data});
         }
         else {
+          setGlobalState("includes", products.included);
           setGlobalState("products", products_data);
         }
 
