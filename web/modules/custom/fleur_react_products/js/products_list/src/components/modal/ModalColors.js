@@ -9,6 +9,7 @@ const ModalColors = ({ colors, default_color }) => (
         <button
           className={`color-button ${color === default_color ? 'active' : ''}`}
           value={color}
+          key={color}
           style={{
             backgroundColor: color
           }}

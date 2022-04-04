@@ -340,6 +340,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilits/globals */ "./src/utilits/globals.js");
 /* harmony import */ var _ModalColors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ModalColors */ "./src/components/modal/ModalColors.js");
+/* harmony import */ var _ModalVariations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ModalVariations */ "./src/components/modal/ModalVariations.js");
+/* harmony import */ var _utilits_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utilits/api */ "./src/utilits/api.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -357,6 +359,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var ModalCart = function ModalCart() {
   var _useGlobalState = (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.useGlobalState)('modal_cart'),
       _useGlobalState2 = _slicedToArray(_useGlobalState, 1),
@@ -367,16 +371,22 @@ var ModalCart = function ModalCart() {
     document.body.classList.add('modal-open');
   } else {
     document.body.classList.remove('modal-open');
-  }
+  } // Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,0.5)';
+  // Modal.defaultStyles.overlay.zIndex = 999;
 
-  (react_modal__WEBPACK_IMPORTED_MODULE_1___default().defaultStyles.overlay.backgroundColor) = 'rgba(0,0,0,0.5)';
+
   var customStyles = {
+    overlay: {
+      backgroundColor: 'rgba(0,0,0,0.5)',
+      zIndex: 999
+    },
     content: {
       top: '50%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
+      padding: 0,
       transform: 'translate(-50%, -50%)'
     }
   };
@@ -392,7 +402,7 @@ var ModalCart = function ModalCart() {
     onRequestClose: closeModal,
     style: customStyles,
     ariaHideApp: false
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, modal_cart.product && modal_cart.choice && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: 'product-modal-cart'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: 'product-modal-header'
@@ -400,10 +410,19 @@ var ModalCart = function ModalCart() {
     className: 'close-modal',
     "aria-label": 'Close',
     onClick: closeModal
-  })), modal_cart.product && modal_cart.choice.color && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ModalColors__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'product-modal-body'
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ModalColors__WEBPACK_IMPORTED_MODULE_3__["default"], {
     colors: modal_cart.product.colors,
     default_color: modal_cart.choice.color
-  })));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ModalVariations__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    variations: modal_cart.product.variations,
+    default_variation: modal_cart.choice.variation
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'modal-footer'
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'product-current-price'
+  }, (0,_utilits_api__WEBPACK_IMPORTED_MODULE_5__.getRelationshipEntity)(modal_cart.choice.variation).price.formatted))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalCart);
@@ -439,6 +458,7 @@ var ModalColors = function ModalColors(_ref) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
       className: "color-button ".concat(color === default_color ? 'active' : ''),
       value: color,
+      key: color,
       style: {
         backgroundColor: color
       },
@@ -453,6 +473,63 @@ var ModalColors = function ModalColors(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalColors);
+
+/***/ }),
+
+/***/ "./src/components/modal/ModalVariations.js":
+/*!*************************************************!*\
+  !*** ./src/components/modal/ModalVariations.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilits/globals */ "./src/utilits/globals.js");
+/* harmony import */ var _utilits_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilits/api */ "./src/utilits/api.js");
+
+
+
+
+var ModalVariations = function ModalVariations(_ref) {
+  var variations = _ref.variations,
+      default_variation = _ref.default_variation;
+  var variationNames = [];
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'product-variations-wrapper'
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    className: "control-label"
+  }, "Select color:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: 'product-variations'
+  }, variations && default_variation && variations.map(function (variation) {
+    var variation_data = (0,_utilits_api__WEBPACK_IMPORTED_MODULE_2__.getRelationshipEntity)(variation);
+    var addVariation = false; // Check if such size already exists.
+
+    if (variationNames.find(function (el) {
+      return el === variation_data.title;
+    }) === undefined) {
+      variationNames.push(variation_data.title);
+      addVariation = true;
+    }
+
+    return variation_data && addVariation && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      className: "variation-button ".concat(variation.id === default_variation.id ? 'active' : ''),
+      value: variation.id,
+      key: variation.id,
+      onClick: function onClick() {
+        return (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_1__.dispatch)({
+          type: 'chooseVariation',
+          variation: variation
+        });
+      }
+    }, "".concat(variation_data.title, " (").concat(variation_data.price.formatted, ")"));
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalVariations);
 
 /***/ }),
 
@@ -515,7 +592,7 @@ function request(endpoint) {
   switch (endpoint) {
     case 'products_list':
       var fields = ['drupal_internal__product_id', 'title', 'path', 'field_colors', 'field_image', 'default_variation', 'variations'];
-      apiParams.addInclude(['default_variation', 'field_image']).addCustomParam({
+      apiParams.addInclude(['default_variation', 'field_image', 'variations']).addCustomParam({
         page: {
           offset: ((_parameters$page = parameters.page) !== null && _parameters$page !== void 0 ? _parameters$page : 0) * parameters.perPage,
           limit: parameters.perPage
@@ -845,7 +922,7 @@ var initialGlobalState = {
  *   The product of the cart.
  * @param {string} action.color
  *   The selected product color on the cart.
- * @param {string} action.variation
+ * @param {Object} action.variation
  *   The selected product variation on the cart.
  *
  * @returns {{state}}
@@ -898,7 +975,7 @@ var reducer = function reducer(states) {
           product: action.cartProduct,
           choice: {
             color: action.cartProduct.colors[0],
-            variation: action.cartProduct.default_variation.id
+            variation: action.cartProduct.default_variation
           }
         })
       });

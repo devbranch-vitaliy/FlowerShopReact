@@ -63,7 +63,7 @@ const initialGlobalState = {
  *   The product of the cart.
  * @param {string} action.color
  *   The selected product color on the cart.
- * @param {string} action.variation
+ * @param {Object} action.variation
  *   The selected product variation on the cart.
  *
  * @returns {{state}}
@@ -89,7 +89,7 @@ const reducer = (states, action = {
         ...states.modal_cart,
         show: true,
         product: action.cartProduct,
-        choice: {color: action.cartProduct.colors[0], variation: action.cartProduct.default_variation.id}
+        choice: {color: action.cartProduct.colors[0], variation: action.cartProduct.default_variation}
       }
     }
     case 'hideCart': return { ...states, modal_cart: {...states.modal_cart, show: false, product: null, choice: null}}

@@ -37,6 +37,25 @@
       }
     }
   }
+  .product-modal-body {
+    padding: 0 40px 24px;
+  }
+  .modal-footer {
+    padding: 0 40px 20px;
+    border-top: none;
+    .product-current-price {
+      font-family: Taviraj;
+      font-size: 32px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.19 !important;
+      letter-spacing: normal;
+      float: left;
+      padding: 15px 0;
+    }
+  }
+
   .product-colors-wrapper {
     margin-bottom: 30px;
 
@@ -54,5 +73,33 @@
         box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #d2652a;
       }
     }
+  }
+
+  .product-variations-wrapper {
+    .product-variations {
+      display: flex;
+      width: 100%;
+
+      & > button {
+        background-color: transparent;
+        width: 33.4%;
+        height: 50px;
+        text-align: center;
+        border: 2px solid #191919;
+        margin: auto;
+        margin-left: -2px;
+
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1;
+        color: #191919;
+      }
+
+      & > button.active {
+        border: 2px solid #d2652a;
+        color: #d2652a;
+      }
+    }
+
   }
 }

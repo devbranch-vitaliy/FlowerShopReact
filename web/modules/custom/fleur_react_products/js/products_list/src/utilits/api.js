@@ -25,7 +25,7 @@ export function request(endpoint, parameters = { page: 0, perPage: 6, filters: [
     case 'products_list':
       const fields = ['drupal_internal__product_id', 'title', 'path', 'field_colors', 'field_image', 'default_variation', 'variations'];
       apiParams
-        .addInclude(['default_variation', 'field_image'])
+        .addInclude(['default_variation', 'field_image', 'variations'])
         .addCustomParam({ page: {
           offset: (parameters.page ?? 0) * parameters.perPage,
           limit: parameters.perPage
