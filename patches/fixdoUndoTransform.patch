@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/jsonapi/FieldEnhancer/JSONFieldEnhancer.php b/src/Plugin/jsonapi/FieldEnhancer/JSONFieldEnhancer.php
+index 3851b9a..298d3cb 100644
+--- a/src/Plugin/jsonapi/FieldEnhancer/JSONFieldEnhancer.php
++++ b/src/Plugin/jsonapi/FieldEnhancer/JSONFieldEnhancer.php
+@@ -61,7 +61,7 @@ class JSONFieldEnhancer extends ResourceFieldEnhancerBase implements ContainerFa
+    * {@inheritdoc}
+    */
+   public function doUndoTransform($data, Context $context) {
+-    return $this->encoder->decode($data);
++    return is_array($data) ? $data : $this->encoder->decode($data);
+   }
+ 
+   /**

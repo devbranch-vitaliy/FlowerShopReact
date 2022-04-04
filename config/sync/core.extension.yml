@@ -60,6 +60,7 @@ module:
   fleur_order_operations: 0
   fleur_order_state: 0
   fleur_products_filters: 0
+  fleur_react_products: 0
   fleur_send_sms: 0
   google_analytics: 0
   help: 0
@@ -70,6 +71,7 @@ module:
   jsonapi: 0
   jsonapi_defaults: 0
   jsonapi_extras: 0
+  jsonapi_image_styles: 0
   link: 0
   mailchimp: 0
   mailchimp_lists: 0

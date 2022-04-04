@@ -12,6 +12,7 @@ permissions:
   - 'access checkout'
   - 'access comments'
   - 'access content'
+  - 'access react products page'
   - 'access site-wide contact form'
   - 'search content'
   - 'use text format restricted_html'

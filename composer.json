@@ -36,6 +36,7 @@
         "drupal/google_analytics": "^3.0",
         "drupal/international_phone": "^1.0",
         "drupal/jsonapi_extras": "^3.20",
+        "drupal/jsonapi_image_styles": "^2.0",
         "drupal/linked_field": "^1.1",
         "drupal/mailchimp": "^1.8",
         "drupal/mailgun": "^1.0@beta",
@@ -121,6 +122,10 @@
             "drupal/openapi_jsonapi": {
                 "Issue #3185778 TypeError: Cannot read property 'anyOf' of undefined": "https://www.drupal.org/files/issues/2020-12-21/add_required_keyword_8.x_2.x-3185778-5.patch",
                 "Issue #3079209 Only show enabled endpoints for JSON:API": "https://www.drupal.org/files/issues/2020-12-21/only_add_read_route-methods_when_read_only_is_enabled_in_jsonapi_8.x_2.x-3079209-11.patch"
+            },
+            "drupal/jsonapi_extras": {
+                "Invalid output JSON schema in UrlLinkEnhancer": "https://www.drupal.org/files/issues/2021-09-10/fix-output-schema-3232279-3.patch",
+                "Fix the oUndoTransform() function": "patches/fixdoUndoTransform.patch"
             }
         },
         "installer-paths": {
@@ -134,6 +139,9 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/development.services.yml": false
             }
         }
     }
