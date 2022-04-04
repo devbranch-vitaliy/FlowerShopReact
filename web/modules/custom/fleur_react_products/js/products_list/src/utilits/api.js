@@ -20,6 +20,8 @@ import {getGlobalState} from "./globals";
 export function request(endpoint, parameters = { page: 0, perPage: 6, filters: []}) {
   let url = '/jsonapi/';
   const apiParams = new DrupalJsonApiParams();
+  const options = {}
+  options.headers = {};
 
   switch (endpoint) {
     case 'products_list':
@@ -48,11 +50,27 @@ export function request(endpoint, parameters = { page: 0, perPage: 6, filters: [
       url += 'taxonomy_term/' + parameters.name + '?' + apiParams.getQueryString();
       break;
 
+    case 'add_to_cart':
+      const modal_cart = getGlobalState('modal_cart');
+      const data = [{
+        purchased_entity_type: "commerce_product_variation",
+        purchased_entity_id: getRelationshipEntity(modal_cart.choice.variation).drupal_internal__variation_id,
+        quantity: 1,
+        extended_fields: {
+          field_color: {color: modal_cart.choice.color, opacity: 1}
+        },
+      }]
+      url = '/cart/add';
+      options.method = 'POST';
+      options.headers['Content-Type'] = 'application/json';
+      options.body = JSON.stringify(data);
+      break;
+
     default:
       break;
   }
 
-  return fetch(url)
+  return fetch(url, options)
     .then(res => {
       if (![200, 201, 204].includes(res.status)) {
         throw Error('could not fetch the data for that resource');

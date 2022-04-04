@@ -18,6 +18,7 @@ module:
   commerce: 0
   commerce_bulk: 0
   commerce_cart: 0
+  commerce_cart_api: 0
   commerce_checkout: 0
   commerce_generate: 0
   commerce_number_pattern: 0

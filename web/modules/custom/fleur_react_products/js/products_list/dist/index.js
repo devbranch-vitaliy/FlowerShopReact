@@ -490,12 +490,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _utilits_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilits/api */ "./src/utilits/api.js");
+/* harmony import */ var _utilits_globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilits/globals */ "./src/utilits/globals.js");
 
 
-var ModalSubmit = function ModalSubmit(props) {
+
+
+var ModalSubmit = function ModalSubmit() {
+  var addToCart = function addToCart() {
+    (0,_utilits_api__WEBPACK_IMPORTED_MODULE_1__.request)('add_to_cart').then(function (order) {
+      if (!order.length) {
+        console.log('The request is successful but the order was not updated. Please contact admin.');
+        return 0;
+      }
+
+      (0,_utilits_globals__WEBPACK_IMPORTED_MODULE_2__.dispatch)({
+        type: 'hideCart'
+      }); // Go to the cart page.
+
+      window.location.replace('/cart');
+    })["catch"](function (err) {
+      console.log(err.message);
+    });
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: 'button--add-to-cart btn-success btn btn-default',
-    type: 'submit'
+    type: 'submit',
+    onClick: addToCart
   }, "Add to cart");
 };
 
@@ -615,6 +637,8 @@ function request(endpoint) {
   };
   var url = '/jsonapi/';
   var apiParams = new drupal_jsonapi_params__WEBPACK_IMPORTED_MODULE_0__.DrupalJsonApiParams();
+  var options = {};
+  options.headers = {};
 
   switch (endpoint) {
     case 'products_list':
@@ -647,11 +671,30 @@ function request(endpoint) {
       url += 'taxonomy_term/' + parameters.name + '?' + apiParams.getQueryString();
       break;
 
+    case 'add_to_cart':
+      var modal_cart = (0,_globals__WEBPACK_IMPORTED_MODULE_1__.getGlobalState)('modal_cart');
+      var data = [{
+        purchased_entity_type: "commerce_product_variation",
+        purchased_entity_id: getRelationshipEntity(modal_cart.choice.variation).drupal_internal__variation_id,
+        quantity: 1,
+        extended_fields: {
+          field_color: {
+            color: modal_cart.choice.color,
+            opacity: 1
+          }
+        }
+      }];
+      url = '/cart/add';
+      options.method = 'POST';
+      options.headers['Content-Type'] = 'application/json';
+      options.body = JSON.stringify(data);
+      break;
+
     default:
       break;
   }
 
-  return fetch(url).then(function (res) {
+  return fetch(url, options).then(function (res) {
     if (![200, 201, 204].includes(res.status)) {
       throw Error('could not fetch the data for that resource');
     }

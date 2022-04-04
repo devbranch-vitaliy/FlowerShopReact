@@ -53,6 +53,7 @@
       letter-spacing: normal;
       float: left;
       padding: 15px 0;
+      margin-left: 36px;
     }
   }
 
@@ -83,6 +84,7 @@
       & > button {
         background-color: transparent;
         width: 33.4%;
+        min-width: 200px;
         height: 50px;
         text-align: center;
         border: 2px solid #191919;

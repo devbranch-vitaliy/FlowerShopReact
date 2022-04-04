@@ -56,6 +56,7 @@
   letter-spacing: normal;
   float: left;
   padding: 15px 0;
+  margin-left: 36px;
 }
 .product-modal-cart .product-colors-wrapper {
   margin-bottom: 30px;
@@ -79,6 +80,7 @@
 .product-modal-cart .product-variations-wrapper .product-variations > button {
   background-color: transparent;
   width: 33.4%;
+  min-width: 200px;
   height: 50px;
   text-align: center;
   border: 2px solid #191919;

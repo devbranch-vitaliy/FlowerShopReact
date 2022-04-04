@@ -27,6 +27,7 @@
         "drupal/color_field": "^2.0",
         "drupal/commerce": "^2.10",
         "drupal/commerce_bulk": "^1.0@alpha",
+        "drupal/commerce_cart_api": "^1.5",
         "drupal/commerce_shipping": "^2.0@beta",
         "drupal/console": "^1.0.2",
         "drupal/core-composer-scaffold": "^8.8",
@@ -126,6 +127,9 @@
             "drupal/jsonapi_extras": {
                 "Invalid output JSON schema in UrlLinkEnhancer": "https://www.drupal.org/files/issues/2021-09-10/fix-output-schema-3232279-3.patch",
                 "Fix the oUndoTransform() function": "patches/fixdoUndoTransform.patch"
+            },
+            "drupal/commerce_cart_api": {
+                "Allow extended fields data for order items when creating cart.": "https://www.drupal.org/files/issues/2020-02-24/commerce_cart_api-extended_order_item_fields-3086667-2.patch"
             }
         },
         "installer-paths": {
