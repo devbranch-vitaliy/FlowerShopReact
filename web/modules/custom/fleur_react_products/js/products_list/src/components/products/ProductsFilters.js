@@ -1,5 +1,5 @@
 import React from 'react';
-import {dispatch, useGlobalState} from "../utilits/globals";
+import {dispatch, useGlobalState} from "../../utilits/globals";
 
 const ProductsFilters = () => {
   const [filters] = useGlobalState("filters");

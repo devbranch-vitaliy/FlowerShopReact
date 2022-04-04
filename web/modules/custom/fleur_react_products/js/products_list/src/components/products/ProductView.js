@@ -1,6 +1,6 @@
 import React from 'react';
-import {dispatch} from "../utilits/globals";
-import {getRelationshipEntity} from "../utilits/api";
+import {dispatch} from "../../utilits/globals";
+import {getRelationshipEntity} from "../../utilits/api";
 
 const ProductView = ({ product }) => {
   const

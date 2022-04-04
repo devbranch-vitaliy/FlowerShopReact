@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductsList from "./ProductsList";
+import ProductsList from "./products/ProductsList";
 import {FetchProducts, FetchFilters} from "../utilits/fetchData";
 
 const App = () => {

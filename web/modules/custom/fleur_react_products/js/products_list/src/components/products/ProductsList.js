@@ -2,8 +2,8 @@ import React from "react";
 import ProductRow from "./ProductRow";
 import ProductsPager from "./ProductsPager";
 import ProductsFilters from "./ProductsFilters";
-import ModalCart from "./modal/ModalCart";
-import {useGlobalState} from "../utilits/globals";
+import ModalCart from "../modal/ModalCart";
+import {useGlobalState} from "../../utilits/globals";
 
 const ProductsList = () => {
   const [products] = useGlobalState("products");
