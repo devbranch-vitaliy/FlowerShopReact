@@ -12,6 +12,7 @@ permissions:
   - 'access checkout'
   - 'access comments'
   - 'access content'
+  - 'access react products page'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'manage own commerce_payment_method'

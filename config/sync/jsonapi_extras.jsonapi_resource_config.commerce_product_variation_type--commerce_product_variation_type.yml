@@ -1,0 +1,87 @@
+uuid: 61764cae-8168-4279-a7f8-2fdbe816a125
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - jsonapi_defaults
+third_party_settings:
+  jsonapi_defaults:
+    page_limit: 50
+id: commerce_product_variation_type--commerce_product_variation_type
+disabled: false
+path: commerce_product_variation_type/commerce_product_variation_type
+resourceType: commerce_product_variation_type--commerce_product_variation_type
+resourceFields:
+  uuid:
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+    disabled: false
+  langcode:
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+    disabled: false
+  status:
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+    disabled: false
+  dependencies:
+    fieldName: dependencies
+    publicName: dependencies
+    enhancer:
+      id: ''
+    disabled: false
+  third_party_settings:
+    fieldName: third_party_settings
+    publicName: third_party_settings
+    enhancer:
+      id: ''
+    disabled: false
+  _core:
+    fieldName: _core
+    publicName: _core
+    enhancer:
+      id: ''
+    disabled: false
+  id:
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+    disabled: false
+  label:
+    fieldName: label
+    publicName: label
+    enhancer:
+      id: ''
+    disabled: false
+  orderItemType:
+    fieldName: orderItemType
+    publicName: orderItemType
+    enhancer:
+      id: ''
+    disabled: false
+  generateTitle:
+    fieldName: generateTitle
+    publicName: generateTitle
+    enhancer:
+      id: ''
+    disabled: false
+  traits:
+    fieldName: traits
+    publicName: traits
+    enhancer:
+      id: ''
+    disabled: false
+  locked:
+    fieldName: locked
+    publicName: locked
+    enhancer:
+      id: ''
+    disabled: false

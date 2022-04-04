@@ -1,0 +1,8 @@
+name: 'Fleur react products'
+type: module
+description: Products page view - React widget
+core_version_requirement: ^8 || ^9
+version: '1.x'
+package: Custom
+dependencies:
+  - drupal:jsonapi

@@ -11,8 +11,6 @@ dependencies:
     - field.field.commerce_product.default.field_fragnanced
     - field.field.commerce_product.default.field_occasion
     - field.field.commerce_product.default.field_type_of_flowers
-    - field.field.commerce_product.default.stores
-    - field.field.commerce_product.default.variations
   module:
     - commerce_product
 _core:

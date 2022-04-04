@@ -1,0 +1,7 @@
+fleur_products_filters.react_products:
+  path: '/products-react'
+  defaults:
+    _controller: '\Drupal\fleur_react_products\Controller\ProductsList::productsReact'
+    _title: 'Products'
+  requirements:
+    _permission: 'access react products page'

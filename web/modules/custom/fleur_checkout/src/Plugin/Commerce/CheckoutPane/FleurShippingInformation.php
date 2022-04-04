@@ -238,9 +238,10 @@ class FleurShippingInformation extends ShippingInformation {
       // Change shipping method label.
       if (isset($pane_form['shipments'][$index]['shipping_method'])) {
         $pane_form['shipments'][$index]['shipping_method']['widget'][0]['#title'] = $this->t('Delivery time');
+        /** @var \Drupal\Component\Render\FormattableMarkup[] $options */
         $options = &$pane_form['shipments'][$index]['shipping_method']['widget'][0]['#options'];
         foreach ($options as $key => $option) {
-          $options[$key] = $this->t($option->getUntranslatedString() . ' delivery fee',$option->getArguments());
+          $options[$key] = $this->t('@option delivery fee', ['@option' => $option->jsonSerialize()]);
         }
       }
     }

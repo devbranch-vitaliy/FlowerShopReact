@@ -5,7 +5,10 @@ dependencies:
   config:
     - node.type.customer_review
 id: node_type_customer_review
+entity_type_id: node_type
+entity_id: customer_review
 action: page_redirect
 allow_override: 0
 redirect: '<front>'
 redirect_code: 301
+redirect_fallback_action: access_denied

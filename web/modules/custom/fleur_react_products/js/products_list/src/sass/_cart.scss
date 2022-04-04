@@ -1,0 +1,107 @@
+.product-modal-cart {
+  .product-modal-header {
+    padding: 40px 40px 24px;
+    border: none;
+    h4 {
+      margin: 0;
+    }
+    .close-modal {
+      color: #d2652a;
+      font-size: 16px;
+      line-height: 16px;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      opacity: 0.5;
+      padding: 0;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      -webkit-appearance: none;
+      float: right;
+      font-weight: bold;
+      text-shadow: 0 1px 0 #fff;
+      &:before {
+        content: "";
+        font-family: "FleurIcons";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-decoration: none;
+        text-transform: none;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .product-modal-body {
+    padding: 0 40px 24px;
+  }
+  .modal-footer {
+    padding: 0 40px 20px;
+    border-top: none;
+    .product-current-price {
+      font-family: Taviraj;
+      font-size: 32px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.19 !important;
+      letter-spacing: normal;
+      float: left;
+      padding: 15px 0;
+      margin-left: 36px;
+    }
+  }
+
+  .product-colors-wrapper {
+    margin-bottom: 30px;
+
+    .product-colors {
+      & > button {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid #ecece9;
+        box-shadow: none;
+        margin-right: 16px;
+      }
+      & > button.active {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #d2652a;
+      }
+    }
+  }
+
+  .product-variations-wrapper {
+    .product-variations {
+      display: flex;
+      width: 100%;
+
+      & > button {
+        background-color: transparent;
+        width: 33.4%;
+        min-width: 200px;
+        height: 50px;
+        text-align: center;
+        border: 2px solid #191919;
+        margin: auto;
+        margin-left: -2px;
+
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1;
+        color: #191919;
+      }
+
+      & > button.active {
+        border: 2px solid #d2652a;
+        color: #d2652a;
+      }
+    }
+
+  }
+}

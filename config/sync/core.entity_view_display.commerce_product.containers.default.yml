@@ -3,14 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - commerce_product.commerce_product_type.containers
-    - field.field.commerce_product.containers.body
-    - field.field.commerce_product.containers.field_image
-    - field.field.commerce_product.containers.field_meta_tags
-    - field.field.commerce_product.containers.field_weight
-    - field.field.commerce_product.containers.stores
-    - field.field.commerce_product.containers.variations
-    - image.style.extras_selection_196x196
+    0: commerce_product.commerce_product_type.containers
+    1: field.field.commerce_product.containers.body
+    2: field.field.commerce_product.containers.field_image
+    3: field.field.commerce_product.containers.field_meta_tags
+    4: field.field.commerce_product.containers.field_weight
+    7: image.style.extras_selection_196x196
   module:
     - commerce_product
     - image

@@ -5,7 +5,10 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.extras_selection
 id: commerce_product_type_extras_selection
+entity_type_id: commerce_product_type
+entity_id: extras_selection
 action: page_not_found
 allow_override: 0
 redirect: ''
 redirect_code: 301
+redirect_fallback_action: access_denied

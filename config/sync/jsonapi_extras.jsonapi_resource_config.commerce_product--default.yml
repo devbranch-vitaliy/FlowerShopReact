@@ -1,0 +1,180 @@
+uuid: 0eb87967-d5a2-47d4-b669-a9d1c69261b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+  module:
+    - jsonapi_defaults
+third_party_settings:
+  jsonapi_defaults:
+    page_limit: 50
+    default_filter:
+      'filter:status': '1'
+id: commerce_product--default
+disabled: false
+path: commerce_product/default
+resourceType: commerce_product--default
+resourceFields:
+  product_id:
+    fieldName: product_id
+    publicName: product_id
+    enhancer:
+      id: ''
+    disabled: false
+  uuid:
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+    disabled: false
+  langcode:
+    disabled: true
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+    disabled: false
+  uid:
+    disabled: true
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+  status:
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+    disabled: false
+  stores:
+    disabled: true
+    fieldName: stores
+    publicName: stores
+    enhancer:
+      id: ''
+  title:
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+    disabled: false
+  variations:
+    fieldName: variations
+    publicName: variations
+    enhancer:
+      id: json
+    disabled: false
+  default_variation:
+    fieldName: default_variation
+    publicName: default_variation
+    enhancer:
+      id: ''
+    disabled: false
+  path:
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+    disabled: false
+  created:
+    disabled: true
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  changed:
+    disabled: true
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: true
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  metatag:
+    disabled: true
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''
+  rh_action:
+    disabled: true
+    fieldName: rh_action
+    publicName: rh_action
+    enhancer:
+      id: ''
+  rh_redirect:
+    disabled: true
+    fieldName: rh_redirect
+    publicName: rh_redirect
+    enhancer:
+      id: ''
+  rh_redirect_response:
+    disabled: true
+    fieldName: rh_redirect_response
+    publicName: rh_redirect_response
+    enhancer:
+      id: ''
+  rh_redirect_fallback_action:
+    disabled: true
+    fieldName: rh_redirect_fallback_action
+    publicName: rh_redirect_fallback_action
+    enhancer:
+      id: ''
+  body:
+    disabled: true
+    fieldName: body
+    publicName: body
+    enhancer:
+      id: ''
+  field_characteristics:
+    fieldName: field_characteristics
+    publicName: field_characteristics
+    enhancer:
+      id: ''
+    disabled: false
+  field_colors:
+    fieldName: field_colors
+    publicName: field_colors
+    enhancer:
+      id: ''
+    disabled: false
+  field_fragnanced:
+    disabled: true
+    fieldName: field_fragnanced
+    publicName: field_fragnanced
+    enhancer:
+      id: ''
+  field_image:
+    fieldName: field_image
+    publicName: field_image
+    enhancer:
+      id: json
+    disabled: false
+  field_meta_tags:
+    disabled: true
+    fieldName: field_meta_tags
+    publicName: field_meta_tags
+    enhancer:
+      id: ''
+  field_occasion:
+    fieldName: field_occasion
+    publicName: field_occasion
+    enhancer:
+      id: ''
+    disabled: false
+  field_type_of_flowers:
+    fieldName: field_type_of_flowers
+    publicName: field_type_of_flowers
+    enhancer:
+      id: ''
+    disabled: false

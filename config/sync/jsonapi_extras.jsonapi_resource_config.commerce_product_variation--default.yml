@@ -1,0 +1,112 @@
+uuid: 312dc5aa-78fe-4317-9c12-e932eb5e1484
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+  module:
+    - jsonapi_defaults
+third_party_settings:
+  jsonapi_defaults:
+    page_limit: 50
+id: commerce_product_variation--default
+disabled: false
+path: commerce_product_variation/default
+resourceType: commerce_product_variation--default
+resourceFields:
+  variation_id:
+    fieldName: variation_id
+    publicName: variation_id
+    enhancer:
+      id: ''
+    disabled: false
+  uuid:
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+    disabled: false
+  langcode:
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+    disabled: false
+  type:
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+    disabled: false
+  uid:
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+    disabled: false
+  status:
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+    disabled: false
+  product_id:
+    fieldName: product_id
+    publicName: product_id
+    enhancer:
+      id: ''
+    disabled: false
+  sku:
+    fieldName: sku
+    publicName: sku
+    enhancer:
+      id: ''
+    disabled: false
+  title:
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+    disabled: false
+  list_price:
+    fieldName: list_price
+    publicName: list_price
+    enhancer:
+      id: ''
+    disabled: false
+  price:
+    fieldName: price
+    publicName: price
+    enhancer:
+      id: ''
+    disabled: false
+  created:
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+    disabled: false
+  changed:
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+    disabled: false
+  default_langcode:
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+    disabled: false
+  attribute_size:
+    fieldName: attribute_size
+    publicName: attribute_size
+    enhancer:
+      id: ''
+    disabled: false
+  weight:
+    fieldName: weight
+    publicName: weight
+    enhancer:
+      id: ''
+    disabled: false
