@@ -4,6 +4,7 @@ import {dispatch, useGlobalState} from "../../utilits/globals";
 import ModalColors from "./ModalColors";
 import ModalVariations from "./ModalVariations";
 import {getRelationshipEntity} from "../../utilits/api";
+import ModalSubmit from "./ModalSubmit";
 
 const ModalCart = () => {
   const [modal_cart] = useGlobalState('modal_cart');
@@ -64,6 +65,7 @@ const ModalCart = () => {
 
           <div className={'modal-footer'}>
             <div className={'product-current-price'}>{getRelationshipEntity(modal_cart.choice.variation).price.formatted}</div>
+            <ModalSubmit />
           </div>
 
         </div>

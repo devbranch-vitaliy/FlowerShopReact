@@ -68,7 +68,7 @@ resourceFields:
     fieldName: variations
     publicName: variations
     enhancer:
-      id: ''
+      id: json
     disabled: false
   default_variation:
     fieldName: default_variation
